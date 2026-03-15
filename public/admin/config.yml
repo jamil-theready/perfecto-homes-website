@@ -1,0 +1,77 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ===== PERU LISTINGS =====
+  - name: "peru"
+    label: "Peru Listings"
+    folder: "content/peru"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "City", name: "city", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Land Area", name: "landArea", widget: "string", required: false }
+      - { label: "Built Area", name: "builtArea", widget: "string", required: false }
+      - { label: "Floors", name: "floors", widget: "string", required: false }
+      - { label: "Property Type", name: "propertyType", widget: "string" }
+      - { label: "Listing Status", name: "listingStatus", widget: "select", options: ["Active", "Sold"] }
+      - { label: "District", name: "district", widget: "string" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Main Image", name: "image1", widget: "image", required: false }
+      - { label: "Image 2", name: "image2", widget: "image", required: false }
+      - { label: "Image 3", name: "image3", widget: "image", required: false }
+      - { label: "Image 4", name: "image4", widget: "image", required: false }
+      - { label: "Image 5", name: "image5", widget: "image", required: false }
+      - { label: "Video Link", name: "videoLink", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ===== BLOG =====
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ===== COMMUNITIES =====
+  - name: "communities"
+    label: "Communities"
+    folder: "content/communities"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ===== EVENTS =====
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Time", name: "time", widget: "string", required: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
