@@ -6,11 +6,9 @@ import html from "remark-html";
 
 const contentDir = path.join(process.cwd(), "content");
 
-export interface ContentItem {
-  slug: string;
-  content: string;
-  [key: string]: unknown;
-}
+// Using Record<string, any> to allow flexible frontmatter access
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ContentItem = Record<string, any>;
 
 /**
  * Get all items from a content collection (e.g. "peru", "blog", "team")
@@ -22,20 +20,18 @@ export function getCollection(collection: string): ContentItem[] {
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
 
-  return files
-    .map((file) => {
-      const slug = file.replace(/\.md$/, "");
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-      const { data, content } = matter(raw);
+  const items: ContentItem[] = files.map((file) => {
+    const slug = file.replace(/\.md$/, "");
+    const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+    const { data, content } = matter(raw);
+    return { slug, content, ...data } as ContentItem;
+  });
 
-      return { slug, content, ...data };
-    })
-    .sort((a, b) => {
-      // Sort by date if available, newest first
-      const dateA = a.date ? new Date(a.date as string).getTime() : 0;
-      const dateB = b.date ? new Date(b.date as string).getTime() : 0;
-      return dateB - dateA;
-    });
+  return items.sort((a, b) => {
+    const dateA = a.date ? new Date(String(a.date)).getTime() : 0;
+    const dateB = b.date ? new Date(String(b.date)).getTime() : 0;
+    return dateB - dateA;
+  });
 }
 
 /**
@@ -52,7 +48,7 @@ export function getItemBySlug(
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 
-  return { slug, content, ...data };
+  return { slug, content, ...data } as ContentItem;
 }
 
 /**

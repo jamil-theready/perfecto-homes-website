@@ -32,31 +32,31 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="bg-dark text-white py-12 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/blog" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; Back to Blog</Link>
-          {post.date && (
+          {post.date ? (
             <p className="text-gray-400 text-sm mb-2">
-              {new Date(post.date as string).toLocaleDateString("en-US", {
+              {new Date(String(post.date)).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               })}
             </p>
-          )}
+          ) : null}
           <h1 className="text-3xl sm:text-4xl font-serif font-bold leading-tight">
-            {post.title as string}
+            {String(post.title)}
           </h1>
         </div>
       </section>
 
       {/* Featured Image */}
-      {post.image && (
+      {post.image ? (
         <section className="bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
             <div className="rounded-2xl overflow-hidden aspect-[16/9] bg-gray-200">
-              <img src={post.image as string} alt={post.title as string} className="w-full h-full object-cover" />
+              <img src={String(post.image)} alt={String(post.title)} className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
       {/* Content */}
       <section className="bg-white py-12">

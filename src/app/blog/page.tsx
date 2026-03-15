@@ -35,32 +35,32 @@ export default function BlogIndexPage() {
                   className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
                 >
                   <div className="aspect-[16/9] bg-gray-200 overflow-hidden">
-                    {post.image && (
+                    {post.image ? (
                       <img
-                        src={post.image as string}
-                        alt={post.title as string}
+                        src={String(post.image)}
+                        alt={String(post.title)}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                    )}
+                    ) : null}
                   </div>
                   <div className="p-6">
-                    {post.date && (
+                    {post.date ? (
                       <p className="text-xs text-medium-gray mb-2">
-                        {new Date(post.date as string).toLocaleDateString("en-US", {
+                        {new Date(String(post.date)).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "long",
                           day: "numeric",
                         })}
                       </p>
-                    )}
+                    ) : null}
                     <h2 className="text-lg font-semibold text-dark group-hover:text-gold transition-colors mb-2 line-clamp-2">
-                      {post.title as string}
+                      {String(post.title)}
                     </h2>
-                    {post.excerpt && (
+                    {post.excerpt ? (
                       <p className="text-medium-gray text-sm leading-relaxed line-clamp-3">
-                        {post.excerpt as string}
+                        {String(post.excerpt)}
                       </p>
-                    )}
+                    ) : null}
                     <span className="inline-flex items-center gap-1 mt-4 text-sm text-gold font-semibold">
                       Read More <span>&rarr;</span>
                     </span>

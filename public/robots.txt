@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /admin/
+
+# Host
+Host: https://www.perfectohomesrealestate.com
+
+# Sitemaps
+Sitemap: https://www.perfectohomesrealestate.com/sitemap.xml
