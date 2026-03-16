@@ -5,7 +5,7 @@ import { PHONE, EMAIL, TEAM } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7703 or send a message. Serving Sacramento, CA and Peru.",
+    "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7260 or send a message. Serving Sacramento, CA and Peru.",
 };
 
 export default function ContactUsPage() {

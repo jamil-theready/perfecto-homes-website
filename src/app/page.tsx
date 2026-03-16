@@ -95,18 +95,18 @@ export default function HomePage() {
 
             {/* Sacramento card */}
             <Link
-              href="/communities#explore-sacramento"
+              href="/communities/communities"
               className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
             >
               <h4 className="text-[22px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
                 Sacramento
               </h4>
-              <div className="relative w-full h-[83px]">
+              <div className="relative w-full h-[83px] rounded-md overflow-hidden">
                 <Image
-                  src="/images/hero/sacramento-skyline.jpg"
-                  alt="Sacramento skyline with Tower Bridge and Capitol"
+                  src="/images/hero/sacramento-aerial.jpg"
+                  alt="Aerial view of Sacramento neighborhoods"
                   fill
-                  className="object-contain"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="347px"
                 />
               </div>
@@ -122,8 +122,8 @@ export default function HomePage() {
               </h4>
               <div className="relative w-full h-[83px]">
                 <Image
-                  src="/images/hero/peru-illustration.png"
-                  alt="Peru colonial town illustration"
+                  src="/images/hero/peru.png"
+                  alt="Peru Sacred Valley landscape"
                   fill
                   className="object-contain"
                   sizes="347px"
@@ -220,7 +220,7 @@ export default function HomePage() {
       </section>
 
       {/* ====== TEAM ====== */}
-      <section className="bg-light-gray py-16 sm:py-20">
+      <section id="team" className="py-16 sm:py-20" style={{ background: "linear-gradient(180deg, #fefcf6 0%, #faf3e0 50%, #f5ecd3 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -245,7 +245,7 @@ export default function HomePage() {
                   >
                     {/* Photo */}
                     <div
-                      className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[320px] md:h-[320px] flex-shrink-0 rounded-xl overflow-hidden"
+                      className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] flex-shrink-0 rounded-xl overflow-hidden"
                       style={{
                         background:
                           "linear-gradient(135deg, #fefcf6 0%, #faf3e0 50%, #f5ecd3 100%)",
@@ -315,7 +315,7 @@ export default function HomePage() {
               Stay Up to Date&hellip;
             </h2>
             <p className="text-gray-400 text-sm mb-8">
-              Subscribe to our to newsletter and receive updates on new
+              Subscribe to our newsletter and receive updates on new
               listings, events, news, and more.
             </p>
             <form

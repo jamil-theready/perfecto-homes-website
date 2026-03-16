@@ -7,6 +7,45 @@ import ContactForm from "@/components/ContactForm";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const COMMUNITY_SEO: Record<string, { title: string; description: string }> = {
+  "citrus-heights": {
+    title: "Homes for Sale in Citrus Heights CA",
+    description: "Browse homes for sale in Citrus Heights, California. Updated listings, market data, and local agent support. Perfecto Homes Real Estate.",
+  },
+  sacramento: {
+    title: "Homes for Sale in Sacramento CA",
+    description: "Browse homes for sale in Sacramento, Roseville, Elk Grove, Folsom, Citrus Heights, and El Dorado Hills. Perfecto Homes Real Estate — your local Sacramento brokerage.",
+  },
+  arden: {
+    title: "Homes for Sale in Arden Arcade, Sacramento CA",
+    description: "Browse homes for sale in Arden Arcade, Sacramento. Updated listings and local market knowledge. Perfecto Homes Real Estate.",
+  },
+  "rancho-cordova": {
+    title: "Homes for Sale in Rancho Cordova CA",
+    description: "Homes for sale in Rancho Cordova, California. Browse current listings, pricing, and neighborhood info. Perfecto Homes Real Estate.",
+  },
+  roseville: {
+    title: "Homes for Sale in Roseville CA | New Construction & Resale",
+    description: "Homes and new construction for sale in Roseville, California. Browse listings, get market insights, and work with a local agent. Perfecto Homes Real Estate.",
+  },
+  folsom: {
+    title: "Homes & Condos for Sale in Folsom CA",
+    description: "Browse homes, condos, and new construction for sale in Folsom, California. Luxury and affordable options. Perfecto Homes Real Estate.",
+  },
+  "olympus-pointe": {
+    title: "Olympus Pointe Roseville CA | Homes for Sale",
+    description: "Homes for sale in Olympus Pointe, Roseville CA. Community info, current listings, and expert guidance. Perfecto Homes Real Estate.",
+  },
+  "el-dorado-hills": {
+    title: "Homes for Sale in El Dorado Hills CA",
+    description: "Luxury and family homes for sale in El Dorado Hills, California. Explore listings, neighborhood guides, and market data. Perfecto Homes Real Estate.",
+  },
+  "elk-grove": {
+    title: "Homes for Sale in Elk Grove CA | New Construction Available",
+    description: "Homes and new construction for sale in Elk Grove, California. From starter homes to new builds. Perfecto Homes Real Estate.",
+  },
+};
+
 export async function generateStaticParams() {
   // Static community pages + CMS community pages
   const staticSlugs = COMMUNITIES.map((c) => c.slug);
@@ -19,12 +58,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const community = COMMUNITIES.find((c) => c.slug === slug);
   const cmsItem = getItemBySlug("communities", slug);
+  const seo = COMMUNITY_SEO[slug];
 
-  const title = (cmsItem?.title as string) || community?.name || slug;
-  return {
-    title: `${title} Real Estate`,
-    description: (cmsItem?.metaDescription as string) || `Explore real estate in ${title}. Homes for sale, market info, and community highlights from Perfecto Homes.`,
-  };
+  const title = seo?.title || (cmsItem?.title as string) || `${community?.name || slug} Real Estate`;
+  const description = seo?.description || (cmsItem?.metaDescription as string) || `Explore real estate in ${community?.name || slug}. Homes for sale, market info, and community highlights from Perfecto Homes.`;
+  return { title, description };
 }
 
 export default async function CommunityPage({ params }: Props) {

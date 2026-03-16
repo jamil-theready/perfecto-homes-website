@@ -104,12 +104,6 @@ export default function Header() {
                   >
                     Events
                   </Link>
-                  <Link
-                    href="/webinar"
-                    className="block px-4 py-2 text-sm text-dark hover:bg-light-gray hover:text-gold transition-colors"
-                  >
-                    Webinar
-                  </Link>
                 </div>
               </div>
             </div>
@@ -203,7 +197,6 @@ export default function Header() {
             <MobileDropdown title="Resources">
               <Link href="/blog" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
               <Link href="/events" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Events</Link>
-              <Link href="/webinar" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Webinar</Link>
             </MobileDropdown>
 
             <MobileDropdown title="About Us">

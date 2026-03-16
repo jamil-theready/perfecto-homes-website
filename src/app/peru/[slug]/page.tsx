@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import { PHONE } from "@/lib/constants";
+import { PropertyJsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -10,13 +11,29 @@ export async function generateStaticParams() {
   return getCollectionSlugs("peru").map((slug) => ({ slug }));
 }
 
+const PERU_SEO: Record<string, { title: string; description: string }> = {
+  "predio-victoria": {
+    title: "10,000 m\u00B2 Land for Sale in Urubamba, Sacred Valley Peru | $820K",
+    description: "10,000 m\u00B2 (2.47 acres) of flat, buildable land for sale in Urubamba, Sacred Valley of Cusco, Peru. Ideal for hotel, eco lodge, or development. $820,000.",
+  },
+  "hostal-qhispicay-ollantaytambo": {
+    title: "Hostel for Sale in Ollantaytambo, Peru | 12 Rooms | Near Machu Picchu | $960K",
+    description: "Operating 12 room hostel with 2 apartments for sale in Ollantaytambo, gateway to Machu Picchu. 474 m\u00B2 built, turnkey business. $960,000.",
+  },
+  "hatuchay-valle-restaurant-urubamba": {
+    title: "Restaurant for Sale in Urubamba, Sacred Valley Peru | 1,764 m\u00B2 | $1.26M",
+    description: "Operating 250 seat restaurant for sale in Urubamba, Sacred Valley of Cusco, Peru. Two floors, full bar, industrial kitchen, 1,764 m\u00B2 of land. $1,260,000.",
+  },
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = getItemBySlug("peru", slug);
   if (!item) return {};
+  const seo = PERU_SEO[slug];
   return {
-    title: item.title as string,
-    description: item.metaDescription as string || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`,
+    title: seo?.title || (item.metaTitle as string) || (item.title as string),
+    description: seo?.description || (item.metaDescription as string) || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`,
   };
 }
 
@@ -31,6 +48,14 @@ export default async function PeruListingPage({ params }: Props) {
 
   return (
     <>
+      <PropertyJsonLd
+        title={item.title as string}
+        price={item.price as string}
+        location={(item.location as string) || (item.city as string) || "Sacred Valley, Peru"}
+        description={(item.metaDescription as string) || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`}
+        image={item.image1 as string | undefined}
+        url={`/peru/${slug}`}
+      />
       {/* Hero */}
       <section className="bg-dark text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

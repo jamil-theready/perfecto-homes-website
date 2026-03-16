@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
+import { BlogPostJsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,6 +29,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <BlogPostJsonLd
+        title={post.title as string}
+        date={post.date as string | undefined}
+        description={(post.metaDescription as string) || (post.excerpt as string) || `${post.title} - Perfecto Homes Real Estate Blog`}
+        url={`/blog/${slug}`}
+        image={post.image as string | undefined}
+      />
       {/* Hero */}
       <section className="bg-dark text-white py-12 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
