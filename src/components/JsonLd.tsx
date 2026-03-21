@@ -13,10 +13,19 @@ export function OrganizationJsonLd() {
       addressCountry: "US",
     },
     sameAs: [
-      "https://www.facebook.com/PerfectoHomesRealEstate",
-      "https://www.instagram.com/perfectohomesrealestate",
-      "https://www.tiktok.com/@perfectohomesrealestate",
-      "https://www.youtube.com/@PerfectoHomesRealEstate",
+      "https://www.facebook.com/perfectohomes",
+      "https://www.instagram.com/perfectohomes/",
+      "https://www.tiktok.com/@perfectohomes",
+      "https://www.youtube.com/@perfectohomes",
+      "https://www.yelp.com/biz/perfecto-homes-real-estate-sacramento",
+    ],
+    knowsAbout: [
+      "Sacramento real estate",
+      "homes for sale Sacramento",
+      "bilingual real estate agent",
+      "Peru investment properties",
+      "Sacred Valley real estate",
+      "first time home buyer Sacramento",
     ],
     areaServed: [
       { "@type": "City", name: "Sacramento" },
