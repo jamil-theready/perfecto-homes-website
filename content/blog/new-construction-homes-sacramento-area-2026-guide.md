@@ -3,6 +3,8 @@ title: "New Construction Homes in the Sacramento Area: Your 2026 Guide"
 slug: "new-construction-homes-sacramento-area-2026-guide"
 metaDescription: "Explore new construction homes in Elk Grove, Roseville, and Citrus Heights. Your 2026 guide to buying a brand new home in the Sacramento area."
 category: "Sacramento"
+author: "elisban"
+image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format"
 tags:
   - "SACRAMENTO"
   - "NEW CONSTRUCTION"

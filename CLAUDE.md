@@ -25,6 +25,13 @@ npm run build                # Build (runs postbuild for sitemap automatically)
 - Graphics/logos: `~/Desktop/Perfecto Homes/graphics/`
 - Feedback screenshots: `~/Desktop/Perfecto SS/`
 
+## Blog CMS
+- Blog posts are markdown files in `/content/blog/` with YAML frontmatter
+- Required fields: title, slug, metaDescription, category, author, image
+- Valid authors: elisban, gina, alfredo, jamil
+- CSV import: `node scripts/import-blogs.mjs path/to/file.csv`
+- Blog post pages have: reading progress bar, sticky share buttons, sticky sidebar form
+
 ## Deploy
 - GitHub repo → Netlify (main branch)
 - netlify.toml is in repo root

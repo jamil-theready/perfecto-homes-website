@@ -4,7 +4,8 @@ slug: "expert-advice-on-how-to-purchase-a-home-in-foreclosure"
 metaTitle: "How to Purchase a Home in Foreclosure | Expert Tips & Strategies"
 metaDescription: "Learn how to purchase a home in foreclosure with expert tips and strategies. Navigate the process confidently and find great opportunities in real estate."
 category: "News"
-image: "https://framerusercontent.com/images/c68akq68avshB8iHESeuE5Wa7pU.jpg"
+author: "elisban"
+image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80&auto=format"
 thumbnail: "https://framerusercontent.com/images/afbmmKyI3agRdmXGYs71pvf3yfI.jpg"
 ---
 

@@ -4,7 +4,8 @@ slug: "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers"
 metaTitle: "Down Payment Guide Explaining Requirements to Buy a House in California"
 metaDescription: "Learn the requirements to buy a house in California, including the average down payment. Get expert tips to prepare for homeownership in the Golden State."
 category: "News"
-image: "https://framerusercontent.com/images/uiEr5vJFbuiIyCIsKoHNN0K5hQo.jpg"
+author: "elisban"
+image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80&auto=format"
 thumbnail: "https://framerusercontent.com/images/xIdteMN9EYLAGqYXOOkFvNkyUsU.jpg"
 ---
 

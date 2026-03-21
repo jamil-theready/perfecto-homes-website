@@ -2,23 +2,33 @@
 
 import { useState, FormEvent } from "react";
 
+const WEB3FORMS_KEY = "YOUR_ACCESS_KEY";
+
 export default function ContactForm({ className = "" }: { className?: string }) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
 
     try {
-      await fetch("/", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body: data,
       });
-      setSubmitted(true);
+      const result = await res.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
     } catch {
       alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -33,19 +43,13 @@ export default function ContactForm({ className = "" }: { className?: string }) 
 
   return (
     <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className={`bg-light-gray rounded-2xl p-6 sm:p-8 ${className}`}
     >
-      <input type="hidden" name="form-name" value="contact" />
-      <p className="hidden">
-        <label>
-          Don&apos;t fill this out: <input name="bot-field" />
-        </label>
-      </p>
+      <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+      <input type="hidden" name="subject" value="New Contact Form Submission — Perfecto Homes" />
+      <input type="hidden" name="from_name" value="Perfecto Homes Website" />
+      <input type="checkbox" name="botcheck" className="hidden" />
 
       <div className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -115,9 +119,10 @@ export default function ContactForm({ className = "" }: { className?: string }) 
 
         <button
           type="submit"
-          className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
+          disabled={loading}
+          className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm disabled:opacity-60"
         >
-          Submit
+          {loading ? "Sending..." : "Submit"}
         </button>
       </div>
     </form>

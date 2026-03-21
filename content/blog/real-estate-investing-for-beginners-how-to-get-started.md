@@ -4,7 +4,8 @@ slug: "real-estate-investing-for-beginners-how-to-get-started"
 metaTitle: "Real Estate Investing for Beginners | Property Investment Tips & Advice"
 metaDescription: "Explore real estate investing for beginners with expert advice, property investment tips, and strategies for buyers. Start building your portfolio today!"
 category: "News"
-image: "https://framerusercontent.com/images/xIdteMN9EYLAGqYXOOkFvNkyUsU.jpg"
+author: "elisban"
+image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1200&q=80&auto=format"
 thumbnail: "https://framerusercontent.com/images/zQiiFybRR7rRbCaLOEckmQ7Mg.jpg"
 ---
 

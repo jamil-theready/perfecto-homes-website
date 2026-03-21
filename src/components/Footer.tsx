@@ -7,7 +7,7 @@ export default function Footer() {
     <footer>
       {/* Upper Footer */}
       <div className="bg-dark-gray text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* About Us */}
             <div>
@@ -42,9 +42,9 @@ export default function Footer() {
               <Image
                 src="/images/logo/lpt-realty-white.jpg"
                 alt="LPT Realty"
-                width={160}
-                height={44}
-                className="rounded opacity-90 w-auto h-auto"
+                width={100}
+                height={28}
+                className="rounded opacity-70 w-auto h-auto"
               />
             </div>
           </div>
@@ -53,18 +53,18 @@ export default function Footer() {
 
       {/* Lower Footer */}
       <div className="bg-dark text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
+            {/* Logo — matches nav */}
+            <div className="flex items-center gap-[10px]">
               <Image
                 src="/images/logo/perfecto-logo.svg"
                 alt="Perfecto Homes"
-                width={24}
-                height={24}
-                className="w-6 h-6"
+                width={26}
+                height={21}
+                className="w-[26px] h-[21px]"
               />
-              <span className="font-semibold tracking-widest text-sm">
+              <span className="text-[22px] font-semibold tracking-[0.06em]">
                 PERFECTO HOMES
               </span>
             </div>

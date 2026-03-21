@@ -220,8 +220,8 @@ export default function HomePage() {
       </section>
 
       {/* ====== TEAM ====== */}
-      <section id="team" className="py-16 sm:py-20" style={{ background: "linear-gradient(180deg, #fefcf6 0%, #faf3e0 50%, #f5ecd3 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="team" className="bg-white py-16 sm:py-20">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
               <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
@@ -233,7 +233,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {TEAM.map((member, i) => {
               const isEven = i % 2 === 1;
               return (
@@ -241,60 +241,61 @@ export default function HomePage() {
                   <div
                     className={`flex flex-col ${
                       isEven ? "md:flex-row-reverse" : "md:flex-row"
-                    } gap-8 items-center`}
+                    } gap-6 items-start`}
                   >
                     {/* Photo */}
-                    <div
-                      className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] flex-shrink-0 rounded-xl overflow-hidden"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #fefcf6 0%, #faf3e0 50%, #f5ecd3 100%)",
-                      }}
-                    >
+                    <div className="relative w-[180px] h-[220px] sm:w-[200px] sm:h-[250px] flex-shrink-0 rounded-xl overflow-hidden bg-light-gray">
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
-                        className="object-cover"
-                        sizes="320px"
+                        className="object-contain object-bottom"
+                        sizes="200px"
                       />
                     </div>
 
                     {/* Info */}
                     <div className="flex-1">
-                      <h3 className="text-[28px] font-medium text-dark tracking-[-0.05em]">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs tracking-[0.16em] uppercase text-dark mt-2 mb-5">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="text-[24px] font-medium text-dark tracking-[-0.05em]">
+                          {member.name}
+                        </h3>
+                        <Link
+                          href={`/About-Us/${member.slug}`}
+                          className="hidden md:inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors"
+                        >
+                          Learn More &rarr;
+                        </Link>
+                      </div>
+                      <p className="text-xs tracking-[0.16em] uppercase text-gold mt-1 mb-4">
                         {member.role}
                       </p>
-                      <p className="text-dark text-[16px] leading-[1.6] tracking-[0.02em] mb-6">
+                      <p className="text-medium-gray text-[15px] leading-[1.6] tracking-[0.02em] mb-5">
                         {member.bio}
                       </p>
 
-                      <div className="grid grid-cols-2 sm:grid-cols-2 md:inline-grid md:grid-cols-2 md:auto-cols-fr gap-3 mb-5">
+                      <div className="flex flex-wrap gap-2">
                         <a
                           href={
                             member.phoneLink ||
                             `tel:${member.phoneTel}`
                           }
-                          className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-dark text-sm font-medium px-5 py-3.5 rounded-[10px] transition-colors border border-gray-200 shadow-sm [&_svg]:text-gold"
+                          className="inline-flex items-center gap-2 bg-light-gray hover:bg-gray-100 text-dark text-sm font-medium px-4 py-2.5 rounded-lg transition-colors [&_svg]:text-gold"
                         >
                           <PhoneIcon />
                           {member.phone}
                         </a>
                         <a
                           href={`mailto:${member.email}`}
-                          className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-dark text-sm font-medium px-5 py-3.5 rounded-[10px] transition-colors border border-gray-200 shadow-sm [&_svg]:text-gold"
+                          className="inline-flex items-center gap-2 bg-light-gray hover:bg-gray-100 text-dark text-sm font-medium px-4 py-2.5 rounded-lg transition-colors [&_svg]:text-gold"
                         >
                           <EmailIcon />
-                          {member.email}
+                          Email
                         </a>
                       </div>
-
                       <Link
                         href={`/About-Us/${member.slug}`}
-                        className="inline-flex items-center gap-2 text-sm text-dark hover:text-gold transition-colors"
+                        className="md:hidden inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors mt-3"
                       >
                         Learn More &rarr;
                       </Link>
@@ -308,95 +309,118 @@ export default function HomePage() {
       </section>
 
       {/* ====== NEWSLETTER ====== */}
-      <ScrollReveal>
-        <section className="bg-dark text-white py-16 sm:py-20">
-          <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-[36px] font-medium tracking-[-0.06em] mb-4">
-              Stay Up to Date&hellip;
-            </h2>
-            <p className="text-gray-400 text-sm mb-8">
-              Subscribe to our newsletter and receive updates on new
-              listings, events, news, and more.
-            </p>
-            <form
-              name="newsletter"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input type="hidden" name="form-name" value="newsletter" />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="perfectohomes@gmail.com"
-                className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-500 text-sm focus:border-gold transition-colors"
+      <section className="bg-light-gray py-16 sm:py-20">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="relative rounded-2xl overflow-hidden">
+              <Image
+                src="/images/contact/backdrop.jpg"
+                alt="Newsletter background"
+                fill
+                className="object-cover"
+                sizes="900px"
               />
-              <button
-                type="submit"
-                className="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </section>
-      </ScrollReveal>
+              <div className="absolute inset-0 bg-dark/85" />
+              <div className="relative text-white text-center px-6 sm:px-12 py-12 sm:py-16">
+                <h2 className="text-2xl sm:text-[32px] font-medium tracking-[-0.06em] mb-3">
+                  Stay Up to Date
+                </h2>
+                <p className="text-gray-300 text-sm mb-8 max-w-md mx-auto">
+                  Subscribe to our newsletter and receive updates on new
+                  listings, events, news, and more.
+                </p>
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                >
+                  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+                  <input type="hidden" name="subject" value="New Newsletter Subscriber — Perfecto Homes" />
+                  <input type="hidden" name="from_name" value="Perfecto Homes Website" />
+                  <input type="hidden" name="redirect" value="https://www.perfectohomesrealestate.com/thank-you" />
+                  <input type="checkbox" name="botcheck" className="hidden" />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="you@email.com"
+                    className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-500 text-sm focus:border-gold transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm whitespace-nowrap"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* ====== RESOURCES ====== */}
       <section className="bg-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center mb-6">
-              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
-                Real Estate Insights, Community Stories, and Local Events
-              </h2>
-              <p className="text-medium-gray text-sm mt-3 max-w-2xl mx-auto">
-                Explore real estate tips, market updates, neighborhood insights,
-                and highlights from our community events — all designed to
-                support Northern California families.
+            <div className="text-center mb-10">
+              <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
+                Resources
               </p>
+              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
+                Insights, Stories, and Events
+              </h2>
             </div>
           </ScrollReveal>
 
-          {/* News / Events tabs */}
+          {/* News + Events — asymmetric layout */}
           <ScrollReveal delay={0.2}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-12">
+              {/* Blog — takes 2 cols */}
               <Link
                 href="/blog"
-                className="group relative rounded-[10px] overflow-hidden aspect-[16/9] block"
+                className="group lg:col-span-2 relative rounded-xl overflow-hidden aspect-[16/7] block"
               >
                 <Image
                   src="/images/resources/news.png"
-                  alt="News"
+                  alt="Blog and News"
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="400px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="800px"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-white text-[22px] font-medium tracking-[-0.05em]">
-                    News
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-2">Blog</p>
+                  <h3 className="text-white text-xl sm:text-2xl font-medium tracking-[-0.04em] mb-1">
+                    Real Estate Tips and Market Updates
                   </h3>
+                  <p className="text-white/70 text-sm">
+                    Read our latest articles &rarr;
+                  </p>
                 </div>
               </Link>
+
+              {/* Events — single col */}
               <Link
                 href="/events"
-                className="group relative rounded-[10px] overflow-hidden aspect-[16/9] block"
+                className="group relative rounded-xl overflow-hidden aspect-[16/7] lg:aspect-auto block"
               >
                 <Image
                   src="/images/resources/events.jpg"
                   alt="Events"
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="400px"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-white text-[22px] font-medium tracking-[-0.05em]">
-                    Events
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-2">Events</p>
+                  <h3 className="text-white text-xl font-medium tracking-[-0.04em] mb-1">
+                    Community Events
                   </h3>
+                  <p className="text-white/70 text-sm">
+                    See what&apos;s coming up &rarr;
+                  </p>
                 </div>
               </Link>
             </div>

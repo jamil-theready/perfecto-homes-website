@@ -44,8 +44,8 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 ### Pages (42 total)
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `app/page.tsx` | Homepage: hero video, social icons, Sacramento/Peru cards, scroll reveal mission, team section (gold gradient bg), communities grid, Peru listings, testimonials, contact form |
-| `/blog` | `app/blog/page.tsx` | Blog index (16 posts) |
+| `/` | `app/page.tsx` | Homepage: hero video, social icons, Sacramento/Peru cards, scroll reveal mission, team section (white bg, narrow), communities grid, Peru listings, testimonials, newsletter card, news/events asymmetric layout, sellers/buyers info, contact form |
+| `/blog` | `app/blog/page.tsx` | Blog index (20 posts) |
 | `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual posts from `/content/blog/*.md` with BlogPostJsonLd |
 | `/peru/[slug]` | `app/peru/[slug]/page.tsx` | Peru listing pages from `/content/peru/*.md` with PropertyJsonLd |
 | `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Sacramento community pages (9 communities + index) with SEO metadata |
@@ -66,6 +66,8 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 | ScrollReveal | `components/ScrollReveal.tsx` | Intersection Observer fade-up animation |
 | ScrollRevealText | `components/ScrollRevealText.tsx` | Sticky scroll reveal for 3 mission sentences |
 | JsonLd | `components/JsonLd.tsx` | OrganizationJsonLd, PropertyJsonLd (Peru pages), BlogPostJsonLd (blog pages) |
+| ReadingProgress | `components/ReadingProgress.tsx` | Gold progress bar at top of blog posts |
+| ShareButtons | `components/ShareButtons.tsx` | Sticky social share buttons (Facebook, X, LinkedIn, Email) |
 
 ### Key Data
 All constants in `src/lib/constants.ts`:
@@ -81,7 +83,7 @@ All constants in `src/lib/constants.ts`:
 Markdown files in `/content/` with YAML frontmatter, processed by `src/lib/content.ts`.
 
 ### Collections
-- `/content/blog/` — 16 blog posts (9 original + 7 SEO-driven)
+- `/content/blog/` — 20 blog posts (9 original + 11 SEO-driven)
 - `/content/peru/` — 3 Peru property listings
 - `/content/communities/` — 9 Sacramento community pages
 - `/content/events/` — Events (currently empty)
@@ -89,8 +91,10 @@ Markdown files in `/content/` with YAML frontmatter, processed by `src/lib/conte
 
 ### Blog Post Frontmatter
 ```yaml
-title, slug, metaDescription, category, tags[], thumbnail, youtubeLink
+title, slug, metaDescription, category, author, image, tags[], thumbnail, youtubeLink
 ```
+Valid authors: elisban, gina, alfredo, jamil
+CSV importer: `node scripts/import-blogs.mjs path/to/file.csv`
 
 ### Peru Listing Frontmatter
 ```yaml
@@ -139,6 +143,10 @@ title, metaDescription
 5. "New Construction Homes in Sacramento Area 2026 Guide" — elk grove new construction (2,900/mo)
 6. "First Time Home Buyer Guide: Sacramento CA" — buyer intent keywords
 7. "Best Neighborhoods in Sacramento for Families" — neighborhood/living keywords
+8. "Sacramento Real Estate Market Report 2026" — market trends keywords
+9. "Living in El Dorado Hills: What You Need to Know" — el dorado hills keywords
+10. "Olympus Pointe Roseville: Neighborhood Guide" — olympus pointe keywords
+11. "Selling Your Home in Sacramento: What to Expect" — seller keywords
 
 ### Keyword Plans (external reference files)
 - `/Users/admin/Desktop/Perfecto Homes/documents/Peru_SEO_Keyword_Plan.md`
@@ -176,13 +184,28 @@ These files exist on the local machine but are NOT in the repo:
 ## What's Done
 - [x] Critical: Peru URL typo fixed (predido → predio)
 - [x] Critical: netlify.toml created
-- [x] Design: Team section — smaller photos, gold gradient background
+- [x] Design: Team section — white bg, narrower, headshots not cut off, Learn More flush right
 - [x] Design: Sacramento card — real aerial photo
 - [x] Design: Peru card — peru.png graphic
+- [x] Design: Nav dropdown — full-width mega menu with images, dark overlay
+- [x] Design: Nav Contact Us button — gold on scroll, glass on hero
+- [x] Design: Nav logo micro animation on hover
+- [x] Design: Nav button fonts unified (14px Manrope medium)
+- [x] Design: Footer — LPT logo smaller, Perfecto logo matches nav size/alignment
+- [x] Design: Newsletter — background image card, not full width
+- [x] Design: News/Events section — asymmetric layout (blog 2/3, events 1/3)
+- [x] Blog: Author field added to all posts (elisban, gina, alfredo, jamil)
+- [x] Blog: Images added to all posts (Unsplash, light/bright, fast loading)
+- [x] Blog: Cards show author photo, name, reading time, category badge, shadow on hover
+- [x] Blog: Post page — sticky ContactForm sidebar, author in hero, reading time
+- [x] Blog: Reading progress bar (gold, top of page)
+- [x] Blog: Share buttons (Facebook, X, LinkedIn, Email) sticky on left, horizontal on mobile
+- [x] Blog: H1 and Back to Blog aligned to 1200px nav container
+- [x] Blog: CSV importer script (scripts/import-blogs.mjs)
 - [x] SEO: Homepage metadata optimized
 - [x] SEO: Community page metadata (all 9)
 - [x] SEO: Peru listing metadata optimized
-- [x] SEO: 7 new SEO blog posts
+- [x] SEO: 11 SEO blog posts (7 original + 4 more)
 - [x] SEO: PropertyJsonLd wired to Peru pages
 - [x] SEO: BlogPostJsonLd wired to blog pages
 - [x] SEO: Default OG image added
@@ -195,7 +218,6 @@ These files exist on the local machine but are NOT in the repo:
 - [x] Fix: Broken Sacramento card anchor link
 
 ## What's Left
-- [ ] Blog content: More posts from SEO plan (Sacramento market report, El Dorado Hills guide, Olympus Pointe guide, Selling guide)
 - [ ] Blog content: Spanish versions of Peru posts
 - [ ] Images: Better OG images per page (not just logo fallback)
 - [ ] Community pages: Add real photos and richer content as available
