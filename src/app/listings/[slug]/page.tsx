@@ -7,6 +7,7 @@ import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from
 import { PHONE, PHONE_TEL, EMAIL } from "@/lib/constants";
 import { PropertyJsonLd } from "@/components/JsonLd";
 import ImageGallery from "./ImageGallery";
+import TeamCTA from "@/components/TeamCTA";
 import type { ContentItem } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -394,6 +395,10 @@ export default async function ListingDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* Cross-Promotion: Financing + Notary */}
+        <TeamCTA variant="alfredo" />
+        <TeamCTA variant="gina" />
 
         {/* Similar Properties */}
         {similar.length > 0 && (

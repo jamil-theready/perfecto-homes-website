@@ -8,6 +8,7 @@ import { TEAM } from "@/lib/constants";
 import ContactForm from "@/components/ContactForm";
 import ReadingProgress from "@/components/ReadingProgress";
 import ShareButtons from "@/components/ShareButtons";
+import TeamCTA from "@/components/TeamCTA";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -222,6 +223,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Cross-Promotion: Notary */}
+      <TeamCTA variant="gina" />
 
       {/* CTA */}
       <section className="bg-light-gray py-12">
