@@ -65,6 +65,15 @@ export default function Header() {
                 textColor={openDropdown ? "text-dark" : textColor}
                 hoverColor={hoverColor}
               />
+              <Link
+                href="/listings"
+                className={`text-[14px] font-medium font-[family-name:var(--font-manrope)] tracking-[0.02em] transition-colors ${
+                  openDropdown ? "text-dark hover:text-gold" : `${textColor} ${hoverColor}`
+                }`}
+                onMouseEnter={closeDropdown}
+              >
+                Properties
+              </Link>
               <NavButton
                 label="Resources"
                 isOpen={openDropdown === "resources"}
@@ -283,6 +292,8 @@ export default function Header() {
                   Sacred Valley, Peru
                 </Link>
               </MobileDropdown>
+
+              <Link href="/listings" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
 
               <MobileDropdown title="Resources">
                 <Link href="/blog" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
