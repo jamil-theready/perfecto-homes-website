@@ -19,6 +19,12 @@ lotSize: "5,500 sqft"
 yearBuilt: 2003
 agent: "gina"
 featuredImage: "/images/listings/thomasino/1.jpg"
+images:
+  - "/images/listings/thomasino/1.jpg"
+  - "/images/listings/thomasino/2.jpg"
+  - "/images/listings/thomasino/3.jpg"
+  - "/images/listings/thomasino/4.jpg"
+  - "/images/listings/thomasino/5.jpg"
 highlights:
   - "Updated Kitchen"
   - "Spacious Backyard"
