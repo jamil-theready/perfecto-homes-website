@@ -248,7 +248,7 @@ export default function Header() {
                       className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors"
                       onClick={closeDropdown}
                     >
-                      <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 bg-gray-200">
+                      <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-gray-200">
                         <Image
                           src={m.image}
                           alt={m.name}

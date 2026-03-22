@@ -86,7 +86,7 @@ export default function BlogIndexPage() {
                       <div className="flex items-center justify-between pt-3 border-t border-gray-50">
                         {author ? (
                           <div className="flex items-center gap-2">
-                            <div className="relative w-7 h-7 rounded-full overflow-hidden bg-gray-200">
+                            <div className="relative w-7 h-7 rounded-lg overflow-hidden bg-gray-200">
                               <Image
                                 src={author.image}
                                 alt={author.name}

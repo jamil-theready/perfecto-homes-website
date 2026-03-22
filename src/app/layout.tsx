@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Perfecto Homes Real Estate",
   },
   description:
-    "Bilingual real estate team serving Sacramento, Elk Grove, Roseville, Citrus Heights, and El Dorado Hills. We also offer investment properties in Peru's Sacred Valley. Call (916) 878-7260.",
+    "Bilingual real estate team in Sacramento. Homes for sale in Elk Grove, Roseville, Folsom, and El Dorado Hills. Peru investment properties. Call (916) 878-7260.",
   metadataBase: new URL("https://www.perfectohomesrealestate.com"),
   openGraph: {
     type: "website",

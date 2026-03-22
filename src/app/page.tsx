@@ -75,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* ====== SOCIAL BAR + LOCATION CARDS ====== */}
-      <section className="py-[50px]">
+      <section className="py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-stretch gap-5">
             {/* Social icons column */}

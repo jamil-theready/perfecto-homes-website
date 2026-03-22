@@ -124,7 +124,7 @@ export default async function ListingDetailPage({ params }: Props) {
                   {item.address as string}
                 </p>
               </div>
-              <p className="text-3xl sm:text-4xl font-bold text-dark">
+              <p className="text-4xl sm:text-5xl font-bold text-gold">
                 {item.price as string}
               </p>
             </div>
