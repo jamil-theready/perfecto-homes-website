@@ -15,7 +15,7 @@ propertyType: "Single Family"
 beds: 4
 baths: 3
 agent: "elisban"
-featuredImage: "https://mlsimages.salecore.com/i/feed_3/Property/560971591"
+featuredImage: "https://mlsimages.salecore.com/i/feed_3/Property/561049000"
 highlights:
   - "4 Bedrooms"
   - "3 Bathrooms"
