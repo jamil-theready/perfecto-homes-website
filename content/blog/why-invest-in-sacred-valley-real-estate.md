@@ -9,6 +9,20 @@ tags:
   - "PERU"
   - "INVESTMENT"
   - "SACRED VALLEY"
+quickAnswer: "The Sacred Valley offers some of the lowest property prices in any major tourism corridor worldwide, with land available for $20 to $80 per square meter, strong tourism growth from over 1.5 million annual visitors, and major upside from the upcoming Chinchero airport."
+keyTakeaways:
+  - "Sacred Valley land costs $20 to $80 per square meter compared to $150 to $300 plus in Tulum and $100 to $250 in Bali"
+  - "Over 1.5 million international visitors pass through the Cusco to Machu Picchu corridor each year"
+  - "The Chinchero airport will bring direct international flights and is the biggest catalyst for property value growth"
+  - "Investment options include hospitality businesses, restaurants, development land, and residential properties"
+  - "Foreigners can buy property in Peru with the same legal rights as local citizens"
+faq:
+  - question: "How much does property cost in the Sacred Valley?"
+    answer: "Land ranges from $20 to $80 per square meter in many areas. Operating businesses like hostals and restaurants can be acquired for what a modest condo costs in popular Mexican resort towns."
+  - question: "Can foreigners buy real estate in Peru?"
+    answer: "Yes. Foreigners can purchase property in Peru with the same rights as local citizens. The legal process is clear and well documented with no special restrictions on foreign ownership."
+  - question: "Why is now the right time to invest in the Sacred Valley?"
+    answer: "Property values have not yet priced in the Chinchero airport impact. Combined with growing global awareness of Peru as a destination and a favorable legal framework, current prices represent a strong entry point."
 ---
 
 <p>The Sacred Valley of Peru sits between two of South America's most powerful tourism magnets: Cusco and Machu Picchu. Over 1.5 million international visitors pass through this corridor every year. The region offers fertile land, mild climate, rich culture, and property prices that remain remarkably low by global standards. For investors looking at Peru real estate investment, the Sacred Valley deserves serious attention.</p>

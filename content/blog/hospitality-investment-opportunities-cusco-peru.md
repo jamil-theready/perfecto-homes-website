@@ -9,6 +9,20 @@ tags:
   - "PERU"
   - "INVESTMENT"
   - "HOSPITALITY"
+quickAnswer: "Cusco and the Sacred Valley offer strong hospitality investment opportunities through boutique hotels, restaurants, and eco lodges, with favorable economics including low operating costs, growing tourism demand, and pre airport valuations before the Chinchero airport opens."
+keyTakeaways:
+  - "Over 1.5 million international tourists visit Cusco annually and the Sacred Valley has a supply gap in quality lodging"
+  - "Mid range Sacred Valley hotels charge $60 to $150 per night with 60% to 85% peak season occupancy rates"
+  - "Operating costs for labor, utilities, and food are significantly lower than North American or European markets"
+  - "The upcoming Chinchero International Airport will bring direct flights and drive property values higher"
+  - "Foreigners can buy property and operate hospitality businesses in Peru with clear legal protections"
+faq:
+  - question: "What types of hospitality investments are available in the Sacred Valley?"
+    answer: "Options include boutique hotels and hostals with 10 to 20 rooms, established restaurants serving international tourists, and eco lodges offering experiential stays. Perfecto Homes lists turnkey properties like Hostal Qhispicay in Ollantaytambo and Hatuchay Valle Restaurant in Urubamba."
+  - question: "Why is now the right time to invest in Sacred Valley hospitality?"
+    answer: "Properties are priced at pre airport valuations before the Chinchero International Airport opens. Turnkey hospitality businesses rarely come to market. And Peru allows foreigners to buy property and run businesses with straightforward legal processes."
+  - question: "What are the profit margins for hotels in Cusco and the Sacred Valley?"
+    answer: "Well managed properties see 60% to 85% occupancy in peak season. Operating costs are far below Western markets. Restaurants can achieve food cost ratios under 25% thanks to abundant affordable local ingredients. Boutique properties command $150 to $400+ per night."
 ---
 
 <p>Cusco and the Sacred Valley form one of the most visited tourism corridors in South America. Over 1.5 million international tourists arrive each year, drawn by Machu Picchu, Inca ruins, Andean culture, and what many consider the best food scene on the continent. That visitor volume needs places to sleep, eat, and experience the region. For investors, the hospitality sector here offers real revenue potential at entry prices that established markets left behind years ago.</p>

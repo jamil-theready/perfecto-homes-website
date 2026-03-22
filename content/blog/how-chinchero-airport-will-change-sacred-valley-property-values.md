@@ -9,6 +9,20 @@ tags:
   - "PERU"
   - "INVESTMENT"
   - "SACRED VALLEY"
+quickAnswer: "The Chinchero International Airport will give the Sacred Valley direct flight access, eliminating the 60 to 90 minute drive from Cusco and positioning property values to increase an estimated 30% to 60% after opening."
+keyTakeaways:
+  - "The new airport replaces Cusco's aging facility and will handle wide body jets with direct international flights"
+  - "Property values in the Sacred Valley are projected to rise 30% to 60% in the years following the airport opening"
+  - "Historical precedents from Cancun, Queenstown, and Tulum show airport access drives significant real estate appreciation"
+  - "Hospitality properties like hotels and restaurants stand to benefit most from increased visitor traffic"
+  - "Current Sacred Valley land prices remain a fraction of comparable tourism markets worldwide"
+faq:
+  - question: "When will Chinchero airport open?"
+    answer: "Construction is underway with ground work and infrastructure development progressing. Current projections target completion within the next few years. The project has strong political backing and active government investment."
+  - question: "How much will Sacred Valley property values increase after the airport opens?"
+    answer: "Industry observers expect property values to increase 30% to 60% in the years following the airport opening. Properties closest to the airport and along the main tourism corridor will likely see the sharpest gains."
+  - question: "Why does the Chinchero airport matter for real estate investors?"
+    answer: "It eliminates the 60 to 90 minute drive from Cusco, making the Sacred Valley a direct destination. More flights mean more visitors, which drives demand for accommodation, dining, and services."
 ---
 
 <p>A new international airport is under construction in Chinchero, Peru. It sits just 15 minutes from Urubamba and under an hour from Ollantaytambo. When it opens, the Sacred Valley will go from a side trip off Cusco to a primary destination with direct international access. For property investors, this changes everything.</p>

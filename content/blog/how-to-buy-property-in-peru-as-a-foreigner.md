@@ -9,6 +9,20 @@ tags:
   - "PERU"
   - "REAL ESTATE"
   - "INVESTMENT"
+quickAnswer: "Foreigners can buy property in Peru with the same rights as local citizens. No residency or citizenship is required. The only restriction is a 50 kilometer buffer zone along national borders where foreign ownership is prohibited."
+keyTakeaways:
+  - "Peruvian law grants foreign nationals full property rights equal to citizens with no residency requirement"
+  - "Always verify property title through SUNARP, the national public registry, before signing any agreement"
+  - "Budget for notary fees of 0.5 to 1 percent, legal fees of $1,000 to $3,000 USD, and a 3 percent transfer tax"
+  - "The Sacred Valley offers strong rental yields, low land prices compared to Mexico or Costa Rica, and a new international airport"
+  - "Hire a bilingual attorney who specializes in Peruvian real estate to manage the purchase and registration process"
+faq:
+  - question: "Can a foreigner own property in Peru?"
+    answer: "Foreigners have the same property rights as Peruvian citizens. You can hold title in your own name, through a Peruvian company, or through a trust. The only restriction is no foreign ownership within 50 kilometers of a national border."
+  - question: "What are the closing costs when buying property in Peru?"
+    answer: "Expect notary fees of 0.5 to 1 percent, registration fees based on property value, legal fees of $1,000 to $3,000 USD, and a transfer tax (Alcabala) of 3 percent above a tax exempt threshold. Annual property taxes are modest."
+  - question: "How long does it take to buy property in Peru?"
+    answer: "The entire process from tax ID to registered ownership can take as little as 30 days when documentation is in order. Working with an experienced local attorney helps avoid delays in due diligence and notarization."
 ---
 
 <p>Peru is one of the most welcoming countries in South America for foreign property buyers. The legal framework is straightforward. The prices are compelling. And the Sacred Valley offers some of the most unique real estate on the continent. If you have been wondering whether foreigners can buy property in Peru, the short answer is yes. Here is everything you need to know before you buy property in Peru as a foreigner.</p>

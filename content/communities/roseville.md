@@ -27,9 +27,47 @@ The Westfield Galleria at Roseville is the premier shopping destination in the r
 
 Outdoor recreation is everywhere. The Miners Ravine Trail connects to a regional trail network perfect for biking and running. Folsom Lake is a short drive east.
 
-### Schools and Parks
+### Schools
 
-Roseville schools consistently perform above state averages. The city offers a blend of public, charter, and private options. Parks number over 80 across the city, with sports complexes, splash pads, and dog parks included. The Roseville Aquatics Complex hosts competitive swim meets and public swim sessions.
+Roseville schools consistently perform above state averages. The Roseville City School District handles elementary and middle school campuses. The Roseville Joint Union High School District covers the high schools. Both districts have strong reputations.
+
+**Elementary Schools**
+
+- Woodcreek Oaks Elementary. A top rated campus in the Woodcreek neighborhood with high parent satisfaction.
+- Blue Oaks Elementary. Serves the West Roseville area. Modern campus with strong test scores.
+- Cirby Elementary. One of the more established schools in central Roseville. Walkable from several neighborhoods.
+- Stoneridge Elementary. Located near Highland Reserve. Known for a strong reading and math foundation.
+- Kaseberg Elementary. A well regarded school near Mahaney Park with active after school programs.
+
+**Middle Schools**
+
+- Olympus Junior High. One of the highest rated middle schools in Placer County. Draws families from across the region.
+- Cooley Middle School. Serves West Roseville with honors tracks and competitive sports.
+- Buljan Middle School. A solid campus in central Roseville with strong academics and arts programs.
+- Warren T. Eich Middle School. Located in the Woodcreek area. Offers a range of electives and athletics.
+
+**High Schools**
+
+- Granite Bay High School. Technically in Granite Bay but part of the Roseville Joint Union district. One of the top public high schools in Northern California.
+- Roseville High School. The original. A historic campus with strong AP classes and school pride.
+- Woodcreek High School. Serves the eastern portion of the city. Strong in athletics and performing arts.
+- West Park High School. The newest high school in the district. Modern facilities and growing programs.
+
+**Private and Charter Schools**
+
+- Foundations Academy. A private school offering small class sizes and individualized instruction.
+- Adventist Christian Elementary. A faith based option with a strong academic foundation in central Roseville.
+- Heritage Oaks Private Education. Serves K through 8 with a focus on college readiness from an early age.
+- Roseville Charter School. A public charter alternative with a classical education model.
+- Creekside Christian School. A well established private school with programs from preschool through eighth grade.
+
+Most Roseville neighborhoods sit within a short walk or bike ride to at least one school campus. The city was built with families in mind, and that shows in the school proximity across nearly every subdivision.
+
+### Parks
+
+Roseville maintains over 80 parks and open space areas. Mahaney Park is the crown jewel, with sports fields, picnic areas, and the Roseville Aquatics Complex next door. Mahany Park (different spelling, different location) hosts community events and includes a splash pad for younger kids.
+
+Miners Ravine Trail connects to a regional trail network that stretches all the way to Folsom Lake. Dog parks, basketball courts, and nature preserves are scattered across the city. Every major neighborhood has park access within a few minutes.
 
 ### Work With Roseville Real Estate Agents Who Know the Market
 

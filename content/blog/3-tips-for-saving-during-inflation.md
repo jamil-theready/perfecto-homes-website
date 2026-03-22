@@ -10,6 +10,20 @@ youtubeLink: "https://www.youtube.com/watch?v=1MWbhhhooxA&t=1s"
 tags:
   - "ECONOMY"
   - "INFLATION"
+quickAnswer: "Save money during inflation by finding extra income through side work, avoiding lending money to others without formal agreements, and always shopping with a written list to prevent impulse spending."
+keyTakeaways:
+  - "Use weekends to earn extra income through side gigs like tutoring, lessons, or garage sales"
+  - "Avoid lending money casually and formalize any loans with written notarized agreements to protect yourself"
+  - "Create a shopping list before every trip to prevent emotional spending and stay within your monthly budget"
+  - "Each family's financial situation is unique so strategies should be tailored to your specific circumstances"
+  - "Having extra savings from these habits creates a safety net for emergencies during economic downturns"
+faq:
+  - question: "How can I make extra money during inflation?"
+    answer: "Use your weekends to offer services like piano lessons, soccer coaching, or Spanish tutoring. You can also organize garage sales to sell unused household items. These side gigs help offset rising costs without disrupting your main job."
+  - question: "Should I lend money to family during tough economic times?"
+    answer: "If you do lend money, make sure everything is written down, formalized, and notarized. Casual loans carry the risk of never being repaid. Protecting the agreement legally keeps both parties accountable."
+  - question: "How does a shopping list help save money during inflation?"
+    answer: "A shopping list keeps you focused on what your family actually needs, preventing impulse purchases driven by emotion. Taking five minutes to plan before shopping helps you stick to your monthly budget and improve your financial numbers."
 ---
 
 <h3><strong>Tip #1: Find Extra Work</strong></h3><p>Weekends can be an opportunity to do what you love. Many of our clients speak Spanish and have valuable experiences from Latin America. It's time to analyze and see what you can offer.</p><p>Maybe you can give piano, soccer, or Spanish lessons. Perhaps you have many things at home and can organize a garage sale. Here are <a href="https://bettermoneyhabits.bankofamerica.com/es/saving-budgeting/10-ways-to-make-extra-money">10 options to consider for making some extra money</a>.</p><h3><strong>Tip #2: Don’t Lend Money</strong></h3><p>Often in these times, people ask for financial help to overcome difficult situations. But this also comes with risks, as the person may not pay back the debt.</p><p>Situations with family members might be different. We’re not saying you shouldn't support your family because family is important. If you're going to make a loan, ensure everything is written, formalized, and notarized. Gina can help you with that; <a href="http://www.ginagonzalez.me/">you can contact her here</a>.</p><h3><strong>Tip #3: Save with a Shopping List</strong></h3><p>How many times do you go shopping and see something that excites you? It's precisely when you make emotional decisions that we forget the monthly budget. We're talking about habits that need to be replaced.</p><p>By making a list of what the family needs before shopping, the necessary items will be very clear. Taking 5 minutes to create a list will help improve your financial numbers.</p><h3><strong>Conclusion</strong></h3><p>The coming years will bring many changes to the power of the dollar and the purchasing power of families. With these 3 Tips for Saving During Inflation, you can have extra money for emergencies.Each person's financial situation is different. While one person may go through tough times during a recession, it might be an ideal time for another person to buy a house. Perfecto Homes is the preferred real estate team for the Latino/Hispanic community in the Sacramento area, <a href="https://perfectohomes.com/contact/">contact us now!</a></p>

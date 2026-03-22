@@ -21,11 +21,39 @@ Sunrise Mall anchors the retail scene, but the real gems are the local spots. Ru
 
 Outdoor lovers appreciate the proximity to Folsom Lake and the American River Parkway. A short drive puts you on trails, kayaks, or picnic blankets along the river.
 
-### Schools and Parks
+### Schools
 
-The San Juan Unified School District serves most of Citrus Heights. Families can choose from a range of public, charter, and private school options. Highly rated schools like Woodside K 8 and Mesa Verde High School draw families to specific neighborhoods.
+The San Juan Unified School District serves most of Citrus Heights. Families choose from a strong mix of public, charter, and private options.
 
-Parks are everywhere. Rusch Park alone covers 50 acres with sports fields, a pool, and a community center. Tempo Park and Arcade Creek Park offer quieter green space for walks and picnics.
+**Elementary Schools**
+- Woodside K 8 School (highly rated, draws families to the area)
+- Skycrest Elementary
+- Mariposa Avenue Elementary
+- Carriage Drive Elementary
+
+**Middle Schools**
+- Sylvan Middle School
+- Andrew Carnegie Middle School
+
+**High Schools**
+- Mesa Verde High School (strong athletics and academics)
+- San Juan High School
+
+**Private and Charter Options**
+- Citrus Heights Adventist Christian School
+- NUTEK Academy (charter)
+
+Most neighborhoods in Citrus Heights sit within a 10 minute drive of multiple school options. Walking distance to school is common in established neighborhoods near Sunrise and Greenback.
+
+### Parks and Recreation
+
+Parks are everywhere. Rusch Park alone covers 50 acres with sports fields, a community pool, tennis courts, and a full community center. The Sunrise Recreation and Park District runs year round programs for all ages.
+
+- **Rusch Park** (50 acres, sports, pool, community center)
+- **Tempo Park** (quiet green space, walking trails)
+- **Arcade Creek Park** (creek trail, nature area)
+- **Stock Ranch Park** (playground, picnic areas)
+- **Sunrise Mall area** (shopping, dining, entertainment)
 
 ### Why Citrus Heights Works for Buyers Right Now
 

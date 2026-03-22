@@ -29,9 +29,48 @@ Stone Lakes National Wildlife Refuge sits on the city's western edge, offering b
 
 For everyday errands and entertainment, the Elk Grove Promenade and the expanding commercial corridors along Elk Grove Boulevard and Laguna Boulevard provide retail, dining, and services.
 
-### Schools and Parks
+### Schools
 
-Elk Grove Unified covers the city comprehensively. The district invests in facilities and programs that keep pace with the city's growth. Parks are abundant, with over 100 maintained by the Cosumnes Community Services District. Splash pads, sports complexes, and nature preserves are scattered throughout the city.
+Elk Grove Unified School District is one of the largest in California and covers the entire city. The district offers traditional public schools, charter options, International Baccalaureate programs, and career technical education pathways.
+
+**Elementary Schools**
+
+- Stone Lake Elementary. A top performer in the Laguna area with high test scores and active parent involvement.
+- Prairie Elementary. Serves the southeast part of the city. Strong reading and STEM programs.
+- Maeola R. Beitzel Elementary. Located in the Sheldon area. Known for a welcoming campus culture.
+- Joseph Sims Elementary. A newer school in the Laguna Ridge community with modern facilities.
+- Elitha Donner Elementary. Serves the east Elk Grove area. Consistent academic results and strong community ties.
+
+**Middle Schools**
+
+- Toby Johnson Middle School. One of the newer campuses in the district. Modern technology and competitive athletics.
+- Harriet Eddy Middle School. Located in the Laguna area. Offers honors tracks and a full slate of electives.
+- Katherine L. Albiani Middle School. Serves the east side of the city with a strong academic reputation.
+- Elizabeth Pinkerton Middle School. A well regarded campus near the Sheldon area with solid extracurriculars.
+
+**High Schools**
+
+- Pleasant Grove High School. One of the top rated high schools in the district. Strong AP program and athletics.
+- Franklin High School. A large campus serving central Elk Grove with diverse academic pathways.
+- Laguna Creek High School. Known for its performing arts program and school spirit.
+- Cosumnes Oaks High School. A newer campus with modern facilities and growing athletic programs.
+- Sheldon High School. Serves the north end of the city. Strong in academics and community involvement.
+
+**Private and Charter Schools**
+
+- Elk Grove Christian Academy. A faith based K through 8 option with small class sizes.
+- Valley Christian Academy. Offers a private education alternative with a focus on character and academics.
+- Elk Grove Charter School. A public charter with a personalized learning approach.
+- Heritage Peak Charter School. Offers independent study and classroom hybrid programs.
+- Rio Valley Charter School. Another charter option serving families who want flexible scheduling.
+
+Elk Grove neighborhoods are designed with school access in mind. Most families live within walking or biking distance of at least one campus. The district runs a bus system for students who live farther out.
+
+### Parks
+
+The Cosumnes Community Services District maintains over 100 parks across Elk Grove. Bartholomew Sports Park is a regional draw for soccer, lacrosse, and other field sports. Elk Grove Regional Park hosts community events, picnics, and weekend gatherings under mature oak trees.
+
+The Elk Grove Aquatic Center provides lap swimming, water play, and swim lessons. Trails connect many neighborhoods to parks and open space. Newer communities in the south and east sides include pocket parks and walking paths built into the subdivision design.
 
 ### Find New Homes in Elk Grove CA
 

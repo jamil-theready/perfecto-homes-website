@@ -9,6 +9,20 @@ tags:
   - "SACRAMENTO"
   - "EL DORADO HILLS"
   - "NEIGHBORHOODS"
+quickAnswer: "El Dorado Hills is an upscale foothill community east of Sacramento known for top rated schools, the Serrano master planned neighborhood, Folsom Lake access, and a family oriented lifestyle with homes ranging from the low $600,000s to over $1.2 million."
+keyTakeaways:
+  - "Buckeye Union School District and Oak Ridge High School rank among the best in the Sacramento region"
+  - "Serrano offers resort style amenities including a golf course, pools, fitness center, and miles of trails"
+  - "Town Center serves as the social hub with restaurants, shops, farmers market, and seasonal events"
+  - "Folsom Lake and the American River trail system are minutes from most neighborhoods"
+  - "Home prices range from the low $600,000s for older homes to over $1.2 million for custom estates in Serrano"
+faq:
+  - question: "What is the cost of living in El Dorado Hills?"
+    answer: "The cost of living is higher than the Sacramento County average. Median home prices range from the high $700,000s to over $1 million. Property taxes hover around 1.1% and some newer areas carry Mello Roos fees."
+  - question: "What schools serve El Dorado Hills?"
+    answer: "The Buckeye Union School District covers elementary and middle schools, ranking among the best in Sacramento. High school students attend Oak Ridge High School, which offers strong academics and athletics."
+  - question: "Is El Dorado Hills a good place for families?"
+    answer: "Yes. El Dorado Hills attracts families with top rated schools, safe neighborhoods, youth sports leagues, community pools, and extensive trail networks connecting parks and schools."
 ---
 
 <p>El Dorado Hills sits in the foothills east of Sacramento, offering a lifestyle that blends natural beauty with suburban convenience. The community has earned a reputation for excellent schools, upscale neighborhoods, and easy access to Folsom Lake and the Sierra Nevada. If you are considering living in El Dorado Hills, here is a straightforward look at what the area delivers.</p>
