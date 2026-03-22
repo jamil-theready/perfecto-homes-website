@@ -117,10 +117,94 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Main content */}
             <div className="lg:col-span-7">
+              {/* Quick Answer */}
+              {post.quickAnswer && (
+                <div className="mb-8 rounded-xl border-l-4 border-gold bg-light-gray p-6">
+                  <p className="mb-1 text-[11px] font-bold tracking-widest text-gold uppercase">Quick Answer</p>
+                  <p className="text-[15px] leading-relaxed text-dark">{post.quickAnswer as string}</p>
+                </div>
+              )}
+
+              {/* Key Takeaways */}
+              {post.keyTakeaways && (post.keyTakeaways as string[]).length > 0 && (
+                <div className="mb-8 rounded-xl bg-light-gray p-6">
+                  <p className="mb-3 text-[11px] font-bold tracking-widest text-gold uppercase">Key Takeaways</p>
+                  <ul className="flex flex-col gap-2">
+                    {(post.keyTakeaways as string[]).map((item: string, i: number) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-dark">
+                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gold/10 text-[11px] font-bold text-gold">{i + 1}</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Table of Contents */}
+              {(() => {
+                const headings = (post.content as string).match(/^## .+/gm) || [];
+                if (headings.length <= 2) return null;
+                return (
+                  <nav className="mb-8 rounded-xl border border-gray-100 bg-light-gray p-6">
+                    <p className="mb-3 text-[11px] font-bold tracking-widest text-gold uppercase">In This Article</p>
+                    <ul className="flex flex-col gap-1.5">
+                      {headings.map((h: string) => {
+                        const text = h.replace(/^## /, "");
+                        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                        return (
+                          <li key={id}>
+                            <a href={`#${id}`} className="inline-block text-[14px] text-medium-gray transition-colors hover:text-gold hover:underline">
+                              {text}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </nav>
+                );
+              })()}
+
               <div
                 className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl"
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
+
+              {/* FAQ Section */}
+              {post.faq && (post.faq as Array<{question: string; answer: string}>).length > 0 && (
+                <div className="mt-12 pt-8 border-t border-gray-100">
+                  <h2 className="text-2xl font-serif font-bold text-dark mb-6">Frequently Asked Questions</h2>
+                  <div className="space-y-4">
+                    {(post.faq as Array<{question: string; answer: string}>).map((item, i) => (
+                      <details key={i} className="group rounded-xl border border-gray-100 bg-light-gray overflow-hidden">
+                        <summary className="flex cursor-pointer items-center justify-between p-5 text-[15px] font-semibold text-dark hover:bg-gray-100 transition-colors">
+                          {item.question}
+                          <svg className="h-5 w-5 text-gold flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </summary>
+                        <div className="px-5 pb-5 text-[14px] leading-relaxed text-medium-gray">
+                          {item.answer}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                  {/* FAQ Schema */}
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: (post.faq as Array<{question: string; answer: string}>).map((item) => ({
+                          "@type": "Question",
+                          name: item.question,
+                          acceptedAnswer: { "@type": "Answer", text: item.answer },
+                        })),
+                      }),
+                    }}
+                  />
+                </div>
+              )}
 
               {/* Mobile share buttons */}
               <div className="lg:hidden mt-8 pt-6 border-t border-gray-100">
