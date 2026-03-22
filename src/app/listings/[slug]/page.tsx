@@ -327,6 +327,74 @@ export default async function ListingDetailPage({ params }: Props) {
           </div>
         </section>
 
+        {/* About This Area */}
+        {(() => {
+          const cityName = (item.city as string) || "";
+          const citySlug = cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+          const communityPage = getItemBySlug("communities", citySlug);
+          if (!communityPage) return null;
+
+          // Get first 2 paragraphs of community content
+          const paragraphs = (communityPage.content as string)
+            .split("\n\n")
+            .filter((p: string) => p.trim() && !p.startsWith("#"))
+            .slice(0, 2)
+            .join("\n\n");
+
+          return (
+            <section className="bg-light-gray py-16 border-t border-gray-100">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl">
+                  <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">About the Area</p>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-6">
+                    Living in {cityName}
+                  </h2>
+                  <div className="text-medium-gray leading-relaxed space-y-4 mb-8">
+                    {paragraphs.split("\n\n").map((p: string, i: number) => (
+                      <p key={i}>{p.replace(/^#+\s+.+$/gm, "").trim()}</p>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/communities/${citySlug}`}
+                    className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-300"
+                  >
+                    Explore {cityName}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
+        {/* CTA Section */}
+        <section className="bg-dark text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-4">
+              Interested in This Property?
+            </h2>
+            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+              Schedule a showing, ask questions, or make an offer. Our team is ready to help.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+              >
+                Call {PHONE}
+              </a>
+              <Link
+                href="/Contact-Us"
+                className="inline-flex items-center gap-2 border border-white text-white hover:bg-white hover:text-dark font-semibold px-8 py-3 rounded-lg transition-colors"
+              >
+                Send a Message
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Similar Properties */}
         {similar.length > 0 && (
           <section className="bg-white py-16 border-t border-gray-100">
