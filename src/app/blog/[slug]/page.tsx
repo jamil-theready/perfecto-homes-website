@@ -75,8 +75,8 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="flex items-center gap-4 mt-6">
             {author && (
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-700">
-                  <Image src={author.image} alt={author.name} fill className="object-cover" sizes="40px" />
+                <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white">
+                  <Image src={author.image} alt={author.name} fill className="object-contain object-top" sizes="40px" />
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium">{author.name}</p>
@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Featured Image */}
       {(post.image || post.thumbnail) && (
         <section className="bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mt-6">
             <div className="rounded-2xl overflow-hidden aspect-[21/9] bg-gray-100 relative">
               <Image
                 src={String(post.image || post.thumbnail)}
@@ -174,9 +174,9 @@ export default async function BlogPostPage({ params }: Props) {
               {post.faq && (post.faq as Array<{question: string; answer: string}>).length > 0 && (
                 <div className="mt-12 pt-8 border-t border-gray-100">
                   <h2 className="text-2xl font-serif font-bold text-dark mb-6">Frequently Asked Questions</h2>
-                  <div className="space-y-4">
+                  <div className="space-y-0">
                     {(post.faq as Array<{question: string; answer: string}>).map((item, i) => (
-                      <details key={i} className="group rounded-xl border border-gray-100 bg-light-gray overflow-hidden">
+                      <details key={i} className="group border-b border-gray-100 overflow-hidden">
                         <summary className="flex cursor-pointer items-center justify-between p-5 text-[15px] font-semibold text-dark hover:bg-gray-100 transition-colors">
                           {item.question}
                           <svg className="h-5 w-5 text-gold flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">

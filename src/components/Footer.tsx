@@ -8,12 +8,60 @@ export default function Footer() {
       {/* Upper Footer */}
       <div className="bg-dark-gray text-white py-12">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* About Us */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+            {/* Sacramento Listings */}
             <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">
-                About Us
-              </h4>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento Listings</h4>
+              <ul className="space-y-2">
+                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">All Sacramento</Link></li>
+              </ul>
+            </div>
+
+            {/* Peru Listings */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Peru Listings</h4>
+              <ul className="space-y-2">
+                <li><Link href="/peru/predio-victoria" className="text-sm text-gray-300 hover:text-gold transition-colors">Predio Victoria</Link></li>
+                <li><Link href="/peru/hostal-qhispicay-ollantaytambo" className="text-sm text-gray-300 hover:text-gold transition-colors">Hostal Qhispicay</Link></li>
+                <li><Link href="/peru/hatuchay-valle-restaurant-urubamba" className="text-sm text-gray-300 hover:text-gold transition-colors">Hatuchay Valle</Link></li>
+              </ul>
+            </div>
+
+            {/* Sacramento Communities */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento</h4>
+              <ul className="space-y-2">
+                <li><Link href="/communities/sacramento" className="text-sm text-gray-300 hover:text-gold transition-colors">Sacramento</Link></li>
+                <li><Link href="/communities/citrus-heights" className="text-sm text-gray-300 hover:text-gold transition-colors">Citrus Heights</Link></li>
+                <li><Link href="/communities/roseville" className="text-sm text-gray-300 hover:text-gold transition-colors">Roseville</Link></li>
+                <li><Link href="/communities/elk-grove" className="text-sm text-gray-300 hover:text-gold transition-colors">Elk Grove</Link></li>
+                <li><Link href="/communities/folsom" className="text-sm text-gray-300 hover:text-gold transition-colors">Folsom</Link></li>
+              </ul>
+            </div>
+
+            {/* Peru Communities */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Peru</h4>
+              <ul className="space-y-2">
+                <li><Link href="/communities/marysville" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo</Link></li>
+                <li><Link href="/communities/windsor" className="text-sm text-gray-300 hover:text-gold transition-colors">Urubamba</Link></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Resources</h4>
+              <ul className="space-y-2">
+                <li><Link href="/blog/first-time-home-buyer-guide-sacramento-ca" className="text-sm text-gray-300 hover:text-gold transition-colors">Buyer Guide</Link></li>
+                <li><Link href="/blog/selling-your-home-in-sacramento-what-to-expect" className="text-sm text-gray-300 hover:text-gold transition-colors">Seller Guide</Link></li>
+                <li><Link href="/blog" className="text-sm text-gray-300 hover:text-gold transition-colors">Blog</Link></li>
+                <li><Link href="/Contact-Us" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* About */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">About Us</h4>
               <ul className="space-y-2">
                 <li><Link href="/About-Us/elisban-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Elisban</Link></li>
                 <li><Link href="/About-Us/gina-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Gina</Link></li>
@@ -21,33 +69,6 @@ export default function Footer() {
                 <li><Link href="/About-Us/jamil-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Jamil</Link></li>
               </ul>
             </div>
-
-            {/* Communities */}
-            <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">
-                Communities
-              </h4>
-              <ul className="space-y-2">
-                <li><Link href="/communities/sacramento" className="text-sm text-gray-300 hover:text-gold transition-colors">Sacramento Area</Link></li>
-                <li><Link href="/communities/windsor" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo (Peru)</Link></li>
-                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">Peru Listings</Link></li>
-              </ul>
-            </div>
-
-            {/* Properties & Resources */}
-            <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Resources</h4>
-              <ul className="space-y-2">
-                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">Properties</Link></li>
-                <li><Link href="/blog" className="text-sm text-gray-300 hover:text-gold transition-colors">Blog</Link></li>
-                <li><Link href="/events" className="text-sm text-gray-300 hover:text-gold transition-colors">Events</Link></li>
-                <li><Link href="/Contact-Us" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            {/* Spacer */}
-            <div className="hidden lg:block" />
-            <div className="hidden lg:block" />
           </div>
         </div>
       </div>
@@ -105,16 +126,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Brokerage */}
-          <div className="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-gray-800">
-            <Image
-              src="/images/logo/lpt-realty-white.jpg"
-              alt="LPT Realty"
-              width={30}
-              height={9}
-              className="rounded opacity-20 w-auto h-auto"
-            />
-            <p className="text-[10px] text-gray-500">Licensed under LPT Realty, Inc.</p>
+          {/* Brokerage + Credit */}
+          <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/logo/lpt-realty-white.jpg"
+                alt="LPT Realty"
+                width={24}
+                height={7}
+                className="rounded opacity-15 w-auto h-auto"
+              />
+              <p className="text-[10px] text-gray-600">LPT Realty, Inc.</p>
+            </div>
+            <a href="https://thereadyconsult.com" target="_blank" rel="noopener noreferrer" className="text-[10px] text-gray-600 hover:text-gold transition-colors">
+              Designed by The Ready Consult
+            </a>
           </div>
         </div>
       </div>
