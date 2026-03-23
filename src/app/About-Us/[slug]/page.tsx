@@ -27,7 +27,7 @@ export default async function TeamMemberPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-dark text-white py-12">
+      <section className="bg-dark text-white pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/#team" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; Back to Team</Link>
         </div>
@@ -40,8 +40,8 @@ export default async function TeamMemberPage({ params }: Props) {
             {/* Photo */}
             <div>
               <div
-                className="aspect-[3/4] rounded-2xl bg-gray-200 bg-cover bg-center"
-                style={{ backgroundImage: `url('/images/team/${member.slug}.jpg')` }}
+                className="aspect-[3/4] rounded-2xl bg-gray-200 bg-cover bg-top"
+                style={{ backgroundImage: `url('${member.image}')` }}
               />
             </div>
 
@@ -90,7 +90,7 @@ export default async function TeamMemberPage({ params }: Props) {
                 className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
               >
                 <div
-                  className="aspect-[3/4] bg-gray-200 bg-cover bg-center"
+                  className="aspect-[3/4] bg-gray-200 bg-cover bg-top"
                   style={{ backgroundImage: `url('/images/team/${m.slug}.jpg')` }}
                 />
                 <div className="p-5">
