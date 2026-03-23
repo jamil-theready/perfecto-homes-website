@@ -96,45 +96,39 @@ export default function HomePage() {
 
             {/* Sacramento card */}
             <Link
-              href="/listings"
-              className="group flex-1 rounded-xl overflow-hidden relative aspect-[16/9] sm:aspect-auto block"
+              href="/communities/communities"
+              className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
             >
-              <div className="absolute inset-0">
+              <h4 className="text-[22px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
+                Sacramento
+              </h4>
+              <div className="relative w-full h-[83px] rounded-md overflow-hidden">
                 <Image
                   src="/images/hero/sacramento-aerial.jpg"
-                  alt="Sacramento Area homes and neighborhoods"
+                  alt="Aerial view of Sacramento neighborhoods"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="400px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="347px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              </div>
-              <div className="relative h-full flex flex-col justify-end p-6">
-                <p className="text-gold text-[11px] font-semibold tracking-[0.2em] uppercase mb-1">Explore</p>
-                <h4 className="text-white text-2xl font-bold">Sacramento Area</h4>
-                <p className="text-white/70 text-sm mt-1">9 communities &middot; Browse listings &rarr;</p>
               </div>
             </Link>
 
             {/* Peru card */}
             <Link
               href="#peru"
-              className="group flex-1 rounded-xl overflow-hidden relative aspect-[16/9] sm:aspect-auto block"
+              className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
             >
-              <div className="absolute inset-0">
+              <h4 className="text-[22px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
+                Peru
+              </h4>
+              <div className="relative w-full h-[83px]">
                 <Image
-                  src="/images/hero/peru-landscape.jpg"
-                  alt="Sacred Valley Peru investment properties"
+                  src="/images/hero/peru.png"
+                  alt="Peru Sacred Valley landscape"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="400px"
+                  className="object-contain"
+                  sizes="347px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              </div>
-              <div className="relative h-full flex flex-col justify-end p-6">
-                <p className="text-gold text-[11px] font-semibold tracking-[0.2em] uppercase mb-1">Invest</p>
-                <h4 className="text-white text-2xl font-bold">Sacred Valley, Peru</h4>
-                <p className="text-white/70 text-sm mt-1">3 properties &middot; View listings &rarr;</p>
               </div>
             </Link>
           </div>
