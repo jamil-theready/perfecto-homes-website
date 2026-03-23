@@ -34,7 +34,18 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Spacer for alignment */}
+            {/* Properties & Resources */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Resources</h4>
+              <ul className="space-y-2">
+                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">Properties</Link></li>
+                <li><Link href="/blog" className="text-sm text-gray-300 hover:text-gold transition-colors">Blog</Link></li>
+                <li><Link href="/events" className="text-sm text-gray-300 hover:text-gold transition-colors">Events</Link></li>
+                <li><Link href="/Contact-Us" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* Spacer */}
             <div className="hidden lg:block" />
             <div className="hidden lg:block" />
           </div>
@@ -54,7 +65,7 @@ export default function Footer() {
                 height={21}
                 className="w-[26px] h-[21px]"
               />
-              <span className="text-[22px] font-semibold tracking-[0.06em]">
+              <span className="text-[15px] font-semibold tracking-[0.08em]">
                 PERFECTO HOMES
               </span>
             </div>
@@ -99,9 +110,9 @@ export default function Footer() {
             <Image
               src="/images/logo/lpt-realty-white.jpg"
               alt="LPT Realty"
-              width={60}
-              height={17}
-              className="rounded opacity-50 w-auto h-auto"
+              width={40}
+              height={12}
+              className="rounded opacity-30 w-auto h-auto"
             />
             <p className="text-[10px] text-gray-500">Licensed under LPT Realty, Inc.</p>
           </div>
