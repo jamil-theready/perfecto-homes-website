@@ -67,7 +67,6 @@ export default async function PeruListingPage({ params }: Props) {
           <p className="text-gold text-sm font-medium tracking-wide mt-2">
             {(item.city as string) || "Sacred Valley, Peru"}
           </p>
-          <p className="text-4xl sm:text-5xl font-bold text-gold mt-4">{item.price as string}</p>
         </div>
       </section>
 
@@ -82,23 +81,34 @@ export default async function PeruListingPage({ params }: Props) {
         return <ImageGallery images={images} title={item.title as string} />;
       })()}
 
+      {/* Price Bar */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <p className="text-4xl sm:text-5xl font-bold text-gold">{item.price as string}</p>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {item.landArea && <StatBox label="Land Area" value={item.landArea as string} />}
+            {item.builtArea && <StatBox label="Built Area" value={item.builtArea as string} />}
+            {item.propertyType && <StatBox label="Type" value={item.propertyType as string} />}
+            {item.district && <StatBox label="District" value={item.district as string} />}
+          </div>
+        </div>
+      </section>
+
       {/* Property Details */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-                {item.landArea && <StatBox label="Land Area" value={item.landArea as string} />}
-                {item.builtArea && <StatBox label="Built Area" value={item.builtArea as string} />}
-                {item.propertyType && <StatBox label="Type" value={item.propertyType as string} />}
-                {item.district && <StatBox label="District" value={item.district as string} />}
-              </div>
-
               {/* Markdown Content */}
               <div
-                className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed"
+                className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:text-medium-gray prose-p:leading-relaxed prose-p:mb-4 prose-ul:mt-2 prose-li:text-medium-gray prose-strong:text-dark prose-table:mt-4"
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
             </div>
@@ -183,9 +193,9 @@ export default async function PeruListingPage({ params }: Props) {
 
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-light-gray rounded-xl p-4 text-center">
-      <p className="text-xs text-medium-gray mb-1">{label}</p>
-      <p className="font-semibold text-dark text-sm">{value}</p>
+    <div className="bg-light-gray rounded-xl p-5 text-center">
+      <p className="text-xs text-medium-gray uppercase tracking-wider mb-2">{label}</p>
+      <p className="font-bold text-dark text-lg">{value}</p>
     </div>
   );
 }
