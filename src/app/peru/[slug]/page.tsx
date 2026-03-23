@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import { PHONE } from "@/lib/constants";
 import { PropertyJsonLd } from "@/components/JsonLd";
+import ImageGallery from "@/app/listings/[slug]/ImageGallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -74,25 +75,16 @@ export default async function PeruListingPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Image Gallery Placeholder */}
-      {item.image1 && (
-        <section className="bg-light-gray py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
-                <img src={item.image1 as string} alt={item.title as string} className="w-full h-full object-cover" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[item.image2, item.image3, item.image4, item.image5].filter(Boolean).map((img, i) => (
-                  <div key={i} className="aspect-square rounded-xl overflow-hidden bg-gray-200">
-                    <img src={img as string} alt={`${item.title} ${i + 2}`} className="w-full h-full object-cover" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Image Gallery */}
+      {(() => {
+        const images: string[] = [];
+        for (let i = 1; i <= 20; i++) {
+          const img = item[`image${i}`] as string | undefined;
+          if (img) images.push(img);
+        }
+        if (images.length === 0) return null;
+        return <ImageGallery images={images} title={item.title as string} />;
+      })()}
 
       {/* Property Details */}
       <section className="bg-white py-16">
