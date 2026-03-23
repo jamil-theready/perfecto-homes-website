@@ -30,7 +30,7 @@ export default function ContactUsPage() {
       <section className="bg-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Info Side */}
+            {/* Left: Info */}
             <div>
               <h2 className="text-2xl font-serif font-bold text-dark mb-6">
                 Reach Out to Us
@@ -40,7 +40,7 @@ export default function ContactUsPage() {
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-5 mb-10">
+              <div className="space-y-5">
                 <ContactInfoRow
                   icon="phone"
                   label="Phone"
@@ -59,32 +59,34 @@ export default function ContactUsPage() {
                   value="Sacramento, California"
                 />
               </div>
-
-              {/* Quick Team Contacts */}
-              <h3 className="text-lg font-semibold text-dark mb-4">Our Team</h3>
-              <div className="space-y-3">
-                {TEAM.map((m) => (
-                  <div
-                    key={m.slug}
-                    className="flex items-center justify-between bg-light-gray rounded-xl p-4"
-                  >
-                    <div>
-                      <p className="font-semibold text-dark text-sm">{m.name}</p>
-                      <p className="text-gold text-xs">{m.role}</p>
-                    </div>
-                    <a
-                      href={`tel:${m.phone}`}
-                      className="text-xs text-medium-gray hover:text-gold transition-colors"
-                    >
-                      {m.phone}
-                    </a>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Form Side */}
+            {/* Right: Form */}
             <ContactForm />
+          </div>
+
+          {/* Team Contacts — below form */}
+          <div className="mt-12 pt-10 border-t border-gray-100">
+            <h3 className="text-lg font-semibold text-dark mb-6">Our Team</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {TEAM.map((m) => (
+                <div
+                  key={m.slug}
+                  className="flex items-center justify-between bg-light-gray rounded-xl p-4"
+                >
+                  <div>
+                    <p className="font-semibold text-dark text-sm">{m.name}</p>
+                    <p className="text-gold text-xs">{m.role}</p>
+                  </div>
+                  <a
+                    href={`tel:${m.phone}`}
+                    className="text-xs text-medium-gray hover:text-gold transition-colors"
+                  >
+                    {m.phone}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

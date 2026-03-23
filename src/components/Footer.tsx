@@ -36,17 +36,7 @@ export default function Footer() {
 
             {/* Spacer for alignment */}
             <div className="hidden lg:block" />
-
-            {/* LPT Realty Logo */}
-            <div className="flex items-start justify-end">
-              <Image
-                src="/images/logo/lpt-realty-white.jpg"
-                alt="LPT Realty"
-                width={100}
-                height={28}
-                className="rounded opacity-70 w-auto h-auto"
-              />
-            </div>
+            <div className="hidden lg:block" />
           </div>
         </div>
       </div>
@@ -102,6 +92,18 @@ export default function Footer() {
                 Terms &amp; Conditions
               </Link>
             </div>
+          </div>
+
+          {/* Brokerage */}
+          <div className="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-gray-800">
+            <Image
+              src="/images/logo/lpt-realty-white.jpg"
+              alt="LPT Realty"
+              width={60}
+              height={17}
+              className="rounded opacity-50 w-auto h-auto"
+            />
+            <p className="text-[10px] text-gray-500">Licensed under LPT Realty, Inc.</p>
           </div>
         </div>
       </div>

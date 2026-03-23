@@ -62,7 +62,8 @@ export default function ContactForm({ className = "" }: { className?: string }) 
               id="firstName"
               name="firstName"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 transition-colors"
+              placeholder="First Name"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
             />
           </div>
           <div>
@@ -74,7 +75,8 @@ export default function ContactForm({ className = "" }: { className?: string }) 
               id="lastName"
               name="lastName"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 transition-colors"
+              placeholder="Last Name"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -88,7 +90,8 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 transition-colors"
+            placeholder="you@email.com"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
           />
         </div>
 
@@ -100,7 +103,8 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             type="tel"
             id="phone"
             name="phone"
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 transition-colors"
+            placeholder="(555) 123-4567"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
           />
         </div>
 
@@ -113,7 +117,8 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             name="message"
             required
             rows={4}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 transition-colors resize-none"
+            placeholder="How can we help you?"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors resize-none"
           />
         </div>
 
