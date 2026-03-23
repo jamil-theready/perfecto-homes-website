@@ -130,6 +130,14 @@ export default async function PeruListingPage({ params }: Props) {
                   >
                     Call {PHONE}
                   </a>
+                  <a
+                    href={`https://wa.me/19168787703?text=${encodeURIComponent("Hi, I am interested in " + (item.title as string) + " (" + (item.price as string) + ")")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-[#25D366] hover:bg-[#1da851] text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors text-sm mb-3"
+                  >
+                    WhatsApp
+                  </a>
                   <Link
                     href="/Contact-Us"
                     className="block w-full border border-dark text-dark hover:bg-dark hover:text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors text-sm"

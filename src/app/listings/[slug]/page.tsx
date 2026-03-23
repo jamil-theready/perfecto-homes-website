@@ -253,6 +253,14 @@ export default async function ListingDetailPage({ params }: Props) {
                       Call {currentAgent.phone}
                     </a>
                     <a
+                      href={`https://wa.me/${currentAgent.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hi, I am interested in " + (item.title as string) + " (" + (item.price as string) + ")")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full bg-[#25D366] hover:bg-[#1da851] text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors text-sm mb-3"
+                    >
+                      WhatsApp
+                    </a>
+                    <a
                       href={`mailto:${EMAIL}?subject=Inquiry: ${item.title}`}
                       className="block w-full border border-dark text-dark hover:bg-dark hover:text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors text-sm mb-3"
                     >
