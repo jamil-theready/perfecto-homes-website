@@ -236,10 +236,10 @@ export default function Header() {
 
       {/* Mobile Slide-in Panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-[360px] bg-white shadow-2xl lg:hidden overflow-y-auto transform transition-transform duration-300 ease-out ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-[360px] bg-white shadow-2xl lg:hidden flex flex-col transform transition-transform duration-300 ease-out ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Panel Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
             <Image src="/images/logo/perfecto-logo.svg" alt="Perfecto Homes" width={22} height={18} className="w-[22px] h-[18px]" />
             <span className="text-[14px] font-semibold tracking-[0.04em] text-dark">PERFECTO HOMES</span>
@@ -249,8 +249,8 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Panel Content */}
-        <div className="px-6 py-5 space-y-1">
+        {/* Panel Content — scrollable middle */}
+        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-1">
           <MobileDropdown title="About Us">
             <Link href="/About-Us/elisban-gonzales" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Elisban Gonzales</Link>
             <Link href="/About-Us/gina-gonzalez" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Gina Gonzalez</Link>
@@ -277,14 +277,24 @@ export default function Header() {
           </MobileDropdown>
 
           <Link href="/blog" className="block py-3 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
+        </div>
 
+        {/* Panel Footer — fixed at bottom */}
+        <div className="flex-shrink-0 px-6 py-5 border-t border-gray-100 space-y-3">
           <Link
             href="/Contact-Us"
-            className="block text-center bg-gold text-white rounded-lg px-5 py-3.5 text-sm font-semibold hover:bg-gold-dark transition-colors mt-4"
+            className="block text-center bg-gold text-white rounded-lg px-5 py-3.5 text-sm font-semibold hover:bg-gold-dark transition-colors"
             onClick={() => setMobileOpen(false)}
           >
-            Contact Us &rarr;
+            Contact Us
           </Link>
+          <a
+            href="tel:+19168787260"
+            className="block text-center text-sm text-medium-gray hover:text-gold transition-colors"
+            onClick={() => setMobileOpen(false)}
+          >
+            (916) 878-7260
+          </a>
         </div>
       </div>
     </>
