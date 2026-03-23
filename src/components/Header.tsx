@@ -74,13 +74,15 @@ export default function Header() {
               >
                 Properties
               </Link>
-              <NavButton
-                label="Resources"
-                isOpen={openDropdown === "resources"}
-                onHover={() => setOpenDropdown("resources")}
-                textColor={openDropdown ? "text-dark" : textColor}
-                hoverColor={hoverColor}
-              />
+              <Link
+                href="/blog"
+                className={`text-[14px] font-medium font-[family-name:var(--font-manrope)] tracking-[0.02em] transition-colors ${
+                  openDropdown ? "text-dark hover:text-gold" : `${textColor} ${hoverColor}`
+                }`}
+                onMouseEnter={closeDropdown}
+              >
+                Blog
+              </Link>
               <NavButton
                 label="About Us"
                 isOpen={openDropdown === "about"}
@@ -192,52 +194,6 @@ export default function Header() {
                 </div>
               )}
 
-              {/* Resources Panel */}
-              {openDropdown === "resources" && (
-                <div className="flex gap-8">
-                  <Link
-                    href="/blog"
-                    className="group/card flex-1 bg-light-gray rounded-xl p-6 hover:bg-gray-100 transition-colors"
-                    onClick={closeDropdown}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold">
-                          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-[15px] font-semibold text-dark group-hover/card:text-gold transition-colors">Blog &amp; News</p>
-                        <p className="text-xs text-medium-gray">Market updates, tips, and insights</p>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link
-                    href="/events"
-                    className="group/card flex-1 bg-light-gray rounded-xl p-6 hover:bg-gray-100 transition-colors"
-                    onClick={closeDropdown}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold">
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                          <line x1="16" y1="2" x2="16" y2="6" />
-                          <line x1="8" y1="2" x2="8" y2="6" />
-                          <line x1="3" y1="10" x2="21" y2="10" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-[15px] font-semibold text-dark group-hover/card:text-gold transition-colors">Events</p>
-                        <p className="text-xs text-medium-gray">Open houses and community workshops</p>
-                      </div>
-                    </div>
-                  </Link>
-                  {/* Spacer to fill width */}
-                  <div className="flex-1" />
-                </div>
-              )}
-
               {/* About Us Panel */}
               {openDropdown === "about" && (
                 <div className="grid grid-cols-4 gap-4">
@@ -295,10 +251,7 @@ export default function Header() {
 
               <Link href="/listings" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
 
-              <MobileDropdown title="Resources">
-                <Link href="/blog" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
-                <Link href="/events" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Events</Link>
-              </MobileDropdown>
+              <Link href="/blog" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
 
               <MobileDropdown title="About Us">
                 <Link href="/About-Us/elisban-gonzales" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Elisban Gonzales</Link>

@@ -33,12 +33,13 @@ export default function ListingsPage() {
       <Header />
       <main className="bg-light-gray min-h-screen pt-24">
         {/* Hero */}
-        <section className="bg-dark text-white py-12 sm:py-16">
+        <section className="bg-white border-b border-gray-100 py-10 sm:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3">
+            <p className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-3">Browse Listings</p>
+            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-3">
               Our Properties
             </h1>
-            <p className="text-white/70 text-lg max-w-2xl">
+            <p className="text-medium-gray text-lg max-w-2xl">
               Sacramento homes and Peru investment properties. Browse our
               current listings or contact us for off-market opportunities.
             </p>
