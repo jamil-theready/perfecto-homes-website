@@ -230,12 +230,12 @@ export default function Header() {
         {mobileOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
             <div className="px-4 py-4 space-y-2">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider pt-2">Communities</p>
+              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider pt-3 pb-1">Communities</p>
               {COMMUNITIES.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/communities/${c.slug}`}
-                  className="block py-2 text-sm text-dark hover:text-gold"
+                  className="block py-2.5 text-[15px] text-dark hover:text-gold"
                   onClick={() => setMobileOpen(false)}
                 >
                   {c.name}
@@ -246,9 +246,9 @@ export default function Header() {
               </Link>
               <div className="border-t border-gray-100 my-2" />
 
-              <Link href="/listings" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
+              <Link href="/listings" className="block py-2.5 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
 
-              <Link href="/blog" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
+              <Link href="/blog" className="block py-2.5 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
 
               <MobileDropdown title="About Us">
                 <Link href="/About-Us/elisban-gonzales" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Elisban Gonzales</Link>
