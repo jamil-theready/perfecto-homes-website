@@ -103,7 +103,7 @@ export default async function CommunityPage({ params }: Props) {
             <div className="lg:col-span-2">
               {htmlContent ? (
                 <div
-                  className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed"
+                  className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-strong:text-dark prose-ul:mt-2 prose-li:text-medium-gray prose-li:leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
               ) : (
