@@ -34,7 +34,7 @@ export default function Header() {
 
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          scrolled || openDropdown
+          scrolled || openDropdown || mobileOpen
             ? "bg-white/95 backdrop-blur-sm border-b border-gray-100"
             : "bg-transparent"
         }`}
