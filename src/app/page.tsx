@@ -13,7 +13,6 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollRevealText from "@/components/ScrollRevealText";
-import TeamCTA from "@/components/TeamCTA";
 
 export default function HomePage() {
   return (
@@ -427,8 +426,6 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* ====== CROSS-PROMOTION: FINANCING ====== */}
-          <TeamCTA variant="alfredo" />
 
           {/* Information for Sellers / Buyers */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -505,8 +502,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== CROSS-PROMOTION: NOTARY ====== */}
-      <TeamCTA variant="gina" />
 
       {/* ====== TESTIMONIALS ====== */}
       <TestimonialCarousel />
@@ -563,8 +558,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== CROSS-PROMOTION: WEB DESIGN ====== */}
-      <TeamCTA variant="jamil" />
     </>
   );
 }
