@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const sentences = [
-  "We connect families with homes that fit their dreams.",
-  "We guide every step with integrity, clarity, and care.",
-  "We turn real estate into a simpler, stress-free experience for our community.",
+  { before: "We ", highlight: "connect", after: " families with homes that fit their dreams." },
+  { before: "We ", highlight: "guide", after: " every step with integrity, clarity, and care." },
+  { before: "We turn real estate into a simpler, ", highlight: "stress-free", after: " experience for our community." },
 ];
 
 export default function ScrollRevealText() {
@@ -45,7 +45,7 @@ export default function ScrollRevealText() {
     >
       <div className="sticky top-0 h-screen flex items-center justify-center bg-white">
         <div className="max-w-[600px] mx-auto px-6 sm:px-8 text-center flex flex-col gap-6">
-          {sentences.map((sentence, i) => (
+          {sentences.map((s, i) => (
             <p
               key={i}
               className="text-2xl sm:text-3xl md:text-[36px] font-medium leading-[1.3] tracking-[-0.04em] transition-colors duration-700 ease-out"
@@ -53,7 +53,9 @@ export default function ScrollRevealText() {
                 color: i < revealedCount ? "#0e0e0e" : "#e0e0e0",
               }}
             >
-              {sentence}
+              {s.before}
+              <span style={{ color: i < revealedCount ? "#C4A94D" : "#e0e0e0", transition: "color 0.7s ease-out" }}>{s.highlight}</span>
+              {s.after}
             </p>
           ))}
         </div>

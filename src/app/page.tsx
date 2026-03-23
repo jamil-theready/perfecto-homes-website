@@ -163,7 +163,7 @@ export default function HomePage() {
                     src={c.image}
                     alt={`Homes in ${c.name}`}
                     fill
-                    className="object-contain"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -204,7 +204,7 @@ export default function HomePage() {
                     src={listing.image}
                     alt={listing.name}
                     fill
-                    className="object-contain"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -250,7 +250,7 @@ export default function HomePage() {
                         src={member.image}
                         alt={member.name}
                         fill
-                        className="object-contain object-bottom"
+                        className="object-cover object-top"
                         sizes="200px"
                       />
                     </div>
@@ -291,7 +291,7 @@ export default function HomePage() {
                           className="inline-flex items-center gap-2 bg-light-gray hover:bg-gray-100 text-dark text-sm font-medium px-4 py-2.5 rounded-lg transition-colors [&_svg]:text-gold"
                         >
                           <EmailIcon />
-                          Email
+                          {member.email}
                         </a>
                       </div>
                       <Link
