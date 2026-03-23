@@ -87,15 +87,15 @@ export default async function TeamMemberPage({ params }: Props) {
               <Link
                 key={m.slug}
                 href={`/About-Us/${m.slug}`}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
               >
                 <div
-                  className="aspect-[3/4] bg-gray-200 bg-cover bg-top"
-                  style={{ backgroundImage: `url('/images/team/${m.slug}.jpg')` }}
+                  className="aspect-[4/3] bg-gray-200 bg-cover bg-top"
+                  style={{ backgroundImage: `url('${m.image}')` }}
                 />
-                <div className="p-5">
+                <div className="p-5 flex flex-col">
                   <h3 className="font-semibold text-dark">{m.name}</h3>
-                  <p className="text-gold text-sm">{m.role}</p>
+                  <p className="text-gold text-sm mb-3">{m.role}</p><span className="text-sm font-semibold text-dark group-hover:text-gold transition-colors">View Profile &rarr;</span>
                 </div>
               </Link>
             ))}

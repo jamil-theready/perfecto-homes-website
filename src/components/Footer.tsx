@@ -29,8 +29,8 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2">
                 <li><Link href="/communities/sacramento" className="text-sm text-gray-300 hover:text-gold transition-colors">Sacramento Area</Link></li>
-                <li><Link href="/peru/hostal-qhispicay-ollantaytambo" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo</Link></li>
-                <li><Link href="/peru/hatuchay-valle-restaurant-urubamba" className="text-sm text-gray-300 hover:text-gold transition-colors">Urubamba</Link></li>
+                <li><Link href="/communities/windsor" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo (Peru)</Link></li>
+                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">Peru Listings</Link></li>
               </ul>
             </div>
 
@@ -65,7 +65,7 @@ export default function Footer() {
                 height={21}
                 className="w-[26px] h-[21px]"
               />
-              <span className="text-[15px] font-semibold tracking-[0.08em]">
+              <span className="text-[13px] font-medium tracking-[0.08em]">
                 PERFECTO HOMES
               </span>
             </div>
@@ -110,9 +110,9 @@ export default function Footer() {
             <Image
               src="/images/logo/lpt-realty-white.jpg"
               alt="LPT Realty"
-              width={40}
-              height={12}
-              className="rounded opacity-30 w-auto h-auto"
+              width={30}
+              height={9}
+              className="rounded opacity-20 w-auto h-auto"
             />
             <p className="text-[10px] text-gray-500">Licensed under LPT Realty, Inc.</p>
           </div>

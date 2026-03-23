@@ -83,15 +83,16 @@ export default async function CommunityPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-dark text-white overflow-hidden py-20 sm:py-28">
+      <section className="relative bg-dark text-white overflow-hidden pt-28 pb-16 sm:pb-20">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url('/images/communities/${slug}.jpg')` }}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/communities/communities" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; All Communities</Link>
+          <Link href="/listings" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; All Communities</Link>
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">Sacramento Area</p>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold">{name}</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold">{name}</h1>
         </div>
       </section>
 
@@ -179,7 +180,7 @@ function CommunitiesIndex() {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('/images/communities/${c.slug}.jpg')` }}
+          style={{ backgroundImage: `url('/images/communities/${c.slug}.jpg')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
