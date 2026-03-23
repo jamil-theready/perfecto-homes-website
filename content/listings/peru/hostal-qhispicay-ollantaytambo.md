@@ -13,6 +13,12 @@ propertyType: "Hostal"
 listingStatus: "Active"
 district: "Ollantaytambo"
 location: "Calle Tupac Yupanqui S/N, Urb. Philcuhuasi, Ollantaytambo, Cusco, Peru"
+featuredImage: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/1"
+image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/1"
+image2: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/2"
+image3: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/3"
+image4: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/4"
+image5: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay/5"
 ---
 
 ## Embrace the Eternal Echoes of the Incas: Your Sacred Valley Sanctuary Awaits

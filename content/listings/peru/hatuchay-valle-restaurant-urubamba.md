@@ -13,6 +13,9 @@ propertyType: "Commercial / Restaurant"
 listingStatus: "Active"
 district: "Urubamba"
 location: "Parcela No. 07, Sector Media Luna, Urubamba, Cusco, Peru"
+featuredImage: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant/1"
+image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant/1"
+image2: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant/2"
 ---
 
 ## A Once-in-a-Generation Sacred Valley Investment
