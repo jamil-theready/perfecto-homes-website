@@ -9,7 +9,6 @@ import {
   EMAIL,
   PERU_LISTINGS,
 } from "@/lib/constants";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollRevealText from "@/components/ScrollRevealText";
@@ -503,8 +502,6 @@ export default function HomePage() {
       </section>
 
 
-      {/* ====== TESTIMONIALS ====== */}
-      <TestimonialCarousel />
 
       {/* ====== CONTACT CTA ====== */}
       <section className="relative py-16 sm:py-20">

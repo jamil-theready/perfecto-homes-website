@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { OrganizationJsonLd } from "@/components/JsonLd";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import "./globals.css";
 
 const inter = Inter({
@@ -68,6 +69,7 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <Header />
         <main>{children}</main>
+        <TestimonialCarousel />
         <Footer />
         <GoogleAnalytics gaId="G-Q0X209GPL3" />
       </body>
