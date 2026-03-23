@@ -229,37 +229,43 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div className="px-4 py-4 space-y-2">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider pt-3 pb-1">Communities</p>
-              {COMMUNITIES.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/communities/${c.slug}`}
-                  className="block py-2.5 text-[15px] text-dark hover:text-gold"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {c.name}
-                </Link>
-              ))}
-              <Link href="/#peru" className="block py-2 text-sm font-medium text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>
-                Sacred Valley, Peru
-              </Link>
-              <div className="border-t border-gray-100 my-2" />
-
-              <Link href="/listings" className="block py-2.5 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
-
-              <Link href="/blog" className="block py-2.5 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
-
+            <div className="px-6 py-5 space-y-1">
+              {/* About Us */}
               <MobileDropdown title="About Us">
-                <Link href="/About-Us/elisban-gonzales" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Elisban Gonzales</Link>
-                <Link href="/About-Us/gina-gonzalez" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Gina Gonzalez</Link>
-                <Link href="/About-Us/alfredo-gonzalez" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Alfredo Gonzalez</Link>
-                <Link href="/About-Us/jamil-gonzales" className="block py-2 pl-4 text-sm text-gray-600 hover:text-gold" onClick={() => setMobileOpen(false)}>Jamil Gonzales</Link>
+                <Link href="/About-Us/elisban-gonzales" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Elisban Gonzales</Link>
+                <Link href="/About-Us/gina-gonzalez" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Gina Gonzalez</Link>
+                <Link href="/About-Us/alfredo-gonzalez" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Alfredo Gonzalez</Link>
+                <Link href="/About-Us/jamil-gonzales" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Jamil Gonzales</Link>
               </MobileDropdown>
 
+              {/* Listings */}
+              <MobileDropdown title="Listings">
+                <Link href="/listings" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Sacramento</Link>
+                <Link href="/#peru" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Peru</Link>
+              </MobileDropdown>
+
+              {/* Sacramento Communities */}
+              <MobileDropdown title="Sacramento Communities">
+                {COMMUNITIES.map((c) => (
+                  <Link key={c.slug} href={`/communities/${c.slug}`} className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>
+                    {c.name}
+                  </Link>
+                ))}
+              </MobileDropdown>
+
+              {/* Peru Communities */}
+              <MobileDropdown title="Peru Communities">
+                <Link href="/communities/windsor" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Ollantaytambo</Link>
+                <Link href="/communities/marysville" className="block py-2 pl-4 text-[15px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Urubamba</Link>
+              </MobileDropdown>
+
+              {/* Blog */}
+              <Link href="/blog" className="block py-3 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
+
+              {/* CTA */}
               <Link
                 href="/Contact-Us"
-                className="block text-center bg-[#fcfcfc] rounded-[10px] px-5 py-3.5 text-xs text-dark hover:bg-gray-100 transition-colors mt-4"
+                className="block text-center bg-gold text-white rounded-lg px-5 py-3.5 text-sm font-semibold hover:bg-gold-dark transition-colors mt-4"
                 onClick={() => setMobileOpen(false)}
               >
                 Contact Us &rarr;
