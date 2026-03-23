@@ -230,24 +230,21 @@ export default function Header() {
         {mobileOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
             <div className="px-4 py-4 space-y-2">
-              <MobileDropdown title="Communities">
-                <Link href="/communities/communities" className="block py-2 pl-4 text-sm font-medium text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>
-                  Sacramento Area
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider pt-2">Communities</p>
+              {COMMUNITIES.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/communities/${c.slug}`}
+                  className="block py-2 text-sm text-dark hover:text-gold"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {c.name}
                 </Link>
-                {COMMUNITIES.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/communities/${c.slug}`}
-                    className="block py-2 pl-6 text-sm text-gray-600 hover:text-gold"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {c.name}
-                  </Link>
-                ))}
-                <Link href="/#peru" className="block py-2 pl-4 text-sm font-medium text-dark hover:text-gold mt-1" onClick={() => setMobileOpen(false)}>
-                  Sacred Valley, Peru
-                </Link>
-              </MobileDropdown>
+              ))}
+              <Link href="/#peru" className="block py-2 text-sm font-medium text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>
+                Sacred Valley, Peru
+              </Link>
+              <div className="border-t border-gray-100 my-2" />
 
               <Link href="/listings" className="block py-3 text-base font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Properties</Link>
 
