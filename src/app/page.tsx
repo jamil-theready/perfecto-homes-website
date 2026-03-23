@@ -104,10 +104,10 @@ export default function HomePage() {
               </h4>
               <div className="relative w-full h-[83px] rounded-md overflow-hidden">
                 <Image
-                  src="/images/hero/sacramento-aerial.jpg"
-                  alt="Aerial view of Sacramento neighborhoods"
+                  src="/images/hero/sacramento-card.jpg"
+                  alt="Sacramento Area real estate"
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-contain"
                   sizes="347px"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function HomePage() {
                     src={c.image}
                     alt={`Homes in ${c.name}`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-contain"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -204,7 +204,7 @@ export default function HomePage() {
                     src={listing.image}
                     alt={listing.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-contain"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
