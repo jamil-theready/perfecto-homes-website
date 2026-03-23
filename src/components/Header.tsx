@@ -239,12 +239,8 @@ export default function Header() {
         className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-[360px] bg-white shadow-2xl lg:hidden flex flex-col transform transition-transform duration-300 ease-out ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Panel Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 flex-shrink-0">
-          <div className="flex items-center gap-2">
-            <Image src="/images/logo/perfecto-logo.svg" alt="Perfecto Homes" width={22} height={18} className="w-[22px] h-[18px]" />
-            <span className="text-[14px] font-semibold tracking-[0.04em] text-dark">PERFECTO HOMES</span>
-          </div>
-          <button onClick={() => setMobileOpen(false)} className="text-dark p-1" aria-label="Close menu">
+        <div className="flex items-center justify-end px-6 py-4 border-b border-gray-100 flex-shrink-0">
+          <button onClick={() => setMobileOpen(false)} className="text-dark p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Close menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
           </button>
         </div>
