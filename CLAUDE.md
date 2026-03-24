@@ -33,6 +33,6 @@ npm run build                # Build (runs postbuild for sitemap automatically)
 - Blog post pages have: reading progress bar, sticky share buttons, sticky sidebar form
 
 ## Deploy
-- GitHub repo → Netlify (main branch)
-- netlify.toml is in repo root
-- Forms use Netlify Forms with honeypot spam protection
+- GitHub repo → Cloudflare Pages (main branch)
+- Static export (`output: "export"`)
+- Forms use Web3Forms with honeypot spam protection
