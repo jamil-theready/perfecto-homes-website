@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import gfm from "remark-gfm";
 
 const contentDir = path.join(process.cwd(), "content");
 
@@ -55,7 +56,7 @@ export function getItemBySlug(
  * Convert markdown content to HTML
  */
 export async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark().use(html).process(markdown);
+  const result = await remark().use(gfm).use(html, { sanitize: false }).process(markdown);
   return result.toString();
 }
 

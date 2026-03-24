@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import type { ContentItem } from "@/lib/content";
 
@@ -113,86 +113,78 @@ export default function ListingsFilter({
 }
 
 function ListingCard({ listing }: { listing: ContentItem }) {
-  const status = (listing.status as string) || "active";
-  const statusColor =
-    status === "active" ? "bg-green-600" :
-    status === "pending" ? "bg-amber-500" :
-    status === "sold" ? "bg-red-500" : "bg-gray-500";
-
+  const status = (listing.status as string) || (listing.listingStatus as string) || "active";
   const featuredImage = (listing.featuredImage as string) || (listing.image1 as string) || "/images/placeholder.jpg";
-  const marketLabel = listing.market === "peru" ? "Peru" : "Sacramento";
   const href = listing.market === "peru" ? `/peru/${listing.slug}` : `/listings/${listing.slug}`;
-
-  // Build stats array for clean separator rendering
-  const stats: string[] = [];
-  if (listing.beds) stats.push(`${listing.beds} bed`);
-  if (listing.baths) stats.push(`${listing.baths} bath`);
-  if (listing.sqft) stats.push(`${listing.sqft} sqft`);
-  if (listing.landArea) stats.push(listing.landArea as string);
 
   return (
     <Link
       href={href}
-      className="group rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+      className="group flex flex-col bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={featuredImage}
-          alt={`${listing.title} - ${listing.city || ""} property for sale`}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          alt={`${listing.title} - ${listing.city || ""} property`}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        {/* Gradient overlay at bottom for text readability */}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent" />
-        {/* Status Badge */}
-        <div className="absolute top-3 left-3 flex gap-2">
-          <span className={`${statusColor} text-white text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider`}>
-            {status}
-          </span>
-          <span className="bg-white/90 backdrop-blur-sm text-dark text-[11px] font-semibold px-3 py-1 rounded-full">
-            {marketLabel}
-          </span>
+        {/* Price overlay */}
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent pt-10 pb-3 px-4">
+          <p className="text-white text-xl font-bold tracking-tight">{listing.price as string}</p>
         </div>
-        {/* Price overlay on image */}
-        <div className="absolute bottom-3 left-4">
-          <p className="text-white text-2xl font-bold drop-shadow-lg">
-            {listing.price as string}
-          </p>
-        </div>
+        {/* Status badge */}
+        {status === "pending" && (
+          <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-amber-600 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
+            Pending
+          </span>
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-5">
-        {/* Stats Row with dot separators */}
-        {stats.length > 0 && (
-          <div className="flex items-center gap-1.5 text-sm text-medium-gray mb-3">
-            {stats.map((stat, i) => (
-              <span key={i} className="flex items-center gap-1.5">
-                {i > 0 && <span className="text-gray-300">·</span>}
-                <span className="font-medium">{stat}</span>
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Address */}
-        <p className="text-dark font-semibold text-[15px] leading-snug mb-0.5">
+      <div className="px-4 pt-4 pb-5 flex-1 flex flex-col">
+        {/* Title + Address */}
+        <h3 className="text-dark font-semibold text-base leading-snug">
           {listing.title as string}
-        </p>
-        <p className="text-medium-gray text-sm">
+        </h3>
+        <p className="text-medium-gray text-[13px] mt-0.5 mb-3">
           {(listing.address as string) || (listing.city as string) || ""}
         </p>
 
-        {/* Property Type + View Details */}
-        <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span className="text-[11px] text-medium-gray uppercase tracking-widest font-medium">
-            {listing.propertyType as string}
-          </span>
-          <span className="text-gold text-sm font-semibold flex items-center gap-1.5 group-hover:gap-2.5 transition-all duration-300">
-            View Details
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+        {/* Stats */}
+        <div className="flex items-center gap-4 text-[13px] text-medium-gray">
+          {listing.beds && (
+            <span className="flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v11a1 1 0 001 1h16a1 1 0 001-1V7M3 7h18M3 7l2-4h14l2 4M8 14h8M5 19v2M19 19v2" /></svg>
+              <span>{listing.beds} bed</span>
+            </span>
+          )}
+          {listing.baths && (
+            <span className="flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16M4 12a2 2 0 01-2-2V6a2 2 0 012-2h1a2 2 0 012 2v1M4 12v4a4 4 0 004 4h8a4 4 0 004-4v-4" /></svg>
+              <span>{listing.baths} bath</span>
+            </span>
+          )}
+          {listing.sqft && (
+            <span className="flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+              <span>{listing.sqft} sqft</span>
+            </span>
+          )}
+          {listing.landArea && (
+            <span className="flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+              <span>{listing.landArea as string}</span>
+            </span>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="mt-auto pt-4 flex items-center justify-between">
+          <span className="text-[11px] text-medium-gray uppercase tracking-wider">{listing.propertyType as string}</span>
+          <span className="text-gold text-[13px] font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+            Details
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
           </span>
         </div>
       </div>

@@ -28,15 +28,8 @@ image14: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto
 image15: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/2"
 image16: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/3"
 image17: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/4"
+youtubeVideo: "OrjHcvhq_4I"
 ---
-
-## A Once-in-a-Generation Sacred Valley Investment
-
-Hatuchay Valle Restaurant — "Big House of the Valley" in Quechua — is a fully built commercial restaurant situated on 1,800 m² of prime land along the paved highway between Ollantaytambo and Urubamba. This two-story reinforced concrete building offers 560 m² of built space with a professional commercial kitchen, multiple dining areas with buffet service capability, and seating for up to 250 guests.
-
-Located in the heart of Peru's Sacred Valley tourism corridor, this property previously served 300 to 400 customers daily during peak season (May through July), generating an estimated $2,800 to $4,267 USD per day. The restaurant is currently closed, presenting a rare opportunity to acquire a proven, high-volume commercial operation at a compelling price point.
-
-With the Chinchero International Airport scheduled to open in late 2027 — bringing direct international flights just minutes from the property — land values and tourist traffic in this corridor are projected to increase substantially. This is not just a restaurant purchase; it's a strategic position in one of South America's fastest-appreciating real estate markets.
 
 ### At a Glance
 
@@ -48,9 +41,19 @@ With the Chinchero International Airport scheduled to open in late 2027 — brin
 - **Established brand**: Hatuchay Valle is recognized locally
 - **$700/m² land** and **$2,250/m² built** pricing
 
+## A Once-in-a-Generation Sacred Valley Investment
+
+Hatuchay Valle Restaurant — "Big House of the Valley" in Quechua — is a fully built commercial restaurant situated on 1,800 m² of prime land along the paved highway between Ollantaytambo and Urubamba. This two-story reinforced concrete building offers 560 m² of built space with a professional commercial kitchen, multiple dining areas with buffet service capability, and seating for up to 250 guests.
+
+Located in the heart of Peru's Sacred Valley tourism corridor, this property previously served 300 to 400 customers daily during peak season (May through July), generating an estimated $2,800 to $4,267 USD per day. The restaurant is currently closed, presenting a rare opportunity to acquire a proven, high-volume commercial operation at a compelling price point.
+
+With the Chinchero International Airport scheduled to open in late 2027 — bringing direct international flights just minutes from the property — land values and tourist traffic in this corridor are projected to increase substantially. This is not just a restaurant purchase; it's a strategic position in one of South America's fastest-appreciating real estate markets.
+
 ## Floor-by-Floor Breakdown
 
 ### Floor 1 — Kitchen & Main Dining (Ground Level, 280 m²)
+
+![Floor Plan - Ground Floor](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/floor-plan-1)
 
 - Full commercial kitchen with dedicated cooking area
 - 4-burner gas stove area and gas oven
@@ -66,12 +69,18 @@ With the Chinchero International Airport scheduled to open in late 2027 — brin
 
 ### Floor 2 — Dining & Restrooms (Upper Level, 280 m²)
 
+![Floor Plan - Upper Floor](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/floor-plan-2)
+
 - Extended dining area with table seating (two sections)
 - Two buffet service bars
 - Women's restroom
 - Men's restroom
 - Accessible restroom (ADA equivalent)
 - Dual staircase access (main + east side)
+
+### Structural Engineering
+
+![Structural Plans](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/structural)
 
 ### Building Dimensions
 - Width: approximately 19.00 m
@@ -129,6 +138,18 @@ With the Chinchero International Airport scheduled to open in late 2027 — brin
 
 *Low/mid season and annual data pending. Operating costs to be confirmed.*
 
+### Projected Annual Net Income
+
+![Hatuchay Valle Annual Net Income](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/annual-income)
+
+Three scenarios modeled over 10 years. Conservative (high season only) projects $100K/year steady state. Moderate (full year operation) reaches $279K by Year 10. Aggressive (expand and operate) reaches $560K by Year 10 with the Chinchero Airport catalyst at Year 2.
+
+### Cumulative Total ROI
+
+![Hatuchay Valle Cumulative ROI](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/cumulative-roi)
+
+Conservative scenario recovers 91% of investment in 10 years. Moderate doubles your money (186% ROI). Aggressive triples it (308% ROI). The Chinchero Airport opening at Year 2 is the inflection point across all scenarios.
+
 ### Why Now? Market Catalysts
 
 - **Chinchero International Airport (2027)**: New airport opening just minutes from the Sacred Valley will replace Cusco's limited Velasco Astete airport, bringing direct international flights and dramatically increasing tourist access. This is the single biggest infrastructure investment in Cusco's history.
@@ -136,3 +157,4 @@ With the Chinchero International Airport scheduled to open in late 2027 — brin
 - **Proven Demand**: This property has already demonstrated the ability to attract 300-400 customers per day. The brand, location, and infrastructure are established — the next owner steps into a ready-made operation.
 - **Land Value Appreciation**: At $700/m² for 1,800 m² of highway-fronting commercial land, current pricing reflects pre-airport valuations. Post-airport comparable properties in similar tourism corridors have seen 30-50% appreciation.
 - **Expansion Potential**: 1,800 m² of land with only 560 m² currently built provides substantial room for hotel rooms, event spaces, or additional dining capacity.
+

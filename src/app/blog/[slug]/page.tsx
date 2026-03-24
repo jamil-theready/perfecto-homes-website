@@ -8,7 +8,6 @@ import { TEAM } from "@/lib/constants";
 import ContactForm from "@/components/ContactForm";
 import ReadingProgress from "@/components/ReadingProgress";
 import ShareButtons from "@/components/ShareButtons";
-import TeamCTA from "@/components/TeamCTA";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -166,7 +165,7 @@ export default async function BlogPostPage({ params }: Props) {
               })()}
 
               <div
-                className="prose prose-gray max-w-none prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl"
+                className="prose prose-gray max-w-prose prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl"
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
 
@@ -224,8 +223,6 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Cross-Promotion: Notary */}
-      <TeamCTA variant="gina" />
 
       {/* CTA */}
       <section className="bg-light-gray py-12">

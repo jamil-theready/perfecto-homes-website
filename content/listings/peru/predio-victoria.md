@@ -40,4 +40,4 @@ Urubamba sits at the center of the Sacred Valley, making it the ideal base for e
 
 This parcel is zoned for multiple uses. Develop a boutique hotel, eco-lodge, residential community, or agricultural project. The Sacred Valley continues to attract international buyers and tourists, driving strong appreciation in land values.
 
-Contact Perfecto Homes Real Estate at (916) 878-7703 to schedule a consultation about this property.
+Contact Perfecto Homes Real Estate at (916) 878-7260 or perfectohomes@gmail.com to schedule a consultation about this property.

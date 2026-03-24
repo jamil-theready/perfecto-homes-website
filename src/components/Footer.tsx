@@ -7,7 +7,7 @@ export default function Footer() {
     <footer>
       {/* Upper Footer */}
       <div className="bg-dark-gray text-white py-12">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
             {/* Sacramento Listings */}
             <div>
@@ -43,8 +43,8 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Peru</h4>
               <ul className="space-y-2">
-                <li><Link href="/communities/marysville" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo</Link></li>
-                <li><Link href="/communities/windsor" className="text-sm text-gray-300 hover:text-gold transition-colors">Urubamba</Link></li>
+                <li><Link href="/communities/ollantaytambo" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo</Link></li>
+                <li><Link href="/communities/urubamba" className="text-sm text-gray-300 hover:text-gold transition-colors">Urubamba</Link></li>
               </ul>
             </div>
 
@@ -75,7 +75,7 @@ export default function Footer() {
 
       {/* Lower Footer */}
       <div className="bg-dark text-white py-6">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Logo — matches nav */}
             <div className="flex items-center gap-[10px]">
@@ -86,7 +86,7 @@ export default function Footer() {
                 height={21}
                 className="w-[26px] h-[21px]"
               />
-              <span className="text-[13px] font-medium tracking-[0.08em]">
+              <span className="text-[22px] font-semibold tracking-[0.06em]">
                 PERFECTO HOMES
               </span>
             </div>
@@ -129,17 +129,15 @@ export default function Footer() {
           {/* Brokerage + Credit */}
           <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
             <div className="flex items-center gap-2">
-              <Image
+              <img
                 src="/images/logo/lpt-realty-white.jpg"
                 alt="LPT Realty"
-                width={24}
-                height={7}
-                className="rounded opacity-15 w-auto h-auto"
+                style={{ height: "14px", width: "auto" }}
               />
               <p className="text-[10px] text-gray-600">LPT Realty, Inc.</p>
             </div>
-            <a href="https://thereadyconsult.com" target="_blank" rel="noopener noreferrer" className="text-[10px] text-gray-600 hover:text-gold transition-colors">
-              Designed by The Ready Consult
+            <a href="https://thereadyconsult.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-300 hover:text-gold transition-colors">
+              Designed by <span className="text-white font-semibold">The Ready Consult</span>
             </a>
           </div>
         </div>

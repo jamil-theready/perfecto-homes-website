@@ -22,4 +22,12 @@ highlights:
   - "Citrus Heights Location"
 ---
 
-Contact Elisban Gonzales at (916) 878-7703 for details and to schedule a showing.
+Four bedrooms. Three bathrooms. Citrus Heights. Listed at $549,000, this single family home brings serious value to one of Sacramento County's most established neighborhoods.
+
+Citrus Heights is centrally located with quick access to I-80, Highway 50, and all the shopping and dining along Sunrise Boulevard and Greenback Lane. Families choose this area for its mature tree lined streets, solid schools, and strong sense of community. It is a neighborhood where people put down roots and stay.
+
+This home offers four bedrooms, giving you room for the whole family plus a dedicated office or flex space. Three full bathrooms keep things comfortable and convenient, especially for larger households. The floor plan is built around how people actually live, with space to breathe and room to grow.
+
+At $549,000, this price point is increasingly rare for a 4 bed, 3 bath home in the Sacramento metro area. The market in Citrus Heights continues to tighten as demand outpaces supply. This listing is already pending, a clear sign that buyers recognize the value here.
+
+Get in touch with Elisban Gonzales at (916) 878-7703 to explore homes like this one or to start your search in the Citrus Heights area.

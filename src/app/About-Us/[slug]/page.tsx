@@ -82,20 +82,22 @@ export default async function TeamMemberPage({ params }: Props) {
       <section className="bg-light-gray py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {TEAM.filter((m) => m.slug !== slug).map((m) => (
               <Link
                 key={m.slug}
                 href={`/About-Us/${m.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
+                className="group flex items-center gap-4 bg-white rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all"
               >
                 <div
-                  className="aspect-[4/3] bg-gray-200 bg-cover bg-top"
-                  style={{ backgroundImage: `url('${m.image}')` }}
-                />
-                <div className="p-5 flex flex-col">
-                  <h3 className="font-semibold text-dark">{m.name}</h3>
-                  <p className="text-gold text-sm mb-3">{m.role}</p><span className="text-sm font-semibold text-dark group-hover:text-gold transition-colors">View Profile &rarr;</span>
+                  className="w-16 h-16 rounded-full bg-cover bg-top shrink-0 border border-gold/20"
+                  style={{ backgroundImage: `url('${m.image}')`, background: `linear-gradient(135deg, #f5ecd7 0%, #e8d5a0 100%)` }}
+                >
+                  <img src={m.image} alt={m.name} className="w-full h-full rounded-full object-cover object-top" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-dark text-sm group-hover:text-gold transition-colors">{m.name}</h3>
+                  <p className="text-medium-gray text-xs">{m.role}</p>
                 </div>
               </Link>
             ))}

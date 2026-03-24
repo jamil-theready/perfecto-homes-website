@@ -40,7 +40,7 @@ const TEAM_CTA_DATA = {
     description:
       "Loan Officer specializing in first time buyer programs, second homes, and financing solutions regardless of immigration status. Let Alfredo find your pathway to homeownership.",
     cta: "Explore Your Options",
-    phone: "(415) 508-6864",
+    phone: "(916) 878-7260",
     image: "/images/team/alfredo.png",
     accent: "#0e6245",
     accentLight: "#ecfdf5",

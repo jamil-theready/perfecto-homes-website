@@ -11,10 +11,12 @@ propertyType: "Undeveloped Land"
 listingStatus: "Active"
 district: "Urubamba"
 location: "Urubamba, Cusco, Peru"
-image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/1"
-image2: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/4"
-image3: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/5"
-image4: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/2"
+image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/aerial"
+image2: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/1"
+image3: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/4"
+image4: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/5"
+image5: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/2"
+youtubeVideo: "6A7fmq0DfCU"
 ---
 
 ## Prime Investment Land in Urubamba, Sacred Valley
@@ -37,4 +39,4 @@ Urubamba sits at the center of the Sacred Valley, making it the ideal base for e
 
 This parcel is zoned for multiple uses. Develop a boutique hotel, eco-lodge, residential community, or agricultural project. The Sacred Valley continues to attract international buyers and tourists, driving strong appreciation in land values.
 
-Contact Perfecto Homes Real Estate at (916) 878-7703 to schedule a consultation about this property.
+Contact Perfecto Homes Real Estate at (916) 878-7260 or perfectohomes@gmail.com to schedule a consultation about this property.
