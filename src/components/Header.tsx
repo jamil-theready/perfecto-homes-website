@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { COMMUNITIES, TEAM, PERU_LISTINGS, SOCIAL_LINKS } from "@/lib/constants";
@@ -8,19 +8,7 @@ import { COMMUNITIES, TEAM, PERU_LISTINGS, SOCIAL_LINKS } from "@/lib/constants"
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const closeDropdown = useCallback(() => setOpenDropdown(null), []);
-
-  const textColor = "text-dark";
-  const hoverColor = "hover:text-gold";
 
   return (
     <>
@@ -77,9 +65,7 @@ export default function Header() {
 
               <Link
                 href="/Contact-Us"
-                className={`rounded-[10px] px-5 py-[14px] text-[14px] font-medium font-[family-name:var(--font-lato)] tracking-[0.02em] transition-all duration-300 flex items-center gap-2 ${
-                  "bg-gold text-white hover:bg-gold-dark"
-                }`}
+                className="rounded-[10px] px-5 py-[14px] text-[14px] font-medium font-[family-name:var(--font-lato)] tracking-[0.02em] transition-all duration-300 flex items-center gap-2 bg-gold text-white hover:bg-gold-dark"
                 onMouseEnter={closeDropdown}
                 onClick={closeDropdown}
               >
@@ -96,13 +82,13 @@ export default function Header() {
             >
               <div className="w-6 flex flex-col gap-1.5">
                 <span
-                  className={`block h-0.5 transition-transform ${"bg-dark"} ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
+                  className={`block h-0.5 transition-transform bg-dark ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
                 />
                 <span
-                  className={`block h-0.5 transition-opacity ${"bg-dark"} ${mobileOpen ? "opacity-0" : ""}`}
+                  className={`block h-0.5 transition-opacity bg-dark ${mobileOpen ? "opacity-0" : ""}`}
                 />
                 <span
-                  className={`block h-0.5 transition-transform ${"bg-dark"} ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                  className={`block h-0.5 transition-transform bg-dark ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
                 />
               </div>
             </button>
@@ -174,7 +160,6 @@ export default function Header() {
                     <div>
                       <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Sacramento</p>
                       <div className="space-y-1">
-                        <Link href="/listings/9896-sunray-pl" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>9896 Sunray Pl</Link>
                         <Link href="/listings/11610-vickie-dr" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>11610 Vickie Dr</Link>
                         <Link href="/listings/6630-dunmore-ave" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>6630 Dunmore Ave</Link>
                         <Link href="/listings/2560-wright-st" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>2560 Wright St</Link>
@@ -213,7 +198,7 @@ export default function Header() {
                       <p className="text-xs text-medium-gray">Articles and guides</p>
                     </div>
                   </Link>
-                  <Link href="/blog" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
+                  <Link href="/events" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
                     <div>
                       <p className="text-[14px] font-semibold text-dark group-hover/card:text-gold transition-colors">Events</p>
                       <p className="text-xs text-medium-gray">Upcoming events</p>
