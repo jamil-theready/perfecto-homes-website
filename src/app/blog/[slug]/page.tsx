@@ -19,9 +19,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getItemBySlug("blog", slug);
   if (!post) return {};
+  const title = post.title as string;
+  const description = (post.metaDescription as string) || (post.excerpt as string) || `${title} - Perfecto Homes Real Estate Blog`;
+  const ogImage = post.image
+    ? [{ url: post.image as string, width: 1200, height: 630, alt: title }]
+    : undefined;
   return {
-    title: post.title as string,
-    description: (post.metaDescription as string) || (post.excerpt as string) || `${post.title} - Perfecto Homes Real Estate Blog`,
+    title,
+    description,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.perfectohomesrealestate.com/blog/${slug}`,
+      type: "article",
+      siteName: "Perfecto Homes Real Estate",
+      images: ogImage,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ogImage,
+    },
   };
 }
 
