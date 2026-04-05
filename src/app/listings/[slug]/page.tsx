@@ -302,7 +302,7 @@ export default async function ListingDetailPage({ params }: Props) {
             <h2 className="text-xl font-serif font-bold text-dark mb-4">Location</h2>
             <div className="rounded-xl overflow-hidden h-[400px]">
               <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""}&q=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -332,25 +332,36 @@ export default async function ListingDetailPage({ params }: Props) {
           return (
             <section className="bg-light-gray py-16 border-t border-gray-100">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl">
-                  <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">About the Area</p>
-                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-6">
-                    Living in {cityName}
-                  </h2>
-                  <div className="text-medium-gray leading-relaxed space-y-4 mb-8">
-                    {paragraphs.split("\n\n").map((p: string, i: number) => (
-                      <p key={i}>{p.replace(/^#+\s+.+$/gm, "").trim()}</p>
-                    ))}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                  <div>
+                    <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">About the Area</p>
+                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-6">
+                      Living in {cityName}
+                    </h2>
+                    <div className="text-medium-gray leading-relaxed space-y-4 mb-8">
+                      {paragraphs.split("\n\n").map((p: string, i: number) => (
+                        <p key={i}>{p.replace(/^#+\s+.+$/gm, "").trim()}</p>
+                      ))}
+                    </div>
+                    <Link
+                      href={`/communities/${citySlug}`}
+                      className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-300"
+                    >
+                      Explore {cityName}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
-                  <Link
-                    href={`/communities/${citySlug}`}
-                    className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-300"
-                  >
-                    Explore {cityName}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                    <Image
+                      src={`/images/communities/${citySlug}.jpg`}
+                      alt={`${cityName} community`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
