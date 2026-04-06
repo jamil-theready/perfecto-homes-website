@@ -62,7 +62,7 @@ export const TEAM = [
       { title: "Studied law & political science at the National University of San Antonio Abad Cusco, Peru", year: "1997" },
     ],
     listingsUrl: "https://www.metrolistmls.com/agent/gina-gonzalez",
-    notaryUrl: "https://www.ginanotary.com",
+    notaryUrl: "https://ginagonzaleznotary.com",
     socialLinks: {
       facebook: "https://www.facebook.com/gina.gonzalez.realtor",
       instagram: "https://www.instagram.com/gina.gonzalez.realtor/",
