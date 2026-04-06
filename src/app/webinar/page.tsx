@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Script from "next/script";
+import WebinarEmbed from "./WebinarEmbed";
 
 export const metadata: Metadata = {
   title: "Free Webinar: How to Buy a Home in Northern California | Perfecto Homes",
@@ -98,10 +98,7 @@ export default function WebinarPage() {
                 Get a Clear Plan.
               </h2>
               <p className="text-lg text-dark mb-6">Join the Free Webinar.</p>
-              <div
-                className="wj-embed-wrapper"
-                data-webinar-hash="g8o8w6i6"
-              />
+              <WebinarEmbed />
             </div>
           </div>
         </div>
@@ -249,11 +246,6 @@ export default function WebinarPage() {
         </div>
       </section>
 
-      {/* WebinarJam Script */}
-      <Script
-        src="https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"
-        strategy="lazyOnload"
-      />
     </>
   );
 }
