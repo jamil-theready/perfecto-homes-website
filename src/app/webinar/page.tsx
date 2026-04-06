@@ -251,7 +251,7 @@ export default function WebinarPage() {
 
       {/* WebinarJam Script */}
       <Script
-        src="https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%23074c6e&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"
+        src="https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"
         strategy="lazyOnload"
       />
     </>
