@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { TEAM, PHONE } from "@/lib/constants";
+import { getCollection } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -31,6 +32,14 @@ export default async function TeamMemberPage({ params }: Props) {
   const hasListings = "listingsUrl" in member;
   const hasNotary = "notaryUrl" in member;
   const hasSocialLinks = "socialLinks" in member;
+  const hasPeruListings = "peruListings" in member && (member as any).peruListings === true;
+
+  // Get listings for this team member
+  const agentSlug = member.slug.split("-")[0]; // "elisban", "gina", etc.
+  const sacramentoListings = getCollection("listings/sacramento").filter(
+    (l) => l.agent === agentSlug
+  );
+  const peruListings = hasPeruListings ? getCollection("peru") : [];
 
   const fullBio = hasFullBio ? (member as any).fullBio as string[] : [];
   const dre = hasDre ? (member as any).dre as { corp: string; individual: string } : null;
@@ -169,8 +178,90 @@ export default async function TeamMemberPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Listings Section */}
+      {(sacramentoListings.length > 0 || peruListings.length > 0) && (
+        <section className="bg-light-gray py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-serif font-bold text-dark mb-2">
+              {hasPeruListings ? "Peru Listings" : `${member.name.split(" ")[0]}'s Listings`}
+            </h2>
+            <p className="text-medium-gray text-sm mb-8">
+              {hasPeruListings
+                ? "Investment properties in Peru's Sacred Valley"
+                : "Current and recent properties"}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {sacramentoListings.map((listing) => (
+                <Link
+                  key={listing.slug}
+                  href={`/listings/${listing.slug}`}
+                  className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={listing.featuredImage || listing.image1}
+                      alt={listing.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    {listing.status && (
+                      <span className="absolute top-3 left-3 bg-gold text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
+                        {listing.status}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <p className="font-semibold text-dark text-sm group-hover:text-gold transition-colors">{listing.title}</p>
+                    <p className="text-medium-gray text-xs mt-1">{listing.city}, {listing.state} {listing.zip}</p>
+                    <div className="flex items-center justify-between mt-3">
+                      <span className="text-gold font-bold text-sm">{listing.price}</span>
+                      {listing.beds && (
+                        <span className="text-xs text-medium-gray">{listing.beds} bd / {listing.baths} ba</span>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+              {peruListings.map((listing) => (
+                <Link
+                  key={listing.slug}
+                  href={`/peru/${listing.slug}`}
+                  className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={listing.image1}
+                      alt={listing.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    {listing.listingStatus && (
+                      <span className="absolute top-3 left-3 bg-gold text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
+                        {listing.listingStatus}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <p className="font-semibold text-dark text-sm group-hover:text-gold transition-colors">{listing.title}</p>
+                    <p className="text-medium-gray text-xs mt-1">{listing.city}</p>
+                    <div className="flex items-center justify-between mt-3">
+                      <span className="text-gold font-bold text-sm">{listing.price}</span>
+                      {listing.propertyType && (
+                        <span className="text-xs text-medium-gray">{listing.propertyType}</span>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Other Team Members */}
-      <section className="bg-light-gray py-16">
+      <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
