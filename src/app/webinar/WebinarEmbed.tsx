@@ -2,6 +2,12 @@
 
 import { useEffect, useRef } from "react";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 export default function WebinarEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -24,6 +30,41 @@ export default function WebinarEmbed() {
 
     wrapper.appendChild(script);
     containerRef.current.appendChild(wrapper);
+
+    // Watch for WebinarJam form to appear, then attach Lead event
+    const observer = new MutationObserver(() => {
+      const form = containerRef.current?.querySelector("form");
+      if (form && !form.dataset.pixelAttached) {
+        form.dataset.pixelAttached = "true";
+        form.addEventListener("submit", () => {
+          if (window.fbq) {
+            window.fbq("track", "Lead");
+          }
+        });
+      }
+
+      // Also catch button clicks in case form submit doesn't bubble
+      const buttons = containerRef.current?.querySelectorAll(
+        'button[type="submit"], input[type="submit"], .wj-embed-button'
+      );
+      buttons?.forEach((btn) => {
+        if (!(btn as HTMLElement).dataset.pixelAttached) {
+          (btn as HTMLElement).dataset.pixelAttached = "true";
+          btn.addEventListener("click", () => {
+            if (window.fbq) {
+              window.fbq("track", "Lead");
+            }
+          });
+        }
+      });
+    });
+
+    observer.observe(containerRef.current, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return <div ref={containerRef} />;
