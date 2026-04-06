@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import { PHONE, PHONE_TEL, EMAIL, TEAM } from "@/lib/constants";
 import { PropertyJsonLd } from "@/components/JsonLd";
 import ImageGallery from "@/app/listings/[slug]/ImageGallery";
+import InquiryForm from "@/components/InquiryForm";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,9 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getItemBySlug("peru", slug);
   if (!item) return {};
   const seo = PERU_SEO[slug];
+  const title = seo?.title || (item.metaTitle as string) || (item.title as string);
+  const ogImage = item.image1 as string | undefined;
   return {
-    title: seo?.title || (item.metaTitle as string) || (item.title as string),
+    title,
     description: seo?.description || (item.metaDescription as string) || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`,
+    alternates: { canonical: `/peru/${slug}` },
+    openGraph: {
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: title }] : undefined,
+    },
   };
 }
 
@@ -167,7 +175,7 @@ export default async function PeruListingPage({ params }: Props) {
                     <p className="text-xs text-medium-gray uppercase tracking-wider mb-3">Listed By</p>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gold/20" style={{ background: "linear-gradient(135deg, #f5ecd7 0%, #e8d5a0 100%)" }}>
-                        <img src={currentAgent.image} alt={currentAgent.name} className="w-full h-full object-cover object-top" />
+                        <Image src={currentAgent.image} alt={currentAgent.name} fill className="object-cover object-top" sizes="48px" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-dark text-base">{currentAgent.name}</h3>
@@ -194,18 +202,7 @@ export default async function PeruListingPage({ params }: Props) {
                   {/* Inquiry Form */}
                   <div className="bg-white rounded-2xl p-6 border border-gray-100">
                     <p className="text-xs text-medium-gray uppercase tracking-wider mb-3">Inquire About This Property</p>
-                    <form name={`inquiry-${slug}`} method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
-                      <input type="hidden" name="form-name" value={`inquiry-${slug}`} />
-                      <input type="hidden" name="property" value={item.title as string} />
-                      <p className="hidden"><label>Don&apos;t fill: <input name="bot-field" /></label></p>
-                      <input type="text" name="name" required placeholder="First and Last Name" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-2" />
-                      <input type="email" name="email" required placeholder="your@email.com" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-2" />
-                      <input type="tel" name="phone" placeholder="(916) 878-7260" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-2" />
-                      <textarea name="message" rows={2} placeholder="Tell us about your interest in this property" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-3 resize-none" />
-                      <button type="submit" className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-2.5 rounded-lg transition-colors text-sm">
-                        Send Inquiry
-                      </button>
-                    </form>
+                    <InquiryForm propertyTitle={item.title as string} slug={slug} />
                   </div>
 
                   {/* Share */}
@@ -238,7 +235,7 @@ export default async function PeruListingPage({ params }: Props) {
             <h2 className="text-xl font-serif font-bold text-dark mb-4">Location</h2>
             <div className="rounded-xl overflow-hidden h-[400px]">
               <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(address)}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""}&q=${encodeURIComponent(address)}`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -266,7 +263,7 @@ export default async function PeruListingPage({ params }: Props) {
                       className="group flex flex-col bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
                     >
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        <img src={img} alt={`${l.title} - Peru property`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <Image src={img} alt={`${l.title} - Peru property`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, 33vw" />
                         <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent pt-10 pb-3 px-4">
                           <p className="text-white text-xl font-bold tracking-tight">{l.price as string}</p>
                         </div>

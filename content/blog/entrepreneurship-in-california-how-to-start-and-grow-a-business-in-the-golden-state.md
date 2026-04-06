@@ -1,5 +1,6 @@
 ---
 title: "Entrepreneurship in California: How to Start and Grow a Business in the Golden State"
+date: "2026-03-01"
 slug: "entrepreneurship-in-california-how-to-start-and-grow-a-business-in-the-golden-state"
 metaDescription: "Learn how to start and grow a business in California. Explore key steps, resources, and tips for entrepreneurship in the Golden State to achieve success in one of the most dynamic economies in the U.S."
 category: "News"

@@ -114,7 +114,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mt-6 pt-4 border-t border-gray-700">
             <p className="text-xs text-gray-400">
-              &copy; Perfecto Homes - All rights reserved
+              &copy; {new Date().getFullYear()} Perfecto Homes - All rights reserved
             </p>
             <div className="flex gap-4">
               <Link href="/privacy-policy" className="text-xs text-gray-400 hover:text-gold transition-colors">

@@ -4,8 +4,8 @@ export function OrganizationJsonLd() {
     "@type": "RealEstateAgent",
     name: "Perfecto Homes Real Estate",
     url: "https://www.perfectohomesrealestate.com",
-    telephone: "+19168787703",
-    email: "elisban.gonzales@gmail.com",
+    telephone: "+19168787260",
+    email: "perfectohomes@gmail.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Sacramento",

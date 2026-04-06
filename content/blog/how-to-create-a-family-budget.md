@@ -1,5 +1,6 @@
 ---
 title: "How to Create a Family Budget"
+date: "2026-03-01"
 slug: "how-to-create-a-family-budget"
 metaDescription: "Learn how to create a family budget to manage expenses, reduce debt, and save for future goals. Discover practical tips for tracking income, cutting unnecessary costs, and achieving financial stability, even in times of inflation."
 category: "News"

@@ -1,5 +1,6 @@
 ---
 title: "Types Of Inspections When Buying A Home"
+date: "2026-03-01"
 slug: "types-of-inspections-when-buying-a-home"
 metaDescription: "Learn about the essential types of home inspections when buying a house, from standard inspections to specialized ones like radon testing, termite checks, mold assessments, and foundation inspections."
 category: "News"

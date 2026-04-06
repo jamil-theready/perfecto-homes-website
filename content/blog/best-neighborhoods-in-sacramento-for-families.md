@@ -1,5 +1,6 @@
 ---
 title: "Best Neighborhoods in Sacramento for Families"
+date: "2026-03-01"
 slug: "best-neighborhoods-in-sacramento-for-families"
 metaDescription: "Discover the best affordable neighborhoods in Sacramento for families. From Elk Grove to Folsom, find the right community with Perfecto Homes."
 category: "Sacramento"

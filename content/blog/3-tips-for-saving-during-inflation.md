@@ -1,5 +1,6 @@
 ---
 title: "3 Tips to Save During Times of Inflation"
+date: "2026-03-01"
 slug: "3-tips-for-saving-during-inflation"
 metaDescription: "Learn 3 practical tips to save money during inflation, including smart budgeting, prioritizing essentials, and cutting unnecessary expenses. Stay financially secure even in uncertain times!"
 category: "News"

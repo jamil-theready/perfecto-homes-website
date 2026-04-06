@@ -1,5 +1,6 @@
 ---
 title: "Requirements to Buy a House in California: Tips for First-Time Buyers"
+date: "2026-03-01"
 slug: "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers"
 metaTitle: "Down Payment Guide Explaining Requirements to Buy a House in California"
 metaDescription: "Learn the requirements to buy a house in California, including the average down payment. Get expert tips to prepare for homeownership in the Golden State."

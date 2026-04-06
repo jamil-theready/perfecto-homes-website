@@ -1,5 +1,6 @@
 ---
 title: "Real Estate Investing for Beginners: How to Get Started"
+date: "2026-03-01"
 slug: "real-estate-investing-for-beginners-how-to-get-started"
 metaTitle: "Real Estate Investing for Beginners | Property Investment Tips & Advice"
 metaDescription: "Explore real estate investing for beginners with expert advice, property investment tips, and strategies for buyers. Start building your portfolio today!"

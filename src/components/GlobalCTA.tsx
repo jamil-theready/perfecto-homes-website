@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PHONE, PHONE_TEL, EMAIL } from "@/lib/constants";
+import GlobalCTAForm from "./GlobalCTAForm";
 
 export default function GlobalCTA() {
   return (
@@ -45,41 +46,7 @@ export default function GlobalCTA() {
           </div>
 
           {/* Right — Contact Form */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
-            <form name="global-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
-              <input type="hidden" name="form-name" value="global-contact" />
-              <p className="hidden"><label>Don&apos;t fill this out: <input name="bot-field" /></label></p>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-xs font-medium text-medium-gray mb-1">First Name</label>
-                  <input type="text" name="first-name" required placeholder="First" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-medium-gray mb-1">Last Name</label>
-                  <input type="text" name="last-name" required placeholder="Last" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="block text-xs font-medium text-medium-gray mb-1">Email</label>
-                <input type="email" name="email" required placeholder="you@email.com" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
-              </div>
-              <div className="mb-4">
-                <label className="block text-xs font-medium text-medium-gray mb-1">Phone Number</label>
-                <input type="tel" name="phone" placeholder="(916) 878-7260" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
-              </div>
-              <div className="mb-5">
-                <label className="block text-xs font-medium text-medium-gray mb-1">Message</label>
-                <textarea name="message" rows={3} placeholder="Write us a message!" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm resize-none" />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-dark hover:bg-dark/80 text-white font-semibold py-3 rounded-lg transition-colors text-sm"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+          <GlobalCTAForm />
         </div>
       </div>
     </section>

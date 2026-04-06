@@ -29,7 +29,27 @@ export const TEAM = [
     phone: "(415) 948-9967",
     phoneTel: "+14159489967",
     email: "gina.gonzalez.realtor@gmail.com",
-    bio: "Meet Gina, a trusted real estate agent and certified Notary Public serving the Sacramento area. With expertise in buying, selling, and notarizing, Gina is committed to helping clients achieve their property goals and ensuring smooth transactions.",
+    bio: "Greetings, My name is Gina Gonzalez. I've been a realtor for over 12 years and proudly serving the Greater Sacramento Area.",
+    fullBio: [
+      "I am a bilingual Realtor dedicated to providing comprehensive assistance in real estate matters. With a legal background from a prestigious Law School in Peru and experience as a Legal Advisor for various institutions, including the Peruvian Local Government, I bring a wealth of knowledge and expertise to my clients.",
+      "Since relocating to Roseville, Placer County, California in 2002, I have cultivated a successful career in Real Estate Sales with LPT Realty, specializing in single-family homes and income properties across Sacramento Valley, including Placer, El Dorado, Yolo, Solano counties, and surrounding areas.",
+      "Committed to client satisfaction, I prioritize achieving results and delivering exceptional service, with 95% of my business stemming from referrals. Whether you are buying or selling, I am here to guide you through the process.",
+    ],
+    dre: { corp: "02244983", individual: "01907011" },
+    background: [
+      { title: "Realtor with LPT Realty", year: "2024-now" },
+      { title: "Started Real Estate Career", year: "2006" },
+      { title: "Legal Mediator/Conciliator with Justice Department of Peru", year: "2000" },
+      { title: "Legal Advisor for the Regional Government of Apurimac", year: "1998" },
+      { title: "Legal Advisor for the internal office of UNSAAC", year: "1998" },
+      { title: "Studied law & political science at the National University of San Antonio Abad Cusco, Peru", year: "1997" },
+    ],
+    listingsUrl: "https://www.metrolistmls.com/agent/gina-gonzalez",
+    notaryUrl: "https://www.ginanotary.com",
+    socialLinks: {
+      facebook: "https://www.facebook.com/gina.gonzalez.realtor",
+      instagram: "https://www.instagram.com/gina.gonzalez.realtor/",
+    },
     image: "/images/team/gina.png",
   },
   {

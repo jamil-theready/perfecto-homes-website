@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 export default function ContactForm({ className = "" }: { className?: string }) {
   const [submitted, setSubmitted] = useState(false);

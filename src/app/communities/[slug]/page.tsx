@@ -62,7 +62,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = seo?.title || (cmsItem?.title as string) || `${community?.name || slug} Real Estate`;
   const description = seo?.description || (cmsItem?.metaDescription as string) || `Explore real estate in ${community?.name || slug}. Homes for sale, market info, and community highlights from Perfecto Homes.`;
-  return { title, description };
+  const ogImage = community?.image || (cmsItem?.image as string) || `/images/communities/${slug}.jpg`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/communities/${slug}` },
+    openGraph: {
+      title,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${community?.name || slug} real estate` }],
+    },
+  };
 }
 
 export default async function CommunityPage({ params }: Props) {

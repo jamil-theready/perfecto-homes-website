@@ -1,5 +1,6 @@
 ---
 title: "Expert Advice on How to Purchase a Home in Foreclosure"
+date: "2026-03-01"
 slug: "expert-advice-on-how-to-purchase-a-home-in-foreclosure"
 metaTitle: "How to Purchase a Home in Foreclosure | Expert Tips & Strategies"
 metaDescription: "Learn how to purchase a home in foreclosure with expert tips and strategies. Navigate the process confidently and find great opportunities in real estate."

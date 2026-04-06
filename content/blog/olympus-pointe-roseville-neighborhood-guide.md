@@ -1,5 +1,6 @@
 ---
 title: "Olympus Pointe Roseville: A Neighborhood Guide"
+date: "2026-03-01"
 slug: "olympus-pointe-roseville-neighborhood-guide"
 metaDescription: "Explore Olympus Pointe in Roseville, CA. Learn about homes for sale, schools, HOA details, parks, and what makes this master planned community a top choice."
 category: "Sacramento"

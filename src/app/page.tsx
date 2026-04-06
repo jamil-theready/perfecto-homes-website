@@ -10,6 +10,7 @@ import {
   PERU_LISTINGS,
 } from "@/lib/constants";
 import ContactForm from "@/components/ContactForm";
+import NewsletterForm from "@/components/NewsletterForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollRevealText from "@/components/ScrollRevealText";
 
@@ -328,30 +329,7 @@ export default function HomePage() {
                   Subscribe to our newsletter and receive updates on new
                   listings, events, news, and more.
                 </p>
-                <form
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
-                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-                >
-                  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-                  <input type="hidden" name="subject" value="New Newsletter Subscriber — Perfecto Homes" />
-                  <input type="hidden" name="from_name" value="Perfecto Homes Website" />
-                  <input type="hidden" name="redirect" value="https://www.perfectohomesrealestate.com/thank-you" />
-                  <input type="checkbox" name="botcheck" className="hidden" />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@email.com"
-                    className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-500 text-sm focus:border-gold transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm whitespace-nowrap"
-                  >
-                    Subscribe
-                  </button>
-                </form>
+                <NewsletterForm />
               </div>
             </div>
           </ScrollReveal>
