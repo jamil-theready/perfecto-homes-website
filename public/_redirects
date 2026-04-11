@@ -1,8 +1,5 @@
-# Netlify redirects for SEO migration from Framer
+# Cloudflare Pages redirects for SEO migration from Framer
 # Preserving all existing URL patterns
-
-# Webinar redirect
-/webinar  https://us06web.zoom.us/webinar/register/WN_SEelabLqSzCBZK1o1fFUWg  302
 
 # Old Framer CMS paths to new paths (if any changed)
 # /peru/*  /peru/:splat  301
