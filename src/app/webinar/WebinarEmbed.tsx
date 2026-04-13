@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { useEffect, useRef } from "react";
 
 declare global {
@@ -14,19 +15,7 @@ export default function WebinarEmbed() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Inject the script after the wrapper div is in the DOM
-    const script = document.createElement("script");
-    script.src =
-      "https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1";
-    script.async = true;
-
-    // Append script inside the wrapper div so WebinarJam finds its parent
-    const wrapper = containerRef.current.querySelector(".wj-embed-wrapper");
-    if (wrapper) {
-      wrapper.appendChild(script);
-    }
-
-    // Watch for WebinarJam form to appear, then attach Lead event
+    // Watch for WebinarJam form/iframe to appear, then attach Lead event
     const observer = new MutationObserver(() => {
       const form = containerRef.current?.querySelector("form");
       if (form && !form.dataset.pixelAttached) {
@@ -63,7 +52,12 @@ export default function WebinarEmbed() {
 
   return (
     <div ref={containerRef}>
-      <div className="wj-embed-wrapper" data-webinar-hash="g8o8w6i6" />
+      <div className="wj-embed-wrapper" data-webinar-hash="g8o8w6i6">
+        <Script
+          src="https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"
+          strategy="afterInteractive"
+        />
+      </div>
     </div>
   );
 }
