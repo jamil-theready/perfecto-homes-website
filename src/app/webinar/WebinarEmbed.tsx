@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect, useRef } from "react";
 
 declare global {
@@ -15,22 +14,40 @@ export default function WebinarEmbed() {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    const wrapper = containerRef.current;
+
+    // Inject the exact HTML WebinarJam expects: script inside .wj-embed-wrapper
+    wrapper.innerHTML =
+      '<div class="wj-embed-wrapper" data-webinar-hash="g8o8w6i6"></div>';
+
+    const wjDiv = wrapper.querySelector(".wj-embed-wrapper");
+    if (!wjDiv) return;
+
+    const script = document.createElement("script");
+    script.src =
+      "https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1";
+    // Use synchronous loading so the script finds the wrapper immediately
+    script.async = false;
+    wjDiv.appendChild(script);
+
     // Watch for WebinarJam form/iframe to appear, then attach Lead event
     const observer = new MutationObserver(() => {
-      const form = containerRef.current?.querySelector("form");
-      if (form && !form.dataset.pixelAttached) {
-        form.dataset.pixelAttached = "true";
-        form.addEventListener("submit", () => {
-          if (window.fbq) {
-            window.fbq("track", "Lead");
-          }
-        });
-      }
+      const iframes = wrapper.querySelectorAll("iframe");
+      iframes.forEach((iframe) => {
+        if (!iframe.dataset.pixelAttached) {
+          iframe.dataset.pixelAttached = "true";
+          iframe.addEventListener("load", () => {
+            if (window.fbq) {
+              window.fbq("track", "Lead");
+            }
+          });
+        }
+      });
 
-      const buttons = containerRef.current?.querySelectorAll(
+      const buttons = wrapper.querySelectorAll(
         'button[type="submit"], input[type="submit"], .wj-embed-button'
       );
-      buttons?.forEach((btn) => {
+      buttons.forEach((btn) => {
         if (!(btn as HTMLElement).dataset.pixelAttached) {
           (btn as HTMLElement).dataset.pixelAttached = "true";
           btn.addEventListener("click", () => {
@@ -42,7 +59,7 @@ export default function WebinarEmbed() {
       });
     });
 
-    observer.observe(containerRef.current, {
+    observer.observe(wrapper, {
       childList: true,
       subtree: true,
     });
@@ -50,14 +67,5 @@ export default function WebinarEmbed() {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <div ref={containerRef}>
-      <div className="wj-embed-wrapper" data-webinar-hash="g8o8w6i6">
-        <Script
-          src="https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"
-          strategy="afterInteractive"
-        />
-      </div>
-    </div>
-  );
+  return <div ref={containerRef} style={{ minHeight: 400 }} />;
 }
