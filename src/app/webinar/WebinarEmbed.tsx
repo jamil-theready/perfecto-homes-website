@@ -14,22 +14,17 @@ export default function WebinarEmbed() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Clear any previous content
-    containerRef.current.innerHTML = "";
-
-    // Create the wrapper div WebinarJam expects
-    const wrapper = document.createElement("div");
-    wrapper.className = "wj-embed-wrapper";
-    wrapper.setAttribute("data-webinar-hash", "g8o8w6i6");
-
-    // Inject the script inside the wrapper (how WebinarJam expects it)
+    // Inject the script after the wrapper div is in the DOM
     const script = document.createElement("script");
     script.src =
       "https://event.webinarjam.com/register/g8o8w6i6/embed-form?formButtonText=Register&formAccentColor=%2329b6f6&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1";
     script.async = true;
 
-    wrapper.appendChild(script);
-    containerRef.current.appendChild(wrapper);
+    // Append script inside the wrapper div so WebinarJam finds its parent
+    const wrapper = containerRef.current.querySelector(".wj-embed-wrapper");
+    if (wrapper) {
+      wrapper.appendChild(script);
+    }
 
     // Watch for WebinarJam form to appear, then attach Lead event
     const observer = new MutationObserver(() => {
@@ -43,7 +38,6 @@ export default function WebinarEmbed() {
         });
       }
 
-      // Also catch button clicks in case form submit doesn't bubble
       const buttons = containerRef.current?.querySelectorAll(
         'button[type="submit"], input[type="submit"], .wj-embed-button'
       );
@@ -67,5 +61,9 @@ export default function WebinarEmbed() {
     return () => observer.disconnect();
   }, []);
 
-  return <div ref={containerRef} />;
+  return (
+    <div ref={containerRef}>
+      <div className="wj-embed-wrapper" data-webinar-hash="g8o8w6i6" />
+    </div>
+  );
 }

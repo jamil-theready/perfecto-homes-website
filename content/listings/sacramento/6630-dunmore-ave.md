@@ -15,7 +15,17 @@ propertyType: "Single Family"
 beds: 4
 baths: 3
 agent: "elisban"
-featuredImage: "https://mlsimages.salecore.com/i/feed_3/Property/561049000"
+featuredImage: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1"
+image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1"
+image2: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/2"
+image3: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/3"
+image4: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/4"
+image5: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/5"
+image6: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/6"
+image7: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/7"
+image8: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/8"
+image9: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/9"
+image10: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/10"
 highlights:
   - "4 Bedrooms"
   - "3 Bathrooms"

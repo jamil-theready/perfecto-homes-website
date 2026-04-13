@@ -57,8 +57,8 @@ export default async function ListingDetailPage({ params }: Props) {
       if (!images.includes(img)) images.push(img);
     });
   }
-  // Check for image1-image10 fields as fallback
-  for (let i = 1; i <= 10; i++) {
+  // Check for image1-image20 fields as fallback
+  for (let i = 1; i <= 20; i++) {
     const img = item[`image${i}`] as string | undefined;
     if (img && !images.includes(img)) images.push(img);
   }
