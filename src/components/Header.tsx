@@ -64,7 +64,7 @@ export default function Header() {
               />
 
               <Link
-                href="/Contact-Us"
+                href="/contact"
                 className="rounded-[10px] px-5 py-[14px] text-[14px] font-medium font-[family-name:var(--font-lato)] tracking-[0.02em] transition-all duration-300 flex items-center gap-2 bg-gold text-white hover:bg-gold-dark"
                 onMouseEnter={closeDropdown}
                 onClick={closeDropdown}
@@ -228,12 +228,12 @@ export default function Header() {
               {/* About Us Panel */}
               {openDropdown === "about" && (
                 <div>
-                  <Link href="/About-Us/elisban-gonzales" className="text-[13px] text-gold font-semibold hover:underline mb-4 inline-block" onClick={closeDropdown}>About Perfecto Homes &rarr;</Link>
+                  <Link href="/about/elisban-gonzales" className="text-[13px] text-gold font-semibold hover:underline mb-4 inline-block" onClick={closeDropdown}>About Perfecto Homes &rarr;</Link>
                   <div className="grid grid-cols-4 gap-4">
                     {TEAM.map((m) => (
                       <Link
                         key={m.slug}
-                        href={`/About-Us/${m.slug}`}
+                        href={`/about/${m.slug}`}
                         className="group/card flex items-center gap-4 rounded-xl p-4 hover:bg-light-gray transition-colors"
                         onClick={closeDropdown}
                       >
@@ -322,12 +322,12 @@ export default function Header() {
           </MobileSection>
 
           {/* About Us — with agent photos */}
-          <MobileSection title="About Us" href="/About-Us/elisban-gonzales">
+          <MobileSection title="About Us" href="/about/elisban-gonzales">
             <div className="space-y-1 pt-1">
               {TEAM.map((m) => (
                 <Link
                   key={m.slug}
-                  href={`/About-Us/${m.slug}`}
+                  href={`/about/${m.slug}`}
                   className="flex items-center gap-3 py-2 pl-2 rounded-lg hover:bg-light-gray transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -365,7 +365,7 @@ export default function Header() {
         {/* Panel Footer — fixed at bottom */}
         <div className="flex-shrink-0 px-6 pt-5 pb-8 border-t border-gray-100 space-y-3">
           <Link
-            href="/Contact-Us"
+            href="/contact"
             className="block text-center bg-gold text-white rounded-lg px-5 py-3.5 text-sm font-semibold hover:bg-gold-dark transition-colors"
             onClick={() => setMobileOpen(false)}
           >

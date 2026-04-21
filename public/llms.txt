@@ -23,8 +23,8 @@
 - [Blog](https://www.perfectohomesrealestate.com/blog) Real estate guides, market reports, and buying tips
 - [Peru Listings](https://www.perfectohomesrealestate.com/peru/predio-victoria) Investment properties in Sacred Valley
 - [Communities](https://www.perfectohomesrealestate.com/communities/communities) Sacramento neighborhood guides
-- [Contact](https://www.perfectohomesrealestate.com/Contact-Us) Get in touch with our team
-- [About](https://www.perfectohomesrealestate.com/About-Us/elisban-gonzales) Meet the team
+- [Contact](https://www.perfectohomesrealestate.com/contact) Get in touch with our team
+- [About](https://www.perfectohomesrealestate.com/about/elisban-gonzales) Meet the team
 
 ## Services
 - Residential home buying and selling in Sacramento

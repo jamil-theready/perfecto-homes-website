@@ -63,8 +63,8 @@ npm run dev
 - `/blog/[slug]` - Individual blog posts (9 generic posts exist)
 - `/peru/[slug]` - Peru listing pages (3 listings)
 - `/communities/[slug]` - Sacramento community pages (9 neighborhoods)
-- `/About-Us/[slug]` - Team member profiles (4 members)
-- `/Contact-Us` - Contact form (Netlify Forms)
+- `/about/[slug]` - Team member profiles (4 members)
+- `/contact` - Contact form (Web3Forms)
 - `/events` - Events page
 - `/privacy-policy` - Privacy policy
 - `/terms` - Terms of service

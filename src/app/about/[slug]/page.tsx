@@ -157,7 +157,7 @@ export default async function TeamMemberPage({ params }: Props) {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href="/Contact-Us"
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
                 >
                   Contact {member.name.split(" ")[0]}
@@ -394,7 +394,7 @@ export default async function TeamMemberPage({ params }: Props) {
             {TEAM.filter((m) => m.slug !== slug).map((m) => (
               <Link
                 key={m.slug}
-                href={`/About-Us/${m.slug}`}
+                href={`/about/${m.slug}`}
                 className="group flex items-center gap-4 bg-white rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all"
               >
                 <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-gold/20">

@@ -385,7 +385,7 @@ export default async function ListingDetailPage({ params }: Props) {
                 Call {PHONE}
               </a>
               <Link
-                href="/Contact-Us"
+                href="/contact"
                 className="inline-flex items-center gap-2 border border-white text-white hover:bg-white hover:text-dark font-semibold px-8 py-3 rounded-lg transition-colors"
               >
                 Send a Message

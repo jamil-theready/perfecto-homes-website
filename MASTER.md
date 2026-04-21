@@ -49,8 +49,8 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 | `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual posts from `/content/blog/*.md` with BlogPostJsonLd |
 | `/peru/[slug]` | `app/peru/[slug]/page.tsx` | Peru listing pages from `/content/peru/*.md` with PropertyJsonLd |
 | `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Sacramento community pages (9 communities + index) with SEO metadata |
-| `/About-Us/[slug]` | `app/About-Us/[slug]/page.tsx` | Team member profiles |
-| `/Contact-Us` | `app/Contact-Us/page.tsx` | Contact form page |
+| `/about/[slug]` | `app/about/[slug]/page.tsx` | Team member profiles |
+| `/contact` | `app/contact/page.tsx` | Contact form page |
 | `/events` | `app/events/page.tsx` | Events page |
 | `/privacy-policy` | `app/privacy-policy/page.tsx` | Privacy policy |
 | `/terms` | `app/terms/page.tsx` | Terms of service |

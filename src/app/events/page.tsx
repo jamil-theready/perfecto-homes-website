@@ -29,7 +29,7 @@ export default function EventsPage() {
               <p className="text-medium-gray text-lg mb-6">No upcoming events at this time.</p>
               <p className="text-medium-gray mb-8">Check back soon or follow us on social media for updates.</p>
               <Link
-                href="/Contact-Us"
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
               >
                 Contact Us

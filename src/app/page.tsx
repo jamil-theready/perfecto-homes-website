@@ -261,7 +261,7 @@ export default function HomePage() {
                           {member.name}
                         </h3>
                         <Link
-                          href={`/About-Us/${member.slug}`}
+                          href={`/about/${member.slug}`}
                           className="hidden md:inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors"
                         >
                           Learn More &rarr;
@@ -294,7 +294,7 @@ export default function HomePage() {
                         </a>
                       </div>
                       <Link
-                        href={`/About-Us/${member.slug}`}
+                        href={`/about/${member.slug}`}
                         className="md:hidden inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors mt-3"
                       >
                         Learn More &rarr;

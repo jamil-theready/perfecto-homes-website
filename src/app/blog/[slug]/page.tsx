@@ -250,7 +250,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h2 className="text-xl font-serif font-bold text-dark mb-3">Have questions?</h2>
           <p className="text-medium-gray mb-6">Our team is ready to help with your real estate needs.</p>
           <Link
-            href="/Contact-Us"
+            href="/contact"
             className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
           >
             Contact Us

@@ -85,7 +85,7 @@ export default function TeamCTA({ variant }: TeamCTAProps) {
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link
-                  href={`/About-Us/${data.slug}`}
+                  href={`/about/${data.slug}`}
                   className="inline-flex items-center gap-2 font-semibold text-white px-6 py-3 rounded-lg transition-opacity hover:opacity-90"
                   style={{ background: data.accent }}
                 >

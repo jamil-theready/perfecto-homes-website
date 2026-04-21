@@ -55,7 +55,7 @@ export default function Footer() {
                 <li><Link href="/blog/first-time-home-buyer-guide-sacramento-ca" className="text-sm text-gray-300 hover:text-gold transition-colors">Buyer Guide</Link></li>
                 <li><Link href="/blog/selling-your-home-in-sacramento-what-to-expect" className="text-sm text-gray-300 hover:text-gold transition-colors">Seller Guide</Link></li>
                 <li><Link href="/blog" className="text-sm text-gray-300 hover:text-gold transition-colors">Blog</Link></li>
-                <li><Link href="/Contact-Us" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
+                <li><Link href="/contact" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
               </ul>
             </div>
 
@@ -63,10 +63,10 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">About Us</h4>
               <ul className="space-y-2">
-                <li><Link href="/About-Us/elisban-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Elisban</Link></li>
-                <li><Link href="/About-Us/gina-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Gina</Link></li>
-                <li><Link href="/About-Us/alfredo-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Alfredo</Link></li>
-                <li><Link href="/About-Us/jamil-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Jamil</Link></li>
+                <li><Link href="/about/elisban-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Elisban</Link></li>
+                <li><Link href="/about/gina-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Gina</Link></li>
+                <li><Link href="/about/alfredo-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Alfredo</Link></li>
+                <li><Link href="/about/jamil-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Jamil</Link></li>
               </ul>
             </div>
           </div>

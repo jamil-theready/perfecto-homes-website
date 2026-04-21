@@ -1,6 +1,12 @@
 # Cloudflare Pages redirects for SEO migration from Framer
 # Preserving all existing URL patterns
 
+# Legacy Framer slugs → new clean slugs
+/Contact-Us /contact 301
+/contact-us /contact 301
+/About-Us/* /about/:splat 301
+/about-us/* /about/:splat 301
+
 # Old Framer CMS paths to new paths (if any changed)
 # /peru/*  /peru/:splat  301
 
