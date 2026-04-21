@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 export default function ContactForm({ className = "" }: { className?: string }) {
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,25 +22,16 @@ export default function ContactForm({ className = "" }: { className?: string }) 
       });
       const result = await res.json();
       if (result.success) {
-        setSubmitted(true);
+        router.push("/thank-you");
       } else {
         alert("Something went wrong. Please try again.");
+        setLoading(false);
       }
     } catch {
       alert("Something went wrong. Please try again.");
-    } finally {
       setLoading(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className={`bg-light-gray rounded-2xl p-8 text-center ${className}`}>
-        <h3 className="text-xl font-semibold text-dark mb-2">Thank you!</h3>
-        <p className="text-medium-gray">We&apos;ll be in touch shortly.</p>
-      </div>
-    );
-  }
 
   return (
     <form
