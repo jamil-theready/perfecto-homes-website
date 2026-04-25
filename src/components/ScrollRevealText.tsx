@@ -47,25 +47,26 @@ export default function ScrollRevealText() {
             let translateY = 0;
             let opacity = 0;
 
-            if (distance <= -1) {
-              translateY = 80;
-              opacity = 0;
-            } else if (distance < 0) {
-              const t = distance + 1;
+            if (distance >= -0.4 && distance < -0.1) {
+              const t = (distance + 0.4) / 0.3;
               translateY = 80 * (1 - t);
               opacity = t;
-            } else if (distance < 1) {
-              translateY = -80 * distance;
-              opacity = 1 - distance;
+            } else if (distance >= -0.1 && distance <= 0.1) {
+              translateY = 0;
+              opacity = 1;
+            } else if (distance > 0.1 && distance <= 0.4) {
+              const t = (distance - 0.1) / 0.3;
+              translateY = -80 * t;
+              opacity = 1 - t;
             } else {
-              translateY = -80;
+              translateY = distance < 0 ? 80 : -80;
               opacity = 0;
             }
 
             return (
               <p
                 key={i}
-                className="absolute inset-x-0 text-center text-4xl sm:text-5xl md:text-[64px] lg:text-[72px] font-medium leading-[1.15] tracking-[-0.04em] text-dark"
+                className="absolute inset-x-0 text-center text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium leading-[1.2] tracking-[-0.04em] text-dark"
                 style={{
                   transform: `translateY(${translateY}px)`,
                   opacity,
