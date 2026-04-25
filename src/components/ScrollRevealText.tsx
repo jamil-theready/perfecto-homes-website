@@ -10,7 +10,7 @@ const sentences = [
 
 export default function ScrollRevealText() {
   const outerRef = useRef<HTMLDivElement>(null);
-  const [revealedCount, setRevealedCount] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const el = outerRef.current;
@@ -22,14 +22,8 @@ export default function ScrollRevealText() {
       if (scrollableHeight <= 0) return;
 
       const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-
-      let count = 0;
-      if (progress > 0.05) count = 1;
-      if (progress > 0.35) count = 2;
-      if (progress > 0.65) count = 3;
-
-      setRevealedCount(count);
+      const p = Math.max(0, Math.min(1, scrolled / scrollableHeight));
+      setProgress(p);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -37,27 +31,55 @@ export default function ScrollRevealText() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const total = sentences.length;
+  const stage = progress * total;
+
   return (
     <div
       ref={outerRef}
       className="relative"
-      style={{ height: "250vh" }}
+      style={{ height: `${total * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center bg-white">
-        <div className="max-w-[600px] mx-auto px-6 sm:px-8 text-center flex flex-col gap-6">
-          {sentences.map((s, i) => (
-            <p
-              key={i}
-              className="text-2xl sm:text-3xl md:text-[36px] font-medium leading-[1.3] tracking-[-0.04em] transition-colors duration-700 ease-out"
-              style={{
-                color: i < revealedCount ? "#0e0e0e" : "#e0e0e0",
-              }}
-            >
-              {s.before}
-              <span style={{ color: i < revealedCount ? "#C4A94D" : "#e0e0e0", transition: "color 0.7s ease-out" }}>{s.highlight}</span>
-              {s.after}
-            </p>
-          ))}
+      <div className="sticky top-0 h-screen flex items-center justify-center bg-white overflow-hidden">
+        <div className="relative max-w-[1000px] w-full mx-auto px-6 sm:px-8">
+          {sentences.map((s, i) => {
+            const distance = stage - i;
+            let translateY = 0;
+            let opacity = 0;
+
+            if (distance <= -1) {
+              translateY = 80;
+              opacity = 0;
+            } else if (distance < 0) {
+              const t = distance + 1;
+              translateY = 80 * (1 - t);
+              opacity = t;
+            } else if (distance < 1) {
+              translateY = -80 * distance;
+              opacity = 1 - distance;
+            } else {
+              translateY = -80;
+              opacity = 0;
+            }
+
+            return (
+              <p
+                key={i}
+                className="absolute inset-x-0 text-center text-4xl sm:text-5xl md:text-[64px] lg:text-[72px] font-medium leading-[1.15] tracking-[-0.04em] text-dark"
+                style={{
+                  transform: `translateY(${translateY}px)`,
+                  opacity,
+                  transition: "transform 0.4s ease-out, opacity 0.4s ease-out",
+                  top: "50%",
+                  marginTop: "-1em",
+                }}
+              >
+                {s.before}
+                <span className="text-gold">{s.highlight}</span>
+                {s.after}
+              </p>
+            );
+          })}
         </div>
       </div>
     </div>
