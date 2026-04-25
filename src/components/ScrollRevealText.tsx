@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const sentences = [
-  { before: "We ", highlight: "connect", after: " families with homes that fit their dreams." },
-  { before: "We ", highlight: "guide", after: " every step with integrity, clarity, and care." },
-  { before: "We turn real estate into a simpler, ", highlight: "stress-free", after: " experience for our community." },
+  { text: "We connect families with homes that fit their dreams.", highlight: "connect" },
+  { text: "We guide every step with integrity, clarity, and care.", highlight: "guide" },
+  { text: "We turn real estate into a simpler, stress-free experience for our community.", highlight: "stress-free" },
 ];
 
 export default function ScrollRevealText() {
@@ -41,43 +41,77 @@ export default function ScrollRevealText() {
       style={{ height: `${total * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center bg-white overflow-hidden">
-        <div className="relative max-w-[1000px] w-full mx-auto px-6 sm:px-8">
+        <div className="relative max-w-[900px] w-full mx-auto px-6 sm:px-8">
           {sentences.map((s, i) => {
             const distance = stage - i;
-            let translateY = 0;
-            let opacity = 0;
 
-            if (distance >= -0.4 && distance < -0.1) {
-              const t = (distance + 0.4) / 0.3;
-              translateY = 80 * (1 - t);
-              opacity = t;
-            } else if (distance >= -0.1 && distance <= 0.1) {
+            let translateY = 0;
+            let revealT = 0;
+            let sentenceOpacity = 0;
+
+            if (distance < -0.5) {
+              translateY = 50;
+              revealT = 0;
+              sentenceOpacity = 0;
+            } else if (distance < 0) {
+              const t = (distance + 0.5) / 0.5;
+              translateY = 50 * (1 - t);
+              revealT = t;
+              sentenceOpacity = 1;
+            } else if (distance < 0.15) {
               translateY = 0;
-              opacity = 1;
-            } else if (distance > 0.1 && distance <= 0.4) {
-              const t = (distance - 0.1) / 0.3;
-              translateY = -80 * t;
-              opacity = 1 - t;
+              revealT = 1;
+              sentenceOpacity = 1;
+            } else if (distance < 0.5) {
+              const t = (distance - 0.15) / 0.35;
+              translateY = -50 * t;
+              revealT = 1;
+              sentenceOpacity = 1 - t;
             } else {
-              translateY = distance < 0 ? 80 : -80;
-              opacity = 0;
+              translateY = -50;
+              revealT = 1;
+              sentenceOpacity = 0;
             }
+
+            const words = s.text.split(" ");
 
             return (
               <p
                 key={i}
-                className="absolute inset-x-0 text-center text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium leading-[1.2] tracking-[-0.04em] text-dark"
+                className="absolute inset-x-0 text-center text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-medium leading-[1.25] tracking-[-0.04em]"
                 style={{
                   transform: `translateY(${translateY}px)`,
-                  opacity,
+                  opacity: sentenceOpacity,
                   transition: "transform 0.4s ease-out, opacity 0.4s ease-out",
                   top: "50%",
-                  marginTop: "-1em",
+                  marginTop: "-1.4em",
+                  textWrap: "balance",
                 }}
               >
-                {s.before}
-                <span className="text-gold">{s.highlight}</span>
-                {s.after}
+                {words.map((word, w) => {
+                  const tStart = w / words.length;
+                  const tEnd = (w + 1) / words.length;
+                  let wordOpacity = 0.15;
+                  if (revealT >= tEnd) wordOpacity = 1;
+                  else if (revealT > tStart) {
+                    wordOpacity = 0.15 + 0.85 * ((revealT - tStart) / (tEnd - tStart));
+                  }
+                  const cleaned = word.replace(/[.,]/g, "");
+                  const isHighlight = cleaned === s.highlight;
+                  return (
+                    <span
+                      key={w}
+                      style={{
+                        opacity: wordOpacity,
+                        color: isHighlight ? "#C4A94D" : "#0e0e0e",
+                        transition: "opacity 0.2s ease-out",
+                      }}
+                    >
+                      {word}
+                      {w < words.length - 1 ? " " : ""}
+                    </span>
+                  );
+                })}
               </p>
             );
           })}
