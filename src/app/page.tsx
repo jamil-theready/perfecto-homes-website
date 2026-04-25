@@ -26,7 +26,7 @@ export default function HomePage() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/hero/hero-bg.jpg"
+          poster="/images/hero/sacramento-bridge.jpg"
         >
           <source src="/images/hero/hero-video.mp4" type="video/mp4" />
         </video>
