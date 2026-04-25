@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       {/* ====== HERO ====== */}
-      <section className="relative overflow-hidden h-[716px]">
+      <section className="relative overflow-hidden h-[calc(100vh-160px)] min-h-[560px] max-h-[760px]">
         {/* Background video (desktop) / image (mobile fallback) */}
         <video
           autoPlay
@@ -74,7 +74,7 @@ export default function HomePage() {
       </section>
 
       {/* ====== SOCIAL BAR + LOCATION CARDS ====== */}
-      <section className="py-16 sm:py-20">
+      <section className="pt-8 pb-16 sm:pt-10 sm:pb-20">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-stretch gap-5">
             {/* Social icons column */}
