@@ -38,7 +38,7 @@ export default function ScrollRevealText() {
     <div
       ref={outerRef}
       className="relative"
-      style={{ height: `${total * 100}vh` }}
+      style={{ height: `${total * 175}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center bg-white overflow-hidden">
         <div className="relative max-w-[900px] w-full mx-auto px-6 sm:px-8">
