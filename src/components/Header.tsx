@@ -162,7 +162,7 @@ export default function Header() {
                       <div className="space-y-1">
                         <Link href="/listings/11610-vickie-dr" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>11610 Vickie Dr</Link>
                         <Link href="/listings/6630-dunmore-ave" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>6630 Dunmore Ave</Link>
-                        <Link href="/listings/2560-wright-st" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>2560 Wright St</Link>
+                        <Link href="/listings/6236-riverbelle-ct" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>6236 Riverbelle Ct</Link>
                       </div>
                     </div>
                   </div>

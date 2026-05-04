@@ -2,8 +2,8 @@
 title: "Hostal Qhispicay"
 city: "Ollantaytambo, Cusco"
 metaTitle: "Hostal for Sale - Hostal Qhispicay in Ollantaytambo | Perfecto Homes"
-metaDescription: "Fully operational 12-room hostal with 2 mini apartments for sale in Ollantaytambo, Sacred Valley. 125 m² land, 474 m² built across 5 levels. $960,000 USD."
-price: "$960,000 USD"
+metaDescription: "Fully operational 12-room hostal with 2 mini apartments for sale in Ollantaytambo, Sacred Valley. 125 m² land, 474 m² built across 5 levels. $930,000 USD."
+price: "$930,000 USD"
 landArea: "125 m²"
 builtArea: "474 m²"
 floors: "5"
@@ -113,7 +113,7 @@ Imagine managing a thriving retreat with panoramic views of snow-capped Vilcabam
 
 ## Strategic Investment: Gateway to Exponential Returns
 
-This 125 m² land parcel with 474 m² built hostal in Ollantaytambo is priced at just $7,680 per m² land value (total $960,000) — a strong value in a market where premium Sacred Valley properties command $600-$1,000/m² amid surging global demand. It's more than a hostal; it's a strategic asset in Peru's booming eco-tourism corridor, where visitor numbers to Machu Picchu alone topped 1.5 million in 2025, driving significant YoY appreciation for well-positioned holdings.
+This 125 m² land parcel with 474 m² built hostal in Ollantaytambo is priced at just $7,440 per m² land value (total $930,000) — a strong value in a market where premium Sacred Valley properties command $600-$1,000/m² amid surging global demand. It's more than a hostal; it's a strategic asset in Peru's booming eco-tourism corridor, where visitor numbers to Machu Picchu alone topped 1.5 million in 2025, driving significant YoY appreciation for well-positioned holdings.
 
 ## Why Now? Market Snapshot
 

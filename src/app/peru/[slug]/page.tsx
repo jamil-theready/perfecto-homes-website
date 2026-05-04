@@ -20,8 +20,8 @@ const PERU_SEO: Record<string, { title: string; description: string }> = {
     description: "10,000 m\u00B2 (2.47 acres) of flat, buildable land for sale in Urubamba, Sacred Valley of Cusco, Peru. Ideal for hotel, eco lodge, or development. $820,000.",
   },
   "hostal-qhispicay-ollantaytambo": {
-    title: "Hostel for Sale in Ollantaytambo, Peru | 12 Rooms | Near Machu Picchu | $960K",
-    description: "Operating 12 room hostel with 2 apartments for sale in Ollantaytambo, gateway to Machu Picchu. 474 m\u00B2 built, turnkey business. $960,000.",
+    title: "Hostel for Sale in Ollantaytambo, Peru | 12 Rooms | Near Machu Picchu | $930K",
+    description: "Operating 12 room hostel with 2 apartments for sale in Ollantaytambo, gateway to Machu Picchu. 474 m\u00B2 built, turnkey business. $930,000.",
   },
   "hatuchay-valle-restaurant-urubamba": {
     title: "Restaurant for Sale in Urubamba, Sacred Valley Peru | 1,764 m\u00B2 | $1.26M",
