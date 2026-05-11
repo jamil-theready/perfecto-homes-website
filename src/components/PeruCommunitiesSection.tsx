@@ -87,7 +87,7 @@ export default function PeruCommunitiesSection() {
           >
             <Link
               href="/communities/peru"
-              className="group inline-flex items-center gap-2 bg-dark hover:bg-gold text-white font-semibold px-7 py-3 rounded-full transition-colors text-sm"
+              className="group inline-flex items-center gap-2 bg-white hover:bg-gold hover:text-white hover:border-gold text-dark border border-dark/15 font-semibold px-7 py-3 rounded-full transition-colors text-sm shadow-sm"
             >
               View all communities
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
