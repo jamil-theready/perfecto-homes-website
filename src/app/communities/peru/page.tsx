@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Get to know the Sacred Valley — Ollantaytambo, Urubamba, and the towns we serve in Cusco, Peru. Living, investing, and visiting in the Andes.",
 };
 
-const PERU_COMMUNITIES = [
+const SACRED_VALLEY = [
   {
     name: "Ollantaytambo",
     slug: "ollantaytambo",
@@ -18,6 +18,69 @@ const PERU_COMMUNITIES = [
     name: "Urubamba",
     slug: "urubamba",
     image: "/images/peru/hatuchay-restaurant.jpg",
+  },
+  {
+    name: "Pisac",
+    slug: "pisac",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Chinchero",
+    slug: "chinchero",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Calca",
+    slug: "calca",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Yucay",
+    slug: "yucay",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Maras",
+    slug: "maras",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Aguas Calientes",
+    slug: "aguas-calientes",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+];
+
+const CUSCO_CITY = [
+  {
+    name: "Cusco",
+    slug: "cusco",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Centro Histórico",
+    slug: "centro-historico",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "San Blas",
+    slug: "san-blas",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "Wanchaq",
+    slug: "wanchaq",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "San Sebastián",
+    slug: "san-sebastian",
+    image: "/images/hero/peru-landscape.jpg",
+  },
+  {
+    name: "San Jerónimo",
+    slug: "san-jeronimo",
+    image: "/images/hero/peru-landscape.jpg",
   },
 ];
 
@@ -45,47 +108,64 @@ export default function PeruCommunitiesIndexPage() {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="bg-white pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="block w-1.5 h-1.5 rounded-full bg-gold" />
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold">
-              {PERU_COMMUNITIES.length} Towns
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PERU_COMMUNITIES.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/communities/${c.slug}`}
-                className="group relative block rounded-[18px] overflow-hidden aspect-[16/11] bg-dark"
-              >
-                <Image
-                  src={c.image}
-                  alt={c.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
-                  <h2 className="text-white text-[28px] sm:text-[32px] font-medium tracking-[-0.04em] leading-[1.05] mb-5">
-                    {c.name}
-                  </h2>
-                  <span className="inline-flex items-center gap-2 text-white/90 text-sm font-medium border-b border-white/40 group-hover:border-gold group-hover:text-gold pb-1 transition-colors">
-                    Explore town
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Sacred Valley */}
+      <CommunityGrid eyebrow={`Sacred Valley · ${SACRED_VALLEY.length} Towns`} items={SACRED_VALLEY} />
+
+      {/* Cusco City */}
+      <CommunityGrid eyebrow={`Cusco City · ${CUSCO_CITY.length} Districts`} items={CUSCO_CITY} bottomPad />
     </>
+  );
+}
+
+function CommunityGrid({
+  eyebrow,
+  items,
+  bottomPad,
+}: {
+  eyebrow: string;
+  items: { name: string; slug: string; image: string }[];
+  bottomPad?: boolean;
+}) {
+  return (
+    <section className={`bg-white ${bottomPad ? "pb-24" : "pb-16"}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="block w-1.5 h-1.5 rounded-full bg-gold" />
+          <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold">
+            {eyebrow}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/communities/${c.slug}`}
+              className="group relative block rounded-[18px] overflow-hidden aspect-[16/11] bg-dark"
+            >
+              <Image
+                src={c.image}
+                alt={c.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <h2 className="text-white text-2xl sm:text-[28px] font-medium tracking-[-0.04em] leading-[1.05] mb-4">
+                  {c.name}
+                </h2>
+                <span className="inline-flex items-center gap-2 text-white/90 text-sm font-medium border-b border-white/40 group-hover:border-gold group-hover:text-gold pb-1 transition-colors">
+                  Explore
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -75,7 +75,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const PERU_SLUGS = new Set(["ollantaytambo", "urubamba"]);
+const PERU_SLUGS = new Set([
+  "ollantaytambo",
+  "urubamba",
+  "pisac",
+  "chinchero",
+  "calca",
+  "yucay",
+  "maras",
+  "aguas-calientes",
+  "cusco",
+  "san-blas",
+  "centro-historico",
+  "wanchaq",
+  "san-sebastian",
+  "san-jeronimo",
+]);
 const PERU_HERO_IMAGES: Record<string, string> = {
   ollantaytambo: "/images/peru/hostal-ollantaytambo.jpg",
   urubamba: "/images/peru/hatuchay-restaurant.jpg",
