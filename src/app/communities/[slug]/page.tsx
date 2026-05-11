@@ -308,7 +308,7 @@ export default async function CommunityPage({ params }: Props) {
           </h2>
           <div className="rounded-2xl overflow-hidden h-[420px] border border-gray-100 shadow-sm">
             <iframe
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}

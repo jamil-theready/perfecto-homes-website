@@ -302,7 +302,7 @@ export default async function ListingDetailPage({ params }: Props) {
             <h2 className="text-xl font-serif font-bold text-dark mb-4">Location</h2>
             <div className="rounded-xl overflow-hidden h-[400px]">
               <iframe
-                src={`https://maps.google.com/maps?q=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}&output=embed`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
