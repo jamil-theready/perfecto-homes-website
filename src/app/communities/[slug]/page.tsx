@@ -108,14 +108,14 @@ export default async function CommunityPage({ params }: Props) {
       {/* Hero */}
       <section className="relative bg-dark text-white overflow-hidden pt-28 pb-16 sm:pb-20">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-60"
           style={{ backgroundImage: `url('${heroImage}')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/40 to-dark/10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href={backHref} className="text-gold text-sm hover:underline mb-4 inline-block">&larr; {backLabel}</Link>
-          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">{regionLabel}</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold">{name}</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">{name}</h1>
+          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mt-3">{regionLabel}</p>
         </div>
       </section>
 
