@@ -362,7 +362,7 @@ function ListingPanel({
         style={{ y: titleY, opacity: titleOpacity }}
         className="absolute bottom-0 left-0 right-0 z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20"
       >
-        <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+        <div className="max-w-[1200px] mx-auto flex flex-row items-end justify-between gap-4 sm:gap-10">
           {/* Left — title block */}
           <div className="flex-1 min-w-0 max-w-[760px]">
             <p className="text-[11px] sm:text-[12px] tracking-[0.3em] uppercase text-gold font-medium mb-4">
@@ -397,14 +397,14 @@ function ListingPanel({
           </div>
 
           {/* Right — stats stacked */}
-          <div className="flex flex-col items-start lg:items-end gap-5 lg:min-w-[260px]">
+          <div className="flex flex-col items-end gap-3 sm:gap-5 lg:min-w-[260px] shrink-0">
             {meta.stats.map((stat, si) => (
               <div
                 key={`${stat.label}-${si}`}
-                className="flex items-center gap-3 lg:flex-row-reverse lg:text-right"
+                className="flex items-center gap-2 sm:gap-3 flex-row-reverse text-right"
               >
                 <span
-                  className="flex items-center justify-center w-11 h-11 rounded-full text-white flex-shrink-0"
+                  className="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full text-white flex-shrink-0"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(196,169,77,0.55) 0%, rgba(196,169,77,0.25) 100%)",
@@ -417,10 +417,10 @@ function ListingPanel({
                   <StatIconSvg name={stat.icon} />
                 </span>
                 <div className="flex flex-col leading-tight">
-                  <span className="text-[10px] tracking-[0.22em] uppercase text-gold/90 font-semibold">
+                  <span className="text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-gold/90 font-semibold">
                     {stat.label}
                   </span>
-                  <span className="text-white text-[16px] font-medium tracking-[-0.01em]">
+                  <span className="text-white text-sm sm:text-[16px] font-medium tracking-[-0.01em]">
                     {stat.value}
                   </span>
                 </div>
