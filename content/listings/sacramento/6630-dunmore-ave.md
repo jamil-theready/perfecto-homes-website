@@ -1,12 +1,12 @@
 ---
 title: "6630 Dunmore Ave"
 slug: "6630-dunmore-ave"
-metaTitle: "6630 Dunmore Ave, Citrus Heights CA | Home for Sale | $549,000"
-metaDescription: "4 bed, 3 bath home for sale at 6630 Dunmore Ave, Citrus Heights CA 95621. Listed at $549,000 by Elisban Gonzales, Perfecto Homes Real Estate."
+metaTitle: "6630 Dunmore Ave, Citrus Heights CA | Home for Sale | $539,900"
+metaDescription: "4 bed, 3 bath, 1,376 sqft home at 6630 Dunmore Ave, Citrus Heights CA 95621. Listed at $539,900 by Elisban Gonzales, Perfecto Homes Real Estate."
 market: "sacramento"
 status: "active"
-price: "$549,000"
-priceNumeric: 549000
+price: "$539,900"
+priceNumeric: 539900
 address: "6630 Dunmore Ave, Citrus Heights, CA 95621"
 city: "Citrus Heights"
 state: "CA"
@@ -14,6 +14,11 @@ zip: "95621"
 propertyType: "Single Family"
 beds: 4
 baths: 3
+sqft: 1376
+yearBuilt: 1958
+lotSize: "0.24 acres"
+mlsNumber: "226044049"
+youtubeVideo: "p0H8s3vVNw0"
 agent: "elisban"
 featuredImage: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1"
 image1: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1"
@@ -29,15 +34,22 @@ image10: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto
 highlights:
   - "4 Bedrooms"
   - "3 Bathrooms"
-  - "Citrus Heights Location"
+  - "1,376 Sqft"
+  - "Built in 1958"
+  - "0.24 Acre Lot"
+  - "Two Primary Suites"
+  - "Fireplace + Central A/C"
+  - "2 Car Attached Garage"
+  - "San Juan Unified Schools"
+  - "Citrus Heights"
 ---
 
-Four bedrooms. Three bathrooms. Citrus Heights. Listed at $549,000, this single family home brings serious value to one of Sacramento County's most established neighborhoods.
+Welcome to this beautifully renovated and spacious home in the desirable Citrus Heights community. Located at 6630 Dunmore Ave, this property features 4 bedrooms, including two primary suites, and 3 bathrooms, offering a functional and versatile layout ideal for both everyday living and entertaining.
 
-Citrus Heights is centrally located with quick access to I-80, Highway 50, and all the shopping and dining along Sunrise Boulevard and Greenback Lane. Families choose this area for its mature tree lined streets, solid schools, and strong sense of community. It is a neighborhood where people put down roots and stay.
+With approximately 1,376 square feet of well-designed living space, the home showcases thoughtfully updated interiors, a cozy fireplace, and central air conditioning for year-round comfort. The kitchen has granite counters, stainless appliances, and two-tone cabinetry. The primary bath features double sinks and a marble finish shower.
 
-This home offers four bedrooms, giving you room for the whole family plus a dedicated office or flex space. Three full bathrooms keep things comfortable and convenient, especially for larger households. The floor plan is built around how people actually live, with space to breathe and room to grow.
+Situated on a generous 10,454 sqft lot, the property offers ample outdoor space with a fenced backyard, pergola, patio, and a vegetable garden, with potential for a variety of uses.
 
-At $549,000, this price point is increasingly rare for a 4 bed, 3 bath home in the Sacramento metro area. The market in Citrus Heights continues to tighten as demand outpaces supply. This listing is already pending, a clear sign that buyers recognize the value here.
+Conveniently located near parks, shopping, dining, and within the San Juan Unified School District, this home combines comfort, accessibility, and value in an established neighborhood.
 
-Get in touch with Elisban Gonzales at (916) 878-7703 to explore homes like this one or to start your search in the Citrus Heights area.
+Get in touch with Elisban Gonzales at (916) 878-7703 to schedule a tour or explore more homes in the Citrus Heights area.
