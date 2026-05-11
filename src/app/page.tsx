@@ -19,19 +19,19 @@ const SACRAMENTO_LISTINGS = [
     name: "11610 Vickie Dr",
     slug: "11610-vickie-dr",
     image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/11610-vickie-dr/1.jpg",
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/listings/perfecto-homes/11610-vickie-dr/1.jpg",
   },
   {
     name: "6630 Dunmore Ave",
     slug: "6630-dunmore-ave",
     image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/6630-dunmore-ave/1.jpg",
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1.jpg",
   },
   {
     name: "6236 Riverbelle Ct",
     slug: "6236-riverbelle-ct",
     image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/6236-riverbelle-ct/1.jpg",
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/listings/perfecto-homes/6236-riverbelle-ct/1.jpg",
   },
 ];
 
