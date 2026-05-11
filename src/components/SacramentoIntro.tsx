@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 
 export default function SacramentoIntro() {
@@ -70,6 +71,25 @@ export default function SacramentoIntro() {
             />
           </span>
         </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mt-8 flex justify-center"
+        >
+          <Link
+            href="/communities"
+            className="group inline-flex items-center gap-2 bg-dark hover:bg-gold text-white font-semibold px-7 py-3 rounded-full transition-colors text-sm"
+          >
+            View all communities
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

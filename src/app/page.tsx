@@ -130,7 +130,7 @@ export default function HomePage() {
       <section className="bg-light-gray py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {COMMUNITIES.map((c, i) => (
+            {COMMUNITIES.slice(0, 9).map((c, i) => (
               <ScrollReveal key={c.slug} delay={0.1 * i}>
                 <Link
                   href={`/communities/${c.slug}`}
