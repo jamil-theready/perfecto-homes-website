@@ -371,7 +371,7 @@ function ListingPanel({
             <h2 className="text-white text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-[-0.05em] leading-[1.0] mb-6">
               {listing.name}
             </h2>
-            <p className="hidden sm:block text-white/85 text-lg sm:text-xl max-w-[640px] mb-9 leading-[1.55] tracking-[-0.005em]">
+            <p className="hidden md:block text-white/85 text-lg md:text-xl max-w-[640px] mb-9 leading-[1.55] tracking-[-0.005em]">
               {meta.tagline}
             </p>
             <Link
