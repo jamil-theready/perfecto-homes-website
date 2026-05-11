@@ -142,7 +142,7 @@ function MemberRow({ member, index }: { member: Member; index: number }) {
             {member.role}
           </p>
 
-          <h3 className="text-4xl sm:text-5xl lg:text-[56px] font-medium text-dark tracking-[-0.04em] leading-[1.05] mb-5">
+          <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.04em] leading-[1.05] mb-5">
             {member.name}
           </h3>
 
@@ -227,7 +227,7 @@ export default function TeamSection() {
             </p>
             <span className="block w-10 h-px bg-gold" />
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-medium text-dark tracking-[-0.05em] leading-[1.05]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.05em] leading-[1.05]">
             Meet the{" "}
             <span className="relative inline-block">
               <span

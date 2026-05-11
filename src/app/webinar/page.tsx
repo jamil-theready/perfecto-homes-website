@@ -31,7 +31,7 @@ export default function WebinarPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Copy */}
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-white leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-bold text-white leading-[1.1] tracking-tight">
                 Learn Exactly
                 <br />
                 How to Buy a Home
@@ -94,7 +94,7 @@ export default function WebinarPage() {
 
             {/* Right: WebinarJam Embed */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
-              <h2 className="text-2xl font-serif font-bold text-dark mb-2">
+              <h2 className="text-xl font-serif font-bold text-dark mb-2">
                 Get a Clear Plan.
               </h2>
               <p className="text-lg text-dark mb-6">Join the Free Webinar.</p>
@@ -107,10 +107,10 @@ export default function WebinarPage() {
       {/* What You'll Learn */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-2">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-2">
             What we will talk about
           </h2>
-          <p className="text-3xl sm:text-4xl font-serif font-bold text-gold mb-12">
+          <p className="text-2xl sm:text-3xl font-serif font-bold text-gold mb-12">
             in this Webinar
           </p>
 
@@ -204,7 +204,7 @@ export default function WebinarPage() {
         />
         <div className="relative bg-black/40 py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-4">
               Stay Up to Date...
             </h2>
             <p className="text-white/80 text-lg mb-8">

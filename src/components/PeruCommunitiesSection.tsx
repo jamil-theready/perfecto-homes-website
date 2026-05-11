@@ -53,7 +53,7 @@ export default function PeruCommunitiesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[88px] font-medium tracking-[-0.05em] leading-[1.02] text-dark"
+            className="text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-[-0.05em] leading-[1.02] text-dark"
           >
             Our Communities in{" "}
             <span className="relative inline-block">
@@ -99,7 +99,7 @@ export default function PeruCommunitiesSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
-                  <h3 className="text-white text-[34px] sm:text-[40px] font-medium tracking-[-0.04em] leading-[1.05] mb-5">
+                  <h3 className="text-white text-[28px] sm:text-[32px] font-medium tracking-[-0.04em] leading-[1.05] mb-5">
                     {c.name}
                   </h3>
                   <span className="inline-flex items-center gap-2 text-white/90 text-sm font-medium border-b border-white/40 group-hover:border-gold group-hover:text-gold pb-1 transition-colors">

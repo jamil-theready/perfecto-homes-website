@@ -115,7 +115,7 @@ export default async function CommunityPage({ params }: Props) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href={backHref} className="text-gold text-sm hover:underline mb-4 inline-block">&larr; {backLabel}</Link>
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">{regionLabel}</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold">{name}</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold">{name}</h1>
         </div>
       </section>
 
@@ -126,12 +126,12 @@ export default async function CommunityPage({ params }: Props) {
             <div className="lg:col-span-2">
               {htmlContent ? (
                 <div
-                  className="prose prose-gray max-w-prose prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-strong:text-dark prose-ul:mt-2 prose-li:text-medium-gray prose-li:leading-relaxed"
+                  className="prose prose-gray max-w-prose prose-headings:font-serif prose-headings:text-dark prose-p:text-medium-gray prose-p:leading-relaxed prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-strong:text-dark prose-ul:mt-2 prose-li:text-medium-gray prose-li:leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
               ) : (
                 <div>
-                  <h2 className="text-2xl font-serif font-bold text-dark mb-4">About {name}</h2>
+                  <h2 className="text-xl font-serif font-bold text-dark mb-4">About {name}</h2>
                   <p className="text-medium-gray leading-relaxed mb-6">
                     {name} is one of the vibrant communities in the greater Sacramento area. Contact our team to learn about available properties, market trends, and what makes this neighborhood special.
                   </p>
@@ -154,7 +154,7 @@ export default async function CommunityPage({ params }: Props) {
       {/* Other Communities */}
       <section className="bg-light-gray py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-dark mb-8">
+          <h2 className="text-xl font-serif font-bold text-dark mb-8">
             {isPeru ? "Explore the Sacred Valley" : "Explore Other Communities"}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,7 +213,7 @@ function CommunitiesIndex() {
       <section className="bg-dark text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Sacramento Area</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">Our Communities</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">Our Communities</h1>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto">
             Explore neighborhoods across the greater Sacramento area. Find the community that fits your lifestyle.
           </p>

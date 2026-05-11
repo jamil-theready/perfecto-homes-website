@@ -26,7 +26,7 @@ export default function BlogIndexPage() {
             <p className="text-gold text-[11px] font-semibold tracking-[0.3em] uppercase">Resources</p>
             <span className="block w-8 h-px bg-gold" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
             News &amp; Insights
           </h1>
           <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
@@ -85,7 +85,7 @@ export default function BlogIndexPage() {
                           })}
                         </p>
                       )}
-                      <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium text-dark tracking-[-0.04em] leading-[1.1] mb-5 group-hover:text-gold transition-colors">
+                      <h2 className="text-xl sm:text-2xl lg:text-[32px] font-medium text-dark tracking-[-0.04em] leading-[1.1] mb-5 group-hover:text-gold transition-colors">
                         {String(featured.title)}
                       </h2>
                       {featured.metaDescription && (

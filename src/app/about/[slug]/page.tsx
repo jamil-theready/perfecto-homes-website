@@ -125,7 +125,7 @@ export default async function TeamMemberPage({ params }: Props) {
 
             {/* Right Column: Bio + Background */}
             <div className="md:col-span-2">
-              <h1 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-2">Meet, {member.name}</h1>
+              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-2">Meet, {member.name}</h1>
               <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-6">{member.role}</p>
 
               {/* Bio */}
@@ -182,7 +182,7 @@ export default async function TeamMemberPage({ params }: Props) {
       {(sacramentoListings.length > 0 || peruListings.length > 0) && (
         <section className="bg-light-gray py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-serif font-bold text-dark mb-2">
+            <h2 className="text-xl font-serif font-bold text-dark mb-2">
               {hasPeruListings ? "Peru Listings" : `${member.name.split(" ")[0]}'s Listings`}
             </h2>
             <p className="text-medium-gray text-sm mb-8">
@@ -267,7 +267,7 @@ export default async function TeamMemberPage({ params }: Props) {
             {/* Header */}
             <div className="text-center mb-12">
               <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Professional Notary Services</p>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-4">Gina Gonzalez Notary Public</h2>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-4">Gina Gonzalez Notary Public</h2>
               <p className="text-medium-gray max-w-2xl mx-auto leading-relaxed">
                 NNA Certified Notary Public with 10+ years of experience and a legal background. Mobile notary services available 7 days a week across the Greater Sacramento Area. Bilingual in English and Spanish.
               </p>
@@ -276,19 +276,19 @@ export default async function TeamMemberPage({ params }: Props) {
             {/* Stats Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
               <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-2xl font-bold text-gold">6,000+</p>
+                <p className="text-xl font-bold text-gold">6,000+</p>
                 <p className="text-xs text-medium-gray mt-1">Documents Notarized</p>
               </div>
               <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-2xl font-bold text-gold">10+</p>
+                <p className="text-xl font-bold text-gold">10+</p>
                 <p className="text-xs text-medium-gray mt-1">Years Experience</p>
               </div>
               <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-2xl font-bold text-gold">100%</p>
+                <p className="text-xl font-bold text-gold">100%</p>
                 <p className="text-xs text-medium-gray mt-1">Client Satisfaction</p>
               </div>
               <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-2xl font-bold text-gold">7 Days</p>
+                <p className="text-xl font-bold text-gold">7 Days</p>
                 <p className="text-xs text-medium-gray mt-1">A Week Availability</p>
               </div>
             </div>
@@ -389,7 +389,7 @@ export default async function TeamMemberPage({ params }: Props) {
       {/* Other Team Members */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
+          <h2 className="text-xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {TEAM.filter((m) => m.slug !== slug).map((m) => (
               <Link

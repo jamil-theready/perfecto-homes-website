@@ -94,7 +94,7 @@ export default function CinematicHero() {
               Sacramento &nbsp;&middot;&nbsp; Peru
             </motion.p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-medium leading-[1.1] tracking-[-0.06em] text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium leading-[1.1] tracking-[-0.06em] text-white">
               <span className="sr-only">{TITLE}</span>
               <span aria-hidden className="flex flex-wrap gap-x-[0.28em] gap-y-1">
                 {words.map((w, i) => (

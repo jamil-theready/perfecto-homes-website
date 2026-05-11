@@ -15,7 +15,7 @@ export default function EventsPage() {
       <section className="bg-dark text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Upcoming</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">Events</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">Events</h1>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto">
             Join us at open houses, workshops, and community events across Sacramento.
           </p>

@@ -97,7 +97,7 @@ function LongIntro({ onComplete }: { onComplete: () => void }) {
           className="w-9 h-7 sm:w-11 sm:h-9"
           priority
         />
-        <span className="text-dark text-xl sm:text-3xl font-semibold tracking-[0.18em] sm:tracking-[0.22em]">
+        <span className="text-dark text-xl sm:text-2xl font-semibold tracking-[0.18em] sm:tracking-[0.22em]">
           PERFECTO HOMES
         </span>
       </motion.div>

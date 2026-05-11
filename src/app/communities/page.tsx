@@ -22,7 +22,7 @@ export default function CommunitiesIndexPage() {
             </p>
             <span className="block w-8 h-px bg-gold" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
             Find Your Corner of <span className="text-gold">Sacramento</span>
           </h1>
           <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -58,7 +58,7 @@ export default function CommunitiesIndexPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <h2 className="text-white text-[28px] font-medium tracking-[-0.03em] leading-[1.05] mb-4">
+                  <h2 className="text-white text-[22px] font-medium tracking-[-0.03em] leading-[1.05] mb-4">
                     {c.name}
                   </h2>
                   <span className="inline-flex items-center gap-2 text-white/90 text-sm font-medium border-b border-white/40 group-hover:border-gold group-hover:text-gold pb-1 transition-colors">

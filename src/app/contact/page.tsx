@@ -17,7 +17,7 @@ export default function ContactUsPage() {
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">
             Contact Us
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">
             Let&apos;s Get Started
           </h1>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto">
@@ -32,7 +32,7 @@ export default function ContactUsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left: Info */}
             <div>
-              <h2 className="text-2xl font-serif font-bold text-dark mb-6">
+              <h2 className="text-xl font-serif font-bold text-dark mb-6">
                 Reach Out to Us
               </h2>
               <p className="text-medium-gray leading-relaxed mb-8">
@@ -94,7 +94,7 @@ export default function ContactUsPage() {
       {/* Map / CTA */}
       <section className="bg-light-gray py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-serif font-bold text-dark mb-4">
+          <h2 className="text-xl font-serif font-bold text-dark mb-4">
             Serving Sacramento &amp; Peru
           </h2>
           <p className="text-medium-gray leading-relaxed mb-6">

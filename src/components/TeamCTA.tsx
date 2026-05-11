@@ -77,7 +77,7 @@ export default function TeamCTA({ variant }: TeamCTAProps) {
               >
                 {data.service}
               </p>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-4">
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-4">
                 {data.title}
               </h3>
               <p className="text-medium-gray leading-relaxed mb-8 max-w-lg">

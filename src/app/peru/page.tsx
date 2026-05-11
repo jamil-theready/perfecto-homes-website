@@ -28,7 +28,7 @@ export default function PeruListingsPage() {
       <section className="bg-white border-b border-gray-100 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-3">Sacred Valley, Peru</p>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-3">
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-3">
             Peru Listings
           </h1>
           <p className="text-medium-gray text-lg max-w-2xl">

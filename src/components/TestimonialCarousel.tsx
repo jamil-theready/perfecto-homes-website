@@ -51,7 +51,7 @@ export default function TestimonialCarousel() {
         <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
           Testimonials
         </p>
-        <h2 className="text-3xl md:text-[36px] font-medium text-gray-900 tracking-[-0.06em]">
+        <h2 className="text-2xl md:text-[28px] font-medium text-gray-900 tracking-[-0.06em]">
           What our clients have to say&hellip;
         </h2>
       </div>

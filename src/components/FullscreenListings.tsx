@@ -55,7 +55,7 @@ function RegionIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[88px] font-medium tracking-[-0.05em] leading-[1.02] text-dark"
+          className="text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-[-0.05em] leading-[1.02] text-dark"
         >
           {prefix}{" "}
           <span className="relative inline-block">
@@ -357,7 +357,7 @@ function ListingPanel({
             <p className="text-[11px] sm:text-[12px] tracking-[0.3em] uppercase text-gold font-medium mb-4">
               {meta.eyebrow}
             </p>
-            <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium tracking-[-0.05em] leading-[1.0] mb-6">
+            <h2 className="text-white text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-[-0.05em] leading-[1.0] mb-6">
               {listing.name}
             </h2>
             <p className="text-white/85 text-lg sm:text-xl max-w-[640px] mb-9 leading-[1.55] tracking-[-0.005em]">

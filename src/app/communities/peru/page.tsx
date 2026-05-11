@@ -34,7 +34,7 @@ export default function PeruCommunitiesIndexPage() {
             </p>
             <span className="block w-8 h-px bg-gold" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
             Live in the <span className="text-gold">Sacred Valley</span>
           </h1>
           <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -70,7 +70,7 @@ export default function PeruCommunitiesIndexPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
-                  <h2 className="text-white text-[34px] sm:text-[40px] font-medium tracking-[-0.04em] leading-[1.05] mb-5">
+                  <h2 className="text-white text-[28px] sm:text-[32px] font-medium tracking-[-0.04em] leading-[1.05] mb-5">
                     {c.name}
                   </h2>
                   <span className="inline-flex items-center gap-2 text-white/90 text-sm font-medium border-b border-white/40 group-hover:border-gold group-hover:text-gold pb-1 transition-colors">

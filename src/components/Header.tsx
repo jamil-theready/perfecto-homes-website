@@ -35,7 +35,7 @@ export default function Header() {
                 height={21}
                 className="w-[26px] h-[21px] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
               />
-              <span className="text-[22px] font-semibold tracking-[0.06em] text-dark transition-colors">
+              <span className="text-[18px] font-semibold tracking-[0.06em] text-dark transition-colors">
                 PERFECTO HOMES
               </span>
             </Link>

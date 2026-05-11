@@ -48,7 +48,7 @@ export default async function TeamMemberPage({ params }: Props) {
             {/* Info */}
             <div className="md:col-span-2">
               <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">{member.role}</p>
-              <h1 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-6">{member.name}</h1>
+              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-6">{member.name}</h1>
               <p className="text-medium-gray leading-relaxed text-lg mb-8">{member.bio}</p>
 
               {/* Contact Details */}
@@ -81,7 +81,7 @@ export default async function TeamMemberPage({ params }: Props) {
       {/* Other Team Members */}
       <section className="bg-light-gray py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
+          <h2 className="text-xl font-serif font-bold text-dark mb-8">Other Team Members</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TEAM.filter((m) => m.slug !== slug).map((m) => (
               <Link

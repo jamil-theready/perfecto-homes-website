@@ -19,7 +19,7 @@ export default function GlobalCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left — Headline + Contact Info */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-dark mb-10">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-10">
               Don&apos;t wait.<br />
               Contact us, today.
             </h2>

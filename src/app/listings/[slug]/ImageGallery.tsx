@@ -109,7 +109,7 @@ export default function ImageGallery({
         >
           {/* Close */}
           <button
-            className="absolute top-4 right-4 text-white/80 hover:text-white z-10 text-3xl font-light"
+            className="absolute top-4 right-4 text-white/80 hover:text-white z-10 text-2xl font-light"
             onClick={() => setLightboxOpen(false)}
             aria-label="Close gallery"
           >
@@ -124,7 +124,7 @@ export default function ImageGallery({
           {/* Previous */}
           {currentIndex > 0 && (
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-4xl font-light z-10 w-12 h-12 flex items-center justify-center"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl font-light z-10 w-12 h-12 flex items-center justify-center"
               onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => prev - 1); }}
               aria-label="Previous"
             >
@@ -135,7 +135,7 @@ export default function ImageGallery({
           {/* Next */}
           {currentIndex < mediaCount - 1 && (
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-4xl font-light z-10 w-12 h-12 flex items-center justify-center"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl font-light z-10 w-12 h-12 flex items-center justify-center"
               onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => prev + 1); }}
               aria-label="Next"
             >

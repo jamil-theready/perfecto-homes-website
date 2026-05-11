@@ -29,7 +29,7 @@ export default function ThankYouPage() {
             </svg>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-dark mb-4">
+          <h1 className="text-2xl sm:text-4xl font-serif font-bold text-dark mb-4">
             Thank You!
           </h1>
           <p className="text-lg text-medium-gray leading-relaxed mb-2">
@@ -72,7 +72,7 @@ export default function ThankYouPage() {
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3 text-center">
             What Happens Next
           </p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-12 text-center">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-12 text-center">
             Here&apos;s what to expect
           </h2>
 
@@ -119,7 +119,7 @@ export default function ThankYouPage() {
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3 text-center">
             Meet Your Team
           </p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-12 text-center">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-12 text-center">
             The people behind Perfecto Homes
           </h2>
 
@@ -159,7 +159,7 @@ export default function ThankYouPage() {
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3 text-center">
             While You Wait
           </p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-12 text-center">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-12 text-center">
             Real estate reads from our team
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

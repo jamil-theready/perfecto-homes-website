@@ -86,7 +86,7 @@ export default function Footer() {
                 height={21}
                 className="w-[26px] h-[21px]"
               />
-              <span className="text-[22px] font-semibold tracking-[0.06em]">
+              <span className="text-[18px] font-semibold tracking-[0.06em]">
                 PERFECTO HOMES
               </span>
             </div>

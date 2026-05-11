@@ -27,6 +27,12 @@ const SACRAMENTO_LISTINGS = [
     image:
       "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/6630-dunmore-ave/1.jpg",
   },
+  {
+    name: "6236 Riverbelle Ct",
+    slug: "6236-riverbelle-ct",
+    image:
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/6236-riverbelle-ct/1.jpg",
+  },
 ];
 
 export default function HomePage() {
@@ -59,7 +65,7 @@ export default function HomePage() {
               href="/communities/communities"
               className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
             >
-              <h4 className="text-[22px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
+              <h4 className="text-[18px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
                 Sacramento
               </h4>
               <div className="relative w-full h-[83px] rounded-md overflow-hidden">
@@ -78,7 +84,7 @@ export default function HomePage() {
               href="#peru"
               className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
             >
-              <h4 className="text-[22px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
+              <h4 className="text-[18px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
                 Peru
               </h4>
               <div className="relative w-full h-[83px]">
@@ -139,7 +145,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h4 className="text-white text-[22px] font-medium tracking-[-0.05em]">
+                    <h4 className="text-white text-[18px] font-medium tracking-[-0.05em]">
                       {c.name}
                     </h4>
                   </div>
@@ -166,7 +172,7 @@ export default function HomePage() {
         <div className="relative max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-white text-center">
-              <h2 className="text-3xl sm:text-[40px] font-medium tracking-[-0.06em] mb-3">
+              <h2 className="text-2xl sm:text-[32px] font-medium tracking-[-0.06em] mb-3">
                 Stay Up to Date
               </h2>
               <p className="text-gray-300 text-sm sm:text-base mb-8 max-w-md mx-auto">
@@ -187,7 +193,7 @@ export default function HomePage() {
               <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
                 Resources
               </p>
-              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
+              <h2 className="text-2xl sm:text-[28px] font-medium text-dark tracking-[-0.06em]">
                 Insights, Stories, and Events
               </h2>
             </div>
@@ -211,7 +217,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                   <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-2">Blog</p>
-                  <h3 className="text-white text-xl sm:text-2xl font-medium tracking-[-0.04em] mb-1">
+                  <h3 className="text-white text-xl sm:text-xl font-medium tracking-[-0.04em] mb-1">
                     Real Estate Tips and Market Updates
                   </h3>
                   <p className="text-white/70 text-sm">

@@ -102,7 +102,7 @@ export default async function ListingDetailPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div>
                 <span className="text-[11px] text-medium-gray uppercase tracking-widest">{item.propertyType as string}</span>
-                <h1 className="text-3xl sm:text-4xl font-bold text-dark mt-1">
+                <h1 className="text-2xl sm:text-3xl font-bold text-dark mt-1">
                   {item.address as string}
                 </h1>
                 <a href="#map" className="inline-flex items-center gap-1.5 text-medium-gray text-[15px] mt-2 hover:text-gold transition-colors">
@@ -111,7 +111,7 @@ export default async function ListingDetailPage({ params }: Props) {
                 </a>
               </div>
               <div className="flex items-center gap-4 sm:mt-1 shrink-0">
-                <p className="text-2xl sm:text-3xl font-bold text-dark tracking-tight">
+                <p className="text-xl sm:text-2xl font-bold text-dark tracking-tight">
                   {item.price as string}
                 </p>
                 <span
@@ -147,7 +147,7 @@ export default async function ListingDetailPage({ params }: Props) {
                 item.builtArea && { value: item.builtArea as string, label: "Built Area" },
               ].filter(Boolean).map((stat, i) => (
                 <div key={i} className={`text-center px-5 sm:px-7 shrink-0 ${i > 0 ? "border-l border-gray-200" : ""}`}>
-                  <p className="text-2xl sm:text-3xl font-bold text-dark">{(stat as { value: string }).value}</p>
+                  <p className="text-xl sm:text-2xl font-bold text-dark">{(stat as { value: string }).value}</p>
                   <p className="text-[11px] text-medium-gray uppercase tracking-wider mt-1">{(stat as { value: string; label: string }).label}</p>
                 </div>
               ))}
@@ -335,7 +335,7 @@ export default async function ListingDetailPage({ params }: Props) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                   <div>
                     <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">About the Area</p>
-                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-6">
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-6">
                       Living in {cityName}
                     </h2>
                     <div className="text-medium-gray leading-relaxed space-y-4 mb-8">
@@ -371,7 +371,7 @@ export default async function ListingDetailPage({ params }: Props) {
         {/* CTA Section */}
         <section className="bg-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-4">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold mb-4">
               Interested in This Property?
             </h2>
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">
@@ -399,7 +399,7 @@ export default async function ListingDetailPage({ params }: Props) {
         {similar.length > 0 && (
           <section className="bg-white py-16 border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-serif font-bold text-dark mb-8">Similar Properties</h2>
+              <h2 className="text-xl font-serif font-bold text-dark mb-8">Similar Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {similar.map((l) => {
                   const img = (l.featuredImage as string) || (l.image1 as string) || "/images/placeholder.jpg";

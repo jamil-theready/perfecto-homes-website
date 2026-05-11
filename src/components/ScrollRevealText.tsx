@@ -197,7 +197,7 @@ export default function ScrollRevealText() {
             return (
               <p
                 key={i}
-                className="absolute inset-x-0 text-center text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium leading-[1.15] tracking-[-0.05em]"
+                className="absolute inset-x-0 text-center text-3xl sm:text-4xl lg:text-[44px] font-medium leading-[1.15] tracking-[-0.05em]"
                 style={{
                   transform: `translateY(${translateY}px)`,
                   opacity: sentenceOpacity,

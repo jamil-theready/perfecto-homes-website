@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
             Back to Blog
           </Link>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-medium text-dark leading-[1.05] tracking-[-0.04em] max-w-[920px]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark leading-[1.05] tracking-[-0.04em] max-w-[920px]">
             {String(post.title)}
           </h1>
 
@@ -242,7 +242,7 @@ export default async function BlogPostPage({ params }: Props) {
               {/* FAQ Section */}
               {post.faq && (post.faq as Array<{question: string; answer: string}>).length > 0 && (
                 <div className="mt-12 pt-8 border-t border-gray-100">
-                  <h2 className="text-2xl font-serif font-bold text-dark mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-xl font-serif font-bold text-dark mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-0">
                     {(post.faq as Array<{question: string; answer: string}>).map((item, i) => (
                       <details key={i} className="group border-b border-gray-100 overflow-hidden">

@@ -94,7 +94,7 @@ export default async function PeruListingPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div>
                 <span className="text-[11px] text-medium-gray uppercase tracking-widest">{item.propertyType as string}</span>
-                <h1 className="text-3xl sm:text-4xl font-bold text-dark mt-1">
+                <h1 className="text-2xl sm:text-3xl font-bold text-dark mt-1">
                   {item.title as string} &mdash; {(item.city as string) || "Sacred Valley, Peru"}
                 </h1>
                 <a href="#map" className="inline-flex items-center gap-1.5 text-medium-gray text-[15px] mt-2 hover:text-gold transition-colors">
@@ -103,7 +103,7 @@ export default async function PeruListingPage({ params }: Props) {
                 </a>
               </div>
               <div className="flex items-center gap-4 sm:mt-1 shrink-0">
-                <p className="text-2xl sm:text-3xl font-bold text-dark tracking-tight">
+                <p className="text-xl sm:text-2xl font-bold text-dark tracking-tight">
                   {item.price as string}
                 </p>
                 <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide ${
@@ -128,7 +128,7 @@ export default async function PeruListingPage({ params }: Props) {
                 item.district && { value: item.district as string, label: "District" },
               ].filter(Boolean).map((stat, i) => (
                 <div key={i} className={`text-center px-5 sm:px-7 shrink-0 ${i > 0 ? "border-l border-gray-200" : ""}`}>
-                  <p className="text-2xl sm:text-3xl font-bold text-dark">{(stat as { value: string }).value}</p>
+                  <p className="text-xl sm:text-2xl font-bold text-dark">{(stat as { value: string }).value}</p>
                   <p className="text-[11px] text-medium-gray uppercase tracking-wider mt-1">{(stat as { value: string; label: string }).label}</p>
                 </div>
               ))}
@@ -252,7 +252,7 @@ export default async function PeruListingPage({ params }: Props) {
         {otherListings.length > 0 && (
           <section className="bg-white py-16 border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-serif font-bold text-dark mb-8">Other Properties in Peru</h2>
+              <h2 className="text-xl font-serif font-bold text-dark mb-8">Other Properties in Peru</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {otherListings.map((l) => {
                   const img = (l.image1 as string) || "/images/placeholder.jpg";
