@@ -1,0 +1,286 @@
+1:"$Sreact.fragment"
+3:I[18882,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"default"]
+4:I[2971,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"default"]
+5:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+6:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+7:I[30862,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"default"]
+8:I[85437,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"Image"]
+13:I[68027,[],"default"]
+:HL["/_next/static/chunks/297a59f91470d352.css","style"]
+:HL["/_next/static/media/345c85a432359eed-s.p.eead68dd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8e451580e5e95631-s.p.0e564e6e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/9be384ea93fe3f49-s.p.ab26386e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/f30fd2e485acf1bc-s.p.3d1b066d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+2:T402,{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Perfecto Homes Real Estate","url":"https://www.perfectohomesrealestate.com","telephone":"+19168787260","email":"perfectohomes@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Sacramento","addressRegion":"CA","addressCountry":"US"},"sameAs":["https://www.facebook.com/perfectohomes","https://www.instagram.com/perfectohomes/","https://www.tiktok.com/@perfectohomes","https://www.youtube.com/@perfectohomes","https://www.yelp.com/biz/perfecto-homes-real-estate-sacramento"],"knowsAbout":["Sacramento real estate","homes for sale Sacramento","bilingual real estate agent","Peru investment properties","Sacred Valley real estate","first time home buyer Sacramento"],"areaServed":[{"@type":"City","name":"Sacramento"},{"@type":"City","name":"Citrus Heights"},{"@type":"City","name":"Roseville"},{"@type":"City","name":"Folsom"},{"@type":"City","name":"Elk Grove"},{"@type":"City","name":"El Dorado Hills"},{"@type":"City","name":"Rancho Cordova"}]}0:{"P":null,"b":"x3mJmMiD3vVt-Kg3jxZZt","c":["","peru"],"q":"","i":false,"f":[[["",{"children":["peru",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/297a59f91470d352.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/2d8c5cacf7c7fe86.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/7ce46a70946f3b3d.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/d8db0ca3e6ec4087.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"bg-white","children":["$","body",null,{"className":"inter_7b064e0d-module__MOT0tq__variable lato_6c85d352-module__gDCuNG__variable font-sans antialiased","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","$L3",null,{}],["$","$L4",null,{}],["$","main",null,{"className":"bg-white","children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L7",null,{}],["$","section",null,{"className":"relative overflow-hidden bg-[#f5f0e8]","children":[["$","$L8",null,{"src":"/images/contact/cta-bg.jpg","alt":"","fill":true,"className":"object-cover","sizes":"100vw","priority":false}],["$","div",null,{"className":"relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-2 gap-12 items-center","children":[["$","div",null,{"children":[["$","h2",null,{"className":"text-2xl sm:text-3xl font-serif font-bold text-dark mb-10","children":["Don't wait.",["$","br",null,{}],"Contact us, today."]}],["$","div",null,{"className":"flex flex-wrap gap-3","children":[["$","a",null,{"href":"tel:+19168787260","className":"inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm","children":["$L9","(916) 878-7260"]}],"$La"]}]]}],"$Lb"]}]}]]}],"$Lc","$Ld","$Le","$Lf"]}]}]]}],{"children":["$L10",{"children":["$L11",{},null,false,false]},null,false,false]},null,false,false],"$L12",false]],"m":"$undefined","G":["$13",[]],"S":true}
+14:I[58426,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"default"]
+15:I[22016,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],""]
+1a:I[54576,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],"GoogleAnalytics"]
+1b:I[79520,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js"],""]
+1d:I[20740,["/_next/static/chunks/2d8c5cacf7c7fe86.js","/_next/static/chunks/7ce46a70946f3b3d.js","/_next/static/chunks/d8db0ca3e6ec4087.js","/_next/static/chunks/939547c44e7ac9ef.js"],"default"]
+23:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"ViewportBoundary"]
+25:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"MetadataBoundary"]
+26:"$Sreact.suspense"
+9:["$","svg",null,{"className":"w-4 h-4","fill":"none","stroke":"currentColor","viewBox":"0 0 24 24","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"}]}]
+a:["$","a",null,{"href":"mailto:perfectohomes@gmail.com","className":"inline-flex items-center gap-2 bg-white hover:bg-dark hover:text-white text-dark border border-dark/15 font-semibold px-6 py-3 rounded-lg transition-colors text-sm","children":[["$","svg",null,{"className":"w-4 h-4","fill":"none","stroke":"currentColor","viewBox":"0 0 24 24","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"}]}],"perfectohomes@gmail.com"]}]
+b:["$","$L14",null,{}]
+c:["$","footer",null,{"children":[["$","div",null,{"className":"bg-dark-gray text-white py-12","children":["$","div",null,{"className":"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8","children":[["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"Sacramento Listings"}],["$","ul",null,{"className":"space-y-2","children":["$","li",null,{"children":["$","$L15",null,{"href":"/listings","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"All Sacramento"}]}]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"Peru Listings"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L15",null,{"href":"/peru/predio-victoria","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Predio Victoria"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/peru/hostal-qhispicay-ollantaytambo","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Hostal Qhispicay"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/peru/hatuchay-valle-restaurant-urubamba","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Hatuchay Valle"}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"Sacramento"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L15",null,{"href":"/communities/sacramento","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Sacramento"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/communities/citrus-heights","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Citrus Heights"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/communities/roseville","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Roseville"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/communities/elk-grove","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Elk Grove"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/communities/folsom","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Folsom"}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"Peru"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L15",null,{"href":"/communities/ollantaytambo","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Ollantaytambo"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/communities/urubamba","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Urubamba"}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"Resources"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L15",null,{"href":"/blog/first-time-home-buyer-guide-sacramento-ca","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Buyer Guide"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/blog/selling-your-home-in-sacramento-what-to-expect","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Seller Guide"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/blog","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Blog"}]}],["$","li",null,{"children":["$","$L15",null,{"href":"/contact","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Contact"}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400","children":"About Us"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L15",null,{"href":"/about/elisban-gonzales","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Elisban"}]}],["$","li",null,{"children":"$L16"}],"$L17","$L18"]}]]}]]}]}]}],"$L19"]}]
+d:["$","$L1a",null,{"gaId":"G-Q0X209GPL3"}]
+e:["$","$L1b",null,{"id":"meta-pixel","strategy":"afterInteractive","children":"!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '715432155734308');\nfbq('track', 'PageView');"}]
+1c:["$","img",null,{"height":"1","width":"1","style":{"display":"none"},"src":"https://www.facebook.com/tr?id=715432155734308&ev=PageView&noscript=1","alt":""}]
+f:["$","noscript",null,{"children":"$1c"}]
+10:["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+1e:T1c7b,
+### At a Glance
+
+- **1,800 m² of land** on the paved Ollantaytambo-Urubamba highway
+- **560 m² built** (280 m² per floor) in reinforced concrete
+- **Seating for 250 guests** (150 seats currently on site)
+- **Proven revenue**: 300-400 daily customers in high season
+- **No debt** on the property — fully paid off
+- **Established brand**: Hatuchay Valle is recognized locally
+- **$700/m² land** and **$2,250/m² built** pricing
+
+## A Once-in-a-Generation Sacred Valley Investment
+
+Hatuchay Valle Restaurant — "Big House of the Valley" in Quechua — is a fully built commercial restaurant situated on 1,800 m² of prime land along the paved highway between Ollantaytambo and Urubamba. This two-story reinforced concrete building offers 560 m² of built space with a professional commercial kitchen, multiple dining areas with buffet service capability, and seating for up to 250 guests.
+
+Located in the heart of Peru's Sacred Valley tourism corridor, this property previously served 300 to 400 customers daily during peak season (May through July), generating an estimated $2,800 to $4,267 USD per day. The restaurant is currently closed, presenting a rare opportunity to acquire a proven, high-volume commercial operation at a compelling price point.
+
+With the Chinchero International Airport scheduled to open in late 2027 — bringing direct international flights just minutes from the property — land values and tourist traffic in this corridor are projected to increase substantially. This is not just a restaurant purchase; it's a strategic position in one of South America's fastest-appreciating real estate markets.
+
+## Floor-by-Floor Breakdown
+
+### Floor 1 — Kitchen & Main Dining (Ground Level, 280 m²)
+
+![Floor Plan - Ground Floor](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/floor-plan-1)
+
+- Full commercial kitchen with dedicated cooking area
+- 4-burner gas stove area and gas oven
+- Separate prep stations for vegetables and beverages
+- Utensil washing station
+- Cold storage room (cámara fría) and dry goods storage
+- Liquid products storage
+- Work tables and display case
+- Presentation bar for plated dishes
+- Buffet service bar and service counter
+- Main dining area with table seating
+- Support bars for prepared foods and drinks
+
+### Floor 2 — Dining & Restrooms (Upper Level, 280 m²)
+
+![Floor Plan - Upper Floor](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/floor-plan-2)
+
+- Extended dining area with table seating (two sections)
+- Two buffet service bars
+- Women's restroom
+- Men's restroom
+- Accessible restroom (ADA equivalent)
+- Dual staircase access (main + east side)
+
+### Structural Engineering
+
+![Structural Plans](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/structural)
+
+### Building Dimensions
+- Width: approximately 19.00 m
+- Depth: approximately 27.80 m
+- Additional rear section: 11.25 m depth
+- Perimeter: 235.84 m
+
+---
+
+## Key Selling Points
+
+1. Prime location on paved highway between Ollantaytambo and Urubamba in the Sacred Valley
+2. Fully built out commercial restaurant with professional kitchen across 2 floors
+3. Proven business with 300 to 400 daily customers during high season
+4. Seating capacity up to 250 guests
+5. 1,800 m² of land provides significant expansion potential
+6. Reinforced concrete construction (losa aligerada) — built to last
+7. No debt on property (fully paid off in 2024)
+8. Sacred Valley tourism corridor with 1.5M+ annual Machu Picchu visitors
+9. Chinchero Airport (opening 2027) expected to boost area property values significantly
+10. Buffet-style operation means high volume, efficient service model
+11. Hatuchay Valle is an established brand name in the area
+
+---
+
+## Legal & Registry Details
+
+| Detail | Information |
+|---|---|
+| **Date Listed** | March 13, 2026 |
+| **SUNARP Partida Registral** | #11143688 |
+| **Partida Electrónica** | 02066307 |
+| **Zona Registral** | No. X, Sede Cusco |
+| **Title Status** | Title succession completed. Registered and transferred. |
+| **Liens/Encumbrances** | None. Previous bank debt of S/650,000 fully paid off in 2024. |
+| **Contract Type** | Exclusive brokerage representation through September 13, 2026 |
+| **Transaction Terms** | Payment via bank manager's check (cheque de gerencia) in USD at notary signing. All taxes (alcabala, capital gains) are seller's responsibility. |
+
+**Important Notes:**
+- Sale is for the real property only (land and building)
+- All movable property (furniture, kitchen equipment, utensils, appliances, décor) is NOT included but can be negotiated separately
+
+## Investment & ROI Snapshot
+
+### Revenue Data (Historical, When Operational)
+
+| Metric | Data |
+|---|---|
+| **High Season** | May through July (90 days) |
+| **Daily Customers** | 300 to 400 per day |
+| **Average Ticket** | 35 to 40 soles (~$9.30 to $10.65 USD) |
+| **Daily Revenue (high season)** | $2,800 to $4,267 USD/day |
+| **High Season Gross Revenue** | $252,000 to $384,000 USD (3 months) |
+| **High Season ROI** | 20% to 30.5% gross (on asking price) |
+
+*Low/mid season and annual data pending. Operating costs to be confirmed.*
+
+### Projected Annual Net Income
+
+![Hatuchay Valle Annual Net Income](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/annual-income)
+
+Three scenarios modeled over 10 years. Conservative (high season only) projects $100K/year steady state. Moderate (full year operation) reaches $279K by Year 10. Aggressive (expand and operate) reaches $560K by Year 10 with the Chinchero Airport catalyst at Year 2.
+
+### Cumulative Total ROI
+
+![Hatuchay Valle Cumulative ROI](https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-docs/cumulative-roi)
+
+Conservative scenario recovers 91% of investment in 10 years. Moderate doubles your money (186% ROI). Aggressive triples it (308% ROI). The Chinchero Airport opening at Year 2 is the inflection point across all scenarios.
+
+### Why Now? Market Catalysts
+
+- **Chinchero International Airport (2027)**: New airport opening just minutes from the Sacred Valley will replace Cusco's limited Velasco Astete airport, bringing direct international flights and dramatically increasing tourist access. This is the single biggest infrastructure investment in Cusco's history.
+- **Sacred Valley Tourism Corridor**: Over 1.5 million visitors traveled to Machu Picchu in 2025. The Ollantaytambo-Urubamba highway is the primary artery connecting major tourist destinations.
+- **Proven Demand**: This property has already demonstrated the ability to attract 300-400 customers per day. The brand, location, and infrastructure are established — the next owner steps into a ready-made operation.
+- **Land Value Appreciation**: At $700/m² for 1,800 m² of highway-fronting commercial land, current pricing reflects pre-airport valuations. Post-airport comparable properties in similar tourism corridors have seen 30-50% appreciation.
+- **Expansion Potential**: 1,800 m² of land with only 560 m² currently built provides substantial room for hotel rooms, event spaces, or additional dining capacity.
+
+1f:T18a3,
+## Embrace the Eternal Echoes of the Incas: Your Sacred Valley Sanctuary Awaits
+
+Nestled in the heart of the Sacred Valley, this fully operational hostal in Ollantaytambo stands as a bridge between Inca heritage and modern hospitality. Just steps from the iconic fortress ruins — a UNESCO World Heritage site — and a short train ride to Machu Picchu, Hostal Qhispicay isn't merely a property; it's a turnkey business and portal to Peru's soul.
+
+Imagine managing a thriving retreat with panoramic views of snow-capped Vilcabamba mountains, or converting it into a private Andean estate. With its blend of rustic stone charm, contemporary comforts, and observatory-inspired design, this hostal promises not just investment, but resurrection — of spirit, legacy, and revenue streams.
+
+### Property Highlights
+
+- **12 Guest Rooms + 2 Mini Apartments** across 5 levels
+- **474 m² of built space** on a 125 m² land parcel
+- All rooms with **private bathrooms and hot water** (300L solar panel at 70°C)
+- Hotel-quality beds with full linens, pillows, blankets, and duvets
+- **Fully equipped kitchen** with 4-burner gas stove, oven, refrigerator, blender
+- Professional **reception area** with computer cabinet, armchairs, and coffee tables
+- **Laundry facilities** with washing machine
+- **3 m³ water cistern** with two elevated tanks (1,100L + 750L)
+- **Rooftop observatory** with panoramic Sacred Valley views
+
+## Floor-by-Floor Breakdown
+
+### Primer Nivel — Ground Floor: Reception & Common Areas (125 m²)
+
+- Main entrance with professional reception desk
+- Restroom with hot water access (Estar)
+- 3 Guest bedrooms (Habitaciones 1-3)
+- All rooms include private bathrooms
+- Direct access to upper floors via central staircase
+
+### Segundo Nivel — Second Floor: Guest Bedroom Floor (118 m²)
+
+- 7 Comfortable guest bedrooms (Habitaciones 4 through 10)
+- Central hallway for easy circulation
+- All rooms located on one level for convenient guest flow
+- Staircase access from reception and to the top floor
+- Perfect configuration for standard guest rooms in a hostal setting
+
+### Tercer Nivel — Third Floor: Suites & Social Areas (118 m²)
+
+- 2 Standard guest bedrooms (Habitaciones 11 & 12)
+- 2 Mini Apartments / Suites (Mini Depto 1 & Mini Depto 2) — ideal for longer stays, couples, or families
+- Fully equipped shared kitchen (Cocina)
+- Large dining and living area with seating for multiple guests
+- Best views and natural light on the top floor
+- Perfect for guest breakfasts, socializing, and self-catering
+
+### Cuarto Nivel — Fourth Floor: Expansion Space (113 m²)
+
+- Flexible area for expansion, storage, or extra guest facilities, enhancing the hostal's capacity
+
+### Quinto Nivel — Fifth Floor: Rooftop Observatory (12 m²)
+
+- Flexible area for expansion, storage, or extra guest facilities
+- Panoramic views of the Sacred Valley and surrounding mountains
+
+---
+
+## Key Features at a Glance
+
+- **Prime Location in Historic Philcuhuasi**: Situated on a quiet, tree-lined street in the Urb. Philcuhuasi neighborhood, offering unparalleled proximity to Ollantaytambo's archaeological treasures, local markets, and adventure hubs
+- **Multi-Level Hostal Layout with 12 Rooms + 2 Mini Apartments**: 474 m² of thoughtfully designed space across five levels, featuring 12 guest rooms and 2 mini apartments, all with private bathrooms and hot water via 300L solar panel at 70°C
+- **Fully Equipped for Immediate Operations**: Kitchen with 4-burner gas stove and oven, refrigerator, blender, and full tableware/utensils for 25 guests. Reception area with 4-person sofa, armchairs, computer cabinet, and coffee tables. Laundry with washing machine.
+- **Rooftop Observatory**: Unique selling point with panoramic views of the Sacred Valley — ideal for stargazing events, yoga sessions, or premium guest experiences
+
+---
+
+## Legal & Registry Details
+
+| Detail | Information |
+|---|---|
+| **Date Listed** | February 10, 2026 |
+| **Registry Details** | Fully titled and registered under Partida Registral #02037554 in the Public Registries of Cusco. Completely saneado (cleared) with no liens or encumbrances. Exclusive brokerage representation under contract through August 10, 2026. |
+| **Title Status** | Saneado and inscribed in SUNARP Cusco Public Registries (Partida #02037554); includes up-to-date tax payments and no encumbrances. |
+| **Transaction Terms** | Payment via bank manager's check in USD at notary signing; 3% Alcabala transfer tax applies (seller-covered per Peruvian norms). Capital gains tax: 5-30% for non-residents, with potential exemptions for reinvestments. |
+| **Dispute Resolution** | Arbitration in Cusco, then jurisdictional courts; all docs (plans, tax receipts, SUNARP certs) available for due diligence. |
+
+**Notes:** Property is primed for seamless international transfer — consult for RUC setup or financing options. No heritage overlays, but eligible for cultural tourism incentives via Ministry of Culture.
+
+## Strategic Investment: Gateway to Exponential Returns
+
+This 125 m² land parcel with 474 m² built hostal in Ollantaytambo is priced at just $7,440 per m² land value (total $930,000) — a strong value in a market where premium Sacred Valley properties command $600-$1,000/m² amid surging global demand. It's more than a hostal; it's a strategic asset in Peru's booming eco-tourism corridor, where visitor numbers to Machu Picchu alone topped 1.5 million in 2025, driving significant YoY appreciation for well-positioned holdings.
+
+## Why Now? Market Snapshot
+
+- **Tourism Renaissance**: Post-pandemic rebound has Ollantaytambo properties yielding 8-12% annual rental ROI via Airbnb or boutique stays — far outpacing global averages.
+- **Expat & Investor Influx**: With remote work visas and golden visa programs, foreign buyers (US/EU) are snapping up 30% of Cusco listings, pushing values up 15% in the last year.
+- **Chinchero International Airport (2027)**: The new airport, just 25 minutes from Ollantaytambo, will replace Cusco's limited Velasco Astete airport, bringing direct international flights and dramatically increasing tourist access to the Sacred Valley.
+- **Limited Supply**: Ollantaytambo's historic center has strict development controls, making operational hostals with clear titles increasingly rare and valuable.
+20:T556,
+## Prime Investment Land in Urubamba, Sacred Valley
+
+Predio Victoria is a rare 10,000 m² undeveloped parcel in the heart of Urubamba, one of the most sought-after locations in Peru's Sacred Valley. This expansive property offers limitless potential for residential development, boutique hospitality, agricultural ventures, or a private estate.
+
+### Property Highlights
+
+- **10,000 m² of land** in Urubamba district
+- Flat, buildable terrain with mountain views
+- Located in the commercial and cultural hub of the Sacred Valley
+- Close proximity to restaurants, shops, and tourist attractions
+- Easy access to Cusco (1 hour) and Ollantaytambo (30 minutes)
+
+### Why Urubamba?
+
+Urubamba sits at the center of the Sacred Valley, making it the ideal base for exploring the region. The town has seen consistent growth in tourism, hospitality, and real estate values. It offers a temperate climate year-round and serves as a gateway to Machu Picchu and other Inca sites.
+
+### Investment Potential
+
+This parcel is zoned for multiple uses. Develop a boutique hotel, eco-lodge, residential community, or agricultural project. The Sacred Valley continues to attract international buyers and tourists, driving strong appreciation in land values.
+
+Contact Perfecto Homes Real Estate at (916) 878-7260 or perfectohomes@gmail.com to schedule a consultation about this property.
+11:["$","$1","c",{"children":[["$","div",null,{"className":"bg-light-gray min-h-screen pt-24","children":[["$","section",null,{"className":"bg-white border-b border-gray-100 py-10 sm:py-14","children":["$","div",null,{"className":"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8","children":[["$","p",null,{"className":"text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-3","children":"Sacred Valley, Peru"}],["$","h1",null,{"className":"text-2xl sm:text-3xl font-serif font-bold text-dark mb-3","children":"Peru Listings"}],["$","p",null,{"className":"text-medium-gray text-lg max-w-2xl","children":"Investment properties in Peru's Sacred Valley. Land, hotels, and commercial opportunities near Machu Picchu."}]]}]}],["$","section",null,{"className":"py-12","children":["$","div",null,{"className":"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8","children":["$","$L1d",null,{"listings":[{"slug":"hatuchay-valle-restaurant-urubamba","content":"$1e","title":"Hatuchay Valle Restaurant","city":"Urubamba, Cusco","metaTitle":"Restaurant for Sale - Hatuchay Valle in Urubamba | Perfecto Homes","metaDescription":"Commercial restaurant on 1,800 m² of prime Sacred Valley land. 560 m² built, 2 floors, seating for 250. Proven business with 300-400 daily customers in high season. $1,260,000 USD.","price":"$$1,260,000 USD","landArea":"1,800 m²","builtArea":"560 m²","floors":"2","propertyType":"Commercial / Restaurant","listingStatus":"Active","district":"Urubamba","location":"Parcela No. 07, Sector Media Luna, Urubamba, Cusco, Peru","image1":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/1","image2":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/5","image3":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/6","image4":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/7","image5":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/8","image6":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/9","image7":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/10","image8":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/11","image9":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/12","image10":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/13","image11":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/14","image12":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/15","image13":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/16","image14":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/17","image15":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/2","image16":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/3","image17":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hatuchay-restaurant-photos/4","youtubeVideo":"OrjHcvhq_4I","market":"peru"},{"slug":"hostal-qhispicay-ollantaytambo","content":"$1f","title":"Hostal Qhispicay","city":"Ollantaytambo, Cusco","metaTitle":"Hostal for Sale - Hostal Qhispicay in Ollantaytambo | Perfecto Homes","metaDescription":"Fully operational 12-room hostal with 2 mini apartments for sale in Ollantaytambo, Sacred Valley. 125 m² land, 474 m² built across 5 levels. $930,000 USD.","price":"$$930,000 USD","landArea":"125 m²","builtArea":"474 m²","floors":"5","propertyType":"Hostal","listingStatus":"Active","district":"Ollantaytambo","location":"Calle Tupac Yupanqui S/N, Urb. Philcuhuasi, Ollantaytambo, Cusco, Peru","image1":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/1","image2":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/2","image3":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/3","image4":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/4","image5":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/5","image6":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/6","image7":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/7","image8":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/8","image9":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/9","image10":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/10","image11":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/11","image12":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/12","image13":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/13","image14":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/14","image15":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/15","image16":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/16","image17":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/17","image18":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/18","image19":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/19","image20":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/hostal-qhispicay-local/20","youtubeVideo":"VRF4rBiZpZw","market":"peru"},{"slug":"predio-victoria","content":"$20","title":"Predio Victoria","city":"Urubamba, Cusco","metaTitle":"Land for Sale - Predio Victoria in Urubamba | Perfecto Homes","metaDescription":"10,000 m² undeveloped land for sale in Urubamba, Sacred Valley. Prime location with mountain views. $820,000 USD.","price":"$$820,000 USD","landArea":"10,000 m²","builtArea":"","floors":"","propertyType":"Undeveloped Land","listingStatus":"Active","district":"Urubamba","location":"Urubamba, Cusco, Peru","image1":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/aerial","image2":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/1","image3":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/4","image4":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/5","image5":"https://res.cloudinary.com/duwsn5ksy/image/upload/w_1200,q_auto,f_auto/listings/perfecto-homes/predio-victoria/2","youtubeVideo":"6A7fmq0DfCU","market":"peru"}],"markets":["peru"],"cities":["Urubamba","Ollantaytambo"],"types":["Commercial / Restaurant","Hostal","Undeveloped Land"]}]}]}]]}],["$L21"],"$L22"]}]
+12:["$","$1","h",{"children":[null,["$","$L23",null,{"children":"$L24"}],["$","div",null,{"hidden":true,"children":["$","$L25",null,{"children":["$","$26",null,{"name":"Next.Metadata","children":"$L27"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+2a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+16:["$","$L15",null,{"href":"/about/gina-gonzalez","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Gina"}]
+17:["$","li",null,{"children":["$","$L15",null,{"href":"/about/alfredo-gonzalez","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Alfredo"}]}]
+18:["$","li",null,{"children":["$","$L15",null,{"href":"/about/jamil-gonzales","className":"text-sm text-gray-300 hover:text-gold transition-colors","children":"Jamil"}]}]
+19:["$","div",null,{"className":"bg-dark text-white py-6","children":["$","div",null,{"className":"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"flex flex-col sm:flex-row items-center justify-between gap-4","children":[["$","div",null,{"className":"flex items-center gap-[10px]","children":[["$","$L8",null,{"src":"/images/logo/perfecto-logo.svg","alt":"Perfecto Homes","width":26,"height":21,"className":"w-[26px] h-[21px]"}],["$","span",null,{"className":"text-[18px] font-semibold tracking-[0.06em]","children":"PERFECTO HOMES"}]]}],["$","div",null,{"className":"flex items-center gap-3","children":[["$","a",null,{"href":"https://www.facebook.com/perfectohomes","target":"_blank","rel":"noopener noreferrer","aria-label":"Facebook","className":"w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-200","children":["$","svg",null,{"width":"18","height":"18","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","className":"text-white","children":["$","path",null,{"d":"M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"}]}]}],["$","a",null,{"href":"https://www.instagram.com/perfectohomes/","target":"_blank","rel":"noopener noreferrer","aria-label":"Instagram","className":"w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-200","children":["$","svg",null,{"width":"18","height":"18","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","className":"text-white","children":[["$","rect",null,{"x":"2","y":"2","width":"20","height":"20","rx":"5","ry":"5"}],["$","path",null,{"d":"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"}],["$","line",null,{"x1":"17.5","y1":"6.5","x2":"17.51","y2":"6.5"}]]}]}],["$","a",null,{"href":"https://www.tiktok.com/@perfectohomes?lang=en","target":"_blank","rel":"noopener noreferrer","aria-label":"TikTok","className":"w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-200","children":["$","svg",null,{"width":"18","height":"18","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","className":"text-white","children":["$","path",null,{"d":"M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"}]}]}],["$","a",null,{"href":"https://www.youtube.com/@perfectohomes","target":"_blank","rel":"noopener noreferrer","aria-label":"YouTube","className":"w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-200","children":["$","svg",null,{"width":"18","height":"18","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","className":"text-white","children":[["$","path",null,{"d":"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"}],["$","polygon",null,{"points":"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"}]]}]}]]}]]}],["$","div",null,{"className":"flex flex-col sm:flex-row items-center justify-between gap-2 mt-6 pt-4 border-t border-gray-700","children":[["$","p",null,{"className":"text-xs text-gray-400","children":["© ",2026," Perfecto Homes - All rights reserved"]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L15",null,{"href":"/privacy-policy","className":"text-xs text-gray-400 hover:text-gold transition-colors","children":"Privacy Policy"}],["$","$L15",null,{"href":"/terms","className":"text-xs text-gray-400 hover:text-gold transition-colors","children":"Terms & Conditions"}]]}]]}],["$","div",null,{"className":"flex items-center justify-between mt-4 pt-3 border-t border-gray-800","children":["$L28","$L29"]}]]}]}]
+21:["$","script","script-0",{"src":"/_next/static/chunks/939547c44e7ac9ef.js","async":true,"nonce":"$undefined"}]
+22:["$","$L2a",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@2b"}]}]
+:HL["/images/logo/lpt-realty-white.jpg","image"]
+28:["$","div",null,{"className":"flex items-center gap-2","children":[["$","img",null,{"src":"/images/logo/lpt-realty-white.jpg","alt":"LPT Realty","style":{"height":"14px","width":"auto"}}],["$","p",null,{"className":"text-[10px] text-gray-600","children":"LPT Realty, Inc."}]]}]
+29:["$","a",null,{"href":"https://thereadyconsult.com","target":"_blank","rel":"noopener noreferrer","className":"text-xs text-gray-300 hover:text-gold transition-colors","children":["Designed by ",["$","span",null,{"className":"text-white font-semibold","children":"The Ready Consult"}]]}]
+24:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2c:I[27201,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"IconMark"]
+27:[["$","title","0",{"children":"Sacred Valley Peru Properties for Sale | Perfecto Homes Real Estate | Perfecto Homes Real Estate"}],["$","meta","1",{"name":"description","content":"Investment properties for sale in Peru's Sacred Valley. Land, hotels, and restaurants in Ollantaytambo, Urubamba, and Cusco. Perfecto Homes Real Estate."}],["$","meta","2",{"name":"robots","content":"index, follow"}],["$","meta","3",{"property":"og:title","content":"Sacred Valley Peru Properties for Sale | Perfecto Homes Real Estate | Perfecto Homes Real Estate"}],["$","meta","4",{"property":"og:description","content":"Investment properties for sale in Peru's Sacred Valley. Land, hotels, and restaurants in Ollantaytambo, Urubamba, and Cusco. Perfecto Homes Real Estate."}],["$","meta","5",{"property":"og:site_name","content":"Perfecto Homes Real Estate"}],["$","meta","6",{"property":"og:locale","content":"en_US"}],["$","meta","7",{"property":"og:image","content":"https://www.perfectohomesrealestate.com/images/logo/perfecto-logo-full.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"property":"og:image:alt","content":"Perfecto Homes Real Estate"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Sacred Valley Peru Properties for Sale | Perfecto Homes Real Estate | Perfecto Homes Real Estate"}],["$","meta","14",{"name":"twitter:description","content":"Investment properties for sale in Peru's Sacred Valley. Land, hotels, and restaurants in Ollantaytambo, Urubamba, and Cusco. Perfecto Homes Real Estate."}],["$","meta","15",{"name":"twitter:image","content":"https://www.perfectohomesrealestate.com/images/logo/perfecto-logo-full.png"}],["$","meta","16",{"name":"twitter:image:width","content":"1200"}],["$","meta","17",{"name":"twitter:image:height","content":"630"}],["$","meta","18",{"name":"twitter:image:alt","content":"Perfecto Homes Real Estate"}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/icon.svg?icon.d0edb724.svg","sizes":"any","type":"image/svg+xml"}],["$","link","21",{"rel":"apple-touch-icon","href":"/apple-icon.png?apple-icon.d650c802.png","sizes":"180x180","type":"image/png"}],["$","$L2c","22",{}]]
+2b:null

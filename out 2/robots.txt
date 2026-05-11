@@ -1,0 +1,35 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /admin/
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# Applebot-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# Host
+Host: https://www.perfectohomesrealestate.com
+
+# Sitemaps
+Sitemap: https://www.perfectohomesrealestate.com/sitemap.xml
