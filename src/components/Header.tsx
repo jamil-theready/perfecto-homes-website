@@ -128,17 +128,46 @@ export default function Header() {
                   {/* Peru */}
                   <div className="flex gap-4">
                     <Link href="/communities/peru" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/hero/peru-landscape.jpg" alt="Sacred Valley, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <Image src="/images/peru/pisac.jpg" alt="Sacred Valley, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
                         <p className="text-white text-[13px] font-semibold">Sacred Valley</p>
                       </div>
                     </Link>
                     <div>
-                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Peru</p>
-                      <div className="space-y-1">
-                        <Link href="/communities/ollantaytambo" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Ollantaytambo</Link>
-                        <Link href="/communities/urubamba" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Urubamba</Link>
+                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Sacred Valley</p>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                        <Link href="/communities/ollantaytambo" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Ollantaytambo</Link>
+                        <Link href="/communities/urubamba" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Urubamba</Link>
+                        <Link href="/communities/pisac" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Pisac</Link>
+                        <Link href="/communities/chinchero" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Chinchero</Link>
+                        <Link href="/communities/calca" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Calca</Link>
+                        <Link href="/communities/yucay" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Yucay</Link>
+                        <Link href="/communities/maras" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Maras</Link>
+                        <Link href="/communities/aguas-calientes" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Aguas Calientes</Link>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Divider */}
+                  <div className="w-px bg-gray-100 shrink-0" />
+                  {/* Cusco City */}
+                  <div className="flex gap-4">
+                    <Link href="/communities/cusco" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
+                      <Image src="/images/peru/cusco.jpg" alt="Cusco City" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-white text-[13px] font-semibold">Cusco City</p>
+                      </div>
+                    </Link>
+                    <div>
+                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Cusco City</p>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                        <Link href="/communities/cusco" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Cusco</Link>
+                        <Link href="/communities/centro-historico" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Centro Histórico</Link>
+                        <Link href="/communities/san-blas" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>San Blas</Link>
+                        <Link href="/communities/wanchaq" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>Wanchaq</Link>
+                        <Link href="/communities/san-sebastian" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>San Sebastián</Link>
+                        <Link href="/communities/san-jeronimo" className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>San Jerónimo</Link>
                       </div>
                     </div>
                   </div>
@@ -352,10 +381,26 @@ export default function Header() {
             ))}
           </MobileDropdown>
 
-          {/* Peru Communities */}
-          <MobileDropdown title="Peru Communities">
+          {/* Sacred Valley */}
+          <MobileDropdown title="Sacred Valley">
             <Link href="/communities/ollantaytambo" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Ollantaytambo</Link>
             <Link href="/communities/urubamba" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Urubamba</Link>
+            <Link href="/communities/pisac" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Pisac</Link>
+            <Link href="/communities/chinchero" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Chinchero</Link>
+            <Link href="/communities/calca" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Calca</Link>
+            <Link href="/communities/yucay" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Yucay</Link>
+            <Link href="/communities/maras" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Maras</Link>
+            <Link href="/communities/aguas-calientes" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Aguas Calientes</Link>
+          </MobileDropdown>
+
+          {/* Cusco City */}
+          <MobileDropdown title="Cusco City">
+            <Link href="/communities/cusco" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Cusco</Link>
+            <Link href="/communities/centro-historico" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Centro Histórico</Link>
+            <Link href="/communities/san-blas" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>San Blas</Link>
+            <Link href="/communities/wanchaq" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Wanchaq</Link>
+            <Link href="/communities/san-sebastian" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>San Sebastián</Link>
+            <Link href="/communities/san-jeronimo" className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>San Jerónimo</Link>
           </MobileDropdown>
 
           <Link href="/blog" className="block py-2 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>

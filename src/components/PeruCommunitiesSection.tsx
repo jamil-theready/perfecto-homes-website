@@ -5,16 +5,16 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 const PERU_COMMUNITIES = [
-  {
-    name: "Ollantaytambo",
-    slug: "ollantaytambo",
-    image: "/images/peru/hostal-ollantaytambo.jpg",
-  },
-  {
-    name: "Urubamba",
-    slug: "urubamba",
-    image: "/images/peru/hatuchay-restaurant.jpg",
-  },
+  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/hostal-ollantaytambo.jpg" },
+  { name: "Urubamba", slug: "urubamba", image: "/images/peru/hatuchay-restaurant.jpg" },
+  { name: "Pisac", slug: "pisac", image: "/images/peru/pisac.jpg" },
+  { name: "Chinchero", slug: "chinchero", image: "/images/peru/chinchero.jpg" },
+  { name: "Calca", slug: "calca", image: "/images/peru/calca.jpg" },
+  { name: "Yucay", slug: "yucay", image: "/images/peru/yucay.jpg" },
+  { name: "Maras", slug: "maras", image: "/images/peru/maras.jpg" },
+  { name: "Aguas Calientes", slug: "aguas-calientes", image: "/images/peru/aguas-calientes.jpg" },
+  { name: "Cusco", slug: "cusco", image: "/images/peru/cusco.jpg" },
+  { name: "San Blas", slug: "san-blas", image: "/images/peru/san-blas.jpg" },
 ];
 
 export default function PeruCommunitiesSection() {

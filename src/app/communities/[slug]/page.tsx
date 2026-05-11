@@ -94,6 +94,18 @@ const PERU_SLUGS = new Set([
 const PERU_HERO_IMAGES: Record<string, string> = {
   ollantaytambo: "/images/peru/hostal-ollantaytambo.jpg",
   urubamba: "/images/peru/hatuchay-restaurant.jpg",
+  pisac: "/images/peru/pisac.jpg",
+  chinchero: "/images/peru/chinchero.jpg",
+  calca: "/images/peru/calca.jpg",
+  yucay: "/images/peru/yucay.jpg",
+  maras: "/images/peru/maras.jpg",
+  "aguas-calientes": "/images/peru/aguas-calientes.jpg",
+  cusco: "/images/peru/cusco.jpg",
+  "centro-historico": "/images/peru/centro-historico.jpg",
+  "san-blas": "/images/peru/san-blas.jpg",
+  wanchaq: "/images/peru/wanchaq.jpg",
+  "san-sebastian": "/images/peru/san-sebastian.jpg",
+  "san-jeronimo": "/images/peru/san-jeronimo.jpg",
 };
 
 export default async function CommunityPage({ params }: Props) {

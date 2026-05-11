@@ -9,79 +9,23 @@ export const metadata: Metadata = {
 };
 
 const SACRED_VALLEY = [
-  {
-    name: "Ollantaytambo",
-    slug: "ollantaytambo",
-    image: "/images/peru/hostal-ollantaytambo.jpg",
-  },
-  {
-    name: "Urubamba",
-    slug: "urubamba",
-    image: "/images/peru/hatuchay-restaurant.jpg",
-  },
-  {
-    name: "Pisac",
-    slug: "pisac",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Chinchero",
-    slug: "chinchero",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Calca",
-    slug: "calca",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Yucay",
-    slug: "yucay",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Maras",
-    slug: "maras",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Aguas Calientes",
-    slug: "aguas-calientes",
-    image: "/images/hero/peru-landscape.jpg",
-  },
+  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/hostal-ollantaytambo.jpg" },
+  { name: "Urubamba", slug: "urubamba", image: "/images/peru/hatuchay-restaurant.jpg" },
+  { name: "Pisac", slug: "pisac", image: "/images/peru/pisac.jpg" },
+  { name: "Chinchero", slug: "chinchero", image: "/images/peru/chinchero.jpg" },
+  { name: "Calca", slug: "calca", image: "/images/peru/calca.jpg" },
+  { name: "Yucay", slug: "yucay", image: "/images/peru/yucay.jpg" },
+  { name: "Maras", slug: "maras", image: "/images/peru/maras.jpg" },
+  { name: "Aguas Calientes", slug: "aguas-calientes", image: "/images/peru/aguas-calientes.jpg" },
 ];
 
 const CUSCO_CITY = [
-  {
-    name: "Cusco",
-    slug: "cusco",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Centro Histórico",
-    slug: "centro-historico",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "San Blas",
-    slug: "san-blas",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "Wanchaq",
-    slug: "wanchaq",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "San Sebastián",
-    slug: "san-sebastian",
-    image: "/images/hero/peru-landscape.jpg",
-  },
-  {
-    name: "San Jerónimo",
-    slug: "san-jeronimo",
-    image: "/images/hero/peru-landscape.jpg",
-  },
+  { name: "Cusco", slug: "cusco", image: "/images/peru/cusco.jpg" },
+  { name: "Centro Histórico", slug: "centro-historico", image: "/images/peru/centro-historico.jpg" },
+  { name: "San Blas", slug: "san-blas", image: "/images/peru/san-blas.jpg" },
+  { name: "Wanchaq", slug: "wanchaq", image: "/images/peru/wanchaq.jpg" },
+  { name: "San Sebastián", slug: "san-sebastian", image: "/images/peru/san-sebastian.jpg" },
+  { name: "San Jerónimo", slug: "san-jeronimo", image: "/images/peru/san-jeronimo.jpg" },
 ];
 
 export default function PeruCommunitiesIndexPage() {
