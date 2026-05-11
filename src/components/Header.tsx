@@ -176,43 +176,39 @@ export default function Header() {
 
               {/* Listings Panel */}
               {openDropdown === "listings" && (
-                <div className="flex gap-6">
+                <div className="flex gap-8">
                   {/* Sacramento */}
-                  <div className="flex gap-4">
-                    <Link href="/listings" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[130px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/hero/sacramento-bridge.jpg" alt="Sacramento Listings" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <p className="text-white text-[13px] font-semibold">Sacramento</p>
-                      </div>
-                    </Link>
-                    <div>
-                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Sacramento</p>
-                      <div className="space-y-1">
-                        <Link href="/listings/11610-vickie-dr" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>11610 Vickie Dr</Link>
-                        <Link href="/listings/6630-dunmore-ave" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>6630 Dunmore Ave</Link>
-                        <Link href="/listings/6236-riverbelle-ct" className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>6236 Riverbelle Ct</Link>
-                      </div>
+                  <div>
+                    <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-3">Sacramento</p>
+                    <div className="grid grid-cols-3 gap-3 w-[480px]">
+                      {[
+                        { name: "11610 Vickie Dr", slug: "11610-vickie-dr", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/11610-vickie-dr/1" },
+                        { name: "6630 Dunmore Ave", slug: "6630-dunmore-ave", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1" },
+                        { name: "6236 Riverbelle Ct", slug: "6236-riverbelle-ct", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/6236-riverbelle-ct/1" },
+                      ].map((l) => (
+                        <Link key={l.slug} href={`/listings/${l.slug}`} className="group/card block" onClick={closeDropdown}>
+                          <div className="relative rounded-lg overflow-hidden aspect-[4/3] mb-2">
+                            <Image src={l.img} alt={l.name} fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="160px" unoptimized />
+                          </div>
+                          <p className="text-[12px] font-medium text-dark group-hover/card:text-gold transition-colors leading-tight">{l.name}</p>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                   {/* Divider */}
                   <div className="w-px bg-gray-100 shrink-0" />
                   {/* Peru */}
-                  <div className="flex gap-4">
-                    <Link href="/peru" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[130px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/hero/peru-landscape.jpg" alt="Peru Listings" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <p className="text-white text-[13px] font-semibold">Sacred Valley</p>
-                      </div>
-                    </Link>
-                    <div>
-                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Peru</p>
-                      <div className="space-y-1">
-                        {PERU_LISTINGS.map((l) => (
-                          <Link key={l.slug} href={`/peru/${l.slug}`} className="block px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>{l.name}</Link>
-                        ))}
-                      </div>
+                  <div>
+                    <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-3">Peru</p>
+                    <div className="grid grid-cols-3 gap-3 w-[480px]">
+                      {PERU_LISTINGS.map((l) => (
+                        <Link key={l.slug} href={`/peru/${l.slug}`} className="group/card block" onClick={closeDropdown}>
+                          <div className="relative rounded-lg overflow-hidden aspect-[4/3] mb-2">
+                            <Image src={l.image} alt={l.name} fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="160px" />
+                          </div>
+                          <p className="text-[12px] font-medium text-dark group-hover/card:text-gold transition-colors leading-tight">{l.name}</p>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
