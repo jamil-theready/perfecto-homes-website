@@ -6,8 +6,8 @@ metaTitle: "Down Payment Guide Explaining Requirements to Buy a House in Califor
 metaDescription: "Learn the requirements to buy a house in California, including the average down payment. Get expert tips to prepare for homeownership in the Golden State."
 category: "News"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80&auto=format"
-thumbnail: "https://framerusercontent.com/images/xIdteMN9EYLAGqYXOOkFvNkyUsU.jpg"
+image: /images/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers.jpg
+thumbnail: /images/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers.jpg
 quickAnswer: "To buy a house in California you need a credit score of at least 620 for conventional loans, a debt to income ratio under 43%, savings for a down payment averaging about 12%, and pre approval from a mortgage lender before you start searching."
 keyTakeaways:
   - "Conventional loans require a minimum 620 credit score while FHA loans may accept scores as low as 580"

@@ -2,76 +2,37 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   COMMUNITIES,
-  TEAM,
   SOCIAL_LINKS,
-  PHONE,
-  PHONE_TEL,
-  EMAIL,
   PERU_LISTINGS,
 } from "@/lib/constants";
-import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollRevealText from "@/components/ScrollRevealText";
+import CinematicHero from "@/components/CinematicHero";
+import FullscreenListings from "@/components/FullscreenListings";
+import TeamSection from "@/components/TeamSection";
+import SacramentoIntro from "@/components/SacramentoIntro";
+import PeruCommunitiesSection from "@/components/PeruCommunitiesSection";
+
+const SACRAMENTO_LISTINGS = [
+  {
+    name: "11610 Vickie Dr",
+    slug: "11610-vickie-dr",
+    image:
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/11610-vickie-dr/1.jpg",
+  },
+  {
+    name: "6630 Dunmore Ave",
+    slug: "6630-dunmore-ave",
+    image:
+      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto/listings/perfecto-homes/6630-dunmore-ave/1.jpg",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
-      {/* ====== HERO ====== */}
-      <section className="relative overflow-hidden h-[calc(100vh-160px)] min-h-[560px] max-h-[760px]">
-        {/* Background video (desktop) / image (mobile fallback) */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/hero/sacramento-bridge.jpg"
-        >
-          <source src="/images/hero/hero-video.mp4" type="video/mp4" />
-        </video>
-        {/* Gradient overlay for text contrast */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%)",
-          }}
-        />
-
-        {/* Content — bottom-aligned, two-column layout */}
-        <div className="relative h-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-end pb-[60px]">
-          <div className="w-full flex flex-col md:flex-row md:items-end md:justify-between">
-            {/* Left column — title + subtitle */}
-            <div className="max-w-[597px] flex flex-col gap-[30px]">
-              <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-medium leading-[1.2] tracking-[-0.06em] text-white">
-                Expert Real Estate Services in Sacramento and Peru
-              </h1>
-              <p className="font-[family-name:var(--font-manrope)] text-white text-[16px] font-semibold leading-[1.4] tracking-[-0.02em] max-w-[440px]">
-                From Sacramento neighborhoods to investment properties in Peru,
-                we help you identify the right opportunities and move forward
-                with confidence.
-              </p>
-            </div>
-
-            {/* Right column — badges */}
-            <div className="flex items-center gap-[30px] flex-shrink-0 mt-8 md:mt-0">
-              <Image
-                src="/images/logo/lpt-realty-white.jpg"
-                alt="LPT Realty"
-                width={151}
-                height={38}
-              />
-              <Image
-                src="/images/logo/diamond-club.png"
-                alt="Diamond Club"
-                width={168}
-                height={37}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicHero />
 
       {/* ====== SOCIAL BAR + LOCATION CARDS ====== */}
       <section className="pt-8 pb-16 sm:pt-10 sm:pb-20">
@@ -86,7 +47,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="w-[42px] h-[42px] rounded-full bg-gray-100 flex items-center justify-center text-dark hover:bg-gold hover:text-white hover:shadow-md transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-light-gray hover:bg-gold text-medium-gray hover:text-white flex items-center justify-center transition-all duration-200"
                 >
                   <SocialSvg name={name} />
                 </a>
@@ -137,20 +98,31 @@ export default function HomePage() {
       {/* ====== MISSION STATEMENTS ====== */}
       <ScrollRevealText />
 
-      {/* ====== COMMUNITIES ====== */}
+      {/* ====== PERU LISTINGS (fullscreen) ====== */}
+      <FullscreenListings
+        listings={PERU_LISTINGS}
+        basePath="/peru"
+        sectionId="peru"
+        intro={{ eyebrow: "Featured Properties", prefix: "Our Listings in", highlight: "Peru" }}
+        regionLabel="International · Peru"
+      />
+
+      {/* ====== PERU COMMUNITIES ====== */}
+      <PeruCommunitiesSection />
+
+      {/* ====== SACRAMENTO LISTINGS (fullscreen) ====== */}
+      <FullscreenListings
+        listings={SACRAMENTO_LISTINGS}
+        basePath="/listings"
+        sectionId="sacramento-listings"
+        intro={{ eyebrow: "Featured Properties", prefix: "Our Listings in", highlight: "Sacramento" }}
+        regionLabel="Sacramento · California"
+      />
+
+      {/* ====== SACRAMENTO COMMUNITIES ====== */}
+      <SacramentoIntro />
       <section className="bg-light-gray py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
-                Communities
-              </p>
-              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
-                Explore and Learn about the Sacramento Area
-              </h2>
-            </div>
-          </ScrollReveal>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {COMMUNITIES.map((c, i) => (
               <ScrollReveal key={c.slug} delay={0.1 * i}>
@@ -178,159 +150,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== INTERNATIONAL / PERU ====== */}
-      <section id="peru" className="bg-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
-                International
-              </p>
-              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
-                View our Properties in Peru
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PERU_LISTINGS.map((listing, i) => (
-              <ScrollReveal key={listing.slug} delay={0.1 * i}>
-                <Link
-                  href={`/peru/${listing.slug}`}
-                  className="group relative rounded-[10px] overflow-hidden aspect-[4/3] block bg-dark"
-                >
-                  <Image
-                    src={listing.image}
-                    alt={listing.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h4 className="text-white text-[22px] font-medium tracking-[-0.05em]">
-                      {listing.name}
-                    </h4>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ====== TEAM ====== */}
-      <section id="team" className="bg-white py-16 sm:py-20">
-        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.16em] uppercase text-gold font-normal mb-3">
-                Who We Are
-              </p>
-              <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em]">
-                Meet The Perfecto Homes Team
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="space-y-10">
-            {TEAM.map((member, i) => {
-              const isEven = i % 2 === 1;
-              return (
-                <ScrollReveal key={member.slug} delay={0.2}>
-                  <div
-                    className={`flex flex-col ${
-                      isEven ? "md:flex-row-reverse" : "md:flex-row"
-                    } gap-6 items-start`}
-                  >
-                    {/* Photo */}
-                    <div className="relative w-[180px] h-[220px] sm:w-[200px] sm:h-[250px] flex-shrink-0 rounded-xl overflow-hidden bg-light-gray">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-top"
-                        sizes="200px"
-                      />
-                    </div>
-
-                    {/* Info */}
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="text-[24px] font-medium text-dark tracking-[-0.05em]">
-                          {member.name}
-                        </h3>
-                        <Link
-                          href={`/about/${member.slug}`}
-                          className="hidden md:inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors"
-                        >
-                          Learn More &rarr;
-                        </Link>
-                      </div>
-                      <p className="text-xs tracking-[0.16em] uppercase text-gold mt-1 mb-4">
-                        {member.role}
-                      </p>
-                      <p className="text-medium-gray text-[15px] leading-[1.6] tracking-[0.02em] mb-5">
-                        {member.bio}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        <a
-                          href={
-                            member.phoneLink ||
-                            `tel:${member.phoneTel}`
-                          }
-                          className="inline-flex items-center gap-2 bg-light-gray hover:bg-gray-100 text-dark text-sm font-medium px-4 py-2.5 rounded-lg transition-colors [&_svg]:text-gold"
-                        >
-                          <PhoneIcon />
-                          {member.phone}
-                        </a>
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="inline-flex items-center gap-2 bg-light-gray hover:bg-gray-100 text-dark text-sm font-medium px-4 py-2.5 rounded-lg transition-colors [&_svg]:text-gold"
-                        >
-                          <EmailIcon />
-                          {member.email}
-                        </a>
-                      </div>
-                      <Link
-                        href={`/about/${member.slug}`}
-                        className="md:hidden inline-flex items-center gap-1 text-sm text-medium-gray hover:text-gold transition-colors mt-3"
-                      >
-                        Learn More &rarr;
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <TeamSection />
 
       {/* ====== NEWSLETTER ====== */}
-      <section className="bg-light-gray py-16 sm:py-20">
-        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-dark py-20 sm:py-28">
+        <Image
+          src="/images/contact/backdrop.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-dark/70" />
+        <div className="relative max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="relative rounded-2xl overflow-hidden">
-              <Image
-                src="/images/contact/backdrop.jpg"
-                alt="Newsletter background"
-                fill
-                className="object-cover"
-                sizes="900px"
-              />
-              <div className="absolute inset-0 bg-dark/85" />
-              <div className="relative text-white text-center px-6 sm:px-12 py-12 sm:py-16">
-                <h2 className="text-2xl sm:text-[32px] font-medium tracking-[-0.06em] mb-3">
-                  Stay Up to Date
-                </h2>
-                <p className="text-gray-300 text-sm mb-8 max-w-md mx-auto">
-                  Subscribe to our newsletter and receive updates on new
-                  listings, events, news, and more.
-                </p>
-                <NewsletterForm />
-              </div>
+            <div className="text-white text-center">
+              <h2 className="text-3xl sm:text-[40px] font-medium tracking-[-0.06em] mb-3">
+                Stay Up to Date
+              </h2>
+              <p className="text-gray-300 text-sm sm:text-base mb-8 max-w-md mx-auto">
+                Subscribe to our newsletter and receive updates on new
+                listings, events, news, and more.
+              </p>
+              <NewsletterForm />
             </div>
           </ScrollReveal>
         </div>
@@ -404,209 +247,16 @@ export default function HomePage() {
           </ScrollReveal>
 
 
-          {/* Information for Sellers / Buyers */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Sellers */}
-            <ScrollReveal delay={0.1}>
-              <div className="rounded-[10px] overflow-hidden bg-light-gray">
-                <div className="relative h-[200px]">
-                  <Image
-                    src="/images/resources/sellers-house.jpg"
-                    alt="Information for Sellers"
-                    fill
-                    className="object-cover"
-                    sizes="600px"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-[28px] font-medium text-dark tracking-[-0.05em] mb-6">
-                    Information for{" "}
-                    <span className="text-gold">Sellers</span>
-                  </h3>
-                  <div className="space-y-5">
-                    <InfoItem
-                      title="Maximize Your Home Value"
-                      description="Proven strategies that help you sell for top dollar."
-                    />
-                    <InfoItem
-                      title="Professional Marketing & Exposure"
-                      description="High-quality photos, listings, and promotion that attract serious buyers."
-                    />
-                    <InfoItem
-                      title="Guidance From Prep to Closing"
-                      description="Step-by-step support to make your selling process smooth and stress-free."
-                    />
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Buyers */}
-            <ScrollReveal delay={0.2}>
-              <div className="rounded-[10px] overflow-hidden bg-light-gray">
-                <div className="relative h-[200px]">
-                  <Image
-                    src="/images/resources/buyers-house.jpg"
-                    alt="Information for Buyers"
-                    fill
-                    className="object-cover"
-                    sizes="600px"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-[28px] font-medium text-dark tracking-[-0.05em] mb-6">
-                    Information for{" "}
-                    <span className="text-gold">Buyers</span>
-                  </h3>
-                  <div className="space-y-5">
-                    <InfoItem
-                      title="Trusted Financing Partners"
-                      description="Access to reliable lenders and a simplified loan process."
-                    />
-                    <InfoItem
-                      title="Local Experts"
-                      description="We guide you through every step — from searching to getting your keys."
-                    />
-                    <InfoItem
-                      title="Bilingual Support"
-                      description="Clear communication in English or Spanish for your family's comfort."
-                    />
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
 
-
-      {/* ====== CONTACT CTA ====== */}
-      <section className="relative py-16 sm:py-20">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/contact/backdrop.jpg"
-            alt="Contact us backdrop"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-white/90" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left side */}
-            <ScrollReveal>
-              <div>
-                <h2 className="text-3xl sm:text-[36px] font-medium text-dark tracking-[-0.06em] mb-2">
-                  Don&apos;t wait.
-                  <br />
-                  Contact us, today.
-                </h2>
-
-                <div className="space-y-3 mt-8">
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    className="flex items-center gap-3 text-dark hover:text-gold transition-colors"
-                  >
-                    <PhoneIcon />
-                    <span className="font-medium">{PHONE}</span>
-                  </a>
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="flex items-center gap-3 text-dark hover:text-gold transition-colors"
-                  >
-                    <EmailIcon />
-                    <span className="font-medium">{EMAIL}</span>
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Right side — Contact Form */}
-            <ScrollReveal delay={0.2}>
-              <ContactForm />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
 
     </>
   );
 }
 
 /* ──────── Helper components ──────── */
-
-function InfoItem({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex gap-3">
-      <div className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          className="text-gold"
-        >
-          <polyline points="20 6 9 17 4 12" />
-        </svg>
-      </div>
-      <div>
-        <h4 className="font-semibold text-dark text-sm">{title}</h4>
-        <p className="text-medium-gray text-xs leading-relaxed mt-0.5">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-gold flex-shrink-0"
-    >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function EmailIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-gold flex-shrink-0"
-    >
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  );
-}
 
 function SocialSvg({ name }: { name: string }) {
   const props = {

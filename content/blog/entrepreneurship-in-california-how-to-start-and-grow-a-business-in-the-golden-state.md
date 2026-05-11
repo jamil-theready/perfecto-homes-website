@@ -5,8 +5,8 @@ slug: "entrepreneurship-in-california-how-to-start-and-grow-a-business-in-the-go
 metaDescription: "Learn how to start and grow a business in California. Explore key steps, resources, and tips for entrepreneurship in the Golden State to achieve success in one of the most dynamic economies in the U.S."
 category: "News"
 author: "jamil"
-image: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1200&q=80&auto=format"
-thumbnail: "https://framerusercontent.com/images/lQCj0TsoHISp5XKdJ2CuXTwtY4.png"
+image: /images/blog/entrepreneurship-in-california-how-to-start-and-grow-a-business-in-the-golden-state.jpg
+thumbnail: /images/blog/entrepreneurship-in-california-how-to-start-and-grow-a-business-in-the-golden-state.jpg
 youtubeLink: "https://www.youtube.com/watch?v=Pwwib-SfkTI"
 tags:
   - "BUSINESS"

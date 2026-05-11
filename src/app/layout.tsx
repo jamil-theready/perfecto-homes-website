@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import SiteIntro from "@/components/SiteIntro";
 import "./globals.css";
 
 const inter = Inter({
@@ -64,6 +65,7 @@ export default function RootLayout({
         className={`${inter.variable} ${lato.variable} font-sans antialiased`}
       >
         <OrganizationJsonLd />
+        <SiteIntro />
         <Header />
         <main className="bg-white">{children}</main>
         <TestimonialCarousel />

@@ -5,7 +5,7 @@ slug: "selling-your-home-in-sacramento-what-to-expect"
 metaDescription: "Planning to sell your house in Sacramento? Learn the step by step process, common mistakes to avoid, and why working with a local agent matters."
 category: "Sacramento"
 author: "gina"
-image: "https://images.unsplash.com/photo-1582407947092-50af120a7b6a?w=1200&q=80&auto=format"
+image: /images/blog/selling-your-home-in-sacramento-what-to-expect.jpg
 tags:
   - "SACRAMENTO"
   - "SELLING"

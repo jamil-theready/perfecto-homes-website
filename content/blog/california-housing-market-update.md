@@ -5,7 +5,7 @@ slug: "california-housing-market-update"
 metaDescription: "Explore the latest California housing market trends, including interest rates, inventory, and affordability, with insights for Sacramento buyers and sellers."
 category: "Sacramento"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format"
+image: /images/blog/california-housing-market-update.jpeg
 tags:
   - "SACRAMENTO"
   - "REAL ESTATE"

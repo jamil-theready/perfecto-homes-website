@@ -75,6 +75,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const PERU_SLUGS = new Set(["ollantaytambo", "urubamba"]);
+const PERU_HERO_IMAGES: Record<string, string> = {
+  ollantaytambo: "/images/peru/hostal-ollantaytambo.jpg",
+  urubamba: "/images/peru/hatuchay-restaurant.jpg",
+};
+
 export default async function CommunityPage({ params }: Props) {
   const { slug } = await params;
   const community = COMMUNITIES.find((c) => c.slug === slug);
@@ -89,6 +95,13 @@ export default async function CommunityPage({ params }: Props) {
 
   const name = (cmsItem?.title as string) || community?.name || slug;
   const htmlContent = cmsItem ? await markdownToHtml(cmsItem.content) : null;
+  const isPeru = PERU_SLUGS.has(slug);
+  const regionLabel = isPeru ? "Cusco · Sacred Valley, Peru" : "Sacramento Area · California";
+  const backHref = isPeru ? "/communities/peru" : "/communities";
+  const backLabel = isPeru ? "All Sacred Valley" : "All Communities";
+  const heroImage = isPeru
+    ? PERU_HERO_IMAGES[slug] ?? "/images/hero/peru-landscape.jpg"
+    : `/images/communities/${slug}.jpg`;
 
   return (
     <>
@@ -96,12 +109,12 @@ export default async function CommunityPage({ params }: Props) {
       <section className="relative bg-dark text-white overflow-hidden pt-28 pb-16 sm:pb-20">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url('/images/communities/${slug}.jpg')` }}
+          style={{ backgroundImage: `url('${heroImage}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/listings" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; All Communities</Link>
-          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">Sacramento Area</p>
+          <Link href={backHref} className="text-gold text-sm hover:underline mb-4 inline-block">&larr; {backLabel}</Link>
+          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-2">{regionLabel}</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold">{name}</h1>
         </div>
       </section>
@@ -141,24 +154,52 @@ export default async function CommunityPage({ params }: Props) {
       {/* Other Communities */}
       <section className="bg-light-gray py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-dark mb-8">Explore Other Communities</h2>
+          <h2 className="text-2xl font-serif font-bold text-dark mb-8">
+            {isPeru ? "Explore the Sacred Valley" : "Explore Other Communities"}
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COMMUNITIES.filter((c) => c.slug !== slug).slice(0, 6).map((c) => (
-              <Link
-                key={c.slug}
-                href={`/communities/${c.slug}`}
-                className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-dark"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('/images/communities/${c.slug}.jpg')` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white text-lg font-semibold">{c.name}</h3>
-                </div>
-              </Link>
-            ))}
+            {isPeru ? (
+              Array.from(PERU_SLUGS)
+                .filter((s) => s !== slug)
+                .map((s) => {
+                  const label =
+                    s === "ollantaytambo" ? "Ollantaytambo" :
+                    s === "urubamba" ? "Urubamba" : s;
+                  return (
+                    <Link
+                      key={s}
+                      href={`/communities/${s}`}
+                      className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-dark"
+                    >
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        style={{ backgroundImage: `url('${PERU_HERO_IMAGES[s] ?? "/images/hero/peru-landscape.jpg"}')` }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-white text-lg font-semibold">{label}</h3>
+                      </div>
+                    </Link>
+                  );
+                })
+            ) : (
+              COMMUNITIES.filter((c) => c.slug !== slug).slice(0, 6).map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/communities/${c.slug}`}
+                  className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-dark"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style={{ backgroundImage: `url('/images/communities/${c.slug}.jpg')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-white text-lg font-semibold">{c.name}</h3>
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </section>

@@ -6,8 +6,8 @@ metaTitle: "How to Purchase a Home in Foreclosure | Expert Tips & Strategies"
 metaDescription: "Learn how to purchase a home in foreclosure with expert tips and strategies. Navigate the process confidently and find great opportunities in real estate."
 category: "News"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80&auto=format"
-thumbnail: "https://framerusercontent.com/images/afbmmKyI3agRdmXGYs71pvf3yfI.jpg"
+image: /images/blog/expert-advice-on-how-to-purchase-a-home-in-foreclosure.jpg
+thumbnail: /images/blog/expert-advice-on-how-to-purchase-a-home-in-foreclosure.jpg
 quickAnswer: "Purchase a foreclosed home by getting pre approved for financing, researching listings on sites like Zillow or RealtyTrac, evaluating the property condition and liens, then buying through pre foreclosure negotiation, public auction, or bank owned REO listings."
 keyTakeaways:
   - "Foreclosed homes are sold below market value through pre foreclosure short sales, public auctions, or bank owned REO listings"

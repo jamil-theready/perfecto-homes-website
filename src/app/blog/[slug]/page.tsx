@@ -5,7 +5,6 @@ import Image from "next/image";
 import { getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import { BlogPostJsonLd } from "@/components/JsonLd";
 import { TEAM } from "@/lib/constants";
-import ContactForm from "@/components/ContactForm";
 import ReadingProgress from "@/components/ReadingProgress";
 import ShareButtons from "@/components/ShareButtons";
 
@@ -73,53 +72,78 @@ export default async function BlogPostPage({ params }: Props) {
         image={post.image as string | undefined}
       />
 
-      {/* Hero */}
-      <section className="bg-dark text-white py-12 sm:py-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="text-gold text-sm hover:underline mb-4 inline-block">&larr; Back to Blog</Link>
-          {post.date ? (
-            <p className="text-gray-400 text-sm mb-2">
-              {new Date(String(post.date)).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-          ) : null}
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold leading-tight max-w-3xl">
+      {/* Editorial Hero */}
+      <section className="bg-white pt-24 pb-10 sm:pt-32 sm:pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-medium-gray hover:text-gold text-sm transition-colors mb-12"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            Back to Blog
+          </Link>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-medium text-dark leading-[1.05] tracking-[-0.04em] max-w-[920px]">
             {String(post.title)}
           </h1>
 
-          {/* Author + Reading Time */}
-          <div className="flex items-center gap-4 mt-6">
-            {author && (
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white">
-                  <Image src={author.image} alt={author.name} fill className="object-contain object-top" sizes="40px" />
+          {/* Author + meta bar */}
+          {author && (
+            <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pb-8 border-b border-gray-200">
+              <div className="flex items-center gap-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-light-gray flex-shrink-0">
+                  <Image src={author.image} alt={author.name} fill className="object-cover object-top" sizes="48px" />
                 </div>
-                <div>
-                  <p className="text-white text-sm font-medium">{author.name}</p>
-                  <p className="text-gray-400 text-xs">{author.role}</p>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-dark text-[15px] font-medium tracking-[-0.01em]">{author.name}</span>
+                  <span className="text-medium-gray text-xs">{author.role}</span>
                 </div>
               </div>
-            )}
-            <span className="text-gray-500 text-xs">&bull;</span>
-            <p className="text-gray-400 text-xs">{readingTime} min read</p>
-          </div>
+
+              {/* Meta — date · category · reading time */}
+              <div className="flex flex-wrap items-center gap-3">
+                {post.date && (
+                  <span className="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold">
+                    {new Date(String(post.date)).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                )}
+                {post.category ? (
+                  <>
+                    <span className="text-medium-gray/40 text-xs">·</span>
+                    <span className="text-[11px] tracking-[0.25em] uppercase text-medium-gray font-medium">
+                      {String(post.category)}
+                    </span>
+                  </>
+                ) : null}
+                <span className="text-medium-gray/40 text-xs">·</span>
+                <span className="text-[11px] tracking-[0.25em] uppercase text-medium-gray font-medium">
+                  {readingTime} min read
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Featured Image */}
+      {/* Featured Image — full bleed within container, 16/9 */}
       {(post.image || post.thumbnail) && (
         <section className="bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-            <div className="rounded-2xl overflow-hidden aspect-[21/9] bg-gray-100 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="rounded-[20px] overflow-hidden aspect-[16/9] bg-gray-100 relative shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
               <Image
                 src={String(post.image || post.thumbnail)}
                 alt={String(post.title)}
                 fill
                 className="object-cover"
                 sizes="1200px"
+                priority
               />
             </div>
           </div>
@@ -128,7 +152,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Content + Sidebar */}
       <section className="bg-white py-12">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Share buttons (sticky left) */}
             <aside className="hidden lg:block lg:col-span-1">
@@ -137,23 +161,44 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Main content */}
             <div className="lg:col-span-7">
-              {/* Quick Answer */}
+              {/* Quick Answer — soft editorial pull-card */}
               {post.quickAnswer && (
-                <div className="mb-8 rounded-xl border-l-4 border-gold bg-light-gray p-6">
-                  <p className="mb-1 text-[11px] font-bold tracking-widest text-gold uppercase">Quick Answer</p>
-                  <p className="text-[15px] leading-relaxed text-dark">{post.quickAnswer as string}</p>
+                <div className="relative mb-10 rounded-[20px] p-8 sm:p-10 overflow-hidden bg-light-gray">
+                  <div
+                    aria-hidden
+                    className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-30"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(196,169,77,0.25) 0%, transparent 70%)",
+                    }}
+                  />
+                  <div className="relative">
+                    <div className="flex items-center gap-2.5 mb-4">
+                      <span className="block w-1.5 h-1.5 rounded-full bg-gold" />
+                      <p className="text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
+                        Quick Answer
+                      </p>
+                    </div>
+                    <p className="text-dark text-[18px] sm:text-[20px] leading-[1.55] tracking-[-0.01em] font-normal">
+                      {post.quickAnswer as string}
+                    </p>
+                  </div>
                 </div>
               )}
 
-              {/* Key Takeaways */}
+              {/* Key Takeaways — clean numbered timeline */}
               {post.keyTakeaways && (post.keyTakeaways as string[]).length > 0 && (
-                <div className="mb-8 rounded-xl bg-light-gray p-6">
-                  <p className="mb-3 text-[11px] font-bold tracking-widest text-gold uppercase">Key Takeaways</p>
-                  <ul className="flex flex-col gap-2">
+                <div className="mb-10 rounded-[20px] border border-gray-100 bg-white p-8 sm:p-10">
+                  <p className="mb-6 text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
+                    Key Takeaways
+                  </p>
+                  <ul className="flex flex-col gap-5">
                     {(post.keyTakeaways as string[]).map((item: string, i: number) => (
-                      <li key={i} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-dark">
-                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gold/10 text-[11px] font-bold text-gold">{i + 1}</span>
-                        {item}
+                      <li key={i} className="flex items-start gap-4 text-[15px] sm:text-[16px] leading-[1.6] text-dark">
+                        <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gold text-[12px] font-semibold text-white">
+                          {i + 1}
+                        </span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -165,15 +210,20 @@ export default async function BlogPostPage({ params }: Props) {
                 const headings = (post.content as string).match(/^## .+/gm) || [];
                 if (headings.length <= 2) return null;
                 return (
-                  <nav className="mb-8 rounded-xl border border-gray-100 bg-light-gray p-6">
-                    <p className="mb-3 text-[11px] font-bold tracking-widest text-gold uppercase">In This Article</p>
-                    <ul className="flex flex-col gap-1.5">
-                      {headings.map((h: string) => {
+                  <nav className="mb-10 rounded-[20px] bg-light-gray p-8 sm:p-10">
+                    <p className="mb-5 text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
+                      In This Article
+                    </p>
+                    <ul className="flex flex-col gap-3">
+                      {headings.map((h: string, idx: number) => {
                         const text = h.replace(/^## /, "");
                         const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
                         return (
-                          <li key={id}>
-                            <a href={`#${id}`} className="inline-block text-[14px] text-medium-gray transition-colors hover:text-gold hover:underline">
+                          <li key={id} className="flex items-baseline gap-3">
+                            <span className="text-[11px] tracking-[0.2em] text-gold/70 font-medium tabular-nums">
+                              {String(idx + 1).padStart(2, "0")}
+                            </span>
+                            <a href={`#${id}`} className="text-[15px] text-dark transition-colors hover:text-gold">
                               {text}
                             </a>
                           </li>
@@ -236,7 +286,64 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Sticky sidebar */}
             <aside className="lg:col-span-4">
               <div className="sticky top-20 space-y-6">
-                <ContactForm />
+                {author && (
+                  <div className="rounded-[20px] p-7 relative overflow-hidden bg-light-gray">
+                    <div
+                      aria-hidden
+                      className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full opacity-30"
+                      style={{
+                        background:
+                          "radial-gradient(circle, rgba(196,169,77,0.3) 0%, transparent 70%)",
+                      }}
+                    />
+                    <div className="relative">
+                      <p className="text-[10px] font-semibold tracking-[0.28em] text-gold uppercase mb-5">
+                        Talk to a Realtor
+                      </p>
+                      <div className="flex items-center gap-4 mb-5">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white flex-shrink-0 border border-gold/20">
+                          <Image src={author.image} alt={author.name} fill className="object-cover object-top" sizes="56px" />
+                        </div>
+                        <div>
+                          <p className="text-dark text-[16px] font-medium tracking-[-0.01em]">{author.name}</p>
+                          <p className="text-medium-gray text-xs">{author.role}</p>
+                        </div>
+                      </div>
+                      <p className="text-medium-gray text-[14px] leading-[1.6] mb-6">
+                        Get a free consultation tailored to your goals — Sacramento or Peru.
+                      </p>
+                      <Link
+                        href="/contact"
+                        className="group flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-dark text-white font-medium px-5 py-3 rounded-full transition-colors text-sm"
+                      >
+                        Book a Call
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
+                <div className="rounded-[20px] border border-gray-100 bg-white p-6">
+                  <p className="text-[10px] font-semibold tracking-[0.28em] text-gold uppercase mb-4">
+                    Stay Updated
+                  </p>
+                  <h4 className="text-dark text-[18px] font-medium tracking-[-0.02em] leading-tight mb-4">
+                    New listings & market insights, monthly.
+                  </h4>
+                  <Link
+                    href="/#newsletter"
+                    className="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline"
+                  >
+                    Subscribe to Newsletter
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </aside>
           </div>

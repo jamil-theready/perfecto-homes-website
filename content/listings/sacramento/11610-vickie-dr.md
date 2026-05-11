@@ -4,7 +4,7 @@ slug: "11610-vickie-dr"
 metaTitle: "11610 Vickie Dr, Marysville CA | Home for Sale | $635,000"
 metaDescription: "3 bed, 3 bath home for sale at 11610 Vickie Dr, Marysville CA 95901. Listed at $635,000 by Elisban Gonzales, Perfecto Homes Real Estate."
 market: "sacramento"
-status: "pending"
+status: "active"
 price: "$635,000"
 priceNumeric: 635000
 address: "11610 Vickie Dr, Marysville, CA 95901"

@@ -5,7 +5,7 @@ slug: "living-in-el-dorado-hills-what-you-need-to-know"
 metaDescription: "Thinking about living in El Dorado Hills? Learn about the cost of living, top schools, Serrano community, Town Center, and El Dorado Hills homes for sale."
 category: "Sacramento"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format"
+image: /images/blog/living-in-el-dorado-hills-what-you-need-to-know.jpg
 tags:
   - "SACRAMENTO"
   - "EL DORADO HILLS"

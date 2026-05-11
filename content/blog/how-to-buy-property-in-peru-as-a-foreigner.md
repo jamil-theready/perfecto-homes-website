@@ -5,7 +5,7 @@ slug: "how-to-buy-property-in-peru-as-a-foreigner"
 metaDescription: "Can foreigners buy property in Peru? Yes. This Peru property buying guide covers the legal process, restrictions, and tips for foreign buyers looking at Sacred Valley real estate."
 category: "Peru"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1531968455001-5c5272a67c71?w=1200&q=80&auto=format"
+image: /images/blog/how-to-buy-property-in-peru-as-a-foreigner.jpg
 tags:
   - "PERU"
   - "REAL ESTATE"

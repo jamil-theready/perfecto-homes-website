@@ -123,7 +123,7 @@ export const PERU_LISTINGS = [
   {
     name: "Predio Victoria",
     slug: "predio-victoria",
-    image: "/images/peru/victoria-aerial.jpg",
+    image: "/images/peru/victoria-map.jpg",
   },
   {
     name: "Hostal Qhispicay",

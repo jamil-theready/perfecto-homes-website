@@ -104,8 +104,8 @@ export default function Header() {
               {openDropdown === "communities" && (
                 <div className="flex gap-6">
                   {/* Sacramento */}
-                  <div className="flex gap-4 flex-1">
-                    <Link href="/listings" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
+                  <div className="flex gap-4">
+                    <Link href="/communities" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
                       <Image src="/images/hero/sacramento-bridge.jpg" alt="Sacramento Area" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
@@ -127,7 +127,7 @@ export default function Header() {
                   <div className="w-px bg-gray-100 shrink-0" />
                   {/* Peru */}
                   <div className="flex gap-4">
-                    <Link href="/peru" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
+                    <Link href="/communities/peru" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
                       <Image src="/images/hero/peru-landscape.jpg" alt="Sacred Valley, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
@@ -149,7 +149,7 @@ export default function Header() {
               {openDropdown === "listings" && (
                 <div className="flex gap-6">
                   {/* Sacramento */}
-                  <div className="flex gap-4 flex-1">
+                  <div className="flex gap-4">
                     <Link href="/listings" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[130px] shrink-0 block" onClick={closeDropdown}>
                       <Image src="/images/hero/sacramento-bridge.jpg" alt="Sacramento Listings" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

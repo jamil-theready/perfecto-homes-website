@@ -19,23 +19,121 @@ export default function BlogIndexPage() {
 
   return (
     <>
-      <section className="bg-dark text-white py-16 sm:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Resources</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">News &amp; Insights</h1>
-          <p className="mt-4 text-gray-400 max-w-xl mx-auto">
+      <section className="bg-white pt-32 pb-12 sm:pt-40 sm:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className="block w-8 h-px bg-gold" />
+            <p className="text-gold text-[11px] font-semibold tracking-[0.3em] uppercase">Resources</p>
+            <span className="block w-8 h-px bg-gold" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
+            News &amp; Insights
+          </h1>
+          <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Market trends, homebuying tips, and community highlights from our team.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Featured (most recent) */}
+      {posts.length > 0 && (() => {
+        const featured = posts[0];
+        const fAuthor = TEAM.find(
+          (m) => m.slug.split("-")[0] === (featured.author as string)
+        );
+        const fReadingTime = getReadingTime(featured.content || "");
+        const fImage = (featured.image || featured.thumbnail) as string | undefined;
+        return (
+          <section className="bg-white pb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="block w-1.5 h-1.5 rounded-full bg-gold" />
+                <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold">
+                  Featured · Latest
+                </p>
+              </div>
+              <Link
+                href={`/blog/${featured.slug}`}
+                className="group block rounded-[24px] overflow-hidden bg-light-gray hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)] transition-shadow duration-500"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="relative aspect-[16/10] lg:aspect-auto bg-gray-100 overflow-hidden">
+                    {fImage ? (
+                      <Image
+                        src={fImage}
+                        alt={String(featured.title)}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        priority
+                      />
+                    ) : null}
+                    {featured.category && (
+                      <span className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm text-dark text-[10px] font-semibold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full">
+                        {String(featured.category)}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col justify-between p-8 sm:p-10 lg:p-14">
+                    <div>
+                      {featured.date && (
+                        <p className="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold mb-5">
+                          {new Date(String(featured.date)).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </p>
+                      )}
+                      <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium text-dark tracking-[-0.04em] leading-[1.1] mb-5 group-hover:text-gold transition-colors">
+                        {String(featured.title)}
+                      </h2>
+                      {featured.metaDescription && (
+                        <p className="text-medium-gray text-base leading-[1.65] line-clamp-3">
+                          {String(featured.metaDescription)}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
+                      {fAuthor ? (
+                        <div className="flex items-center gap-3">
+                          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-gray-200">
+                            <Image src={fAuthor.image} alt={fAuthor.name} fill className="object-cover object-top" sizes="36px" />
+                          </div>
+                          <div className="flex flex-col leading-tight">
+                            <span className="text-dark text-sm font-medium">{fAuthor.name}</span>
+                            <span className="text-medium-gray text-xs">{fAuthor.role}</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="text-sm text-medium-gray">Perfecto Homes</span>
+                      )}
+                      <span className="text-[11px] tracking-[0.25em] uppercase text-medium-gray font-medium">
+                        {fReadingTime} min read
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </section>
+        );
+      })()}
+
+      <section className="bg-white pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
             <p className="text-center text-medium-gray py-20">Blog posts coming soon.</p>
           ) : (
+            <>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="block w-1.5 h-1.5 rounded-full bg-gold" />
+                <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold">
+                  All Articles
+                </p>
+              </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => {
+              {posts.slice(1).map((post) => {
                 const author = TEAM.find(
                   (m) => m.slug.split("-")[0] === (post.author as string)
                 );
@@ -107,6 +205,7 @@ export default function BlogIndexPage() {
                 );
               })}
             </div>
+            </>
           )}
         </div>
       </section>

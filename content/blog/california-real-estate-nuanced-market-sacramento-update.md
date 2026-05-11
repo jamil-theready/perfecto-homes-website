@@ -5,7 +5,7 @@ slug: "california-real-estate-nuanced-market-sacramento-update"
 metaDescription: "Explore California's complex real estate market, from interest rates and inventory to affordability challenges and regional resilience, including insights for Sacramento."
 category: "Sacramento"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format"
+image: /images/blog/california-real-estate-nuanced-market-sacramento-update.jpg
 tags:
   - "SACRAMENTO"
   - "REAL ESTATE"

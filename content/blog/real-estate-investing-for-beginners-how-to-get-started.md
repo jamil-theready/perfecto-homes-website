@@ -6,8 +6,8 @@ metaTitle: "Real Estate Investing for Beginners | Property Investment Tips & Adv
 metaDescription: "Explore real estate investing for beginners with expert advice, property investment tips, and strategies for buyers. Start building your portfolio today!"
 category: "News"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1200&q=80&auto=format"
-thumbnail: "https://framerusercontent.com/images/zQiiFybRR7rRbCaLOEckmQ7Mg.jpg"
+image: /images/blog/real-estate-investing-for-beginners-how-to-get-started.jpg
+thumbnail: /images/blog/real-estate-investing-for-beginners-how-to-get-started.jpg
 quickAnswer: "Begin real estate investing by defining your goals, evaluating your finances and credit score, researching local markets, then starting small with single family homes or duplexes before scaling to larger properties."
 keyTakeaways:
   - "Real estate offers passive rental income, property appreciation, tax benefits, and portfolio diversification as key advantages"

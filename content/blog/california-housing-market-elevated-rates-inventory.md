@@ -5,7 +5,7 @@ slug: "california-housing-market-elevated-rates-inventory"
 metaDescription: "Explore the latest trends in the California real estate market, including sales dips, rising prices, and the impact of high interest rates and low inventory."
 category: "Sacramento"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format"
+image: /images/blog/california-housing-market-elevated-rates-inventory.jpg
 tags:
   - "SACRAMENTO"
   - "REAL ESTATE"

@@ -5,7 +5,7 @@ slug: "california-housing-market-resilience-dynamics-2024"
 metaDescription: "Explore California's resilient housing market, with rising median prices and sales, and what to expect in 2024. Get expert insights for buyers and sellers."
 category: "Sacramento"
 author: "elisban"
-image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format"
+image: /images/blog/california-housing-market-resilience-dynamics-2024.jpg
 tags:
   - "SACRAMENTO"
   - "REAL ESTATE"
