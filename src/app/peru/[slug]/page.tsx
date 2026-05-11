@@ -229,25 +229,6 @@ export default async function PeruListingPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Map */}
-        <section id="map" className="bg-white py-12 border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-serif font-bold text-dark mb-4">Location</h2>
-            <div className="rounded-xl overflow-hidden h-[400px]">
-              <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""}&q=${encodeURIComponent(address)}`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Property location"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* Other Peru Properties */}
         {otherListings.length > 0 && (
           <section className="bg-white py-16 border-t border-gray-100">
