@@ -1,19 +1,67 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, PERU_LISTINGS } from "@/lib/constants";
+import { getCollection } from "@/lib/content";
+
+const SACRED_VALLEY_SLUGS = [
+  { slug: "ollantaytambo", name: "Ollantaytambo" },
+  { slug: "urubamba", name: "Urubamba" },
+  { slug: "pisac", name: "Pisac" },
+  { slug: "chinchero", name: "Chinchero" },
+  { slug: "calca", name: "Calca" },
+  { slug: "yucay", name: "Yucay" },
+  { slug: "maras", name: "Maras" },
+  { slug: "aguas-calientes", name: "Aguas Calientes" },
+];
+
+const CUSCO_CITY_SLUGS = [
+  { slug: "cusco", name: "Cusco" },
+  { slug: "centro-historico", name: "Centro Histórico" },
+  { slug: "san-blas", name: "San Blas" },
+  { slug: "wanchaq", name: "Wanchaq" },
+  { slug: "san-sebastian", name: "San Sebastián" },
+  { slug: "san-jeronimo", name: "San Jerónimo" },
+];
+
+const SACRAMENTO_COMMUNITIES = [
+  { slug: "sacramento", name: "Sacramento" },
+  { slug: "citrus-heights", name: "Citrus Heights" },
+  { slug: "roseville", name: "Roseville" },
+  { slug: "elk-grove", name: "Elk Grove" },
+  { slug: "folsom", name: "Folsom" },
+  { slug: "rancho-cordova", name: "Rancho Cordova" },
+];
 
 export default function Footer() {
+  const sacListings = getCollection("listings/sacramento")
+    .filter((l) => (l.status as string) !== "sold")
+    .map((l) => ({
+      slug: l.slug as string,
+      title: (l.title as string) || (l.slug as string),
+    }));
+
   return (
     <footer>
       {/* Upper Footer */}
       <div className="bg-dark-gray text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8">
             {/* Sacramento Listings */}
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento Listings</h4>
               <ul className="space-y-2">
-                <li><Link href="/listings" className="text-sm text-gray-300 hover:text-gold transition-colors">All Sacramento</Link></li>
+                {sacListings.map((l) => (
+                  <li key={l.slug}>
+                    <Link href={`/listings/${l.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
+                      {l.title}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/listings" className="text-sm text-gold/80 hover:text-gold font-medium transition-colors">
+                    View all &rarr;
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -21,9 +69,18 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Peru Listings</h4>
               <ul className="space-y-2">
-                <li><Link href="/peru/predio-victoria" className="text-sm text-gray-300 hover:text-gold transition-colors">Predio Victoria</Link></li>
-                <li><Link href="/peru/hostal-qhispicay-ollantaytambo" className="text-sm text-gray-300 hover:text-gold transition-colors">Hostal Qhispicay</Link></li>
-                <li><Link href="/peru/hatuchay-valle-restaurant-urubamba" className="text-sm text-gray-300 hover:text-gold transition-colors">Hatuchay Valle</Link></li>
+                {PERU_LISTINGS.map((l) => (
+                  <li key={l.slug}>
+                    <Link href={`/peru/${l.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
+                      {l.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/peru" className="text-sm text-gold/80 hover:text-gold font-medium transition-colors">
+                    View all &rarr;
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -31,20 +88,41 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento</h4>
               <ul className="space-y-2">
-                <li><Link href="/communities/sacramento" className="text-sm text-gray-300 hover:text-gold transition-colors">Sacramento</Link></li>
-                <li><Link href="/communities/citrus-heights" className="text-sm text-gray-300 hover:text-gold transition-colors">Citrus Heights</Link></li>
-                <li><Link href="/communities/roseville" className="text-sm text-gray-300 hover:text-gold transition-colors">Roseville</Link></li>
-                <li><Link href="/communities/elk-grove" className="text-sm text-gray-300 hover:text-gold transition-colors">Elk Grove</Link></li>
-                <li><Link href="/communities/folsom" className="text-sm text-gray-300 hover:text-gold transition-colors">Folsom</Link></li>
+                {SACRAMENTO_COMMUNITIES.map((c) => (
+                  <li key={c.slug}>
+                    <Link href={`/communities/${c.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Peru Communities */}
+            {/* Sacred Valley */}
             <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Peru</h4>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacred Valley</h4>
               <ul className="space-y-2">
-                <li><Link href="/communities/ollantaytambo" className="text-sm text-gray-300 hover:text-gold transition-colors">Ollantaytambo</Link></li>
-                <li><Link href="/communities/urubamba" className="text-sm text-gray-300 hover:text-gold transition-colors">Urubamba</Link></li>
+                {SACRED_VALLEY_SLUGS.map((c) => (
+                  <li key={c.slug}>
+                    <Link href={`/communities/${c.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Cusco City */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Cusco City</h4>
+              <ul className="space-y-2">
+                {CUSCO_CITY_SLUGS.map((c) => (
+                  <li key={c.slug}>
+                    <Link href={`/communities/${c.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
