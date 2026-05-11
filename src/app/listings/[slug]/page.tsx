@@ -105,7 +105,12 @@ export default async function ListingDetailPage({ params }: Props) {
                 <h1 className="text-2xl sm:text-3xl font-bold text-dark mt-1">
                   {item.address as string}
                 </h1>
-                <a href="#map" className="inline-flex items-center gap-1.5 text-medium-gray text-[15px] mt-2 hover:text-gold transition-colors">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-medium-gray text-[15px] mt-2 hover:text-gold transition-colors"
+                >
                   <svg className="w-4 h-4 shrink-0" viewBox="0 0 92.3 132.3"><path fill="#1a73e8" d="M60.2 2.2C55.8.8 51 0 46.1 0 32 0 19.3 6.4 10.8 16.5l21.8 18.3L60.2 2.2z"/><path fill="#ea4335" d="M10.8 16.5C4.1 24.5 0 34.9 0 46.1c0 8.7 1.7 15.7 4.6 22l28-32.6L10.8 16.5z"/><path fill="#4285f4" d="M46.1 66.7c-11.3 0-20.6-9.2-20.6-20.6 0-5.9 2.5-11.2 6.5-14.9L4.6 68.1c5.5 12 13.4 22 21.3 32.7l27.4-37.2c-2.2 1.9-5 3.1-7.2 3.1z"/><path fill="#fbbc04" d="M46.1 25.5c11.3 0 20.6 9.2 20.6 20.6 0 5.1-1.9 9.7-5 13.3L92.3 17c-8-11-21.5-17-46.2-17-5.1 0-9.9.8-14.4 2.2l27.5 32.5c-1.3-5.2-4.4-9.6-13.1-9.2z"/><path fill="#34a853" d="M25.9 100.8c11.9 15.2 24.1 31.5 20.2 31.5s8.3-16.3 20.2-31.5l-27.4-37.2-13 37.2z"/></svg>
                   View on Google Maps
                 </a>
@@ -292,25 +297,6 @@ export default async function ListingDetailPage({ params }: Props) {
                   </div>
                 </div>
               </aside>
-            </div>
-          </div>
-        </section>
-
-        {/* Map */}
-        <section id="map" className="bg-white py-12 border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-serif font-bold text-dark mb-4">Location</h2>
-            <div className="rounded-xl overflow-hidden h-[400px]">
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent((item.address as string) || (item.city as string) || "Sacramento, CA")}&output=embed`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Property location"
-              />
             </div>
           </div>
         </section>

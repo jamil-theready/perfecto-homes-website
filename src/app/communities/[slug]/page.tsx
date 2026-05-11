@@ -146,7 +146,6 @@ export default async function CommunityPage({ params }: Props) {
     ? PERU_HERO_IMAGES[slug] ?? "/images/hero/peru-landscape.jpg"
     : `/images/communities/${slug}.jpg`;
   const facts = COMMUNITY_FACTS[slug];
-  const mapQuery = isPeru ? `${name}, Cusco, Peru` : `${name}, California`;
 
   return (
     <>
@@ -291,31 +290,6 @@ export default async function CommunityPage({ params }: Props) {
               copy={isPeru
                 ? "Bilingual support, on-the-ground due diligence, and a network of legal partners who handle Peruvian title and water rights."
                 : "Licensed California agents who've closed deals in every community we list. Bilingual English and Spanish."}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="bg-white py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="block w-8 h-px bg-gold" />
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold">Find {name}</p>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-8">
-            On the map
-          </h2>
-          <div className="rounded-2xl overflow-hidden h-[420px] border border-gray-100 shadow-sm">
-            <iframe
-              src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${name} map`}
             />
           </div>
         </div>
