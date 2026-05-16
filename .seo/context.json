@@ -1,26 +1,32 @@
 {
   "_comment": "SEO context for Perfecto Homes daily blog flow. Drives refresh decisions and topic biasing. Regenerate weekly from GSC + sitemap audit.",
-  "updatedAt": "2026-05-14",
+  "updatedAt": "2026-05-16",
   "strategicPriorities": [
     {
       "cluster": "peruInvestment",
-      "reason": "Highest differentiation. Few US brokers cover Sacred Valley. Chinchero airport tailwind. Build cluster authority.",
+      "reason": "Active $2.9M Cusco listing (Siete Cuartones 352, signed 2026-05-14). Highest differentiation. Few US brokers cover Sacred Valley. Chinchero airport tailwind. Build cluster authority to drive luxury buyer traffic to listing.",
       "weight": 1.0
     },
     {
       "cluster": "peruBuyerProcess",
-      "reason": "Long-tail intent queries (how to buy property in peru as foreigner). Low competition, high commercial intent.",
-      "weight": 0.9
+      "reason": "Long-tail intent queries (how to buy property in peru as foreigner). Low competition, high commercial intent. Critical for converting US buyers interested in Cusco listing.",
+      "weight": 0.95
+    },
+    {
+      "cluster": "peruInvestment",
+      "reason": "Sub-priority: Cusco historic center / Siete Cuartones / colonial property. Active luxury listing needs cluster authority. Target queries about Cusco luxury real estate, San Blas, historic center properties.",
+      "weight": 0.9,
+      "tags": ["cusco-luxury", "siete-cuartones", "historic-center"]
     },
     {
       "cluster": "sacramentoFirstTimeBuyer",
       "reason": "Volume play for Sacramento metro. CalHFA + bilingual angle.",
-      "weight": 0.7
+      "weight": 0.5
     },
     {
       "cluster": "sacramentoNeighborhoods",
       "reason": "Hub-and-spoke from /communities/* pages. Each post links to a community page.",
-      "weight": 0.6
+      "weight": 0.4
     }
   ],
   "opportunityQueries": [
@@ -28,6 +34,12 @@
     { "query": "sacred valley real estate investment", "position": 18, "impressions": 120, "nearMiss": false },
     { "query": "chinchero airport property values", "position": 14, "impressions": 90, "nearMiss": true },
     { "query": "cusco hotel for sale", "position": 22, "impressions": 75, "nearMiss": false },
+    { "query": "cusco historic center luxury property", "position": 30, "impressions": 40, "nearMiss": false },
+    { "query": "cusco colonial property for sale", "position": 30, "impressions": 35, "nearMiss": false },
+    { "query": "siete cuartones cusco real estate", "position": 30, "impressions": 20, "nearMiss": false },
+    { "query": "san blas cusco property for sale", "position": 30, "impressions": 35, "nearMiss": false },
+    { "query": "luxury cusco real estate foreign buyer", "position": 30, "impressions": 30, "nearMiss": false },
+    { "query": "cusco mansion for sale dollars", "position": 30, "impressions": 25, "nearMiss": false },
     { "query": "bilingual real estate agent sacramento", "position": 16, "impressions": 60, "nearMiss": false }
   ],
   "topPerformers": [
@@ -43,5 +55,18 @@
       "apostille sacramento"
     ],
     "doNotRefresh": []
-  }
+  },
+  "activeListings": [
+    {
+      "slug": "siete-cuartones-352-cusco",
+      "title": "Siete Cuartones 352 — Cusco Historic Center",
+      "askingPrice": 2900000,
+      "currency": "USD",
+      "exclusiveUntil": "2027-05-14",
+      "agent": "elisban",
+      "category": "Peru",
+      "seoPriority": "high",
+      "notes": "Active luxury listing. Bias blog content toward Cusco luxury / historic center / colonial property / Siete Cuartones / San Blas / dollar-denominated Peru real estate."
+    }
+  ]
 }
