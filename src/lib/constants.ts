@@ -121,6 +121,11 @@ export const COMMUNITIES = [
 
 export const PERU_LISTINGS = [
   {
+    name: "Calle Siete Cuartones 352",
+    slug: "siete-cuartones-352-cusco",
+    image: "/images/peru/centro-historico.jpg",
+  },
+  {
     name: "Predio Victoria",
     slug: "predio-victoria",
     image: "/images/peru/victoria-map.jpg",
