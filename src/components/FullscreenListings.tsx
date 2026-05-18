@@ -100,6 +100,17 @@ type ListingMeta = {
 };
 
 const META: Record<string, ListingMeta> = {
+  "siete-cuartones-352-cusco": {
+    eyebrow: "Cusco Historic Center · UNESCO",
+    tagline:
+      "A rare exclusive listing inside Cusco's UNESCO World Heritage core. One block from San Blas, a short walk from the Plaza de Armas. Clean title, registered Partida 020221153, offered exclusively through Perfecto Homes.",
+    cta: "View Siete Cuartones 352",
+    stats: [
+      { icon: "tag", label: "Price", value: "$2,900,000" },
+      { icon: "location", label: "Area", value: "Centro Histórico" },
+      { icon: "building", label: "Status", value: "Exclusive" },
+    ],
+  },
   "predio-victoria": {
     eyebrow: "Sacred Valley · Cusco",
     tagline:

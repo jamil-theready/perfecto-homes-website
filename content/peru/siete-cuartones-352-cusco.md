@@ -4,6 +4,7 @@ city: "Cusco, Peru"
 metaTitle: "Historic Center Property for Sale in Cusco, Peru | Siete Cuartones 352 | $2.9M"
 metaDescription: "Exclusive listing in the heart of Cusco's historic center. Calle Siete Cuartones 352, one block from San Blas. $2,900,000 USD. Photos coming soon."
 price: "$2,900,000 USD"
+priceNumeric: 2900000
 landArea: ""
 builtArea: ""
 floors: ""
