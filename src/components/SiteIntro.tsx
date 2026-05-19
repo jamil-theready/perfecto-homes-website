@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 
 const SEEN_KEY = "ph_intro_seen";
-const LONG_HOLD_MS = 4200;
+const LONG_HOLD_MS = 2800;
 const SHORT_HOLD_MS = 350;
 
 export default function SiteIntro() {
@@ -47,94 +47,72 @@ const WORDMARK = "PERFECTO HOMES";
 const LOCATIONS = ["SACRAMENTO · CALIFORNIA", "CUSCO · SACRED VALLEY"];
 
 function LongIntro({ onComplete }: { onComplete: () => void }) {
-  const [exiting, setExiting] = useState(false);
   const [locationIdx, setLocationIdx] = useState(0);
 
   useEffect(() => {
-    const t = setTimeout(() => setExiting(true), LONG_HOLD_MS);
+    const t = setTimeout(onComplete, LONG_HOLD_MS);
     return () => clearTimeout(t);
-  }, []);
+  }, [onComplete]);
 
   useEffect(() => {
-    const t = setTimeout(() => setLocationIdx(1), 2400);
+    const t = setTimeout(() => setLocationIdx(1), 1400);
     return () => clearTimeout(t);
   }, []);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
-      onAnimationComplete={() => {
-        if (exiting) onComplete();
-      }}
-      style={{ backgroundColor: "#0a0a08" }}
-      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-white"
     >
-      {/* Animated chakana grid backdrop */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><g stroke='%23C4A94D' stroke-width='0.8' fill='none' stroke-linejoin='miter' opacity='0.18'><path d='M105 45 L135 45 L135 70 L160 70 L160 105 L185 105 L185 135 L160 135 L160 160 L135 160 L135 185 L105 185 L105 160 L80 160 L80 135 L55 135 L55 105 L80 105 L80 70 L105 70 Z'/><rect x='112' y='112' width='16' height='16'/></g></svg>\")",
-          backgroundSize: "240px 240px",
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-        }}
-      />
-
-      {/* Animated radial glow */}
+      {/* Soft gold glow behind logo */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, scale: 0.6 }}
+        initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 50% at center, rgba(196, 169, 77, 0.18) 0%, transparent 60%)",
+          background:
+            "radial-gradient(ellipse 45% 35% at center, rgba(196, 169, 77, 0.10) 0%, transparent 65%)",
         }}
       />
 
       {/* Center stack */}
       <div className="relative flex flex-col items-center z-10 px-6">
-        {/* Drawn chakana */}
-        <DrawnChakana />
-
-        {/* Logo with fade-up */}
+        {/* Logo — the centerpiece */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex items-center gap-4"
+          initial={{ opacity: 0, scale: 0.86 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
             src="/images/logo/perfecto-logo.svg"
             alt="Perfecto Homes"
-            width={40}
-            height={32}
-            className="w-9 h-7 sm:w-10 sm:h-8 brightness-0 invert"
+            width={200}
+            height={160}
+            className="w-36 h-auto sm:w-48"
             priority
           />
         </motion.div>
 
         {/* Letter-by-letter wordmark */}
-        <div className="mt-5 flex items-center justify-center" aria-label={WORDMARK}>
+        <div className="mt-8 flex items-center justify-center" aria-label={WORDMARK}>
           {WORDMARK.split("").map((char, i) => (
             <motion.span
               key={`${char}-${i}`}
-              initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
+              initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{
-                duration: 0.65,
-                delay: 1.5 + i * 0.05,
+                duration: 0.5,
+                delay: 0.5 + i * 0.035,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="text-white text-lg sm:text-2xl font-semibold tracking-[0.22em] sm:tracking-[0.28em] inline-block"
+              className="text-dark text-lg sm:text-2xl font-semibold tracking-[0.22em] sm:tracking-[0.28em] inline-block"
               style={{ minWidth: char === " " ? "0.4em" : undefined }}
             >
-              {char === " " ? " " : char}
+              {char === " " ? " " : char}
             </motion.span>
           ))}
         </div>
@@ -143,7 +121,7 @@ function LongIntro({ onComplete }: { onComplete: () => void }) {
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.1, delay: 2.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="mt-7 h-px w-32 sm:w-44 bg-gradient-to-r from-transparent via-gold to-transparent origin-center"
         />
 
@@ -155,7 +133,7 @@ function LongIntro({ onComplete }: { onComplete: () => void }) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="text-gold text-[10px] sm:text-[11px] tracking-[0.4em] uppercase font-semibold absolute"
             >
               {LOCATIONS[locationIdx]}
@@ -165,14 +143,11 @@ function LongIntro({ onComplete }: { onComplete: () => void }) {
       </div>
 
       {/* Bottom progress bar */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-px bg-white/10 overflow-hidden">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-px bg-dark/10 overflow-hidden">
         <motion.div
           initial={{ scaleX: 0 }}
-          animate={{ scaleX: exiting ? 1 : 0.92 }}
-          transition={{
-            duration: exiting ? 0.4 : (LONG_HOLD_MS - 200) / 1000,
-            ease: exiting ? "easeOut" : "linear",
-          }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: LONG_HOLD_MS / 1000, ease: "linear" }}
           className="h-full bg-gold origin-left"
         />
       </div>
@@ -181,83 +156,12 @@ function LongIntro({ onComplete }: { onComplete: () => void }) {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[9px] tracking-[0.4em] uppercase"
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-medium-gray text-[9px] tracking-[0.4em] uppercase"
       >
         Est. 2010
       </motion.p>
     </motion.div>
-  );
-}
-
-function DrawnChakana() {
-  return (
-    <motion.svg
-      width="140"
-      height="140"
-      viewBox="0 0 240 240"
-      fill="none"
-      aria-hidden
-      className="text-gold"
-      initial={{ opacity: 0, scale: 0.92, rotate: -8 }}
-      animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {/* Outer chakana shape — drawn with stroke animation */}
-      <motion.path
-        d="M105 45 L135 45 L135 70 L160 70 L160 105 L185 105 L185 135 L160 135 L160 160 L135 160 L135 185 L105 185 L105 160 L80 160 L80 135 L55 135 L55 105 L80 105 L80 70 L105 70 Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="miter"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 2.2, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
-      />
-      {/* Inner square */}
-      <motion.rect
-        x="112"
-        y="112"
-        width="16"
-        height="16"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 1.0, delay: 1.6, ease: [0.65, 0, 0.35, 1] }}
-      />
-      {/* Center dot — appears after */}
-      <motion.circle
-        cx="120"
-        cy="120"
-        r="3"
-        fill="currentColor"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 2.4, ease: [0.34, 1.56, 0.64, 1] }}
-        style={{ transformOrigin: "120px 120px" }}
-      />
-      {/* Pulsing aura */}
-      <motion.circle
-        cx="120"
-        cy="120"
-        r="6"
-        stroke="currentColor"
-        strokeWidth="1"
-        fill="none"
-        initial={{ scale: 1, opacity: 0 }}
-        animate={{
-          scale: [1, 4, 1],
-          opacity: [0, 0.4, 0],
-        }}
-        transition={{
-          duration: 2.2,
-          delay: 2.8,
-          repeat: Infinity,
-          ease: "easeOut",
-        }}
-        style={{ transformOrigin: "120px 120px" }}
-      />
-    </motion.svg>
   );
 }
 
