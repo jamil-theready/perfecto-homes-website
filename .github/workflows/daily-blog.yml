@@ -1,0 +1,47 @@
+name: Daily Blog
+
+on:
+  schedule:
+    # GitHub Actions cron is unreliable (0-3hr delays + dropped runs on public repos).
+    # We fire 4 times in a 2-hour window; daily-blog.py's already_posted_today() check
+    # makes follow-up runs no-op once one succeeds.
+    - cron: '0 14 * * *'   # 9:00 AM Peru
+    - cron: '30 14 * * *'  # 9:30 AM Peru
+    - cron: '0 15 * * *'   # 10:00 AM Peru
+    - cron: '0 16 * * *'   # 11:00 AM Peru (last-ditch)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install gspread google-auth google-api-python-client
+
+      - name: Generate blog post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
+        run: python scripts/daily-blog.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "perfecto-blog-bot"
+          git config user.email "bot@thereadyconsult.com"
+          git add content/blog/
+          if git diff --cached --quiet; then
+            echo "No new blog post to commit."
+            exit 0
+          fi
+          SLUG=$(git diff --cached --name-only -- content/blog/ | head -1 | sed 's|content/blog/||; s|\.md$||')
+          git commit -m "add: daily blog post ${SLUG}"
+          git push
