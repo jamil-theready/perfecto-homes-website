@@ -370,7 +370,7 @@ metaTitle: "... (2026)" (20-60 chars, ends with year)
 metaDescription: "..." (80-155 chars, include keyword + phone (916) 878-7260)
 slug: "..." (3-6 lowercase hyphenated words)
 date: "YYYY-MM-DD"
-image: "/images/blog/automation/sacramento-market.jpg"
+image: "/images/blog/library/sacramento-market.jpg"
 imageAlt: "..." (10-125 chars, keyword + description)
 category: "Sacramento" OR "Peru" OR "Market News" OR "Buying" OR "Selling" OR "Investment"
 author: "elisban" OR "gina" OR "alfredo" OR "jamil"
@@ -434,22 +434,22 @@ Format: [descriptive anchor text](URL). Anchor text must be specific.
 
 ## IMAGE OPTIONS (pick one that matches topic)
 
-- /images/blog/automation/sacramento-market.jpg — Sacramento market analysis, prices, trends
-- /images/blog/automation/sacramento-neighborhoods.jpg — neighborhood guides, community pages
-- /images/blog/automation/sacramento-first-time-buyer.png — first-time buyer content
-- /images/blog/automation/sacramento-roseville.jpg — Roseville/Folsom/east area focus
-- /images/blog/automation/sacramento-el-dorado-hills.jpg — El Dorado Hills, premium markets
-- /images/blog/automation/sacramento-new-construction.jpeg — new construction, builder content
-- /images/blog/automation/sacramento-inspection.jpg — home inspection, due diligence
-- /images/blog/automation/sacramento-selling.jpg — seller content, listing prep
-- /images/blog/automation/peru-sacred-valley.jpg — Sacred Valley, Urubamba, general Peru content
-- /images/blog/automation/peru-buying-process.jpg — Peru property buying process
-- /images/blog/automation/peru-chinchero-airport.jpg — Chinchero airport, Peru infrastructure
-- /images/blog/automation/peru-hospitality.jpg — Peru hospitality, hostal investment
-- /images/blog/automation/news-california-market.jpeg — California market news
-- /images/blog/automation/news-rates.jpg — interest rates, financing news
-- /images/blog/automation/news-inventory.jpg — inventory levels, market supply
-- /images/blog/automation/news-affordability.jpg — affordability crisis, housing policy
+- /images/blog/library/sacramento-market.jpg — Sacramento market analysis, prices, trends
+- /images/blog/library/sacramento-neighborhoods.jpg — neighborhood guides, community pages
+- /images/blog/library/sacramento-first-time-buyer.png — first-time buyer content
+- /images/blog/library/sacramento-roseville.jpg — Roseville/Folsom/east area focus
+- /images/blog/library/sacramento-el-dorado-hills.jpg — El Dorado Hills, premium markets
+- /images/blog/library/sacramento-new-construction.jpeg — new construction, builder content
+- /images/blog/library/sacramento-inspection.jpg — home inspection, due diligence
+- /images/blog/library/sacramento-selling.jpg — seller content, listing prep
+- /images/blog/library/peru-sacred-valley.jpg — Sacred Valley, Urubamba, general Peru content
+- /images/blog/library/peru-buying-process.jpg — Peru property buying process
+- /images/blog/library/peru-chinchero-airport.jpg — Chinchero airport, Peru infrastructure
+- /images/blog/library/peru-hospitality.jpg — Peru hospitality, hostal investment
+- /images/blog/library/news-california-market.jpeg — California market news
+- /images/blog/library/news-rates.jpg — interest rates, financing news
+- /images/blog/library/news-inventory.jpg — inventory levels, market supply
+- /images/blog/library/news-affordability.jpg — affordability crisis, housing policy
 
 ## Self-Check Before Outputting
 
