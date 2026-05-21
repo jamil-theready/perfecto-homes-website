@@ -1,14 +1,6 @@
 name: Daily Blog
 
 on:
-  schedule:
-    # GitHub Actions cron is unreliable (0-3hr delays + dropped runs on public repos).
-    # We fire 4 times in a 2-hour window; daily-blog.py's already_posted_today() check
-    # makes follow-up runs no-op once one succeeds.
-    - cron: '0 14 * * *'   # 9:00 AM Peru
-    - cron: '30 14 * * *'  # 9:30 AM Peru
-    - cron: '0 15 * * *'   # 10:00 AM Peru
-    - cron: '0 16 * * *'   # 11:00 AM Peru (last-ditch)
   workflow_dispatch:
 
 permissions:
