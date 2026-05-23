@@ -99,8 +99,9 @@ async function main() {
         continue;
       }
 
-      // Check for non-Cloudinary URLs
+      // Check for non-Cloudinary URLs (local /public paths are allowed — they ship with the build)
       const external = images.filter((img) => {
+        if (typeof img.url === "string" && img.url.startsWith("/")) return false;
         try {
           return new URL(img.url).hostname !== CLOUDINARY_HOST;
         } catch {
