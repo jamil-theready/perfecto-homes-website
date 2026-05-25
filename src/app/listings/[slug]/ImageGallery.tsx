@@ -53,7 +53,7 @@ export default function ImageGallery({
             </div>
           ) : (
             <div
-              className="md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto bg-gray-200 relative cursor-pointer"
+              className="md:col-span-2 md:row-span-2 aspect-[4/3] bg-gray-200 relative cursor-pointer"
               onClick={() => { setCurrentIndex(0); setLightboxOpen(true); }}
             >
               <img
@@ -72,7 +72,7 @@ export default function ImageGallery({
             return (
               <div
                 key={i}
-                className="hidden md:block aspect-[4/3] bg-gray-200 relative cursor-pointer"
+                className="hidden md:block bg-gray-200 relative cursor-pointer h-full min-h-0"
                 onClick={() => { setCurrentIndex(mediaIdx); setLightboxOpen(true); }}
               >
                 <img
