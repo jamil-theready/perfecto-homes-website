@@ -1,0 +1,44 @@
+name: Peru Listings FB Posts
+
+# Tue/Fri, hourly 12:00-16:00 UTC. The script converts to Eastern time and
+# only posts during the 8-11 AM ET window, so DST changes never shift the
+# posting schedule. One listing per hour: Siete Cuartones, Hatuchay,
+# Qhispicay, Predio Victoria.
+on:
+  schedule:
+    - cron: '0 12-16 * * 2,5'
+  workflow_dispatch:
+    inputs:
+      test_unpublished:
+        description: 'Create post as unpublished (invisible test)'
+        type: boolean
+        default: false
+      force_listing:
+        description: 'Force listing (siete-cuartones | hatuchay | qhispicay | predio-victoria)'
+        type: string
+        required: false
+      force_slot:
+        description: 'Force copy variant slot (0-7)'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Post listing to Facebook
+        env:
+          FB_PAGE_TOKEN_PERFECTO: ${{ secrets.FB_PAGE_TOKEN_PERFECTO }}
+          TEST_UNPUBLISHED: ${{ inputs.test_unpublished && '1' || '' }}
+          FORCE_LISTING: ${{ inputs.force_listing }}
+          FORCE_SLOT: ${{ inputs.force_slot }}
+        run: python scripts/fb-peru-post.py
