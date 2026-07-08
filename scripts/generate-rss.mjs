@@ -5,7 +5,11 @@ import matter from "gray-matter";
 
 const SITE_URL = "https://www.perfectohomesrealestate.com";
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
-const OUT_FILE = path.join(process.cwd(), "out", "rss.xml");
+// Written to public/ (committed, ships with any build) and out/ (current build output).
+const TARGETS = [
+  path.join(process.cwd(), "public", "rss.xml"),
+  path.join(process.cwd(), "out", "rss.xml"),
+];
 
 const escapeXml = (s = "") =>
   s
@@ -55,5 +59,7 @@ ${items}
 </rss>
 `;
 
-fs.writeFileSync(OUT_FILE, rss);
+for (const target of TARGETS) {
+  if (fs.existsSync(path.dirname(target))) fs.writeFileSync(target, rss);
+}
 console.log(`rss.xml written with ${posts.length} posts`);
