@@ -1,7 +1,11 @@
-name: Daily Blog
+name: Blog Publish
 
 on:
   workflow_dispatch:
+  schedule:
+    # Tue + Fri 8:05 AM Pacific (15:05 UTC during PDT) — same days as the
+    # Perfecto Facebook posting schedule so all content lands together.
+    - cron: '5 15 * * 2,5'
 
 permissions:
   contents: write
@@ -19,21 +23,33 @@ jobs:
       - name: Install dependencies
         run: pip install gspread google-auth google-api-python-client
 
-      - name: Generate blog post
+      - name: Publish from queue, or generate live if queue is empty
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
-        run: python scripts/daily-blog.py
+        run: |
+          if python scripts/publish-from-queue.py; then
+            echo "Published from reviewed queue."
+          else
+            echo "Queue empty — generating live."
+            python scripts/daily-blog.py
+          fi
+
+      - name: Regenerate RSS feed
+        run: |
+          npm install --no-save --no-audit --no-fund gray-matter
+          node scripts/generate-rss.mjs
 
       - name: Commit and push
         run: |
           git config user.name "perfecto-blog-bot"
           git config user.email "bot@thereadyconsult.com"
-          git add content/blog/
+          git add content/blog/ public/rss.xml
+          git add content-queue/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new blog post to commit."
             exit 0
           fi
           SLUG=$(git diff --cached --name-only -- content/blog/ | head -1 | sed 's|content/blog/||; s|\.md$||')
-          git commit -m "add: daily blog post ${SLUG}"
+          git commit -m "add: blog post ${SLUG:-rss refresh (no new post)}"
           git push

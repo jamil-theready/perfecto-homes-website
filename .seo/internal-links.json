@@ -1,88 +1,497 @@
 {
   "_comment": "Internal link library for Perfecto Homes blog flow. Pick Relevant Links node selects 3-5 entries per post based on keyword cluster. Update when adding new pages/posts.",
-  "updatedAt": "2026-05-14",
+  "updatedAt": "2026-07-08",
   "entries": [
-    { "slug": "communities-elk-grove", "url": "/communities/elk-grove", "title": "Elk Grove community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-roseville", "url": "/communities/roseville", "title": "Roseville community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-folsom", "url": "/communities/folsom", "title": "Folsom community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-citrus-heights", "url": "/communities/citrus-heights", "title": "Citrus Heights community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-el-dorado-hills", "url": "/communities/el-dorado-hills", "title": "El Dorado Hills community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-natomas", "url": "/communities/natomas", "title": "Natomas community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-arden-arcade", "url": "/communities/arden-arcade", "title": "Arden Arcade community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-rancho-cordova", "url": "/communities/rancho-cordova", "title": "Rancho Cordova community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "communities-davis", "url": "/communities/davis", "title": "Davis community guide", "type": "service", "cluster": "sacramentoNeighborhoods", "language": "en" },
-
-    { "slug": "listings", "url": "/listings", "title": "current Sacramento listings", "type": "service", "cluster": "general", "language": "en" },
-    { "slug": "peru", "url": "/peru", "title": "Sacred Valley investment listings", "type": "service", "cluster": "peruInvestment", "language": "en" },
-    { "slug": "about", "url": "/about", "title": "about Perfecto Homes", "type": "service", "cluster": "general", "language": "en" },
-    { "slug": "contact", "url": "/contact", "title": "contact the Perfecto Homes team", "type": "service", "cluster": "general", "language": "en" },
-    { "slug": "team", "url": "/team", "title": "meet our family team", "type": "service", "cluster": "general", "language": "en" },
-
-    { "slug": "how-to-buy-property-in-peru-as-a-foreigner", "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner", "title": "how to buy property in Peru as a foreigner", "type": "blog", "cluster": "peruBuyerProcess", "language": "en" },
-    { "slug": "why-invest-in-sacred-valley-real-estate", "url": "/blog/why-invest-in-sacred-valley-real-estate", "title": "why invest in Sacred Valley real estate", "type": "blog", "cluster": "peruInvestment", "language": "en" },
-    { "slug": "how-chinchero-airport-will-change-sacred-valley-property-values", "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values", "title": "Chinchero airport impact on property values", "type": "blog", "cluster": "peruInvestment", "language": "en" },
-    { "slug": "hospitality-investment-opportunities-cusco-peru", "url": "/blog/hospitality-investment-opportunities-cusco-peru", "title": "hospitality investment opportunities in Cusco", "type": "blog", "cluster": "peruInvestment", "language": "en" },
-
-    { "slug": "sacramento-real-estate-market-report-2026", "url": "/blog/sacramento-real-estate-market-report-2026", "title": "Sacramento real estate market report 2026", "type": "blog", "cluster": "sacramentoMarket", "language": "en" },
-    { "slug": "best-neighborhoods-in-sacramento-for-families", "url": "/blog/best-neighborhoods-in-sacramento-for-families", "title": "best Sacramento neighborhoods for families", "type": "blog", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "first-time-home-buyer-guide-sacramento-ca", "url": "/blog/first-time-home-buyer-guide-sacramento-ca", "title": "first time home buyer guide for Sacramento", "type": "blog", "cluster": "sacramentoFirstTimeBuyer", "language": "en" },
-    { "slug": "new-construction-homes-sacramento-area-2026-guide", "url": "/blog/new-construction-homes-sacramento-area-2026-guide", "title": "new construction homes in the Sacramento area", "type": "blog", "cluster": "sacramentoNewConstruction", "language": "en" },
-    { "slug": "olympus-pointe-roseville-neighborhood-guide", "url": "/blog/olympus-pointe-roseville-neighborhood-guide", "title": "Olympus Pointe Roseville neighborhood guide", "type": "blog", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "living-in-el-dorado-hills-what-you-need-to-know", "url": "/blog/living-in-el-dorado-hills-what-you-need-to-know", "title": "living in El Dorado Hills", "type": "blog", "cluster": "sacramentoNeighborhoods", "language": "en" },
-    { "slug": "types-of-inspections-when-buying-a-home", "url": "/blog/types-of-inspections-when-buying-a-home", "title": "types of inspections when buying a home", "type": "blog", "cluster": "sacramentoBuyerProcess", "language": "en" },
-    { "slug": "selling-your-home-in-sacramento-what-to-expect", "url": "/blog/selling-your-home-in-sacramento-what-to-expect", "title": "selling your Sacramento home", "type": "blog", "cluster": "sacramentoSeller", "language": "en" },
-    { "slug": "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers", "url": "/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers", "title": "requirements to buy a house in California", "type": "blog", "cluster": "sacramentoFirstTimeBuyer", "language": "en" },
-
-    { "slug": "california-housing-market-update", "url": "/blog/california-housing-market-update", "title": "California housing market update", "type": "blog", "cluster": "californiaMarket", "language": "en" },
-    { "slug": "california-housing-market-elevated-rates-inventory", "url": "/blog/california-housing-market-elevated-rates-inventory", "title": "California rates and inventory analysis", "type": "blog", "cluster": "californiaMarket", "language": "en" }
+    {
+      "slug": "communities-elk-grove",
+      "url": "/communities/elk-grove",
+      "title": "Elk Grove community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-roseville",
+      "url": "/communities/roseville",
+      "title": "Roseville community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-folsom",
+      "url": "/communities/folsom",
+      "title": "Folsom community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-citrus-heights",
+      "url": "/communities/citrus-heights",
+      "title": "Citrus Heights community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-el-dorado-hills",
+      "url": "/communities/el-dorado-hills",
+      "title": "El Dorado Hills community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-natomas",
+      "url": "/communities/natomas",
+      "title": "Natomas community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-arden-arcade",
+      "url": "/communities/arden-arcade",
+      "title": "Arden Arcade community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-rancho-cordova",
+      "url": "/communities/rancho-cordova",
+      "title": "Rancho Cordova community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "communities-davis",
+      "url": "/communities/davis",
+      "title": "Davis community guide",
+      "type": "service",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "listings",
+      "url": "/listings",
+      "title": "current Sacramento listings",
+      "type": "service",
+      "cluster": "general",
+      "language": "en"
+    },
+    {
+      "slug": "peru",
+      "url": "/peru",
+      "title": "Sacred Valley investment listings",
+      "type": "service",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "about",
+      "url": "/about",
+      "title": "about Perfecto Homes",
+      "type": "service",
+      "cluster": "general",
+      "language": "en"
+    },
+    {
+      "slug": "contact",
+      "url": "/contact",
+      "title": "contact the Perfecto Homes team",
+      "type": "service",
+      "cluster": "general",
+      "language": "en"
+    },
+    {
+      "slug": "team",
+      "url": "/team",
+      "title": "meet our family team",
+      "type": "service",
+      "cluster": "general",
+      "language": "en"
+    },
+    {
+      "slug": "how-to-buy-property-in-peru-as-a-foreigner",
+      "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner",
+      "title": "how to buy property in Peru as a foreigner",
+      "type": "blog",
+      "cluster": "peruBuyerProcess",
+      "language": "en"
+    },
+    {
+      "slug": "why-invest-in-sacred-valley-real-estate",
+      "url": "/blog/why-invest-in-sacred-valley-real-estate",
+      "title": "why invest in Sacred Valley real estate",
+      "type": "blog",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "how-chinchero-airport-will-change-sacred-valley-property-values",
+      "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values",
+      "title": "Chinchero airport impact on property values",
+      "type": "blog",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "hospitality-investment-opportunities-cusco-peru",
+      "url": "/blog/hospitality-investment-opportunities-cusco-peru",
+      "title": "hospitality investment opportunities in Cusco",
+      "type": "blog",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "sacramento-real-estate-market-report-2026",
+      "url": "/blog/sacramento-real-estate-market-report-2026",
+      "title": "Sacramento real estate market report 2026",
+      "type": "blog",
+      "cluster": "sacramentoMarket",
+      "language": "en"
+    },
+    {
+      "slug": "best-neighborhoods-in-sacramento-for-families",
+      "url": "/blog/best-neighborhoods-in-sacramento-for-families",
+      "title": "best Sacramento neighborhoods for families",
+      "type": "blog",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "first-time-home-buyer-guide-sacramento-ca",
+      "url": "/blog/first-time-home-buyer-guide-sacramento-ca",
+      "title": "first time home buyer guide for Sacramento",
+      "type": "blog",
+      "cluster": "sacramentoFirstTimeBuyer",
+      "language": "en"
+    },
+    {
+      "slug": "new-construction-homes-sacramento-area-2026-guide",
+      "url": "/blog/new-construction-homes-sacramento-area-2026-guide",
+      "title": "new construction homes in the Sacramento area",
+      "type": "blog",
+      "cluster": "sacramentoNewConstruction",
+      "language": "en"
+    },
+    {
+      "slug": "olympus-pointe-roseville-neighborhood-guide",
+      "url": "/blog/olympus-pointe-roseville-neighborhood-guide",
+      "title": "Olympus Pointe Roseville neighborhood guide",
+      "type": "blog",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "living-in-el-dorado-hills-what-you-need-to-know",
+      "url": "/blog/living-in-el-dorado-hills-what-you-need-to-know",
+      "title": "living in El Dorado Hills",
+      "type": "blog",
+      "cluster": "sacramentoNeighborhoods",
+      "language": "en"
+    },
+    {
+      "slug": "types-of-inspections-when-buying-a-home",
+      "url": "/blog/types-of-inspections-when-buying-a-home",
+      "title": "types of inspections when buying a home",
+      "type": "blog",
+      "cluster": "sacramentoBuyerProcess",
+      "language": "en"
+    },
+    {
+      "slug": "selling-your-home-in-sacramento-what-to-expect",
+      "url": "/blog/selling-your-home-in-sacramento-what-to-expect",
+      "title": "selling your Sacramento home",
+      "type": "blog",
+      "cluster": "sacramentoSeller",
+      "language": "en"
+    },
+    {
+      "slug": "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers",
+      "url": "/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers",
+      "title": "requirements to buy a house in California",
+      "type": "blog",
+      "cluster": "sacramentoFirstTimeBuyer",
+      "language": "en"
+    },
+    {
+      "slug": "california-housing-market-update",
+      "url": "/blog/california-housing-market-update",
+      "title": "California housing market update",
+      "type": "blog",
+      "cluster": "californiaMarket",
+      "language": "en"
+    },
+    {
+      "slug": "california-housing-market-elevated-rates-inventory",
+      "url": "/blog/california-housing-market-elevated-rates-inventory",
+      "title": "California rates and inventory analysis",
+      "type": "blog",
+      "cluster": "californiaMarket",
+      "language": "en"
+    },
+    {
+      "slug": "peru-siete-cuartones",
+      "url": "/peru/siete-cuartones-352-cusco",
+      "title": "Siete Cuartones 352 luxury colonial property in Cusco historic center",
+      "type": "listing",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "peru-qhispicay",
+      "url": "/peru/hostal-qhispicay-ollantaytambo",
+      "title": "Hostal Qhispicay hospitality investment in Ollantaytambo",
+      "type": "listing",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "peru-hatuchay",
+      "url": "/peru/hatuchay-valle-restaurant-urubamba",
+      "title": "Hatuchay Valle restaurant property in Urubamba",
+      "type": "listing",
+      "cluster": "peruInvestment",
+      "language": "en"
+    },
+    {
+      "slug": "peru-predio-victoria",
+      "url": "/peru/predio-victoria",
+      "title": "Predio Victoria land parcel in the Sacred Valley",
+      "type": "listing",
+      "cluster": "peruInvestment",
+      "language": "en"
+    }
   ],
   "byCluster": {
     "peruInvestment": [
-      { "slug": "why-invest-in-sacred-valley-real-estate", "url": "/blog/why-invest-in-sacred-valley-real-estate", "title": "why invest in Sacred Valley real estate", "type": "blog", "language": "en" },
-      { "slug": "how-chinchero-airport-will-change-sacred-valley-property-values", "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values", "title": "Chinchero airport impact on property values", "type": "blog", "language": "en" },
-      { "slug": "hospitality-investment-opportunities-cusco-peru", "url": "/blog/hospitality-investment-opportunities-cusco-peru", "title": "hospitality investment opportunities in Cusco", "type": "blog", "language": "en" },
-      { "slug": "peru", "url": "/peru", "title": "Sacred Valley investment listings", "type": "service", "language": "en" }
+      {
+        "url": "/peru/siete-cuartones-352-cusco",
+        "title": "Siete Cuartones 352 luxury colonial property in Cusco historic center"
+      },
+      {
+        "url": "/peru/hostal-qhispicay-ollantaytambo",
+        "title": "Hostal Qhispicay hospitality investment in Ollantaytambo"
+      },
+      {
+        "url": "/peru/hatuchay-valle-restaurant-urubamba",
+        "title": "Hatuchay Valle restaurant property in Urubamba"
+      },
+      {
+        "url": "/peru/predio-victoria",
+        "title": "Predio Victoria land parcel in the Sacred Valley"
+      },
+      {
+        "slug": "why-invest-in-sacred-valley-real-estate",
+        "url": "/blog/why-invest-in-sacred-valley-real-estate",
+        "title": "why invest in Sacred Valley real estate",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "how-chinchero-airport-will-change-sacred-valley-property-values",
+        "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values",
+        "title": "Chinchero airport impact on property values",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "hospitality-investment-opportunities-cusco-peru",
+        "url": "/blog/hospitality-investment-opportunities-cusco-peru",
+        "title": "hospitality investment opportunities in Cusco",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "peru",
+        "url": "/peru",
+        "title": "Sacred Valley investment listings",
+        "type": "service",
+        "language": "en"
+      }
     ],
     "peruBuyerProcess": [
-      { "slug": "how-to-buy-property-in-peru-as-a-foreigner", "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner", "title": "how to buy property in Peru as a foreigner", "type": "blog", "language": "en" },
-      { "slug": "peru", "url": "/peru", "title": "Sacred Valley listings", "type": "service", "language": "en" },
-      { "slug": "contact", "url": "/contact", "title": "talk to the cross-border team", "type": "service", "language": "en" }
+      {
+        "slug": "how-to-buy-property-in-peru-as-a-foreigner",
+        "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner",
+        "title": "how to buy property in Peru as a foreigner",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "peru",
+        "url": "/peru",
+        "title": "Sacred Valley listings",
+        "type": "service",
+        "language": "en"
+      },
+      {
+        "slug": "contact",
+        "url": "/contact",
+        "title": "talk to the cross-border team",
+        "type": "service",
+        "language": "en"
+      }
     ],
     "sacramentoFirstTimeBuyer": [
-      { "slug": "first-time-home-buyer-guide-sacramento-ca", "url": "/blog/first-time-home-buyer-guide-sacramento-ca", "title": "first time home buyer guide for Sacramento", "type": "blog", "language": "en" },
-      { "slug": "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers", "url": "/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers", "title": "requirements to buy in California", "type": "blog", "language": "en" },
-      { "slug": "types-of-inspections-when-buying-a-home", "url": "/blog/types-of-inspections-when-buying-a-home", "title": "types of inspections when buying a home", "type": "blog", "language": "en" }
+      {
+        "slug": "first-time-home-buyer-guide-sacramento-ca",
+        "url": "/blog/first-time-home-buyer-guide-sacramento-ca",
+        "title": "first time home buyer guide for Sacramento",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "requirements-to-buy-a-house-in-california-tips-for-first-time-buyers",
+        "url": "/blog/requirements-to-buy-a-house-in-california-tips-for-first-time-buyers",
+        "title": "requirements to buy in California",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "types-of-inspections-when-buying-a-home",
+        "url": "/blog/types-of-inspections-when-buying-a-home",
+        "title": "types of inspections when buying a home",
+        "type": "blog",
+        "language": "en"
+      }
     ],
     "sacramentoNeighborhoods": [
-      { "slug": "best-neighborhoods-in-sacramento-for-families", "url": "/blog/best-neighborhoods-in-sacramento-for-families", "title": "best Sacramento neighborhoods for families", "type": "blog", "language": "en" },
-      { "slug": "olympus-pointe-roseville-neighborhood-guide", "url": "/blog/olympus-pointe-roseville-neighborhood-guide", "title": "Olympus Pointe Roseville guide", "type": "blog", "language": "en" },
-      { "slug": "living-in-el-dorado-hills-what-you-need-to-know", "url": "/blog/living-in-el-dorado-hills-what-you-need-to-know", "title": "living in El Dorado Hills", "type": "blog", "language": "en" },
-      { "slug": "communities-elk-grove", "url": "/communities/elk-grove", "title": "Elk Grove community guide", "type": "service", "language": "en" }
+      {
+        "slug": "best-neighborhoods-in-sacramento-for-families",
+        "url": "/blog/best-neighborhoods-in-sacramento-for-families",
+        "title": "best Sacramento neighborhoods for families",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "olympus-pointe-roseville-neighborhood-guide",
+        "url": "/blog/olympus-pointe-roseville-neighborhood-guide",
+        "title": "Olympus Pointe Roseville guide",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "living-in-el-dorado-hills-what-you-need-to-know",
+        "url": "/blog/living-in-el-dorado-hills-what-you-need-to-know",
+        "title": "living in El Dorado Hills",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "communities-elk-grove",
+        "url": "/communities/elk-grove",
+        "title": "Elk Grove community guide",
+        "type": "service",
+        "language": "en"
+      }
     ],
     "sacramentoMarket": [
-      { "slug": "sacramento-real-estate-market-report-2026", "url": "/blog/sacramento-real-estate-market-report-2026", "title": "Sacramento market report 2026", "type": "blog", "language": "en" },
-      { "slug": "listings", "url": "/listings", "title": "Sacramento listings", "type": "service", "language": "en" }
+      {
+        "slug": "sacramento-real-estate-market-report-2026",
+        "url": "/blog/sacramento-real-estate-market-report-2026",
+        "title": "Sacramento market report 2026",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "listings",
+        "url": "/listings",
+        "title": "Sacramento listings",
+        "type": "service",
+        "language": "en"
+      }
     ],
     "sacramentoNewConstruction": [
-      { "slug": "new-construction-homes-sacramento-area-2026-guide", "url": "/blog/new-construction-homes-sacramento-area-2026-guide", "title": "new construction in the Sacramento area", "type": "blog", "language": "en" },
-      { "slug": "communities-roseville", "url": "/communities/roseville", "title": "Roseville community guide", "type": "service", "language": "en" }
+      {
+        "slug": "new-construction-homes-sacramento-area-2026-guide",
+        "url": "/blog/new-construction-homes-sacramento-area-2026-guide",
+        "title": "new construction in the Sacramento area",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "communities-roseville",
+        "url": "/communities/roseville",
+        "title": "Roseville community guide",
+        "type": "service",
+        "language": "en"
+      }
     ],
     "sacramentoBuyerProcess": [
-      { "slug": "types-of-inspections-when-buying-a-home", "url": "/blog/types-of-inspections-when-buying-a-home", "title": "types of inspections when buying a home", "type": "blog", "language": "en" },
-      { "slug": "first-time-home-buyer-guide-sacramento-ca", "url": "/blog/first-time-home-buyer-guide-sacramento-ca", "title": "first time home buyer guide", "type": "blog", "language": "en" }
+      {
+        "slug": "types-of-inspections-when-buying-a-home",
+        "url": "/blog/types-of-inspections-when-buying-a-home",
+        "title": "types of inspections when buying a home",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "first-time-home-buyer-guide-sacramento-ca",
+        "url": "/blog/first-time-home-buyer-guide-sacramento-ca",
+        "title": "first time home buyer guide",
+        "type": "blog",
+        "language": "en"
+      }
     ],
     "sacramentoSeller": [
-      { "slug": "selling-your-home-in-sacramento-what-to-expect", "url": "/blog/selling-your-home-in-sacramento-what-to-expect", "title": "selling your Sacramento home", "type": "blog", "language": "en" }
+      {
+        "slug": "selling-your-home-in-sacramento-what-to-expect",
+        "url": "/blog/selling-your-home-in-sacramento-what-to-expect",
+        "title": "selling your Sacramento home",
+        "type": "blog",
+        "language": "en"
+      }
     ],
     "californiaMarket": [
-      { "slug": "california-housing-market-update", "url": "/blog/california-housing-market-update", "title": "California housing market update", "type": "blog", "language": "en" },
-      { "slug": "california-housing-market-elevated-rates-inventory", "url": "/blog/california-housing-market-elevated-rates-inventory", "title": "California rates and inventory analysis", "type": "blog", "language": "en" }
+      {
+        "slug": "california-housing-market-update",
+        "url": "/blog/california-housing-market-update",
+        "title": "California housing market update",
+        "type": "blog",
+        "language": "en"
+      },
+      {
+        "slug": "california-housing-market-elevated-rates-inventory",
+        "url": "/blog/california-housing-market-elevated-rates-inventory",
+        "title": "California rates and inventory analysis",
+        "type": "blog",
+        "language": "en"
+      }
     ],
     "general": [
-      { "slug": "about", "url": "/about", "title": "about Perfecto Homes", "type": "service", "language": "en" },
-      { "slug": "contact", "url": "/contact", "title": "contact us", "type": "service", "language": "en" },
-      { "slug": "listings", "url": "/listings", "title": "current Sacramento listings", "type": "service", "language": "en" },
-      { "slug": "peru", "url": "/peru", "title": "Sacred Valley listings", "type": "service", "language": "en" }
+      {
+        "slug": "about",
+        "url": "/about",
+        "title": "about Perfecto Homes",
+        "type": "service",
+        "language": "en"
+      },
+      {
+        "slug": "contact",
+        "url": "/contact",
+        "title": "contact us",
+        "type": "service",
+        "language": "en"
+      },
+      {
+        "slug": "listings",
+        "url": "/listings",
+        "title": "current Sacramento listings",
+        "type": "service",
+        "language": "en"
+      },
+      {
+        "slug": "peru",
+        "url": "/peru",
+        "title": "Sacred Valley listings",
+        "type": "service",
+        "language": "en"
+      }
     ]
   }
 }

@@ -187,9 +187,9 @@ def _recent_cluster_counts(n: int = 7) -> dict:
 
 
 CLUSTER_HINTS = {
-    "peruInvestment": ["sacred valley", "urubamba", "ollantaytambo", "cusco", "andes", "andean", "siete cuartones", "san blas", "chinchero", "peru property", "peru real estate", "peru investment"],
-    "peruBuyerProcess": ["sunarp", "notario", "peru foreigner", "peru title", "peru closing", "peru buyer"],
-    "sacramentoNeighborhoods": ["elk grove", "folsom", "roseville", "natomas", "davis", "rancho cordova", "carmichael", "neighborhood", "communities", "fair oaks", "citrus heights"],
+    "peruBuyerProcess": ["sunarp", "notario", "peru foreigner", "peru title", "peru closing", "peru buyer", "buy property in peru", "buying property in peru", "foreigners buy property", "peru lawyer"],
+    "peruInvestment": ["sacred valley", "urubamba", "ollantaytambo", "cusco", "andes", "andean", "siete cuartones", "san blas", "chinchero", "peru property", "peru real estate", "peru investment", "lima peru", "machu picchu", "peru"],
+    "sacramentoNeighborhoods": ["elk grove", "folsom", "roseville", "natomas", "davis", "rancho cordova", "carmichael", "neighborhood", "communities", "fair oaks", "citrus heights", "arden arcade", "arden-arcade", "el dorado hills", "homes for sale", "condos for sale"],
     "sacramentoFirstTimeBuyer": ["first time", "first-time", "calhfa", "down payment", "fha", "preapproval", "first home"],
     "sacramentoMarket": ["sacramento market", "sacramento prices", "sacramento trends", "sacramento forecast", "median sacramento"],
     "sacramentoSeller": ["selling", "list price", "staging", "fsbo", "for sale by owner", "seller", "listing"],
@@ -302,13 +302,18 @@ def pick_keyword(context: dict, used: set[str]) -> tuple[str, str]:
     if not fresh:
         fresh = [("sacramento real estate market guide", "fallback", None, 0.0)]
 
-    # Apply cluster-diversity penalty based on recent posts
+    # Apply cluster-diversity penalty based on recent posts, plus the
+    # business-priority bias from context.json (clusterBias). The bias keeps
+    # Peru/Cusco content dominant even though Sacramento queries carry far
+    # more raw impressions — active Peru listings outrank search volume.
     recent = _recent_cluster_counts(n=7)
+    bias = context.get("clusterBias", {})
     print(f"Recent cluster counts (last 7 posts): {recent}")
     penalized = []
     for kw, src, cluster, score in fresh:
         penalty = recent.get(cluster, 0) * 3.0 if cluster else 0.0
-        penalized.append((kw, src, cluster, score - penalty))
+        boost = bias.get(cluster, 0.0) if cluster else 0.0
+        penalized.append((kw, src, cluster, score - penalty + boost))
 
     penalized.sort(key=lambda c: c[3], reverse=True)
     # Prefer positive-score candidates; fall back to the negative pool only if nothing else is left

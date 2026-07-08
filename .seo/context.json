@@ -1,6 +1,6 @@
 {
   "_comment": "SEO context for Perfecto Homes daily blog flow. Drives refresh decisions and topic biasing. Regenerate weekly from GSC + sitemap audit.",
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-07-08",
   "strategicPriorities": [
     {
       "cluster": "peruInvestment",
@@ -16,7 +16,11 @@
       "cluster": "peruInvestment",
       "reason": "Sub-priority: Cusco historic center / Siete Cuartones / colonial property. Active luxury listing needs cluster authority. Target queries about Cusco luxury real estate, San Blas, historic center properties.",
       "weight": 0.9,
-      "tags": ["cusco-luxury", "siete-cuartones", "historic-center"]
+      "tags": [
+        "cusco-luxury",
+        "siete-cuartones",
+        "historic-center"
+      ]
     },
     {
       "cluster": "sacramentoFirstTimeBuyer",
@@ -30,22 +34,183 @@
     }
   ],
   "opportunityQueries": [
-    { "query": "how to buy property in peru as a foreigner", "position": 12, "impressions": 280, "nearMiss": true },
-    { "query": "sacred valley real estate investment", "position": 18, "impressions": 120, "nearMiss": false },
-    { "query": "chinchero airport property values", "position": 14, "impressions": 90, "nearMiss": true },
-    { "query": "cusco hotel for sale", "position": 22, "impressions": 75, "nearMiss": false },
-    { "query": "cusco historic center luxury property", "position": 30, "impressions": 40, "nearMiss": false },
-    { "query": "cusco colonial property for sale", "position": 30, "impressions": 35, "nearMiss": false },
-    { "query": "siete cuartones cusco real estate", "position": 30, "impressions": 20, "nearMiss": false },
-    { "query": "san blas cusco property for sale", "position": 30, "impressions": 35, "nearMiss": false },
-    { "query": "luxury cusco real estate foreign buyer", "position": 30, "impressions": 30, "nearMiss": false },
-    { "query": "cusco mansion for sale dollars", "position": 30, "impressions": 25, "nearMiss": false },
-    { "query": "bilingual real estate agent sacramento", "position": 16, "impressions": 60, "nearMiss": false }
+    {
+      "query": "can foreigners buy property in peru",
+      "position": 7.6,
+      "impressions": 23,
+      "clicks": 0,
+      "nearMiss": true,
+      "market": "peru"
+    },
+    {
+      "query": "cusco real estate",
+      "position": 12.4,
+      "impressions": 31,
+      "clicks": 2,
+      "nearMiss": false,
+      "market": "peru"
+    },
+    {
+      "query": "buying property in peru as a foreigner",
+      "position": 9.6,
+      "impressions": 14,
+      "clicks": 1,
+      "nearMiss": true,
+      "market": "peru"
+    },
+    {
+      "query": "buy property in peru lawyer",
+      "position": 10.4,
+      "impressions": 12,
+      "clicks": 0,
+      "nearMiss": true,
+      "market": "peru"
+    },
+    {
+      "query": "can americans buy property in peru",
+      "position": 8.5,
+      "impressions": 10,
+      "clicks": 0,
+      "nearMiss": true,
+      "market": "peru"
+    },
+    {
+      "query": "homes for sale arden arcade",
+      "position": 31.9,
+      "impressions": 322,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "arden arcade homes for sale",
+      "position": 31.0,
+      "impressions": 307,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "el dorado hills real estate",
+      "position": 40.9,
+      "impressions": 305,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "homes el dorado hills ca",
+      "position": 41.6,
+      "impressions": 253,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "homes el dorado hills california",
+      "position": 43.7,
+      "impressions": 229,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "elk grove ca new construction for sale",
+      "position": 37.7,
+      "impressions": 105,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "elk grove ca new homes",
+      "position": 41.2,
+      "impressions": 105,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "elk grove ca new construction",
+      "position": 42.8,
+      "impressions": 103,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "elk grove ca new homes for sale",
+      "position": 39.7,
+      "impressions": 103,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "folsom ca condos for sale",
+      "position": 40.3,
+      "impressions": 63,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "homes in el dorado hills california",
+      "position": 41.0,
+      "impressions": 42,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "homes for sale el dorado hills",
+      "position": 39.8,
+      "impressions": 41,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "homes for sale near me",
+      "position": 32.6,
+      "impressions": 31,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "el dorado hills homes",
+      "position": 36.8,
+      "impressions": 24,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    },
+    {
+      "query": "elk grove new homes",
+      "position": 36.7,
+      "impressions": 22,
+      "clicks": 0,
+      "nearMiss": false,
+      "market": "sacramento"
+    }
   ],
   "topPerformers": [
-    { "slug": "how-to-buy-property-in-peru-as-a-foreigner", "position": 4, "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner" },
-    { "slug": "why-invest-in-sacred-valley-real-estate", "position": 6, "url": "/blog/why-invest-in-sacred-valley-real-estate" },
-    { "slug": "how-chinchero-airport-will-change-sacred-valley-property-values", "position": 8, "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values" }
+    {
+      "slug": "how-to-buy-property-in-peru-as-a-foreigner",
+      "position": 4,
+      "url": "/blog/how-to-buy-property-in-peru-as-a-foreigner"
+    },
+    {
+      "slug": "why-invest-in-sacred-valley-real-estate",
+      "position": 6,
+      "url": "/blog/why-invest-in-sacred-valley-real-estate"
+    },
+    {
+      "slug": "how-chinchero-airport-will-change-sacred-valley-property-values",
+      "position": 8,
+      "url": "/blog/how-chinchero-airport-will-change-sacred-valley-property-values"
+    }
   ],
   "decliningPosts": [],
   "manualOverrides": {
@@ -59,6 +224,7 @@
   "activeListings": [
     {
       "slug": "siete-cuartones-352-cusco",
+      "url": "/peru/siete-cuartones-352-cusco",
       "title": "Siete Cuartones 352 — Cusco Historic Center",
       "askingPrice": 2900000,
       "currency": "USD",
@@ -67,6 +233,38 @@
       "category": "Peru",
       "seoPriority": "high",
       "notes": "Active luxury listing. Bias blog content toward Cusco luxury / historic center / colonial property / Siete Cuartones / San Blas / dollar-denominated Peru real estate."
+    },
+    {
+      "slug": "hostal-qhispicay-ollantaytambo",
+      "url": "/peru/hostal-qhispicay-ollantaytambo",
+      "title": "Hostal Qhispicay — Ollantaytambo",
+      "category": "Peru",
+      "seoPriority": "high",
+      "notes": "Operating hostal near Machu Picchu rail gateway. Bias toward hospitality investment / hotel for sale Cusco region / Ollantaytambo tourism economics."
+    },
+    {
+      "slug": "hatuchay-valle-restaurant-urubamba",
+      "url": "/peru/hatuchay-valle-restaurant-urubamba",
+      "title": "Hatuchay Valle Restaurant — Urubamba",
+      "category": "Peru",
+      "seoPriority": "high",
+      "notes": "Commercial property in Sacred Valley. Bias toward commercial real estate Peru / Urubamba / Sacred Valley business investment."
+    },
+    {
+      "slug": "predio-victoria",
+      "url": "/peru/predio-victoria",
+      "title": "Predio Victoria — Sacred Valley land",
+      "category": "Peru",
+      "seoPriority": "medium",
+      "notes": "Land parcel. Bias toward buying land in Peru / Sacred Valley development."
     }
-  ]
+  ],
+  "_gscRefresh": "opportunityQueries auto-refreshed from GSC on 2026-07-08 (250 raw queries, 90-day window). Do not hand-edit that block; run scripts/keyword-research.py instead.",
+  "clusterBias": {
+    "_comment": "Business-priority score boost applied in pick_keyword (daily-blog.py). Peru clusters boosted per Jamil 2026-07-08: active Peru listings outrank Sacramento search volume.",
+    "peruInvestment": 6.0,
+    "peruBuyerProcess": 6.0,
+    "sacramentoNeighborhoods": 1.0,
+    "sacramentoNewConstruction": 1.0
+  }
 }
