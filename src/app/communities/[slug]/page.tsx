@@ -91,7 +91,7 @@ const PERU_SLUGS = new Set([
   "san-jeronimo",
 ]);
 const PERU_HERO_IMAGES: Record<string, string> = {
-  ollantaytambo: "/images/peru/hostal-ollantaytambo.jpg",
+  ollantaytambo: "/images/peru/qhispicay/03-ollantaytambo-town-rooftop-view-from-hostal-qhispicay.jpg",
   urubamba: "/images/peru/hatuchay-restaurant.jpg",
   pisac: "/images/peru/pisac.jpg",
   chinchero: "/images/peru/chinchero.jpg",

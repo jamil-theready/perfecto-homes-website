@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 const PERU_COMMUNITIES = [
-  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/hostal-ollantaytambo.jpg" },
+  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/qhispicay/03-ollantaytambo-town-rooftop-view-from-hostal-qhispicay.jpg" },
   { name: "Urubamba", slug: "urubamba", image: "/images/peru/hatuchay-restaurant.jpg" },
   { name: "Pisac", slug: "pisac", image: "/images/peru/pisac.jpg" },
   { name: "Chinchero", slug: "chinchero", image: "/images/peru/chinchero.jpg" },

@@ -47,7 +47,7 @@ function getAllowedImageDomains() {
 function getImageUrls(data) {
   const urls = [];
   if (data.featuredImage) urls.push({ field: "featuredImage", url: data.featuredImage });
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 30; i++) {
     const key = `image${i}`;
     if (data[key]) urls.push({ field: key, url: data[key] });
   }
@@ -139,7 +139,7 @@ async function main() {
       }
 
       if (external.length === 0) {
-        console.log(`  ✓  ${slug}: ${images.length} images (all Cloudinary)`);
+        console.log(`  ✓  ${slug}: ${images.length} images OK (Cloudinary or local)`);
       }
     }
   }

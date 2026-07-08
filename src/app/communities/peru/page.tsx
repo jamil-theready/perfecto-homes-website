@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const SACRED_VALLEY = [
-  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/hostal-ollantaytambo.jpg" },
+  { name: "Ollantaytambo", slug: "ollantaytambo", image: "/images/peru/qhispicay/03-ollantaytambo-town-rooftop-view-from-hostal-qhispicay.jpg" },
   { name: "Urubamba", slug: "urubamba", image: "/images/peru/hatuchay-restaurant.jpg" },
   { name: "Pisac", slug: "pisac", image: "/images/peru/pisac.jpg" },
   { name: "Chinchero", slug: "chinchero", image: "/images/peru/chinchero.jpg" },

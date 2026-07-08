@@ -61,7 +61,7 @@ export default async function PeruListingPage({ params }: Props) {
 
   // Collect images
   const images: string[] = [];
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 30; i++) {
     const img = item[`image${i}`] as string | undefined;
     if (img) images.push(img);
   }

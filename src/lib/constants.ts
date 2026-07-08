@@ -133,7 +133,7 @@ export const PERU_LISTINGS = [
   {
     name: "Hostal Qhispicay",
     slug: "hostal-qhispicay-ollantaytambo",
-    image: "/images/peru/hostal-ollantaytambo.jpg",
+    image: "/images/peru/qhispicay/01-hostal-qhispicay-ollantaytambo-hotel-exterior-facade.jpg",
   },
   {
     name: "Hatuchay Valle Restaurant",
