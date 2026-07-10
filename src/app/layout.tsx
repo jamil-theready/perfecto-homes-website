@@ -95,15 +95,10 @@ fbq('track', 'PageView');`}
             alt=""
           />
         </noscript>
-        {/* Metricool tracking pixel */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src="https://tracker.metricool.com/c3po.jpg?hash=8bbb27e9742b25ca662c0482dff9b49d"
-          alt=""
-        />
+        {/* Metricool tracker (JS tag — replaces the older image pixel, same hash) */}
+        <Script id="metricool-tracker" strategy="afterInteractive">
+          {`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"8bbb27e9742b25ca662c0482dff9b49d"})});`}
+        </Script>
       </body>
     </html>
   );
