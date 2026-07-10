@@ -1,6 +1,6 @@
 ---
 title: "California's Housing Market Sets New Price Record Amidst Resurgent Demand"
-date: "{{ $now.format('yyyy-MM-dd') }}"
+date: "2026-04-04"
 slug: "california-housing-market-new-price-record-may-2024"
 metaDescription: "California's housing market reached an all-time median price high in May 2024, with robust sales growth despite elevated interest rates. Learn more about the factors driving this competitive market and what it means for buyers and sellers in Sacramento and across the state."
 category: "Sacramento"

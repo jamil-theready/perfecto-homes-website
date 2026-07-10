@@ -1,6 +1,6 @@
 ---
 title: "Navigating California's Nuanced Real Estate Landscape: A Sacramento Perspective"
-date: "{{ $now.format('yyyy-MM-dd') }}"
+date: "2026-04-04"
 slug: "california-real-estate-nuanced-market-sacramento-update"
 metaDescription: "Explore California's complex real estate market, from interest rates and inventory to affordability challenges and regional resilience, including insights for Sacramento."
 category: "Sacramento"
