@@ -1,29 +1,19 @@
 "use client";
 
-import { useState, useRef, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
-const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 export default function ContactForm({ className = "" }: { className?: string }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const hcaptchaRef = useRef<HCaptcha>(null);
-  const formDataRef = useRef<FormData | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    formDataRef.current = new FormData(e.currentTarget);
-    hcaptchaRef.current?.execute();
-  };
-
-  const handleVerify = async (token: string) => {
-    const data = formDataRef.current;
-    if (!data) return;
-    data.append("h-captcha-response", token);
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -40,8 +30,6 @@ export default function ContactForm({ className = "" }: { className?: string }) 
     } catch {
       alert("Something went wrong. Please try again.");
       setLoading(false);
-    } finally {
-      hcaptchaRef.current?.resetCaptcha();
     }
   };
 
@@ -125,16 +113,6 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors resize-none"
           />
         </div>
-
-        <HCaptcha
-          sitekey={HCAPTCHA_SITEKEY}
-          size="invisible"
-          reCaptchaCompat={false}
-          onVerify={handleVerify}
-          onError={() => setLoading(false)}
-          onExpire={() => setLoading(false)}
-          ref={hcaptchaRef}
-        />
 
         <button
           type="submit"

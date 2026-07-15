@@ -1,27 +1,15 @@
 "use client";
 
-import { useState, useRef, FormEvent } from "react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
-
-const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
+import { useState, FormEvent } from "react";
 
 export default function NewsletterForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const hcaptchaRef = useRef<HCaptcha>(null);
-  const formDataRef = useRef<FormData | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    formDataRef.current = new FormData(e.currentTarget);
-    hcaptchaRef.current?.execute();
-  };
-
-  const handleVerify = async (token: string) => {
-    const data = formDataRef.current;
-    if (!data) return;
-    data.append("h-captcha-response", token);
+    const data = new FormData(e.currentTarget);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -38,7 +26,6 @@ export default function NewsletterForm() {
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
-      hcaptchaRef.current?.resetCaptcha();
     }
   };
 
@@ -66,15 +53,6 @@ export default function NewsletterForm() {
         required
         placeholder="you@email.com"
         className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-500 text-sm focus:border-gold transition-colors"
-      />
-      <HCaptcha
-        sitekey={HCAPTCHA_SITEKEY}
-        size="invisible"
-        reCaptchaCompat={false}
-        onVerify={handleVerify}
-        onError={() => setLoading(false)}
-        onExpire={() => setLoading(false)}
-        ref={hcaptchaRef}
       />
       <button
         type="submit"
