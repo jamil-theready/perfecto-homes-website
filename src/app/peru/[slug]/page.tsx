@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 const PERU_SEO: Record<string, { title: string; description: string }> = {
   "siete-cuartones-352-cusco": {
     title: "Historic Center Property for Sale in Cusco, Peru | Siete Cuartones 352 | $2.9M",
-    description: "Exclusive listing inside Cusco's UNESCO historic center, one block from San Blas. Clean title, registered Partida 020221153. $2,900,000 USD. Photos coming soon.",
+    description: "Exclusive listing inside Cusco's UNESCO historic center, one block from San Blas. Registered Partida 02021153, 947.5 m2. $2,900,000 USD.",
   },
   "predio-victoria": {
     title: "10,000 m\u00B2 Land for Sale in Urubamba, Sacred Valley Peru | $820K",
@@ -172,7 +172,7 @@ export default async function PeruListingPage({ params }: Props) {
 
               {/* Right Sidebar */}
               <aside>
-                <div className="sticky top-24 grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
+                <div className="sticky top-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
                   {/* Brokerage Card */}
                   <div className="bg-white rounded-2xl p-6 border border-gray-100">
                     <p className="text-xs text-medium-gray uppercase tracking-wider mb-3">Listed By</p>
