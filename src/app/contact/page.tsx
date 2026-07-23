@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import { PHONE, EMAIL, TEAM } from "@/lib/constants";
+import { PHONE, EMAIL, TEAM, WA_LINK } from "@/lib/constants";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -101,10 +102,13 @@ export default function ContactUsPage() {
             We serve the greater Sacramento area including Citrus Heights, Roseville, Folsom, Elk Grove, and El Dorado Hills. We also offer exclusive international listings in Peru&apos;s Sacred Valley.
           </p>
           <a
-            href={`tel:${PHONE}`}
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
           >
-            Call Us Now: {PHONE}
+            <WhatsAppIcon />
+            WhatsApp Us: {PHONE}
           </a>
         </div>
       </section>

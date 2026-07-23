@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
-import { PHONE, PHONE_TEL, EMAIL, TEAM } from "@/lib/constants";
+import { PHONE, EMAIL, TEAM, WA_LINK } from "@/lib/constants";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { PropertyJsonLd } from "@/components/JsonLd";
 import ImageGallery from "./ImageGallery";
 import InquiryForm from "@/components/InquiryForm";
@@ -365,10 +366,13 @@ export default async function ListingDetailPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`tel:${PHONE_TEL}`}
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors"
               >
-                Call {PHONE}
+                <WhatsAppIcon />
+                WhatsApp {PHONE}
               </a>
               <Link
                 href="/contact"

@@ -3,6 +3,9 @@ export const SITE_URL = "https://www.perfectohomesrealestate.com";
 export const PHONE = "(916) 878-7260";
 export const PHONE_TEL = "+19168787260";
 export const EMAIL = "perfectohomes@gmail.com";
+// Business WhatsApp (same line as PHONE). Use for primary "message us" CTAs so
+// they open WhatsApp instead of the OS dialer/FaceTime on desktop.
+export const WA_LINK = `https://wa.me/${PHONE_TEL.replace(/[^0-9]/g, "")}`;
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/perfectohomes",

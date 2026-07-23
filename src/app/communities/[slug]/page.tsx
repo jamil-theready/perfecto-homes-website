@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { COMMUNITIES, PHONE, PHONE_TEL, EMAIL } from "@/lib/constants";
+import { COMMUNITIES, PHONE, EMAIL, WA_LINK } from "@/lib/constants";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import ContactForm from "@/components/ContactForm";
 
@@ -228,10 +229,13 @@ export default async function CommunityPage({ params }: Props) {
                     {name} is one of the vibrant communities in the greater Sacramento area. Contact our team to learn about available properties, market trends, and what makes this neighborhood special.
                   </p>
                   <a
-                    href={`tel:${PHONE}`}
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
                   >
-                    Call {PHONE}
+                    <WhatsAppIcon />
+                    WhatsApp {PHONE}
                   </a>
                 </div>
               )}
@@ -305,11 +309,13 @@ export default async function CommunityPage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`tel:${PHONE_TEL}`}
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              Call {PHONE}
+              <WhatsAppIcon />
+              WhatsApp {PHONE}
             </a>
             <a
               href={`mailto:${EMAIL}`}
