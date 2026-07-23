@@ -8,6 +8,7 @@ import GlobalCTA from "@/components/GlobalCTA";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SiteIntro from "@/components/SiteIntro";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import "./globals.css";
 
 const inter = Inter({
@@ -71,6 +72,7 @@ export default function RootLayout({
         <TestimonialCarousel />
         <GlobalCTA />
         <Footer />
+        <WhatsAppWidget />
         <GoogleAnalytics gaId="G-Q0X209GPL3" />
         {/* Meta Pixel — ID: 715432155734308 */}
         <Script id="meta-pixel" strategy="afterInteractive">

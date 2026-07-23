@@ -41,3 +41,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+.gstack/
+
+# Local working piles (kept on disk, not part of the website build)
+/framer-assets/
+/seo/
+/social/
+/business-info.txt
+/soul.md

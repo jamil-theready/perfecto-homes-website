@@ -39,7 +39,7 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""} />
-      <input type="hidden" name="subject" value={`Property Inquiry — ${propertyTitle}`} />
+      <input type="hidden" name="subject" value={`Property Inquiry — ${propertyTitle} — Perfecto Homes`} />
       <input type="hidden" name="from_name" value="Perfecto Homes Website" />
       <input type="hidden" name="property" value={propertyTitle} />
       <input type="hidden" name="listing_slug" value={slug} />
