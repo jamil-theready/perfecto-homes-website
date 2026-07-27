@@ -126,7 +126,7 @@ export const PERU_LISTINGS = [
   {
     name: "Calle Siete Cuartones 352",
     slug: "siete-cuartones-352-cusco",
-    image: "/images/peru/centro-historico.jpg",
+    image: "/images/listings/siete-cuartones-352-cusco/01-courtyard.jpg",
   },
   {
     name: "Predio Victoria",
