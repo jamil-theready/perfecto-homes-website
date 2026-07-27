@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,6 +14,13 @@ import FullscreenListings from "@/components/FullscreenListings";
 import TeamSection from "@/components/TeamSection";
 import SacramentoIntro from "@/components/SacramentoIntro";
 import PeruCommunitiesSection from "@/components/PeruCommunitiesSection";
+
+export const metadata: Metadata = {
+  title: "Sacramento Real Estate Agents | Homes & Peru Investments",
+  description:
+    "Bilingual Sacramento real estate team. Homes for sale in Elk Grove, Roseville, Folsom and El Dorado Hills, plus Peru investment property.",
+  alternates: { canonical: "/" },
+};
 
 const SACRAMENTO_LISTINGS = [
   {

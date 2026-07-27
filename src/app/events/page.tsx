@@ -5,6 +5,7 @@ import { getCollection } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Events",
   description: "Upcoming real estate events, open houses, and community workshops from Perfecto Homes Real Estate in Sacramento.",
+  alternates: { canonical: "/events" },
 };
 
 export default function EventsPage() {

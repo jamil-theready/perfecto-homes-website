@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -28,7 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const ogImage = (item.featuredImage as string) || (item.image1 as string);
   return {
-    title,
+    // metaTitle already carries address + price + "Home for Sale" and fills the SERP
+    // line on its own; appending the brand only pushed it into truncation.
+    title: { absolute: title },
     description,
     alternates: { canonical: `/listings/${slug}` },
     openGraph: {
@@ -220,7 +224,7 @@ export default async function ListingDetailPage({ params }: Props) {
 
               {/* Right Sidebar */}
               <aside>
-                <div className="sticky top-24 grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
+                <div className="sticky top-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
                   {/* Agent Card */}
                   <div className="bg-white rounded-2xl p-6 border border-gray-100">
                     <p className="text-xs text-medium-gray uppercase tracking-wider mb-3">Listed By</p>
@@ -308,6 +312,7 @@ export default async function ListingDetailPage({ params }: Props) {
           const citySlug = cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
           const communityPage = getItemBySlug("communities", citySlug);
           if (!communityPage) return null;
+          const hasCityImage = fs.existsSync(path.join(process.cwd(), "public", "images", "communities", `${citySlug}.jpg`));
 
           // Get first 2 paragraphs of community content
           const paragraphs = (communityPage.content as string)
@@ -319,7 +324,7 @@ export default async function ListingDetailPage({ params }: Props) {
           return (
             <section className="bg-light-gray py-16 border-t border-gray-100">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div className={`grid grid-cols-1 ${hasCityImage ? "lg:grid-cols-2" : ""} gap-10 items-center`}>
                   <div>
                     <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">About the Area</p>
                     <h2 className="text-xl sm:text-2xl font-serif font-bold text-dark mb-6">
@@ -340,15 +345,17 @@ export default async function ListingDetailPage({ params }: Props) {
                       </svg>
                     </Link>
                   </div>
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                    <Image
-                      src={`/images/communities/${citySlug}.jpg`}
-                      alt={`${cityName} community`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
+                  {hasCityImage && (
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                      <Image
+                        src={`/images/communities/${citySlug}.jpg`}
+                        alt={`${cityName} community`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </section>

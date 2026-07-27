@@ -2,7 +2,7 @@
 title: "Chinchero"
 slug: "chinchero"
 metaTitle: "Chinchero Peru Real Estate | New Airport District | Perfecto Homes"
-metaDescription: "Discover Chinchero Peru real estate. The site of Cusco's new international airport, with weaving traditions, Inca ruins, and rising land values ahead of the 2027 opening."
+metaDescription: "Chinchero real estate in Peru: site of Cusco's new international airport, with weaving traditions and fast rising land values."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

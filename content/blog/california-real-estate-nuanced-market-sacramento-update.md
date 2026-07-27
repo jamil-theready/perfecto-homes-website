@@ -1,8 +1,9 @@
 ---
 title: "Navigating California's Nuanced Real Estate Landscape: A Sacramento Perspective"
+metaTitle: "California Real Estate: Sacramento Update"
 date: "2026-04-04"
 slug: "california-real-estate-nuanced-market-sacramento-update"
-metaDescription: "Explore California's complex real estate market, from interest rates and inventory to affordability challenges and regional resilience, including insights for Sacramento."
+metaDescription: "California's real estate market up close: interest rates, inventory, affordability pressure and how the Sacramento region is holding up."
 category: "Sacramento"
 author: "elisban"
 image: /images/blog/california-real-estate-nuanced-market-sacramento-update.jpg

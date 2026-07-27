@@ -2,7 +2,7 @@
 title: "Real Estate Insights: Interview with Gina"
 date: "2026-03-01"
 slug: "real-estate-insights-interview-with-gina"
-metaDescription: "Discover insights into California real estate investment trends, including flipping, multi-family properties, and single-family homes in Sacramento. Learn tips, risks, and opportunities for maximizing returns in today's market."
+metaDescription: "California real estate investing with Gina Gonzalez: flipping, multi family and single family homes in Sacramento, plus risks to watch."
 category: "News"
 author: "gina"
 image: /images/blog/real-estate-insights-interview-with-gina.jpg

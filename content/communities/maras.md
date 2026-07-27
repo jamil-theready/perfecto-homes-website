@@ -2,7 +2,7 @@
 title: "Maras"
 slug: "maras"
 metaTitle: "Maras Peru Real Estate | Salt Mines & Agricultural Land | Perfecto Homes"
-metaDescription: "Discover Maras Peru real estate. Famous for the Salineras salt pans and Moray agricultural terraces, with fertile high-plateau farmland and rising values from the new airport."
+metaDescription: "Maras real estate in Peru: home to the Salineras salt pans and Moray terraces, with open farmland and growing tourist traffic."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

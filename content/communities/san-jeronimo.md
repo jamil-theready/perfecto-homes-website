@@ -2,7 +2,7 @@
 title: "San Jerónimo"
 slug: "san-jeronimo"
 metaTitle: "San Jerónimo Cusco Real Estate | Eastern Suburban District | Perfecto Homes"
-metaDescription: "Discover San Jerónimo Cusco real estate. The easternmost district of metropolitan Cusco with agricultural heritage, larger lots, and the city's most affordable urban prices."
+metaDescription: "San Jeronimo Cusco real estate: the easternmost district of metropolitan Cusco, with farmland, a large market and room to build."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

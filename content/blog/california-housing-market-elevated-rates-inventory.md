@@ -1,8 +1,9 @@
 ---
 title: "California's Housing Market Navigates Elevated Rates and Tight Inventory"
+metaTitle: "CA Housing: High Rates, Tight Inventory"
 date: "2026-04-04"
 slug: "california-housing-market-elevated-rates-inventory"
-metaDescription: "Explore the latest trends in the California real estate market, including sales dips, rising prices, and the impact of high interest rates and low inventory."
+metaDescription: "California real estate trends: sales dips, rising prices and the impact of high interest rates and tight inventory on buyers and sellers."
 category: "Sacramento"
 author: "elisban"
 image: /images/blog/california-housing-market-elevated-rates-inventory.jpg

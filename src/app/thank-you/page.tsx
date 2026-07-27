@@ -9,6 +9,7 @@ import TrackLead from "./TrackLead";
 export const metadata: Metadata = {
   title: "Thank You",
   description: "Thank you for contacting Perfecto Homes Real Estate. We will be in touch shortly.",
+  alternates: { canonical: "/thank-you" },
   robots: { index: false, follow: false },
 };
 

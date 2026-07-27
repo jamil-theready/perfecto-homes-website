@@ -1,5 +1,6 @@
 ---
 title: "Living in El Dorado Hills: What You Need to Know"
+metaTitle: "Living in El Dorado Hills, CA"
 date: "2026-03-01"
 slug: "living-in-el-dorado-hills-what-you-need-to-know"
 metaDescription: "Thinking about living in El Dorado Hills? Learn about the cost of living, top schools, Serrano community, Town Center, and El Dorado Hills homes for sale."

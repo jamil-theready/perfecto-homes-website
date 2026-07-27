@@ -3,9 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Sacred Valley Communities | Peru | Perfecto Homes",
+  title: "Sacred Valley Communities in Cusco, Peru",
   description:
-    "Get to know the Sacred Valley — Ollantaytambo, Urubamba, and the towns we serve in Cusco, Peru. Living, investing, and visiting in the Andes.",
+    "Get to know the Sacred Valley: Ollantaytambo, Urubamba and the towns we serve in Cusco, Peru. Living, investing and visiting in the Andes.",
+  alternates: { canonical: "/communities/peru" },
 };
 
 const SACRED_VALLEY = [

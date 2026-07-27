@@ -2,7 +2,7 @@
 title: "Sacramento Real Estate Market Report 2026"
 date: "2026-03-01"
 slug: "sacramento-real-estate-market-report-2026"
-metaDescription: "Get the latest Sacramento real estate market trends for 2026. Median prices, inventory levels, interest rates, and tips on the best time to buy in Sacramento County."
+metaDescription: "Sacramento real estate trends for 2026: median prices, inventory, interest rates and the best time to buy in Sacramento County."
 category: "Sacramento"
 author: "elisban"
 image: /images/blog/sacramento-real-estate-market-report-2026.jpg

@@ -27,8 +27,10 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sacramento Real Estate Agents | Homes for Sale & Peru Investment Properties | Perfecto Homes",
-    template: "%s | Perfecto Homes Real Estate",
+    default: "Sacramento Real Estate Agents | Homes & Peru Investments",
+    // Short brand: the previous " | Perfecto Homes Real Estate" suffix (29 chars) pushed
+    // most page titles past Google's ~60 char display limit and got truncated anyway.
+    template: "%s | Perfecto Homes",
   },
   description:
     "Bilingual real estate team in Sacramento. Homes for sale in Elk Grove, Roseville, Folsom, and El Dorado Hills. Peru investment properties. Call (916) 878-7260.",

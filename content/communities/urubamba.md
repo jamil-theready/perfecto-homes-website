@@ -2,7 +2,7 @@
 title: "Urubamba"
 slug: "urubamba"
 metaTitle: "Urubamba Peru Real Estate | Sacred Valley Property | Perfecto Homes"
-metaDescription: "Discover Urubamba Peru real estate in the heart of the Sacred Valley. Commercial hub with restaurants, services, a growing expat community, and strong investment potential."
+metaDescription: "Urubamba real estate in the heart of Peru's Sacred Valley. The commercial hub, with restaurants, hotels and the widest range of land."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

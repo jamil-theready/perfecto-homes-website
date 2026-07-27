@@ -3,6 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Perfecto Homes Real Estate terms of service. Review our website usage terms and conditions.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

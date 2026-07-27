@@ -1,8 +1,9 @@
 ---
 title: "First Time Home Buyer Guide for Sacramento, CA"
+metaTitle: "First Time Home Buyer Guide: Sacramento"
 date: "2026-03-01"
 slug: "first-time-home-buyer-guide-sacramento-ca"
-metaDescription: "Steps to buy a home in Sacramento as a first time buyer. Learn about down payment assistance, affordability vs the Bay Area, and how Perfecto Homes can help."
+metaDescription: "Steps to buy your first home in Sacramento: down payment assistance, affordability vs the Bay Area and what to expect from the process."
 category: "Sacramento"
 author: "elisban"
 image: /images/blog/first-time-home-buyer-guide-sacramento-ca.png

@@ -1,5 +1,6 @@
 ---
 title: "Selling Your Home in Sacramento: What to Expect"
+metaTitle: "Selling Your Home in Sacramento"
 date: "2026-03-01"
 slug: "selling-your-home-in-sacramento-what-to-expect"
 metaDescription: "Planning to sell your house in Sacramento? Learn the step by step process, common mistakes to avoid, and why working with a local agent matters."

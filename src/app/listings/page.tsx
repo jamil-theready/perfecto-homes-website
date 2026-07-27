@@ -3,9 +3,10 @@ import { getCollection, ContentItem } from "@/lib/content";
 import ListingsFilter from "./ListingsFilter";
 
 export const metadata: Metadata = {
-  title: "Sacramento Homes for Sale | Perfecto Homes Real Estate",
+  title: "Sacramento Homes for Sale",
   description:
-    "Browse homes for sale in Sacramento, Roseville, Elk Grove, Citrus Heights, and surrounding areas. Perfecto Homes Real Estate.",
+    "Browse homes for sale in Sacramento, Roseville, Elk Grove, Citrus Heights and surrounding areas. Local bilingual agents, current listings.",
+  alternates: { canonical: "/listings" },
 };
 
 export default function ListingsPage() {

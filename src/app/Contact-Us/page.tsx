@@ -6,7 +6,9 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7703 or send a message. Serving Sacramento, CA and Peru.",
+    "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7260 or send a message. Serving Sacramento, CA and Peru.",
+  // Legacy duplicate of /contact — point all ranking signals at the canonical page.
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactUsPage() {

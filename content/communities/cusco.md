@@ -2,7 +2,7 @@
 title: "Cusco"
 slug: "cusco"
 metaTitle: "Cusco Peru Real Estate | Historic Andean Capital | Perfecto Homes"
-metaDescription: "Discover Cusco Peru real estate. The former Inca capital and gateway to the Sacred Valley, with colonial architecture, UNESCO heritage, and a mature urban market."
+metaDescription: "Cusco real estate in Peru: the former Inca capital and gateway to the Sacred Valley, with colonial architecture and steady tourism demand."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

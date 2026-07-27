@@ -1,8 +1,9 @@
 ---
 title: "How Chinchero Airport Will Change Sacred Valley Property Values"
+metaTitle: "Chinchero Airport and Property Values"
 date: "2026-03-01"
 slug: "how-chinchero-airport-will-change-sacred-valley-property-values"
-metaDescription: "The Chinchero airport is set to transform Sacred Valley real estate. Learn how this new international airport will impact property values and why smart investors are buying now."
+metaDescription: "The Chinchero airport will reshape Sacred Valley real estate. How the new international airport affects property values and buyer timing."
 category: "Peru"
 author: "elisban"
 image: /images/blog/how-chinchero-airport-will-change-sacred-valley-property-values.jpg

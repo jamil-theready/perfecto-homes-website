@@ -4,8 +4,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { TEAM, PHONE } from "@/lib/constants";
 import { getCollection } from "@/lib/content";
+import { PersonJsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
+
+// Titles get " | Perfecto Homes Real Estate" appended by the root template, so keep
+// the page-side role short enough to stay inside Google's ~60 char display limit.
+function shortRole(role: string): string {
+  const base = role.split("|")[0].trim();
+  return base === "Real Estate Specialist" ? "Realtor" : base;
+}
+
+// Meta descriptions must land in the 80-155 range; truncate the bio on a word boundary.
+function metaDescription(name: string, role: string, bio: string): string {
+  const prefix = `Meet ${name}, ${shortRole(role)} at Perfecto Homes Real Estate. `;
+  const room = 155 - prefix.length;
+  if (room < 20) return prefix.trim();
+  if (bio.length <= room) return prefix + bio;
+  const cut = bio.slice(0, room);
+  return prefix + cut.slice(0, cut.lastIndexOf(" ")).replace(/[,.;:]$/, "") + ".";
+}
+
 
 export async function generateStaticParams() {
   return TEAM.map((m) => ({ slug: m.slug }));
@@ -16,8 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const member = TEAM.find((m) => m.slug === slug);
   if (!member) return {};
   return {
-    title: `${member.name} - ${member.role}`,
-    description: `Meet ${member.name}, ${member.role} at Perfecto Homes Real Estate. ${member.bio.substring(0, 150)}`,
+    title: `${member.name}, ${shortRole(member.role)}`,
+    description: metaDescription(member.name, member.role, member.bio),
+    alternates: { canonical: `/about/${slug}` },
   };
 }
 
@@ -50,6 +70,16 @@ export default async function TeamMemberPage({ params }: Props) {
 
   return (
     <>
+      <PersonJsonLd
+        name={member.name}
+        role={member.role}
+        slug={member.slug}
+        image={member.image}
+        email={member.email}
+        telephone={member.phone}
+        description={member.bio}
+        sameAs={socialLinks ? Object.values(socialLinks).filter(Boolean) as string[] : undefined}
+      />
       {/* Hero */}
       <section className="bg-dark text-white pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

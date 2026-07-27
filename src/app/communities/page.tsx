@@ -4,9 +4,10 @@ import Image from "next/image";
 import { COMMUNITIES } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Sacramento Communities | Explore Neighborhoods",
+  title: "Sacramento Area Neighborhoods",
   description:
-    "Explore the Sacramento area community by community. Citrus Heights, Folsom, Roseville, El Dorado Hills, Elk Grove and more — local insight from Perfecto Homes.",
+    "Explore the Sacramento area community by community: Citrus Heights, Folsom, Roseville, El Dorado Hills, Elk Grove and more, with local agent insight.",
+  alternates: { canonical: "/communities" },
 };
 
 export default function CommunitiesIndexPage() {

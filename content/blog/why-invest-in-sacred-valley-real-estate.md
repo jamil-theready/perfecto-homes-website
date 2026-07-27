@@ -2,7 +2,7 @@
 title: "Why Invest in Sacred Valley Real Estate"
 date: "2026-03-01"
 slug: "why-invest-in-sacred-valley-real-estate"
-metaDescription: "Discover why the Sacred Valley is the best place to invest in Peru. Tourism growth, affordable prices, and the Chinchero airport make this a prime real estate investment opportunity."
+metaDescription: "Why the Sacred Valley is Peru's standout investment market: tourism growth, affordable entry prices and the new Chinchero airport."
 category: "Peru"
 author: "elisban"
 image: /images/blog/why-invest-in-sacred-valley-real-estate.jpg

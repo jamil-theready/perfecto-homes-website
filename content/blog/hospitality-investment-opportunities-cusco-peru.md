@@ -1,8 +1,9 @@
 ---
 title: "Hospitality Investment Opportunities in Cusco and the Sacred Valley"
+metaTitle: "Hotel Investment in Cusco, Peru"
 date: "2026-03-01"
 slug: "hospitality-investment-opportunities-cusco-peru"
-metaDescription: "Explore hotel investment in Cusco and hospitality business opportunities in Peru. Discover tourism businesses for sale in the Sacred Valley and why the timing is right."
+metaDescription: "Hotel investment in Cusco and hospitality opportunities in Peru. Tourism businesses for sale in the Sacred Valley and why timing matters."
 category: "Peru"
 author: "elisban"
 image: /images/blog/hospitality-investment-opportunities-cusco-peru.jpg

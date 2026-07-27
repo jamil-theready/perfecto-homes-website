@@ -7,6 +7,7 @@ import { TEAM } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Blog & News",
   description: "Real estate news, market updates, homebuying tips, and community highlights from Perfecto Homes Real Estate in Sacramento and Peru.",
+  alternates: { canonical: "/blog" },
 };
 
 function getReadingTime(content: string): number {

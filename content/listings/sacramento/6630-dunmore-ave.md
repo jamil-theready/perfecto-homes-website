@@ -1,7 +1,7 @@
 ---
 title: "6630 Dunmore Ave"
 slug: "6630-dunmore-ave"
-metaTitle: "6630 Dunmore Ave, Citrus Heights CA | Home for Sale | $539,900"
+metaTitle: "6630 Dunmore Ave, Citrus Heights | Home for Sale | $539,900"
 metaDescription: "4 bed, 3 bath, 1,376 sqft home at 6630 Dunmore Ave, Citrus Heights CA 95621. Listed at $539,900 by Elisban Gonzales, Perfecto Homes Real Estate."
 market: "sacramento"
 status: "active"

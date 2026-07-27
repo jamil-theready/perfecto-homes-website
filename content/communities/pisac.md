@@ -2,7 +2,7 @@
 title: "Pisac"
 slug: "pisac"
 metaTitle: "Pisac Peru Real Estate | Sacred Valley Property | Perfecto Homes"
-metaDescription: "Discover Pisac Peru real estate in the Sacred Valley. Market town, ancient ruins, artisan culture, and a thriving expat community at the gateway to the valley."
+metaDescription: "Pisac real estate in Peru's Sacred Valley: an artisan market town with ancient ruins, expat community and accessible land prices."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

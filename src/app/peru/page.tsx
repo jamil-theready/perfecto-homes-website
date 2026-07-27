@@ -3,9 +3,10 @@ import { getCollection } from "@/lib/content";
 import ListingsFilter from "@/app/listings/ListingsFilter";
 
 export const metadata: Metadata = {
-  title: "Sacred Valley Peru Properties for Sale | Perfecto Homes Real Estate",
+  title: "Sacred Valley Peru Properties for Sale",
   description:
-    "Investment properties for sale in Peru's Sacred Valley. Land, hotels, and restaurants in Ollantaytambo, Urubamba, and Cusco. Perfecto Homes Real Estate.",
+    "Investment property for sale in Peru's Sacred Valley. Land, hotels and restaurants in Ollantaytambo, Urubamba and Cusco.",
+  alternates: { canonical: "/peru" },
 };
 
 export default function PeruListingsPage() {

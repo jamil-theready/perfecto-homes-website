@@ -1,8 +1,9 @@
 ---
 title: "California Housing Market Adapts to Evolving Conditions"
+metaTitle: "California Housing Market Update"
 date: "2024-05-15"
 slug: "california-housing-market-update"
-metaDescription: "Explore the latest California housing market trends, including interest rates, inventory, and affordability, with insights for Sacramento buyers and sellers."
+metaDescription: "California housing market trends: interest rates, inventory and affordability, with insight for Sacramento buyers and sellers."
 category: "Sacramento"
 author: "elisban"
 image: /images/blog/california-housing-market-update.jpeg

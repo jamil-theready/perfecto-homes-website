@@ -16,19 +16,19 @@ export async function generateStaticParams() {
 
 const PERU_SEO: Record<string, { title: string; description: string }> = {
   "siete-cuartones-352-cusco": {
-    title: "Historic Center Property for Sale in Cusco, Peru | Siete Cuartones 352 | $2.9M",
+    title: "Cusco Historic Center Property for Sale | $2.9M",
     description: "Exclusive listing inside Cusco's UNESCO historic center, one block from San Blas. Registered Partida 02021153, 947.5 m2. $2,900,000 USD.",
   },
   "predio-victoria": {
-    title: "10,000 m\u00B2 Land for Sale in Urubamba, Sacred Valley Peru | $820K",
+    title: "Land for Sale in Urubamba, Peru | 1 Hectare | $820K",
     description: "10,000 m\u00B2 (2.47 acres) of flat, buildable land for sale in Urubamba, Sacred Valley of Cusco, Peru. Ideal for hotel, eco lodge, or development. $820,000.",
   },
   "hostal-qhispicay-ollantaytambo": {
-    title: "Hostel for Sale in Ollantaytambo, Peru | 12 Rooms | Near Machu Picchu | $930K",
+    title: "Hostel for Sale in Ollantaytambo, Peru | $930K",
     description: "Operating 12 room hostel with 2 apartments for sale in Ollantaytambo, gateway to Machu Picchu. 474 m\u00B2 built, turnkey business. $930,000.",
   },
   "hatuchay-valle-restaurant-urubamba": {
-    title: "Restaurant for Sale in Urubamba, Sacred Valley Peru | 1,764 m\u00B2 | $1.26M",
+    title: "Restaurant for Sale in Urubamba, Peru | $1.26M",
     description: "Operating 250 seat restaurant for sale in Urubamba, Sacred Valley of Cusco, Peru. Two floors, full bar, industrial kitchen, 1,764 m\u00B2 of land. $1,260,000.",
   },
 };
@@ -41,7 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = seo?.title || (item.metaTitle as string) || (item.title as string);
   const ogImage = item.image1 as string | undefined;
   return {
-    title,
+    // Property type + location + price fills the SERP line; the brand suffix only
+    // pushed these into truncation, same as the Sacramento listings.
+    title: { absolute: title },
     description: seo?.description || (item.metaDescription as string) || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`,
     alternates: { canonical: `/peru/${slug}` },
     openGraph: {

@@ -1,8 +1,9 @@
 ---
 title: "Discover 3 compelling reasons to leave SF/LA"
+metaTitle: "3 Reasons to Leave SF or LA"
 date: "2026-03-01"
 slug: "discover-3-compelling-reasons-to-leave-sf-la"
-metaDescription: "Discover 3 compelling reasons to leave SF/LA and buy a home in Sacramento, including affordability, a better quality of life, and access to growing opportunities. Make the smart move today!"
+metaDescription: "Three reasons buyers are leaving SF and LA for Sacramento: affordability, quality of life and room to grow. See how the numbers compare."
 category: "News"
 author: "elisban"
 image: /images/blog/discover-3-compelling-reasons-to-leave-sf-la.jpg

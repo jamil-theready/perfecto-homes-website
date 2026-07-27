@@ -95,12 +95,16 @@ export function BlogPostJsonLd({
   description,
   url,
   image,
+  authorName,
+  authorSlug,
 }: {
   title: string;
   date?: string;
   description: string;
   url: string;
   image?: string;
+  authorName?: string;
+  authorSlug?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -110,16 +114,68 @@ export function BlogPostJsonLd({
     description,
     ...(date && { datePublished: date }),
     ...(image && { image }),
-    author: {
-      "@type": "Organization",
-      name: "Perfecto Homes Real Estate",
-    },
+    author: authorName
+      ? {
+          "@type": "Person",
+          name: authorName,
+          ...(authorSlug && {
+            url: `https://www.perfectohomesrealestate.com/about/${authorSlug}`,
+          }),
+        }
+      : {
+          "@type": "Organization",
+          name: "Perfecto Homes Real Estate",
+        },
     publisher: {
       "@type": "Organization",
       name: "Perfecto Homes Real Estate",
     },
   };
 
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function PersonJsonLd({
+  name,
+  role,
+  slug,
+  image,
+  email,
+  telephone,
+  description,
+  sameAs,
+}: {
+  name: string;
+  role: string;
+  slug: string;
+  image?: string;
+  email?: string;
+  telephone?: string;
+  description?: string;
+  sameAs?: string[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+    jobTitle: role,
+    url: `https://www.perfectohomesrealestate.com/about/${slug}`,
+    ...(image && { image: `https://www.perfectohomesrealestate.com${image}` }),
+    ...(email && { email }),
+    ...(telephone && { telephone }),
+    ...(description && { description }),
+    ...(sameAs && sameAs.length > 0 && { sameAs }),
+    worksFor: {
+      "@type": "RealEstateAgent",
+      name: "Perfecto Homes Real Estate",
+      url: "https://www.perfectohomesrealestate.com",
+    },
+  };
   return (
     <script
       type="application/ld+json"

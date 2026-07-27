@@ -4,7 +4,10 @@ module.exports = {
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/thank-you", "/admin/*"],
+  // /About-Us/* and /Contact-Us are orphaned legacy duplicates of /about/* and
+  // /contact. They carry canonicals to the real pages; keep them out of the sitemap
+  // so Google is not also being told to index them.
+  exclude: ["/thank-you", "/admin/*", "/About-Us/*", "/Contact-Us"],
   robotsTxtOptions: {
     policies: [
       {

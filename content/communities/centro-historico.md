@@ -2,7 +2,7 @@
 title: "Centro Histórico"
 slug: "centro-historico"
 metaTitle: "Centro Histórico Cusco Real Estate | UNESCO Heritage District | Perfecto Homes"
-metaDescription: "Discover Centro Histórico Cusco real estate. The UNESCO World Heritage core of the city with Inca foundations, colonial architecture, and prime hotel investment opportunities."
+metaDescription: "Centro Historico Cusco real estate: the UNESCO World Heritage core, with Inca foundations, colonial homes and strong tourism demand."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

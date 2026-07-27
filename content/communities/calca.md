@@ -2,7 +2,7 @@
 title: "Calca"
 slug: "calca"
 metaTitle: "Calca Peru Real Estate | Sacred Valley Provincial Capital | Perfecto Homes"
-metaDescription: "Discover Calca Peru real estate. The lesser-known provincial capital of the Sacred Valley with thermal baths, agricultural land, and significantly lower prices than Urubamba or Pisac."
+metaDescription: "Calca real estate in Peru's Sacred Valley: a provincial capital with thermal springs, farmland and prices well below Cusco."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 

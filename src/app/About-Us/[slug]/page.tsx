@@ -14,8 +14,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const member = TEAM.find((m) => m.slug === slug);
   if (!member) return {};
   return {
-    title: `${member.name} - ${member.role}`,
-    description: `Meet ${member.name}, ${member.role} at Perfecto Homes Real Estate. ${member.bio.substring(0, 150)}`,
+    title: `${member.name}, ${member.role.split("|")[0].trim()}`,
+    description: `Meet ${member.name} at Perfecto Homes Real Estate, serving the greater Sacramento area and Peru's Sacred Valley.`,
+    // Legacy duplicate of /about/[slug] — consolidate ranking signals on the canonical page.
+    alternates: { canonical: `/about/${slug}` },
   };
 }
 

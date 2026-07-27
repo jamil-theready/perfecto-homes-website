@@ -3,9 +3,10 @@ import Image from "next/image";
 import WebinarEmbed from "./WebinarEmbed";
 
 export const metadata: Metadata = {
-  title: "Free Webinar: How to Buy a Home in Northern California | Perfecto Homes",
+  title: "Free Webinar: Buying a Home in California",
   description:
-    "Join Alfredo Gonzalez for a free webinar on buying a home in Northern California. Learn about the market, financing options, and a step by step path to homeownership.",
+    "Join Alfredo Gonzalez for a free webinar on buying a home in Northern California. Learn the market, financing options and your path to homeownership.",
+  alternates: { canonical: "/webinar" },
   openGraph: {
     title: "Free Webinar: How to Buy a Home in Northern California",
     description:

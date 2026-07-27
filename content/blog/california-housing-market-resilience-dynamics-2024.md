@@ -1,5 +1,6 @@
 ---
 title: "California's Housing Market Navigates Resilience and Shifting Dynamics"
+metaTitle: "California Housing Market Resilience"
 date: "2024-05-15"
 slug: "california-housing-market-resilience-dynamics-2024"
 metaDescription: "Explore California's resilient housing market, with rising median prices and sales, and what to expect in 2024. Get expert insights for buyers and sellers."

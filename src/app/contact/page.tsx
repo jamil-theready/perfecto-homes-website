@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7260 or send a message. Serving Sacramento, CA and Peru.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactUsPage() {

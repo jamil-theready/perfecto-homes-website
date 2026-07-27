@@ -19,12 +19,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getItemBySlug("blog", slug);
   if (!post) return {};
   const title = post.title as string;
+  // Optional frontmatter override: lets the SERP title stay inside ~60 chars
+  // without changing the on-page H1 copy.
+  const seoTitle = (post.metaTitle as string) || title;
   const description = (post.metaDescription as string) || (post.excerpt as string) || `${title} - Perfecto Homes Real Estate Blog`;
   const ogImage = post.image
     ? [{ url: post.image as string, width: 1200, height: 630, alt: title }]
     : undefined;
   return {
-    title,
+    // Use the short brand here: the default " | Perfecto Homes Real Estate" template
+    // pushed almost every post title past Google's ~60 char display limit.
+    title: { absolute: `${seoTitle} | Perfecto Homes` },
     description,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
@@ -70,6 +75,8 @@ export default async function BlogPostPage({ params }: Props) {
         description={(post.metaDescription as string) || (post.excerpt as string) || `${post.title} - Perfecto Homes Real Estate Blog`}
         url={postUrl}
         image={post.image as string | undefined}
+        authorName={author?.name}
+        authorSlug={author?.slug}
       />
 
       {/* Editorial Hero */}
