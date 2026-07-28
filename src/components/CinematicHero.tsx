@@ -50,6 +50,7 @@ export default function CinematicHero() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/hero/sacramento-bridge.jpg"
         >

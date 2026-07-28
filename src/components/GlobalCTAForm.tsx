@@ -20,6 +20,9 @@ export default function GlobalCTAForm() {
       });
       const result = await res.json();
       if (result.success) {
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", { form_name: "global_cta_form" });
+        }
         router.push("/thank-you");
       } else {
         alert("Something went wrong. Please try again.");

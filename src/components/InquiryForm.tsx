@@ -25,6 +25,9 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
       });
       const result = await res.json();
       if (result.success) {
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", { form_name: "inquiry_form", property: propertyTitle });
+        }
         router.push("/thank-you");
       } else {
         alert("Something went wrong. Please try again.");

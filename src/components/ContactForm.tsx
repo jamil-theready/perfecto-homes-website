@@ -22,6 +22,9 @@ export default function ContactForm({ className = "" }: { className?: string }) 
       });
       const result = await res.json();
       if (result.success) {
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", { form_name: "contact_form" });
+        }
         router.push("/thank-you");
       } else {
         alert("Something went wrong. Please try again.");
