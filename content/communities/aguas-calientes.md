@@ -1,7 +1,7 @@
 ---
 title: "Aguas Calientes"
 slug: "aguas-calientes"
-metaTitle: "Aguas Calientes Peru Real Estate | Machu Picchu Pueblo | Perfecto Homes"
+metaTitle: "Aguas Calientes Peru Real Estate"
 metaDescription: "Aguas Calientes real estate: the gateway town to Machu Picchu, with hotel and hostel investment driven by year round visitor traffic."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

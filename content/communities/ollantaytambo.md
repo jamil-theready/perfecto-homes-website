@@ -1,7 +1,7 @@
 ---
 title: "Ollantaytambo"
 slug: "ollantaytambo"
-metaTitle: "Ollantaytambo Peru Real Estate | Sacred Valley Property | Perfecto Homes"
+metaTitle: "Ollantaytambo Peru Real Estate"
 metaDescription: "Ollantaytambo real estate in the Sacred Valley of Cusco. Gateway to Machu Picchu, with Inca ruins, rail access and hotel opportunities."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

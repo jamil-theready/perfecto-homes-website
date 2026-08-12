@@ -60,7 +60,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cmsItem = getItemBySlug("communities", slug);
   const seo = COMMUNITY_SEO[slug];
 
-  const title = seo?.title || (cmsItem?.title as string) || `${community?.name || slug} Real Estate`;
+  // metaTitle must come before title. `title` is the display name ("Cusco"), so without
+  // this the 16 community pages that are not in COMMUNITY_SEO rendered "<Name> | Perfecto
+  // Homes" and their hand written metaTitle was never used. Found 2026-08-12.
+  const title = seo?.title || (cmsItem?.metaTitle as string) || (cmsItem?.title as string) || `${community?.name || slug} Real Estate`;
   const description = seo?.description || (cmsItem?.metaDescription as string) || `Explore real estate in ${community?.name || slug}. Homes for sale, market info, and community highlights from Perfecto Homes.`;
   const ogImage = community?.image || (cmsItem?.image as string) || `/images/communities/${slug}.jpg`;
   return {

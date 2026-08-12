@@ -1,8 +1,8 @@
 ---
 title: "Cusco"
 slug: "cusco"
-metaTitle: "Cusco Peru Real Estate | Historic Andean Capital | Perfecto Homes"
-metaDescription: "Cusco real estate in Peru: the former Inca capital and gateway to the Sacred Valley, with colonial architecture and steady tourism demand."
+metaTitle: "Cusco Peru Real Estate Market Guide"
+metaDescription: "How the Cusco, Peru real estate market works: neighborhoods, pricing, tourism demand, and what foreign buyers need to know before purchasing."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---
 
@@ -33,5 +33,7 @@ Altitude is the first thing to adjust to. Most newcomers spend their first few d
 ### Why Cusco
 
 Cusco is where the region's economy concentrates. Schools, hospitals, business services, and cultural infrastructure all anchor here. For buyers who want urban amenities with Andean character, Cusco is the obvious choice.
+
+Ready to see what is available? Browse current [homes and land for sale in Cusco and the Sacred Valley](/peru), or read our guide to [buying property in Peru as a foreigner](/blog/how-to-buy-property-in-peru-as-a-foreigner).
 
 Contact Perfecto Homes to explore Cusco real estate across the city's neighborhoods.

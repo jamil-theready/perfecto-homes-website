@@ -1,7 +1,7 @@
 ---
 title: "Yucay"
 slug: "yucay"
-metaTitle: "Yucay Peru Real Estate | Sacred Valley Village | Perfecto Homes"
+metaTitle: "Yucay Peru Real Estate | Sacred Valley"
 metaDescription: "Yucay real estate in Peru: a historic Inca era village between Urubamba and Calca, known for colonial estates and a mild climate."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

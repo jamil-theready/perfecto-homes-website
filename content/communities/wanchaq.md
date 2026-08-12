@@ -1,7 +1,7 @@
 ---
 title: "Wanchaq"
 slug: "wanchaq"
-metaTitle: "Wanchaq Cusco Real Estate | Modern Residential District | Perfecto Homes"
+metaTitle: "Wanchaq Cusco Real Estate"
 metaDescription: "Discover Wanchaq Cusco real estate. The modern, residential heart of Cusco with apartments, family homes, malls, and easier living for full-time residents."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

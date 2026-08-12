@@ -1,7 +1,7 @@
 ---
 title: "San Sebastián"
 slug: "san-sebastian"
-metaTitle: "San Sebastián Cusco Real Estate | Growing Residential District | Perfecto Homes"
+metaTitle: "San Sebastián Cusco Real Estate"
 metaDescription: "San Sebastian Cusco real estate: a growing residential district east of the historic center, with newer housing and easier access."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

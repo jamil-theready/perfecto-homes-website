@@ -1,7 +1,7 @@
 ---
 title: "San Blas"
 slug: "san-blas"
-metaTitle: "San Blas Cusco Real Estate | Artisan District | Perfecto Homes"
+metaTitle: "San Blas Cusco Real Estate"
 metaDescription: "San Blas Cusco real estate: the artisan and bohemian quarter, with cobblestone streets, galleries and high demand for short term rentals."
 heroImage: "/images/hero/peru-landscape.jpg"
 ---

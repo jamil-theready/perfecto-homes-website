@@ -3,9 +3,16 @@ import { getCollection } from "@/lib/content";
 import ListingsFilter from "@/app/listings/ListingsFilter";
 
 export const metadata: Metadata = {
-  title: "Sacred Valley Peru Properties for Sale",
+  // This page owns the transactional Peru queries ("homes for sale in cusco peru",
+  // "cusco homes for sale", "land for sale in peru"). GSC 90d to 2026-08-08 showed it
+  // ranking 26 to 42 for those while /communities/cusco ranked 38 to 43 for the same
+  // terms: two pages splitting one intent. /communities/cusco keeps the market and
+  // area queries ("cusco real estate", where it already sits at position 10.4).
+  // Kept short: the root layout appends " | Perfecto Homes" (17 chars), so anything
+  // over ~43 here renders past Google's ~60 char display limit.
+  title: "Homes and Land for Sale in Cusco, Peru",
   description:
-    "Investment property for sale in Peru's Sacred Valley. Land, hotels and restaurants in Ollantaytambo, Urubamba and Cusco.",
+    "Browse homes, land, and hospitality property for sale in Cusco, Ollantaytambo, and Urubamba, Peru. Foreign buyers welcome at Perfecto Homes.",
   alternates: { canonical: "/peru" },
 };
 
@@ -30,10 +37,10 @@ export default function PeruListingsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-3">Sacred Valley, Peru</p>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-3">
-            Peru Listings
+            Homes and Land for Sale in Cusco and the Sacred Valley
           </h1>
           <p className="text-medium-gray text-lg max-w-2xl">
-            Investment properties in Peru's Sacred Valley. Land, hotels, and commercial opportunities near Machu Picchu.
+            Investment properties in Cusco, Ollantaytambo, and Urubamba. Land, hotels, and commercial opportunities near Machu Picchu.
           </p>
         </div>
       </section>
