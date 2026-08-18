@@ -11,6 +11,9 @@ import SiteIntro from "@/components/SiteIntro";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import "./globals.css";
 
+import CookieConsent from "@/components/CookieConsent";
+import { consentBootstrap } from "@/lib/consent";
+import ConsentGatedScripts from "@/components/ConsentGatedScripts";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -64,6 +67,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-white">
+      <head>
+        {/* Consent Mode v2 defaults. A raw head script, not next/script: an inline
+            beforeInteractive Script is serialised into the RSC payload and only runs
+            at hydration, which lets the GA4 tag fire ahead of the defaults. */}
+        <script dangerouslySetInnerHTML={{ __html: consentBootstrap() }} />
+      </head>
       <body
         className={`${inter.variable} ${lato.variable} font-sans antialiased`}
       >
@@ -76,6 +85,9 @@ export default function RootLayout({
         <Footer />
         <WhatsAppWidget />
         <GoogleAnalytics gaId="G-Q0X209GPL3" />
+        {/* Meta Pixel and Metricool ignore Google Consent Mode entirely, so they
+            load only once the visitor has accepted. */}
+        <ConsentGatedScripts>
         {/* Meta Pixel — ID: 715432155734308 */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
@@ -103,6 +115,8 @@ fbq('track', 'PageView');`}
         <Script id="metricool-tracker" strategy="afterInteractive">
           {`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"8bbb27e9742b25ca662c0482dff9b49d"})});`}
         </Script>
+        </ConsentGatedScripts>
+        <CookieConsent />
       </body>
     </html>
   );

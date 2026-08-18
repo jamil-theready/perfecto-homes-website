@@ -103,3 +103,238 @@ input:focus, textarea:focus, select:focus {
   display: none;
 }
 
+
+/* ------------------------------------------------------------------
+   The Ready Consult footer credit
+   Paired with src/components/TrcCredit.tsx. Pure CSS: the mark scrambles
+   and the lockup lifts on hover, with no JavaScript shipped to the page.
+   Type is set here rather than inherited so the credit looks the same on
+   every site, even inside an uppercase or letter-spaced bottom bar.
+   ------------------------------------------------------------------ */
+.trc-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: 0.55;
+  transition:
+    opacity 220ms ease,
+    transform 260ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.trc-credit:hover,
+.trc-credit:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.trc-credit:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* Mark and name travel together and never wrap apart. */
+.trc-credit-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trc-credit-name {
+  font-weight: 600;
+}
+
+.trc-credit-mark {
+  display: block;
+  flex: none;
+  overflow: visible;
+}
+
+.trc-credit-mark circle {
+  fill: currentColor;
+  transition:
+    fill 220ms ease,
+    opacity 220ms ease;
+}
+
+.trc-credit-mark circle.trc-off {
+  opacity: 0.22;
+}
+
+/* Scramble: each dot flickers on its own offset, then settles back into the R. */
+.trc-credit:hover .trc-credit-mark circle,
+.trc-credit:focus-visible .trc-credit-mark circle {
+  fill: #dc2626;
+  animation: trc-scramble 620ms steps(1, end) 1;
+}
+
+.trc-credit:hover .trc-credit-mark circle:nth-child(1),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(1) { animation-delay: 0ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(2),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(2) { animation-delay: 90ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(3),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(3) { animation-delay: 40ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(4),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(4) { animation-delay: 150ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(5),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(5) { animation-delay: 20ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(6),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(6) { animation-delay: 120ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(7),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(7) { animation-delay: 70ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(8),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(8) { animation-delay: 190ms; }
+.trc-credit:hover .trc-credit-mark circle:nth-child(9),
+.trc-credit:focus-visible .trc-credit-mark circle:nth-child(9) { animation-delay: 110ms; }
+
+@keyframes trc-scramble {
+  0%   { opacity: 0.18; }
+  22%  { opacity: 1; }
+  44%  { opacity: 0.1; }
+  66%  { opacity: 0.85; }
+  88%  { opacity: 0.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trc-credit,
+  .trc-credit-mark circle {
+    transition-duration: 1ms;
+  }
+  .trc-credit:hover,
+  .trc-credit:focus-visible {
+    transform: none;
+  }
+  .trc-credit:hover .trc-credit-mark circle,
+  .trc-credit:focus-visible .trc-credit-mark circle {
+    animation: none;
+  }
+}
+
+/* ── Cookie consent banner ────────────────────────────────────────────────
+   Brand colours are the four --cc-* variables; the structure below is shared
+   verbatim across every TRC site. */
+:root {
+  --cc-bg: #1A1A1A;
+  --cc-fg: #FFFFFF;
+  --cc-btn-bg: #C4A94D;
+  --cc-btn-fg: #1A1A1A;
+  --cc-link: #C4A94D;
+}
+
+@keyframes trc-cc-rise {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.trc-cc-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.trc-cc {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: var(--cc-bg);
+  color: var(--cc-fg);
+  border-top: 1px solid color-mix(in srgb, var(--cc-fg) 16%, transparent);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .trc-cc { animation: trc-cc-rise 0.28s ease-out; }
+}
+
+.trc-cc__row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .trc-cc__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.trc-cc__title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.trc-cc__body {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 70ch;
+  color: color-mix(in srgb, var(--cc-fg) 78%, transparent);
+}
+
+.trc-cc__body a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.trc-cc__body a:hover { color: var(--cc-link); }
+
+.trc-cc__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.trc-cc__btn {
+  border-radius: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.trc-cc__btn:focus-visible {
+  outline: 2px solid var(--cc-link);
+  outline-offset: 2px;
+}
+
+.trc-cc__btn--ghost {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--cc-fg) 35%, transparent);
+  color: var(--cc-fg);
+}
+
+.trc-cc__btn--ghost:hover {
+  border-color: color-mix(in srgb, var(--cc-fg) 70%, transparent);
+}
+
+.trc-cc__btn--primary {
+  background: var(--cc-btn-bg);
+  color: var(--cc-btn-fg);
+  border: 1px solid var(--cc-btn-bg);
+}
+
+.trc-cc__btn--primary:hover {
+  background: color-mix(in srgb, var(--cc-btn-bg) 88%, black);
+  border-color: color-mix(in srgb, var(--cc-btn-bg) 88%, black);
+}

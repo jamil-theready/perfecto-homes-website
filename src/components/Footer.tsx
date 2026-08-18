@@ -2,7 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { SOCIAL_LINKS, PERU_LISTINGS } from "@/lib/constants";
 import { getCollection } from "@/lib/content";
+import TrcCredit from "@/components/TrcCredit";
 
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 const SACRED_VALLEY_SLUGS = [
   { slug: "ollantaytambo", name: "Ollantaytambo" },
   { slug: "urubamba", name: "Urubamba" },
@@ -198,6 +200,7 @@ export default function Footer() {
               <Link href="/privacy-policy" className="text-xs text-gray-400 hover:text-gold transition-colors">
                 Privacy Policy
               </Link>
+            <CookieSettingsLink className="text-xs text-gray-400 hover:text-gold transition-colors" />
               <Link href="/terms" className="text-xs text-gray-400 hover:text-gold transition-colors">
                 Terms &amp; Conditions
               </Link>
@@ -214,9 +217,7 @@ export default function Footer() {
               />
               <p className="text-[10px] text-gray-600">LPT Realty, Inc.</p>
             </div>
-            <a href="https://thereadyconsult.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-300 hover:text-gold transition-colors">
-              Designed by <span className="text-white font-semibold">The Ready Consult</span>
-            </a>
+            <TrcCredit className="text-white" />
           </div>
         </div>
       </div>

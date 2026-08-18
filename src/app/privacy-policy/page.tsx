@@ -35,7 +35,10 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-xl font-semibold text-dark mt-8 mb-3">Cookies</h2>
           <p className="text-medium-gray leading-relaxed mb-4">
-            Our website uses cookies to enhance your experience. These include analytics cookies from Google Analytics that help us understand website traffic patterns. You can choose to disable cookies through your browser settings.
+            Our website uses cookies to enhance your experience. These include analytics cookies from Google Analytics and Metricool that help us understand website traffic patterns, and the Meta Pixel, which measures the performance of our advertising on Facebook and Instagram.
+          </p>
+          <p className="text-medium-gray leading-relaxed mb-4">
+            A banner on your first visit lets you accept or decline these cookies, and the <strong>Cookie Settings</strong> link in the footer lets you change that choice at any time. If you decline, the Meta Pixel and Metricool are not loaded at all, analytics collection stops, and the analytics cookies already stored in your browser are removed. Visitors in the EU, UK, and Switzerland have all of these disabled by default until they accept.
           </p>
 
           <h2 className="text-xl font-semibold text-dark mt-8 mb-3">Data Security</h2>
