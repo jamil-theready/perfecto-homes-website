@@ -106,7 +106,7 @@ export default function Header() {
                   {/* Sacramento */}
                   <div className="flex gap-4">
                     <Link href="/communities" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/hero/sacramento-bridge.jpg" alt="Sacramento Area" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <Image src="/images/hero/sacramento-bridge.jpg" alt="Tower Bridge over the Sacramento River, Sacramento California" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
                         <p className="text-white text-[13px] font-semibold">Sacramento</p>
@@ -128,7 +128,7 @@ export default function Header() {
                   {/* Peru */}
                   <div className="flex gap-4">
                     <Link href="/communities/peru" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/peru/pisac.jpg" alt="Sacred Valley, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <Image src="/images/peru/pisac.jpg" alt="Pisac ruins and terraces in the Sacred Valley, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
                         <p className="text-white text-[13px] font-semibold">Sacred Valley</p>
@@ -153,7 +153,7 @@ export default function Header() {
                   {/* Cusco City */}
                   <div className="flex gap-4">
                     <Link href="/communities/cusco" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/peru/cusco.jpg" alt="Cusco City" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <Image src="/images/peru/cusco.jpg" alt="Cusco city rooftops and historic center, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
                         <p className="text-white text-[13px] font-semibold">Cusco City</p>
@@ -316,7 +316,7 @@ export default function Header() {
               >
                 <Image
                   src="/images/hero/sacramento-bridge.jpg"
-                  alt="Sacramento Listings"
+                  alt="Homes for sale in the Sacramento area"
                   fill
                   className="object-cover transition-transform duration-500 group-hover/card:scale-110"
                   sizes="150px"
@@ -333,7 +333,7 @@ export default function Header() {
               >
                 <Image
                   src="/images/hero/peru-landscape.jpg"
-                  alt="Peru Listings"
+                  alt="Property for sale in Cusco and the Sacred Valley, Peru"
                   fill
                   className="object-cover transition-transform duration-500 group-hover/card:scale-110"
                   sizes="150px"
