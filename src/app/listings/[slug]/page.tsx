@@ -99,7 +99,7 @@ export default async function ListingDetailPage({ params }: Props) {
         </div>
 
         {/* Photo Gallery */}
-        {images.length > 0 && <ImageGallery images={images} title={item.title as string} youtubeVideo={item.youtubeVideo as string | undefined} />}
+        {images.length > 0 && <ImageGallery images={images} title={item.title as string} youtubeVideo={item.youtubeVideo as string | undefined} slug={slug} city={[item.city, item.state].filter(Boolean).join(", ") || undefined} />}
 
         {/* Title + Price Bar */}
         <section className="bg-white border-b border-gray-100">

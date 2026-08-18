@@ -6,7 +6,7 @@ slug: "first-time-home-buyer-guide-sacramento-ca"
 metaDescription: "Steps to buy your first home in Sacramento: down payment assistance, affordability vs the Bay Area and what to expect from the process."
 category: "Sacramento"
 author: "elisban"
-image: /images/blog/first-time-home-buyer-guide-sacramento-ca.png
+image: /images/blog/first-time-home-buyer-guide-sacramento-ca.jpg
 tags:
   - "SACRAMENTO"
   - "HOME BUYING"

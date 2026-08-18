@@ -2,14 +2,42 @@
 
 import { useState } from "react";
 
+/**
+ * Build descriptive alt text from the image filename.
+ *
+ * Every gallery image used to share one string ("<title> - photo 3"), which
+ * carries no meaning for screen readers and nothing for image search. Our file
+ * naming already describes the subject, so read it back out: strip the leading
+ * or trailing index and the repeated listing slug, then say what the photo is
+ * and where it is.
+ *
+ *   01-courtyard.jpg                          -> "Courtyard at Siete Cuartones 352, Cusco, Peru"
+ *   casona-...-courtyard-arcade-corner-01.jpg -> "Courtyard arcade corner at Casona Saphi 635, Cusco, Peru"
+ *
+ * Falls back to the plain title when a filename has nothing descriptive in it.
+ */
+function altFor(src: string, title: string, slug?: string, city?: string): string {
+  const file = src.split("/").pop() ?? "";
+  let base = file.replace(/\.[a-z0-9]+$/i, "").replace(/^\d+[-_]/, "").replace(/[-_]\d+$/, "");
+  if (slug && base.startsWith(`${slug}-`)) base = base.slice(slug.length + 1);
+  const words = base.replace(/[-_]+/g, " ").trim();
+  const place = city ? `${title}, ${city}` : title;
+  if (!words || /^\d+$/.test(words)) return place;
+  return `${words.charAt(0).toUpperCase()}${words.slice(1)} at ${place}`;
+}
+
 export default function ImageGallery({
   images,
   title,
   youtubeVideo,
+  slug,
+  city,
 }: {
   images: string[];
   title: string;
   youtubeVideo?: string;
+  slug?: string;
+  city?: string;
 }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +65,7 @@ export default function ImageGallery({
             >
               <img
                 src={`https://img.youtube.com/vi/${youtubeVideo}/maxresdefault.jpg`}
-                alt="Video tour"
+                alt={`Video tour of ${title}`}
                 className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
               />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -58,7 +86,7 @@ export default function ImageGallery({
             >
               <img
                 src={mainImage}
-                alt={`${title} - main photo`}
+                alt={altFor(mainImage, title, slug, city)}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -77,7 +105,7 @@ export default function ImageGallery({
               >
                 <img
                   src={img}
-                  alt={`${title} - photo ${i + 1}`}
+                  alt={altFor(img, title, slug, city)}
                   className="w-full h-full object-cover hover:opacity-90 transition-opacity"
                 />
                 {isLast && moreCount > 0 && (
@@ -160,7 +188,7 @@ export default function ImageGallery({
           ) : (
             <img
               src={images[currentIndex]}
-              alt={`${title} - photo ${currentIndex + 1}`}
+              alt={altFor(images[youtubeVideo ? currentIndex - 1 : currentIndex] ?? mainImage, title, slug, city)}
               className="max-h-[85vh] max-w-[90vw] object-contain"
               onClick={(e) => e.stopPropagation()}
             />

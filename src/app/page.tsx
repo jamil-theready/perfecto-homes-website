@@ -79,7 +79,7 @@ export default function HomePage() {
               <div className="relative w-full h-[83px] rounded-md overflow-hidden">
                 <Image
                   src="/images/hero/sacramento-card.jpg"
-                  alt="Sacramento Area real estate"
+                  alt="Aerial view of the Sacramento skyline and Tower Bridge, California"
                   fill
                   className="object-contain"
                   sizes="347px"
@@ -98,7 +98,7 @@ export default function HomePage() {
               <div className="relative w-full h-[83px]">
                 <Image
                   src="/images/hero/peru.png"
-                  alt="Peru Sacred Valley landscape"
+                  alt="Terraced Sacred Valley landscape near Cusco, Peru"
                   fill
                   className="object-contain"
                   sizes="347px"
@@ -216,8 +216,8 @@ export default function HomePage() {
                 className="group lg:col-span-2 relative rounded-xl overflow-hidden aspect-[16/7] block"
               >
                 <Image
-                  src="/images/resources/news.png"
-                  alt="Blog and News"
+                  src="/images/resources/news.jpg"
+                  alt="Perfecto Homes real estate blog and market news"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="800px"
@@ -241,7 +241,7 @@ export default function HomePage() {
               >
                 <Image
                   src="/images/resources/events.jpg"
-                  alt="Events"
+                  alt="Perfecto Homes community and homebuyer events"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="400px"

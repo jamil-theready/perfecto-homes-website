@@ -21,7 +21,7 @@ export default function WebinarPage() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <Image
           src="/images/hero/sacramento-bridge.jpg"
-          alt="Northern California landscape"
+          alt="Northern California landscape near Sacramento"
           fill
           className="object-cover"
           priority
@@ -42,10 +42,10 @@ export default function WebinarPage() {
               <div className="flex items-center gap-3 mt-8">
                 <div className="flex -space-x-2">
                   {[
-                    { src: "/images/testimonials/percy-ivy.png", alt: "Percy and Ivy" },
-                    { src: "/images/testimonials/lety-moises.png", alt: "Lety and Moises" },
-                    { src: "/images/testimonials/ana.png", alt: "Ana" },
-                    { src: "/images/testimonials/marcela.png", alt: "Marcela" },
+                    { src: "/images/testimonials/percy-ivy.jpg", alt: "Percy and Ivy" },
+                    { src: "/images/testimonials/lety-moises.jpg", alt: "Lety and Moises" },
+                    { src: "/images/testimonials/ana.jpg", alt: "Ana" },
+                    { src: "/images/testimonials/marcela.jpg", alt: "Marcela" },
                   ].map((person) => (
                     <div
                       key={person.alt}
