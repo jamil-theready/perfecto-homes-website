@@ -241,12 +241,6 @@ export default function Header() {
                       <p className="text-xs text-medium-gray">Selling your home</p>
                     </div>
                   </Link>
-                  <Link href="/webinar" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
-                    <div>
-                      <p className="text-[14px] font-semibold text-dark group-hover/card:text-gold transition-colors">Free Webinar</p>
-                      <p className="text-xs text-medium-gray">Learn to buy a home</p>
-                    </div>
-                  </Link>
                 </div>
               )}
 
@@ -400,7 +394,6 @@ export default function Header() {
           </MobileDropdown>
 
           <Link href="/blog" className="block py-2 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Blog</Link>
-          <Link href="/webinar" className="block py-2 text-[15px] font-semibold text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>Free Webinar</Link>
         </div>
 
         {/* Panel Footer — fixed at bottom */}

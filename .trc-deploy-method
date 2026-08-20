@@ -1,0 +1,5 @@
+git
+# Git-connected: push to `main` and Cloudflare Pages auto-deploys.
+# Verified 2026-08-17 (CLIENT.md) and again 2026-08-20.
+# Note: there is no local `main` branch — work happens on feature branches and
+# is pushed with `git push origin HEAD:main`. `git fetch` before assuming state.

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description:
     "Join Alfredo Gonzalez for a free webinar on buying a home in Northern California. Learn the market, financing options and your path to homeownership.",
   alternates: { canonical: "/webinar" },
+  // Hidden page: unlinked from nav and excluded from the sitemap (2026-08-20).
+  // Route stays live so existing WebinarJam/ad links do not 404.
+  robots: { index: false, follow: false },
   openGraph: {
     title: "Free Webinar: How to Buy a Home in Northern California",
     description:
