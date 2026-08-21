@@ -16,9 +16,9 @@ import SacramentoIntro from "@/components/SacramentoIntro";
 import PeruCommunitiesSection from "@/components/PeruCommunitiesSection";
 
 export const metadata: Metadata = {
-  title: "Sacramento Real Estate Agents | Homes & Peru Investments",
+  title: "Cusco & Sacred Valley Real Estate for Sale",
   description:
-    "Bilingual Sacramento real estate team. Homes for sale in Elk Grove, Roseville, Folsom and El Dorado Hills, plus Peru investment property.",
+    "Homes, land and hospitality property for sale in Cusco and the Sacred Valley. US-licensed bilingual agents who also serve Sacramento, California.",
   alternates: { canonical: "/" },
 };
 

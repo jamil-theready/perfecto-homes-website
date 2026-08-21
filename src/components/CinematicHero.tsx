@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
 
-const TITLE = "Expert Real Estate Services in Sacramento and Peru";
+const TITLE = "Real Estate in Cusco, the Sacred Valley and Sacramento";
 
 const wordVariants: Variants = {
   hidden: { y: "110%", opacity: 0 },
@@ -92,7 +92,7 @@ export default function CinematicHero() {
               transition={{ duration: 0.8, delay: 0.05 }}
               className="text-[11px] tracking-[0.3em] uppercase text-gold font-medium"
             >
-              Sacramento &nbsp;&middot;&nbsp; Peru
+              Cusco &nbsp;&middot;&nbsp; Sacred Valley &nbsp;&middot;&nbsp; Sacramento
             </motion.p>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium leading-[1.1] tracking-[-0.06em] text-white">
@@ -123,9 +123,9 @@ export default function CinematicHero() {
               transition={{ duration: 0.9, delay: 0.1 + words.length * 0.06 + 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="font-[family-name:var(--font-manrope)] text-white/90 text-[16px] font-semibold leading-[1.5] tracking-[-0.02em] max-w-[460px]"
             >
-              From Sacramento neighborhoods to investment properties in Peru,
-              we help you identify the right opportunities and move forward
-              with confidence.
+              Homes, land and hospitality investment in Cusco and the Sacred
+              Valley — and full service in Sacramento, California. Bilingual,
+              US-licensed, on the ground in both markets.
             </motion.p>
           </div>
 

@@ -30,13 +30,13 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sacramento Real Estate Agents | Homes & Peru Investments",
+    default: "Cusco & Sacred Valley Real Estate | Perfecto Homes",
     // Short brand: the previous " | Perfecto Homes Real Estate" suffix (29 chars) pushed
     // most page titles past Google's ~60 char display limit and got truncated anyway.
     template: "%s | Perfecto Homes",
   },
   description:
-    "Bilingual real estate team in Sacramento. Homes for sale in Elk Grove, Roseville, Folsom, and El Dorado Hills. Peru investment properties. Call (916) 878-7260.",
+    "Property for sale in Cusco and the Sacred Valley — homes, land and hospitality investment. US-licensed bilingual agents, also serving Sacramento, CA. Call (916) 878-7260.",
   metadataBase: new URL("https://www.perfectohomesrealestate.com"),
   openGraph: {
     type: "website",
