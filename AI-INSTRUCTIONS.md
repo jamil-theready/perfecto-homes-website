@@ -39,19 +39,16 @@ npm run dev
 - **Phone**: (916) 878-7260
 - **Email**: perfectohomes@gmail.com
 - **Social**: @perfectohomes on Facebook, Instagram, TikTok, YouTube
-- **Location**: Sacramento, CA
+- **Location**: Cusco, Peru
 - **Languages**: Bilingual English/Spanish
-- **Brokerage**: LPT Realty (logos in `/public/images/logo/`)
 
-### Team (4 members, data in `src/lib/constants.ts`)
+### Team (3 members, data in `src/lib/constants.ts`)
 1. Elisban Gonzales - Real Estate Specialist | (916) 878-7703 | elisban@perfectohomesrealestate.com
-2. Gina Gonzalez - Real Estate Specialist + Notary | (415) 948-9967 | gina.gonzalez.realtor@gmail.com
-3. Alfredo Gonzalez - Loan Officer | (415) 508-6864 | alfredogonzalez@nexera.mortgage
-4. Jamil Gonzales - Web Designer | (916) 218-0751 | jamil@perfectohomesrealestate.com
+2. Alfredo Gonzalez - Loan Officer | (415) 508-6864 | alfredogonzalez@nexera.mortgage
+3. Jamil Gonzales - Web Designer | (916) 218-0751 | jamil@perfectohomesrealestate.com
 
-### Markets
-- **Sacramento**: 9 neighborhoods (Roseville, Elk Grove, Citrus Heights, Rancho Cordova, Folsom, El Dorado Hills, Arden-Arcade, Olympus Pointe, Sacramento)
-- **Peru**: Sacred Valley investment properties (3 active listings)
+### Market
+- **Cusco and the Sacred Valley, Peru**: 14 community pages, Sacred Valley investment properties (3 active listings)
 
 ### Active Peru Listings
 1. **Hatuchay Valle Restaurant** - $1,260,000 | 1,764 m2 land (SUNARP exact, currently shows 1,800 in markdown, NEEDS UPDATE) | 560 m2 built | Urubamba | Commercial
@@ -75,7 +72,7 @@ npm run dev
 - `/blog` - Blog index
 - `/blog/[slug]` - Individual blog posts (9 generic posts exist)
 - `/peru/[slug]` - Peru listing pages (3 listings)
-- `/communities/[slug]` - Sacramento community pages (9 neighborhoods)
+- `/communities/[slug]` - Cusco and Sacred Valley community pages (14 areas)
 - `/about/[slug]` - Team member profiles (4 members)
 - `/contact` - Contact form (Web3Forms)
 - `/events` - Events page
@@ -85,7 +82,7 @@ npm run dev
 
 ### Components
 - Header.tsx - Sticky header, transparent-to-white, mobile hamburger, communities dropdown
-- Footer.tsx - Dark footer, LPT Realty logo, social icons with gold hover
+- Footer.tsx - Dark footer, social icons with gold hover
 - ContactForm.tsx - Netlify form with honeypot + success state
 - TestimonialCarousel.tsx - Dual marquee animation
 - ScrollReveal.tsx - Intersection Observer fade-up
@@ -102,7 +99,7 @@ npm run dev
 - Peru: 3 listing images
 - Team: 4 member photos
 - Testimonials: 12+ customer photos
-- Logos: Perfecto, LPT Realty, Diamond Club, Top 10 badge
+- Logos: Perfecto
 - Hero: video, aerial shots, skyline, bridge, peru-illustration
 
 ---
@@ -149,21 +146,14 @@ Create `netlify.toml` in project root:
 - Mobile: buttons evenly distributed
 - Desktop: buttons left-aligned, same size
 
-#### Sacramento Card (hero area)
-- Replace illustration with real photo card using `sacramento-bridge.jpg` or `sacramento-v2.jpg`
-- Match style of other community cards
-
 #### Peru Card (hero area)
 - Use `peru-illustration.png` from `/public/images/hero/`
 
-### 2. WRITE 7 SEO BLOG POSTS
+### 2. SEO BLOG POSTS
 Create as .md files in `/content/blog/` with proper frontmatter. These are HIGH PRIORITY for SEO:
 
 1. **"How to Buy Property in Peru as a Foreigner"** - Target: peru real estate investment
 2. **"How the Chinchero Airport Will Change Sacred Valley Property Values"** - FIRST MOVER ADVANTAGE, zero competitors
-3. **"New Construction Homes in Sacramento Area 2026 Guide"** - Target: elk grove new construction (2,900/mo)
-4. **"First Time Home Buyer Guide: Sacramento CA"** - Target: first time home buyer sacramento
-5. **"Best Neighborhoods in Sacramento for Families"** - Target: best neighborhoods sacramento
 6. **"Why Invest in Sacred Valley Real Estate"** - Target: sacred valley real estate
 7. **"Hospitality Investment Opportunities in Cusco, Peru"** - Target: hostel for sale peru
 
@@ -179,18 +169,8 @@ image: "/images/peru/hatuchay-restaurant.jpg"
 ```
 
 ### 3. COMMUNITY PAGES SEO
-Each community page needs optimized metadata. Target these LOW competition keywords:
-
-| Community | Target Keyword | Monthly Volume | Competition |
-|-----------|---------------|----------------|-------------|
-| El Dorado Hills | el dorado hills homes for sale | 6,600 | Low (37) |
-| Citrus Heights | houses for sale in citrus heights | 3,600 | Low |
-| Rancho Cordova | houses for sale rancho cordova | 3,600 | Low |
-| Elk Grove | elk grove new construction | 2,900 | Low (200) |
-| Arden-Arcade | arden arcade homes | 480 | Very Low (5) |
-| Folsom | folsom ca houses for sale | 2,400 | Moderate |
-| Roseville | homes for sale roseville ca | 6,600 | Moderate |
-| Olympus Pointe | olympus pointe roseville | Near zero | Zero comp |
+Each community page needs optimized metadata. Targets are Cusco and Sacred Valley
+district queries; pull current demand from Search Console rather than a stale table.
 
 For each:
 - Optimized meta title: "[Community] Homes for Sale | Perfecto Homes Real Estate"
@@ -206,14 +186,13 @@ For each:
 - Image alt texts: property name + what's shown + location + property type
 
 ### 5. HOMEPAGE SEO
-- Title: "Perfecto Homes | Sacramento Real Estate & Peru Investment Properties"
-- Meta: "Sacramento real estate experts and Peru Sacred Valley investment properties. Bilingual team serving Roseville, Elk Grove, Folsom, El Dorado Hills. Call (916) 878-7260."
+- Title: "Perfecto Homes | Property in Cusco and the Sacred Valley"
+- Meta: "Homes, land and hospitality property for sale in Cusco and the Sacred Valley. Bilingual representation for foreign buyers."
 
 ---
 
 ## SEO REFERENCE FILES (read these for full keyword strategy)
 - `/Users/admin/Desktop/Perfecto Homes/documents/Peru_SEO_Keyword_Plan.md`
-- `/Users/admin/Desktop/Perfecto Homes/documents/Sacramento_SEO_Keyword_Plan.md`
 
 ---
 
@@ -237,5 +216,4 @@ For each:
 6. 7 new SEO blog posts written and rendering
 7. Team section redesigned (proper sizing, gold background)
 8. Agent CTAs redesigned (phone/email primary)
-9. Sacramento card uses real photo
 10. Site looks polished on mobile and desktop

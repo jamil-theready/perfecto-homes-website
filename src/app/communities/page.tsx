@@ -27,7 +27,7 @@ export default function CommunitiesIndexPage() {
             Find Your Corner of <span className="text-gold">the Sacred Valley</span>
           </h1>
           <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            From the riverfront downtown to the rolling hills of El Dorado, get
+            From the colonial streets of Cusco to the valley floor at Urubamba, get
             to know every neighborhood we serve — schools, character, and what
             it&apos;s like to live there.
           </p>

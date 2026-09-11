@@ -9,8 +9,8 @@ export function OrganizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Cusco",
-      addressRegion: "CA",
-      addressCountry: "US",
+      addressRegion: "Cusco",
+      addressCountry: "PE",
     },
     sameAs: [
       "https://www.facebook.com/perfectohomes",
@@ -28,12 +28,12 @@ export function OrganizationJsonLd() {
     ],
     areaServed: [
       { "@type": "City", name: "Cusco" },
-      { "@type": "City", name: "Citrus Heights" },
-      { "@type": "City", name: "Roseville" },
-      { "@type": "City", name: "Folsom" },
-      { "@type": "City", name: "Elk Grove" },
-      { "@type": "City", name: "El Dorado Hills" },
-      { "@type": "City", name: "Rancho Cordova" },
+      { "@type": "City", name: "Ollantaytambo" },
+      { "@type": "City", name: "Urubamba" },
+      { "@type": "City", name: "Pisac" },
+      { "@type": "City", name: "Chinchero" },
+      { "@type": "City", name: "Calca" },
+      { "@type": "Country", name: "Peru" },
     ],
   };
 

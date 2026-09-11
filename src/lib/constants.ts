@@ -24,7 +24,7 @@ export const TEAM = [
     email: "elisban.gonzales@gmail.com",
     bio: "Greetings, My name is Elisban Gonzales. I was born in Peru and I represent our family's properties in Cusco and the Sacred Valley.",
     fullBio: [
-      "As a first generation America, Peruvian born. My passion for real estate began when I decided to purchase my first home here in Roseville, CA.",
+      "Peruvian born. My passion for property began with our own family's buildings in Cusco and the Sacred Valley.",
       "I was perplexed by the level of hospitality that was served to me by my realtor. It reminded me very much of the hospitality I served when I worked as head of management in Hotel Cusco and Hotel Machu Picchu back in Peru.",
       "A couple of years later, my interested peaked and I decided to pursue my wanted career. Starting first as a loan officer in 2008, I quickly learned that every behind-the-scenes detail is just as crucial as the flashy deal-making on the front lines. It's this holistic understanding of the real estate process that sets me apart.",
       "I'm not just here to help sell or buy next your house. I'm here to guide, support, and champion your every step. My passion for client care stems from my own experiences. I've been there, navigating the highs and lows of buying and selling homes, so I know firsthand the importance of a trusted ally by your side. Consider me your personal real estate concierge, dedicated to smoothing out the wrinkles and turning your vision into reality.",

@@ -185,13 +185,6 @@
         "language": "en"
       },
       {
-        "slug": "listings",
-        "url": "/listings",
-        "title": "current Sacramento listings",
-        "type": "service",
-        "language": "en"
-      },
-      {
         "slug": "peru",
         "url": "/peru",
         "title": "Sacred Valley listings",

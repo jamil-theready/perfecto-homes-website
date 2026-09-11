@@ -4,7 +4,7 @@ Curated stock for the daily blog flow (`Perfecto_Daily_Blog.json`). The flow's `
 
 Live URL prefix: `https://www.perfectohomesrealestate.com/images/blog/automation/`
 
-## Peru (4 files) — primary category, 60% of posts
+## Peru (4 files) — the only category on this site
 
 | File | Alt text | Match terms |
 |---|---|---|
@@ -13,27 +13,12 @@ Live URL prefix: `https://www.perfectohomesrealestate.com/images/blog/automation
 | `peru-chinchero-airport.jpg` | Chinchero airport construction near Cusco | chinchero, airport, infrastructure, appreciation, values |
 | `peru-hospitality.jpg` | Boutique hotel courtyard in Cusco region | hospitality, hotel, rental, airbnb, boutique, lodge, vacation |
 
-## Sacramento (8 files) — 15% of posts
+## News — REMOVED 2026-09-11
 
-| File | Alt text | Match terms |
-|---|---|---|
-| `sacramento-market.jpg` | Sacramento real estate market data | market, report, update, forecast, trends |
-| `sacramento-neighborhoods.jpg` | Sacramento family neighborhood streetscape | neighborhood, family, community, school |
-| `sacramento-first-time-buyer.png` | First time home buyer in Sacramento | first time, buyer, mortgage, down payment, calhfa |
-| `sacramento-new-construction.jpeg` | New construction homes Sacramento area | new construction, builder, lennar, tri pointe |
-| `sacramento-inspection.jpg` | Home inspector examining property | inspection, appraisal, closing, contingency |
-| `sacramento-selling.jpg` | For sale sign in front of Sacramento home | selling, seller, staging, fsbo |
-| `sacramento-roseville.jpg` | Roseville neighborhood aerial | roseville, olympus, placer, lincoln |
-| `sacramento-el-dorado-hills.jpg` | El Dorado Hills landscape and homes | el dorado, folsom, cameron park, foothill |
-
-## News (4 files) — 25% of posts
-
-| File | Alt text | Match terms |
-|---|---|---|
-| `news-california-market.jpeg` | California housing market trend chart | california, market, update, statewide |
-| `news-rates.jpg` | California real estate sign with rate chart | rate, mortgage, fed, federal reserve |
-| `news-inventory.jpg` | California suburban neighborhood aerial | inventory, supply, listings, dynamics |
-| `news-affordability.jpg` | Savings calculator with home keys | inflation, affordability, savings, calhfa |
+The four news images were all California stock (`news-california-market`,
+`news-rates`, `news-inventory`, `news-affordability`). They moved to the
+Sacramento repo with the rest of the California content. Peru news posts need
+new stock; see the Pexels rules before adding any.
 
 ---
 

@@ -23,7 +23,7 @@ npm run dev
 ```
 
 ## Project Overview
-Real estate brokerage website for Perfecto Homes, based in Sacramento CA with international listings in Peru's Sacred Valley. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4.
+Property website for Perfecto Homes, covering Cusco and the Sacred Valley, Peru. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4.
 
 **Live domain**: perfectohomesrealestate.com (not yet pointed to new site)
 
@@ -56,11 +56,11 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 ### Pages
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `app/page.tsx` | Homepage: hero, social icons, Sacramento/Peru cards, scroll reveal mission, team section, communities grid, Peru listings, testimonials, contact form |
+| `/` | `app/page.tsx` | Homepage: hero, social icons, Peru card, scroll reveal mission, team section, communities grid, Peru listings, testimonials, contact form |
 | `/blog` | `app/blog/page.tsx` | Blog index |
 | `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual posts from `/content/blog/*.md` |
 | `/peru/[slug]` | `app/peru/[slug]/page.tsx` | Peru listing pages from `/content/peru/*.md` |
-| `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Sacramento community pages |
+| `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Cusco and Sacred Valley community pages (14 areas + index) with SEO metadata |
 | `/about/[slug]` | `app/about/[slug]/page.tsx` | Team member profiles |
 | `/contact` | `app/contact/page.tsx` | Contact form page |
 | `/events` | `app/events/page.tsx` | Events page |
@@ -72,7 +72,7 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 | Component | File | Description |
 |-----------|------|-------------|
 | Header | `components/Header.tsx` | Fixed sticky header, transparent-to-white on scroll, mobile hamburger, communities dropdown |
-| Footer | `components/Footer.tsx` | Dark footer, About Us / Communities links, LPT Realty white logo, social icons |
+| Footer | `components/Footer.tsx` | Dark footer, About Us / Communities links, social icons |
 | ContactForm | `components/ContactForm.tsx` | Netlify form with honeypot, success state |
 | TestimonialCarousel | `components/TestimonialCarousel.tsx` | Rotating quotes + photo marquee |
 | ScrollReveal | `components/ScrollReveal.tsx` | Intersection Observer fade-up animation |
@@ -82,7 +82,7 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 ### Key Data
 All constants in `src/lib/constants.ts`:
 - `TEAM` array (4 members: Elisban, Gina, Alfredo, Jamil)
-- `COMMUNITIES` array (9 Sacramento neighborhoods)
+- `COMMUNITIES` array (14 Cusco and Sacred Valley areas)
 - `PERU_LISTINGS` array (3 properties)
 - `SOCIAL_LINKS` (Facebook, Instagram, TikTok, YouTube)
 - `PHONE`: (916) 878-7260 | `EMAIL`: perfectohomes@gmail.com
@@ -114,23 +114,14 @@ title, date, excerpt, metaDescription, image
 ### Design Issues to Address
 3. **Team section**: People photos are too large. Need to be responsive across breakpoints. Background should be light gold gradient, not blue.
 4. **Agent CTA buttons**: Phone and email should be the primary CTAs (bigger, button style: white bg, black text, gold icon). "Learn More" should become a simple text link. Buttons should be evenly distributed on mobile, left-aligned on desktop.
-5. **Communities grid on homepage**: Sacramento card currently shows the old illustration style (white card with skyline graphic). Needs a real photo like the other community cards.
 6. **Peru card on homepage**: Needs the `peru.png` graphic from the `/graphics/` folder.
 
 ### SEO Tasks
 7. **Homepage metadata**: Optimize title tag and meta description with target keywords.
 8. **Community pages**: Add metadata targeting green keywords:
-   - "el dorado hills homes for sale" (6,600/mo, low competition)
-   - "houses for sale in citrus heights" (3,600/mo, low comp)
-   - "houses for sale rancho cordova" (3,600/mo, low comp)
-   - "elk grove new construction" (2,900/mo, low comp)
-   - "arden arcade homes" (480/mo, comp score 5)
 9. **Blog content plan** (write these posts):
    - "How to Buy Property in Peru as a Foreigner"
    - "How the Chinchero Airport Will Change Sacred Valley Property Values"
-   - "New Construction Homes in Sacramento Area 2026 Guide"
-   - "First Time Home Buyer Guide: Sacramento CA"
-   - "Best Neighborhoods in Sacramento for Families"
    - "Why Invest in Sacred Valley Real Estate"
    - "Hospitality Investment Opportunities in Cusco, Peru"
 10. **Schema markup**: Wire CMS meta fields to Peru listing pages.
@@ -151,10 +142,8 @@ title, date, excerpt, metaDescription, image
 ## File Locations (outside repo)
 These files exist on the local machine but are NOT in the repo. Reference them for content:
 - `/Users/admin/Desktop/Perfecto Homes/documents/Peru_SEO_Keyword_Plan.md`
-- `/Users/admin/Desktop/Perfecto Homes/documents/Sacramento_SEO_Keyword_Plan.md`
 - `/Users/admin/Desktop/Perfecto Homes/documents/business-info.txt`
 - `/Users/admin/Desktop/Perfecto Homes/graphics/` - Logo files, graphics for cards
-- `/Users/admin/Desktop/Perfecto Homes/graphics/other logos/` - LPT Realty, Diamond Club logos
 
 ---
 

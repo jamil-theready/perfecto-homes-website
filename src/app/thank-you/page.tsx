@@ -53,7 +53,7 @@ export default function ThankYouPage() {
               WhatsApp {PHONE}
             </a>
             <Link
-              href="/listings"
+              href="/peru"
               className="inline-flex items-center justify-center gap-2 border border-dark rounded-full px-8 py-3 text-sm font-semibold text-dark hover:bg-dark hover:text-white transition-colors"
             >
               Browse Listings

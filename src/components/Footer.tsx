@@ -98,7 +98,6 @@ export default function Footer() {
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">About Us</h4>
               <ul className="space-y-2">
                 <li><Link href="/about/elisban-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Elisban</Link></li>
-                <li><Link href="/about/gina-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Gina</Link></li>
                 <li><Link href="/about/alfredo-gonzalez" className="text-sm text-gray-300 hover:text-gold transition-colors">Alfredo</Link></li>
                 <li><Link href="/about/jamil-gonzales" className="text-sm text-gray-300 hover:text-gold transition-colors">Jamil</Link></li>
               </ul>

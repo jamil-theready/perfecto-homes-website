@@ -22,7 +22,7 @@ npm run dev -- --port 3000
 ```
 
 ## Project Overview
-Real estate brokerage website for Perfecto Homes, based in Sacramento CA with international listings in Peru's Sacred Valley. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4.
+Property website for Perfecto Homes, covering Cusco and the Sacred Valley, Peru. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4.
 
 **Live domain**: perfectohomesrealestate.com (not yet pointed to new site)
 **Repo**: github.com/jamil-theready/perfecto-homes-website
@@ -57,11 +57,11 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 ### Pages (42 total)
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `app/page.tsx` | Homepage: hero video, social icons, Sacramento/Peru cards, scroll reveal mission, team section (white bg, narrow), communities grid, Peru listings, testimonials, newsletter card, news/events asymmetric layout, sellers/buyers info, contact form |
+| `/` | `app/page.tsx` | Homepage: hero video, social icons, Peru card, scroll reveal mission, team section (white bg, narrow), communities grid, Peru listings, testimonials, newsletter card, news/events asymmetric layout, sellers/buyers info, contact form |
 | `/blog` | `app/blog/page.tsx` | Blog index (20 posts) |
 | `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual posts from `/content/blog/*.md` with BlogPostJsonLd |
 | `/peru/[slug]` | `app/peru/[slug]/page.tsx` | Peru listing pages from `/content/peru/*.md` with PropertyJsonLd |
-| `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Sacramento community pages (9 communities + index) with SEO metadata |
+| `/communities/[slug]` | `app/communities/[slug]/page.tsx` | Cusco and Sacred Valley community pages (14 areas + index) with SEO metadata |
 | `/about/[slug]` | `app/about/[slug]/page.tsx` | Team member profiles |
 | `/contact` | `app/contact/page.tsx` | Contact form page |
 | `/events` | `app/events/page.tsx` | Events page |
@@ -73,7 +73,7 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 | Component | File | Description |
 |-----------|------|-------------|
 | Header | `components/Header.tsx` | Fixed sticky header, transparent-to-white on scroll, mobile hamburger, communities/resources/about dropdowns |
-| Footer | `components/Footer.tsx` | Dark footer, About Us / Communities links, LPT Realty white logo, social icons |
+| Footer | `components/Footer.tsx` | Dark footer, About Us / Communities links, social icons |
 | ContactForm | `components/ContactForm.tsx` | Netlify form with honeypot, success state |
 | TestimonialCarousel | `components/TestimonialCarousel.tsx` | Rotating quotes + photo marquee |
 | ScrollReveal | `components/ScrollReveal.tsx` | Intersection Observer fade-up animation |
@@ -85,7 +85,7 @@ Real estate brokerage website for Perfecto Homes, based in Sacramento CA with in
 ### Key Data
 All constants in `src/lib/constants.ts`:
 - `TEAM` array (4 members: Elisban, Gina, Alfredo, Jamil)
-- `COMMUNITIES` array (9 Sacramento neighborhoods)
+- `COMMUNITIES` array (14 Cusco and Sacred Valley areas)
 - `PERU_LISTINGS` array (3 properties — slug: predio-victoria, hostal-qhispicay-ollantaytambo, hatuchay-valle-restaurant-urubamba)
 - `SOCIAL_LINKS` (Facebook, Instagram, TikTok, YouTube)
 - `PHONE`: (916) 878-7260 | `EMAIL`: perfectohomes@gmail.com
@@ -98,7 +98,7 @@ Markdown files in `/content/` with YAML frontmatter, processed by `src/lib/conte
 ### Collections
 - `/content/blog/` — 20 blog posts (9 original + 11 SEO-driven)
 - `/content/peru/` — 3 Peru property listings
-- `/content/communities/` — 9 Sacramento community pages
+- `/content/communities/` — 14 Cusco and Sacred Valley community pages
 - `/content/events/` — Events (currently empty)
 - `/content/team/` — Team data
 
@@ -125,7 +125,7 @@ title, metaDescription
 ## SEO Implementation
 
 ### Metadata
-- Homepage: keyword-optimized title targeting Sacramento + bilingual + community keywords
+- Homepage: keyword-optimized title targeting Cusco / Sacred Valley + foreign buyer keywords
 - Community pages: per-community SEO titles/descriptions via `COMMUNITY_SEO` map in `communities/[slug]/page.tsx`
 - Peru pages: per-listing SEO titles/descriptions via `PERU_SEO` map in `peru/[slug]/page.tsx`
 - Blog pages: titles from frontmatter
@@ -152,18 +152,9 @@ title, metaDescription
 3. "Why Invest in Sacred Valley Real Estate" — investment keywords
 4. "Hospitality Investment Opportunities in Cusco, Peru" — hotel/hospitality keywords
 
-**Sacramento:**
-5. "New Construction Homes in Sacramento Area 2026 Guide" — elk grove new construction (2,900/mo)
-6. "First Time Home Buyer Guide: Sacramento CA" — buyer intent keywords
-7. "Best Neighborhoods in Sacramento for Families" — neighborhood/living keywords
-8. "Sacramento Real Estate Market Report 2026" — market trends keywords
-9. "Living in El Dorado Hills: What You Need to Know" — el dorado hills keywords
-10. "Olympus Pointe Roseville: Neighborhood Guide" — olympus pointe keywords
-11. "Selling Your Home in Sacramento: What to Expect" — seller keywords
 
 ### Keyword Plans (external reference files)
 - `/Users/admin/Desktop/Perfecto Homes/documents/Peru_SEO_Keyword_Plan.md`
-- `/Users/admin/Desktop/Perfecto Homes/documents/Sacramento_SEO_Keyword_Plan.md`
 
 ---
 
@@ -181,7 +172,6 @@ title, metaDescription
 These files exist on the local machine but are NOT in the repo:
 - `/Users/admin/Desktop/Perfecto Homes/documents/` — SEO keyword plans, business info
 - `/Users/admin/Desktop/Perfecto Homes/graphics/` — Logo files, graphics for cards
-- `/Users/admin/Desktop/Perfecto Homes/graphics/other logos/` — LPT Realty, Diamond Club logos
 - `/Users/admin/Desktop/Perfecto SS/` — Screenshot folder for feedback
 
 ---
@@ -198,13 +188,12 @@ These files exist on the local machine but are NOT in the repo:
 - [x] Critical: Peru URL typo fixed (predido → predio)
 - [x] Critical: netlify.toml created
 - [x] Design: Team section — white bg, narrower, headshots not cut off, Learn More flush right
-- [x] Design: Sacramento card — real aerial photo
 - [x] Design: Peru card — peru.png graphic
 - [x] Design: Nav dropdown — full-width mega menu with images, dark overlay
 - [x] Design: Nav Contact Us button — gold on scroll, glass on hero
 - [x] Design: Nav logo micro animation on hover
 - [x] Design: Nav button fonts unified (14px Manrope medium)
-- [x] Design: Footer — LPT logo smaller, Perfecto logo matches nav size/alignment
+- [x] Design: Footer — Perfecto logo matches nav size/alignment
 - [x] Design: Newsletter — background image card, not full width
 - [x] Design: News/Events section — asymmetric layout (blog 2/3, events 1/3)
 - [x] Blog: Author field added to all posts (elisban, gina, alfredo, jamil)
@@ -228,7 +217,6 @@ These files exist on the local machine but are NOT in the repo:
 - [x] Fix: Contact Us wrong phone number
 - [x] Fix: Newsletter copy typo
 - [x] Fix: Missing #team anchor on homepage
-- [x] Fix: Broken Sacramento card anchor link
 
 ## What's Left
 - [ ] Blog content: Spanish versions of Peru posts
