@@ -4,9 +4,9 @@ import Image from "next/image";
 import { COMMUNITIES } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Sacramento Area Neighborhoods",
+  title: "Cusco & Sacred Valley Communities",
   description:
-    "Explore the Sacramento area community by community: Citrus Heights, Folsom, Roseville, El Dorado Hills, Elk Grove and more, with local agent insight.",
+    "Explore Cusco and the Sacred Valley community by community: Centro Histórico, San Blas, Ollantaytambo, Urubamba, Pisac and more, with on-the-ground insight.",
   alternates: { canonical: "/communities" },
 };
 
@@ -19,12 +19,12 @@ export default function CommunitiesIndexPage() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="block w-8 h-px bg-gold" />
             <p className="text-gold text-[11px] font-semibold tracking-[0.3em] uppercase">
-              Sacramento Area
+              Cusco &amp; Sacred Valley
             </p>
             <span className="block w-8 h-px bg-gold" />
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-dark tracking-[-0.05em] leading-[1.02]">
-            Find Your Corner of <span className="text-gold">Sacramento</span>
+            Find Your Corner of <span className="text-gold">the Sacred Valley</span>
           </h1>
           <p className="mt-6 text-medium-gray text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             From the riverfront downtown to the rolling hills of El Dorado, get

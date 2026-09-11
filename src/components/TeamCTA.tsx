@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type TeamCTAProps = {
-  variant: "jamil" | "gina" | "alfredo";
+  variant: "jamil" | "alfredo";
 };
 
 const TEAM_CTA_DATA = {
@@ -18,19 +18,6 @@ const TEAM_CTA_DATA = {
     image: "/images/team/jamil.png",
     accent: "#635bff",
     accentLight: "#f5f3ff",
-  },
-  gina: {
-    name: "Gina Gonzalez",
-    slug: "gina-gonzalez",
-    title: "Need a Notary?",
-    service: "Gina Gonzalez Notary",
-    description:
-      "Certified Notary Public and Loan Signing Agent serving Sacramento and surrounding areas. Mobile notary services, apostille, real estate closings, and more. Bilingual (English/Spanish).",
-    cta: "Schedule a Signing",
-    phone: "(415) 948-9967",
-    image: "/images/team/gina.png",
-    accent: "#C4A94D",
-    accentLight: "#faf5e6",
   },
   alfredo: {
     name: "Alfredo Gonzalez",

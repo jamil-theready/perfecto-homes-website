@@ -47,25 +47,18 @@ export default async function TeamMemberPage({ params }: Props) {
   if (!member) notFound();
 
   const hasFullBio = "fullBio" in member && Array.isArray((member as any).fullBio);
-  const hasDre = "dre" in member;
   const hasBackground = "background" in member && Array.isArray((member as any).background);
   const hasListings = "listingsUrl" in member;
-  const hasNotary = "notaryUrl" in member;
   const hasSocialLinks = "socialLinks" in member;
   const hasPeruListings = "peruListings" in member && (member as any).peruListings === true;
 
   // Get listings for this team member
   const agentSlug = member.slug.split("-")[0]; // "elisban", "gina", etc.
-  const sacramentoListings = getCollection("listings/sacramento").filter(
-    (l) => l.agent === agentSlug
-  );
   const peruListings = hasPeruListings ? getCollection("peru") : [];
 
   const fullBio = hasFullBio ? (member as any).fullBio as string[] : [];
-  const dre = hasDre ? (member as any).dre as { corp: string; individual: string } : null;
   const background = hasBackground ? (member as any).background as { title: string; year: string }[] : [];
   const listingsUrl = hasListings ? (member as any).listingsUrl as string : null;
-  const notaryUrl = hasNotary ? (member as any).notaryUrl as string : null;
   const socialLinks = hasSocialLinks ? (member as any).socialLinks as { facebook?: string; instagram?: string } : null;
 
   return (
@@ -97,15 +90,9 @@ export default async function TeamMemberPage({ params }: Props) {
                 <Image src={member.image} alt={member.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
 
-              {/* Name & DRE under photo */}
+              {/* Name under photo */}
               <div className="mt-6">
                 <h2 className="text-xl font-serif font-bold text-dark">{member.name}</h2>
-                {dre && (
-                  <div className="flex gap-6 mt-1 text-xs text-medium-gray tracking-wide">
-                    <span>CORP DRE {dre.corp}</span>
-                    <span>DRE {dre.individual}</span>
-                  </div>
-                )}
               </div>
 
               {/* Contact Info */}
@@ -129,12 +116,6 @@ export default async function TeamMemberPage({ params }: Props) {
               )}
 
               {/* Notary Website Link */}
-              {notaryUrl && (
-                <a href={notaryUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 mt-2 text-sm font-semibold text-gold hover:text-gold-dark transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
-                  Notary Services Website
-                </a>
-              )}
 
               {/* Social Icons */}
               {socialLinks && (
@@ -192,16 +173,6 @@ export default async function TeamMemberPage({ params }: Props) {
                 >
                   Contact {member.name.split(" ")[0]}
                 </Link>
-                {notaryUrl && (
-                  <a
-                    href={notaryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border-2 border-gold text-gold hover:bg-gold hover:text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
-                  >
-                    Notary Services
-                  </a>
-                )}
               </div>
             </div>
           </div>
@@ -209,7 +180,7 @@ export default async function TeamMemberPage({ params }: Props) {
       </section>
 
       {/* Listings Section */}
-      {(sacramentoListings.length > 0 || peruListings.length > 0) && (
+      {peruListings.length > 0 && (
         <section className="bg-light-gray py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl font-serif font-bold text-dark mb-2">
@@ -221,38 +192,6 @@ export default async function TeamMemberPage({ params }: Props) {
                 : "Current and recent properties"}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sacramentoListings.map((listing) => (
-                <Link
-                  key={listing.slug}
-                  href={`/listings/${listing.slug}`}
-                  className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={listing.featuredImage || listing.image1}
-                      alt={listing.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    {listing.status && (
-                      <span className="absolute top-3 left-3 bg-gold text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
-                        {listing.status}
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <p className="font-semibold text-dark text-sm group-hover:text-gold transition-colors">{listing.title}</p>
-                    <p className="text-medium-gray text-xs mt-1">{listing.city}, {listing.state} {listing.zip}</p>
-                    <div className="flex items-center justify-between mt-3">
-                      <span className="text-gold font-bold text-sm">{listing.price}</span>
-                      {listing.beds && (
-                        <span className="text-xs text-medium-gray">{listing.beds} bd / {listing.baths} ba</span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              ))}
               {peruListings.map((listing) => (
                 <Link
                   key={listing.slug}
@@ -290,131 +229,6 @@ export default async function TeamMemberPage({ params }: Props) {
         </section>
       )}
 
-      {/* Notary Services Section — Gina only */}
-      {notaryUrl && (
-        <section className="bg-white py-16 sm:py-20">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Header */}
-            <div className="text-center mb-12">
-              <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Professional Notary Services</p>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-dark mb-4">Gina Gonzalez Notary Public</h2>
-              <p className="text-medium-gray max-w-2xl mx-auto leading-relaxed">
-                NNA Certified Notary Public with 10+ years of experience and a legal background. Mobile notary services available 7 days a week across the Greater Sacramento Area. Bilingual in English and Spanish.
-              </p>
-            </div>
-
-            {/* Stats Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-              <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-xl font-bold text-gold">6,000+</p>
-                <p className="text-xs text-medium-gray mt-1">Documents Notarized</p>
-              </div>
-              <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-xl font-bold text-gold">10+</p>
-                <p className="text-xs text-medium-gray mt-1">Years Experience</p>
-              </div>
-              <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-xl font-bold text-gold">100%</p>
-                <p className="text-xs text-medium-gray mt-1">Client Satisfaction</p>
-              </div>
-              <div className="bg-light-gray rounded-xl p-5 text-center">
-                <p className="text-xl font-bold text-gold">7 Days</p>
-                <p className="text-xs text-medium-gray mt-1">A Week Availability</p>
-              </div>
-            </div>
-
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">Legal & Personal Documents</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">Powers of attorney, prenuptial agreements, name changes, affidavits, and court proceedings.</p>
-              </div>
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">Real Estate & Loan Signings</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">Deeds, refinancing, property transfers, loan signings, and all real estate closing documents.</p>
-              </div>
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">Apostille Services</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">International document authentication and document translation services for global use.</p>
-              </div>
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">Wedding Officiant</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">Certified wedding officiant offering customized ceremonies. Make your special day official and memorable.</p>
-              </div>
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">Mobile Notary</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">We come to you. Same-day service available across Sacramento, Roseville, Folsom, Elk Grove, and surrounding areas.</p>
-              </div>
-              <div className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <h3 className="font-semibold text-dark text-sm mb-2">DMV & Miscellaneous</h3>
-                <p className="text-medium-gray text-xs leading-relaxed">DMV paperwork, travel consent forms, lease agreements, and any other documents requiring notarization.</p>
-              </div>
-            </div>
-
-            {/* How It Works */}
-            <div className="bg-light-gray rounded-2xl p-8 sm:p-10 mb-12">
-              <h3 className="text-xl font-serif font-bold text-dark mb-8 text-center">How It Works</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center text-lg font-bold mx-auto mb-4">1</div>
-                  <h4 className="font-semibold text-dark text-sm mb-2">Schedule</h4>
-                  <p className="text-medium-gray text-xs leading-relaxed">Contact Gina by phone, email, or through the website to book your appointment.</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center text-lg font-bold mx-auto mb-4">2</div>
-                  <h4 className="font-semibold text-dark text-sm mb-2">Prepare</h4>
-                  <p className="text-medium-gray text-xs leading-relaxed">Gather your documents and have a valid government-issued ID ready.</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center text-lg font-bold mx-auto mb-4">3</div>
-                  <h4 className="font-semibold text-dark text-sm mb-2">Complete</h4>
-                  <p className="text-medium-gray text-xs leading-relaxed">Meet at your preferred location for fast, professional notarization.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="text-center">
-              <p className="text-medium-gray text-sm mb-4">Available 7:00 AM to 9:00 PM, seven days a week</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={notaryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
-                >
-                  Visit Notary Website
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-                <a
-                  href="tel:+14159489967"
-                  className="inline-flex items-center gap-2 border-2 border-gold text-gold hover:bg-gold hover:text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"
-                >
-                  Call (415) 948-9967
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Other Team Members */}
       <section className="bg-white py-16">

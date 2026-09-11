@@ -48,7 +48,7 @@ export default function ListingsFilter({
         >
           <option value="all">All Markets</option>
           {markets.map((m) => (
-            <option key={m} value={m}>{m === "sacramento" ? "Sacramento, CA" : "Peru"}</option>
+            <option key={m} value={m}>Peru</option>
           ))}
         </select>
 
@@ -115,7 +115,7 @@ export default function ListingsFilter({
 function ListingCard({ listing }: { listing: ContentItem }) {
   const status = (listing.status as string) || (listing.listingStatus as string) || "active";
   const featuredImage = (listing.featuredImage as string) || (listing.image1 as string) || "/images/placeholder.jpg";
-  const href = listing.market === "peru" ? `/peru/${listing.slug}` : `/listings/${listing.slug}`;
+  const href = `/peru/${listing.slug}`;
 
   return (
     <Link

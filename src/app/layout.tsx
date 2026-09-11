@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
 import { OrganizationJsonLd } from "@/components/JsonLd";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SiteIntro from "@/components/SiteIntro";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import "./globals.css";
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Perfecto Homes",
   },
   description:
-    "Property for sale in Cusco and the Sacred Valley — homes, land and hospitality investment. US-licensed bilingual agents, also serving Sacramento, CA. Call (916) 878-7260.",
+    "Property for sale in Cusco and the Sacred Valley — homes, land and hospitality investment. Bilingual representation for foreign buyers.",
   metadataBase: new URL("https://www.perfectohomesrealestate.com"),
   openGraph: {
     type: "website",
@@ -80,7 +79,6 @@ export default function RootLayout({
         <SiteIntro />
         <Header />
         <main className="bg-white">{children}</main>
-        <TestimonialCarousel />
         <GlobalCTA />
         <Footer />
         <WhatsAppWidget />

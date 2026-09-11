@@ -25,47 +25,14 @@ const CUSCO_CITY_SLUGS = [
   { slug: "san-jeronimo", name: "San Jerónimo" },
 ];
 
-const SACRAMENTO_COMMUNITIES = [
-  { slug: "sacramento", name: "Sacramento" },
-  { slug: "citrus-heights", name: "Citrus Heights" },
-  { slug: "roseville", name: "Roseville" },
-  { slug: "elk-grove", name: "Elk Grove" },
-  { slug: "folsom", name: "Folsom" },
-  { slug: "rancho-cordova", name: "Rancho Cordova" },
-];
 
 export default function Footer() {
-  const sacListings = getCollection("listings/sacramento")
-    .filter((l) => (l.status as string) !== "sold")
-    .map((l) => ({
-      slug: l.slug as string,
-      title: (l.title as string) || (l.slug as string),
-    }));
-
   return (
     <footer>
       {/* Upper Footer */}
       <div className="bg-dark-gray text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8">
-            {/* Sacramento Listings */}
-            <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento Listings</h4>
-              <ul className="space-y-2">
-                {sacListings.map((l) => (
-                  <li key={l.slug}>
-                    <Link href={`/listings/${l.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
-                      {l.title}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/listings" className="text-sm text-gold/80 hover:text-gold font-medium transition-colors">
-                    View all &rarr;
-                  </Link>
-                </li>
-              </ul>
-            </div>
 
             {/* Peru Listings */}
             <div>
@@ -86,19 +53,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Sacramento Communities */}
-            <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Sacramento</h4>
-              <ul className="space-y-2">
-                {SACRAMENTO_COMMUNITIES.map((c) => (
-                  <li key={c.slug}>
-                    <Link href={`/communities/${c.slug}`} className="text-sm text-gray-300 hover:text-gold transition-colors">
-                      {c.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
             {/* Sacred Valley */}
             <div>
@@ -132,8 +86,8 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-4 text-gray-400">Resources</h4>
               <ul className="space-y-2">
-                <li><Link href="/blog/first-time-home-buyer-guide-sacramento-ca" className="text-sm text-gray-300 hover:text-gold transition-colors">Buyer Guide</Link></li>
-                <li><Link href="/blog/selling-your-home-in-sacramento-what-to-expect" className="text-sm text-gray-300 hover:text-gold transition-colors">Seller Guide</Link></li>
+                <li><Link href="/blog/how-to-buy-property-in-peru-as-a-foreigner" className="text-sm text-gray-300 hover:text-gold transition-colors">Buyer Guide</Link></li>
+                <li><Link href="/blog/why-invest-in-sacred-valley-real-estate" className="text-sm text-gray-300 hover:text-gold transition-colors">Investment Guide</Link></li>
                 <li><Link href="/blog" className="text-sm text-gray-300 hover:text-gold transition-colors">Blog</Link></li>
                 <li><Link href="/contact" className="text-sm text-gray-300 hover:text-gold transition-colors">Contact</Link></li>
               </ul>
@@ -207,16 +161,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Brokerage + Credit */}
-          <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
-            <div className="flex items-center gap-2">
-              <img
-                src="/images/logo/lpt-realty-white.jpg"
-                alt="LPT Realty"
-                style={{ height: "14px", width: "auto" }}
-              />
-              <p className="text-[10px] text-gray-600">LPT Realty, Inc.</p>
-            </div>
+          {/* Credit */}
+          <div className="flex items-center justify-end mt-4 pt-3 border-t border-gray-800">
             <TrcCredit className="text-white" />
           </div>
         </div>

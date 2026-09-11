@@ -1,5 +1,18 @@
 # Perfecto Homes Website - AI Handoff Prompt
 
+> **SCOPE — read first (2026-09-11).** This repo is the **Peru** site, deployed to
+> **perfectohomesrealestate.com**. It contains ONLY Cusco and Sacred Valley content.
+>
+> **Sacramento lives in a separate repo** (`perfecto-homes-sacramento` → perfectohomes.com):
+> the two DRE-licensed agents, Sacramento community guides, Sacramento listings and
+> Sacramento blog posts. Do not add California content, DRE numbers, LPT Realty branding
+> or Sacramento service-area claims here. `public/_redirects` 301s every old Sacramento
+> URL to its counterpart on that site; keep it in sync if you rename anything there.
+>
+> Sections below written before the split may still describe Sacramento routes and data
+> that no longer exist in this repo. The code is authoritative, not this document.
+
+
 ## Quick Start
 ```bash
 git clone https://github.com/jamil-theready/perfecto-homes-website.git

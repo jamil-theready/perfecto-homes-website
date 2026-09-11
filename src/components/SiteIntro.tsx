@@ -44,7 +44,7 @@ export default function SiteIntro() {
 }
 
 const WORDMARK = "PERFECTO HOMES";
-const LOCATIONS = ["SACRAMENTO · CALIFORNIA", "CUSCO · SACRED VALLEY"];
+const LOCATIONS = ["CUSCO · PERU", "SACRED VALLEY · URUBAMBA"];
 
 function LongIntro({ onComplete }: { onComplete: () => void }) {
   const [locationIdx, setLocationIdx] = useState(0);

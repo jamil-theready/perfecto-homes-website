@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
 
-const TITLE = "Real Estate in Cusco, the Sacred Valley and Sacramento";
+const TITLE = "Real Estate in Cusco and the Sacred Valley";
 
 const wordVariants: Variants = {
   hidden: { y: "110%", opacity: 0 },
@@ -52,7 +52,7 @@ export default function CinematicHero() {
           playsInline
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/hero/sacramento-bridge.jpg"
+          poster="/images/hero/peru-landscape.jpg"
         >
           <source src="/images/hero/hero-video.mp4" type="video/mp4" />
         </video>
@@ -92,7 +92,7 @@ export default function CinematicHero() {
               transition={{ duration: 0.8, delay: 0.05 }}
               className="text-[11px] tracking-[0.3em] uppercase text-gold font-medium"
             >
-              Cusco &nbsp;&middot;&nbsp; Sacred Valley &nbsp;&middot;&nbsp; Sacramento
+              Cusco &nbsp;&middot;&nbsp; Sacred Valley &nbsp;&middot;&nbsp; Urubamba
             </motion.p>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-medium leading-[1.1] tracking-[-0.06em] text-white">
@@ -124,7 +124,7 @@ export default function CinematicHero() {
               className="font-[family-name:var(--font-manrope)] text-white/90 text-[16px] font-semibold leading-[1.5] tracking-[-0.02em] max-w-[460px]"
             >
               Homes, land and hospitality investment in Cusco and the Sacred
-              Valley — and full service in Sacramento, California. Bilingual,
+              Valley. Bilingual,
               US-licensed, on the ground in both markets.
             </motion.p>
           </div>
@@ -135,12 +135,6 @@ export default function CinematicHero() {
             transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-[30px] flex-shrink-0"
           >
-            <Image
-              src="/images/logo/lpt-realty-white.jpg"
-              alt="LPT Realty"
-              width={151}
-              height={38}
-            />
             <Image
               src="/images/logo/diamond-club.png"
               alt="Diamond Club"

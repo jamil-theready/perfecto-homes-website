@@ -18,7 +18,7 @@ import matter from "gray-matter";
 const CONTENT_DIR = path.resolve("content");
 const HEADERS_FILE = path.resolve("public/_headers");
 const CLOUDINARY_HOST = "res.cloudinary.com";
-const LISTING_DIRS = ["listings/sacramento", "peru"];
+const LISTING_DIRS = ["peru"];
 
 const checkUrls = process.argv.includes("--check-urls");
 

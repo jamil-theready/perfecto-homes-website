@@ -6,7 +6,7 @@ const sentences: { text: string; highlight: string | string[] }[] = [
   { text: "We connect families with homes that fit their dreams.", highlight: "connect" },
   { text: "We guide every step with integrity, clarity, and care.", highlight: "guide" },
   { text: "We turn real estate into a simpler, stress-free experience for our community.", highlight: "stress-free" },
-  { text: "One team across Sacramento, California and the Sacred Valley of Peru.", highlight: ["California", "Peru"] },
+  { text: "One team on the ground across Cusco and the Sacred Valley of Peru.", highlight: ["Sacred Valley", "Peru"] },
 ];
 
 export default function ScrollRevealText() {

@@ -8,44 +8,7 @@ import ContactForm from "@/components/ContactForm";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const COMMUNITY_SEO: Record<string, { title: string; description: string }> = {
-  "citrus-heights": {
-    title: "Homes for Sale in Citrus Heights CA",
-    description: "Browse homes for sale in Citrus Heights, California. Updated listings, market data, and local agent support. Perfecto Homes Real Estate.",
-  },
-  sacramento: {
-    title: "Homes for Sale in Sacramento CA",
-    description: "Browse homes for sale in Sacramento, Roseville, Elk Grove, Folsom, Citrus Heights and El Dorado Hills, with a local bilingual brokerage.",
-  },
-  arden: {
-    title: "Homes for Sale in Arden Arcade, Sacramento",
-    description: "Browse homes for sale in Arden Arcade, Sacramento. Updated listings and local market knowledge. Perfecto Homes Real Estate.",
-  },
-  "rancho-cordova": {
-    title: "Homes for Sale in Rancho Cordova CA",
-    description: "Homes for sale in Rancho Cordova, California. Browse current listings, pricing, and neighborhood info. Perfecto Homes Real Estate.",
-  },
-  roseville: {
-    title: "Roseville CA Homes & New Construction",
-    description: "Homes and new construction for sale in Roseville, California. Browse listings, get market insight and work with a local agent.",
-  },
-  folsom: {
-    title: "Homes & Condos for Sale in Folsom CA",
-    description: "Browse homes, condos, and new construction for sale in Folsom, California. Luxury and affordable options. Perfecto Homes Real Estate.",
-  },
-  "olympus-pointe": {
-    title: "Olympus Pointe Roseville CA Homes",
-    description: "Homes for sale in Olympus Pointe, Roseville CA. Community info, current listings, and expert guidance. Perfecto Homes Real Estate.",
-  },
-  "el-dorado-hills": {
-    title: "Homes for Sale in El Dorado Hills CA",
-    description: "Luxury and family homes for sale in El Dorado Hills, California. Explore listings, neighborhood guides, and market data. Perfecto Homes Real Estate.",
-  },
-  "elk-grove": {
-    title: "Elk Grove CA Homes & New Construction",
-    description: "Homes and new construction for sale in Elk Grove, California. From starter homes to new builds. Perfecto Homes Real Estate.",
-  },
-};
+const COMMUNITY_SEO: Record<string, { title: string; description: string }> = {};
 
 export async function generateStaticParams() {
   const staticSlugs = COMMUNITIES.map((c) => c.slug);
@@ -142,13 +105,10 @@ export default async function CommunityPage({ params }: Props) {
 
   const name = (cmsItem?.title as string) || community?.name || slug;
   const htmlContent = cmsItem ? await markdownToHtml(cmsItem.content) : null;
-  const isPeru = PERU_SLUGS.has(slug);
-  const regionLabel = isPeru ? "Cusco · Sacred Valley, Peru" : "Sacramento Area · California";
-  const backHref = isPeru ? "/communities/peru" : "/communities";
-  const backLabel = isPeru ? "All Sacred Valley" : "All Communities";
-  const heroImage = isPeru
-    ? PERU_HERO_IMAGES[slug] ?? "/images/hero/peru-landscape.jpg"
-    : `/images/communities/${slug}.jpg`;
+  const regionLabel = "Cusco · Sacred Valley, Peru";
+  const backHref = "/communities";
+  const backLabel = "All Communities";
+  const heroImage = PERU_HERO_IMAGES[slug] ?? "/images/hero/peru-landscape.jpg";
   const facts = COMMUNITY_FACTS[slug];
 
   return (
@@ -160,7 +120,7 @@ export default async function CommunityPage({ params }: Props) {
           style={{ backgroundImage: `url('${heroImage}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark/40 to-dark/10" />
-        {isPeru && <ChakanaPattern className="absolute inset-0 opacity-[0.07] pointer-events-none text-gold" />}
+        <ChakanaPattern className="absolute inset-0 opacity-[0.07] pointer-events-none text-gold" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href={backHref} className="text-gold text-sm hover:underline mb-4 inline-block">&larr; {backLabel}</Link>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold">{name}</h1>
@@ -216,7 +176,7 @@ export default async function CommunityPage({ params }: Props) {
 
       {/* Content */}
       <section className="bg-white py-16 relative">
-        {isPeru && <ChakanaPattern className="absolute inset-0 opacity-[0.025] pointer-events-none text-dark" />}
+        <ChakanaPattern className="absolute inset-0 opacity-[0.025] pointer-events-none text-dark" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
@@ -229,7 +189,7 @@ export default async function CommunityPage({ params }: Props) {
                 <div>
                   <h2 className="text-xl font-serif font-bold text-dark mb-4">About {name}</h2>
                   <p className="text-medium-gray leading-relaxed mb-6">
-                    {name} is one of the vibrant communities in the greater Sacramento area. Contact our team to learn about available properties, market trends, and what makes this neighborhood special.
+                    {name} is one of the communities we cover in Cusco and the Sacred Valley. Contact our team to learn about available properties, market trends, and what makes this neighborhood special.
                   </p>
                   <a
                     href={WA_LINK}
@@ -252,7 +212,7 @@ export default async function CommunityPage({ params }: Props) {
 
       {/* What you'll find here — feature cards */}
       <section className="bg-light-gray py-16 relative overflow-hidden">
-        {isPeru && <ChakanaPattern className="absolute inset-0 opacity-[0.05] pointer-events-none text-gold" />}
+        <ChakanaPattern className="absolute inset-0 opacity-[0.05] pointer-events-none text-gold" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-3">
             <span className="block w-8 h-px bg-gold" />
@@ -267,36 +227,28 @@ export default async function CommunityPage({ params }: Props) {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 12l9-9 9 9M5 10v10h14V10" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 20v-6h6v6" /></svg>
               }
               title="Real Estate Range"
-              copy={isPeru
-                ? "From in-town homes to working farms and view parcels. Inventory turns over slowly — we keep a tight pulse on what comes available."
-                : "Single family homes, new construction, and condos at every price point. Local agents who know each pocket of the neighborhood."}
+              copy="From in-town homes to working farms and view parcels. Inventory turns over slowly — we keep a tight pulse on what comes available."
             />
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 22s8-7.6 8-13a8 8 0 10-16 0c0 5.4 8 13 8 13z" /><circle cx="12" cy="9" r="3" /></svg>
               }
               title="Local Lifestyle"
-              copy={isPeru
-                ? "Markets, food, festivals, and walking pace. The kind of daily rhythm that doesn't exist in most modern cities anymore."
-                : "Schools, parks, food scene, and commuter access dialed in. Every community has its own character — we'll match you to the right one."}
+              copy="Markets, food, festivals, and walking pace. The kind of daily rhythm that doesn't exist in most modern cities anymore."
             />
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 17l6-6 4 4 8-8" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M14 7h7v7" /></svg>
               }
               title="Investment Outlook"
-              copy={isPeru
-                ? "The Chinchero airport opens in 2027 and is already reshaping land prices across the region. Buying ahead matters."
-                : "Sacramento growth has been steady — diverse economy, strong rental demand, and infrastructure investment behind every major district."}
+              copy="The Chinchero airport opens in 2027 and is already reshaping land prices across the region. Buying ahead matters."
             />
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="10" r="2.2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 16c1.3-1.2 3-2 5-2 2.8 0 5 1.6 5 3.6" /></svg>
               }
               title="Trusted Local Team"
-              copy={isPeru
-                ? "Bilingual support, on-the-ground due diligence, and a network of legal partners who handle Peruvian title and water rights."
-                : "Licensed California agents who've closed deals in every community we list. Bilingual English and Spanish."}
+              copy="Bilingual support, on-the-ground due diligence, and a network of legal partners who handle Peruvian title and water rights."
             />
           </div>
         </div>
@@ -304,7 +256,7 @@ export default async function CommunityPage({ params }: Props) {
 
       {/* CTA strip */}
       <section className="bg-dark text-white py-16 relative overflow-hidden">
-        {isPeru && <ChakanaPattern className="absolute inset-0 opacity-[0.06] pointer-events-none text-gold" />}
+        <ChakanaPattern className="absolute inset-0 opacity-[0.06] pointer-events-none text-gold" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-3">Ready to explore {name}?</h2>
           <p className="text-gray-400 max-w-xl mx-auto mb-8">
@@ -335,11 +287,10 @@ export default async function CommunityPage({ params }: Props) {
       <section className="bg-light-gray py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-serif font-bold text-dark mb-8">
-            {isPeru ? "Explore the Sacred Valley" : "Explore Other Communities"}
+            Explore the Sacred Valley
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {isPeru ? (
-              Array.from(PERU_SLUGS)
+            {Array.from(PERU_SLUGS)
                 .filter((s) => s !== slug)
                 .slice(0, 6)
                 .map((s) => {
@@ -360,25 +311,7 @@ export default async function CommunityPage({ params }: Props) {
                       </div>
                     </Link>
                   );
-                })
-            ) : (
-              COMMUNITIES.filter((c) => c.slug !== slug).slice(0, 6).map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/communities/${c.slug}`}
-                  className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-dark"
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{ backgroundImage: `url('/images/communities/${c.slug}.jpg')` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-white text-lg font-semibold">{c.name}</h3>
-                  </div>
-                </Link>
-              ))
-            )}
+                })}
           </div>
         </div>
       </section>
@@ -457,10 +390,10 @@ function CommunitiesIndex() {
     <>
       <section className="bg-dark text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Sacramento Area</p>
+          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Cusco &amp; Sacred Valley</p>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">Our Communities</h1>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-            Explore neighborhoods across the greater Sacramento area. Find the community that fits your lifestyle.
+            Explore districts across Cusco and the Sacred Valley. Find the area that fits what you are looking for.
           </p>
         </div>
       </section>

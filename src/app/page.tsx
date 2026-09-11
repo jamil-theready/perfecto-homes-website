@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  COMMUNITIES,
   SOCIAL_LINKS,
   PERU_LISTINGS,
 } from "@/lib/constants";
@@ -12,36 +11,15 @@ import ScrollRevealText from "@/components/ScrollRevealText";
 import CinematicHero from "@/components/CinematicHero";
 import FullscreenListings from "@/components/FullscreenListings";
 import TeamSection from "@/components/TeamSection";
-import SacramentoIntro from "@/components/SacramentoIntro";
 import PeruCommunitiesSection from "@/components/PeruCommunitiesSection";
 
 export const metadata: Metadata = {
   title: "Cusco & Sacred Valley Real Estate for Sale",
   description:
-    "Homes, land and hospitality property for sale in Cusco and the Sacred Valley. US-licensed bilingual agents who also serve Sacramento, California.",
+    "Homes, land and hospitality property for sale in Cusco and the Sacred Valley. Bilingual representation for foreign buyers.",
   alternates: { canonical: "/" },
 };
 
-const SACRAMENTO_LISTINGS = [
-  {
-    name: "11610 Vickie Dr",
-    slug: "11610-vickie-dr",
-    image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/listings/perfecto-homes/11610-vickie-dr/1.jpg",
-  },
-  {
-    name: "6630 Dunmore Ave",
-    slug: "6630-dunmore-ave",
-    image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/v1778526269/listings/perfecto-homes/6630-dunmore-ave/1.jpg",
-  },
-  {
-    name: "6236 Riverbelle Ct",
-    slug: "6236-riverbelle-ct",
-    image:
-      "https://res.cloudinary.com/duwsn5ksy/image/upload/w_1600,q_auto,f_auto/listings/perfecto-homes/6236-riverbelle-ct/1.jpg",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -68,24 +46,6 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Sacramento card */}
-            <Link
-              href="/communities/communities"
-              className="group flex-1 bg-white rounded-[10px] overflow-clip p-5 flex flex-col justify-center items-start shadow-[0_1px_3px_rgba(0,0,0,0.25)] hover:shadow-md transition-shadow"
-            >
-              <h4 className="text-[18px] font-medium text-dark tracking-[-0.05em] leading-[1.4] mb-3">
-                Sacramento
-              </h4>
-              <div className="relative w-full h-[83px] rounded-md overflow-hidden">
-                <Image
-                  src="/images/hero/sacramento-card.jpg"
-                  alt="Aerial view of the Sacramento skyline and Tower Bridge, California"
-                  fill
-                  className="object-contain"
-                  sizes="347px"
-                />
-              </div>
-            </Link>
 
             {/* Peru card */}
             <Link
@@ -124,45 +84,7 @@ export default function HomePage() {
       {/* ====== PERU COMMUNITIES ====== */}
       <PeruCommunitiesSection />
 
-      {/* ====== SACRAMENTO LISTINGS (fullscreen) ====== */}
-      <FullscreenListings
-        listings={SACRAMENTO_LISTINGS}
-        basePath="/listings"
-        sectionId="sacramento-listings"
-        intro={{ eyebrow: "Featured Properties", prefix: "Our Listings in", highlight: "Sacramento" }}
-        regionLabel="Sacramento · California"
-      />
 
-      {/* ====== SACRAMENTO COMMUNITIES ====== */}
-      <SacramentoIntro />
-      <section className="bg-light-gray py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {COMMUNITIES.slice(0, 9).map((c, i) => (
-              <ScrollReveal key={c.slug} delay={0.1 * i}>
-                <Link
-                  href={`/communities/${c.slug}`}
-                  className="group relative rounded-[10px] overflow-hidden aspect-[4/3] block bg-dark"
-                >
-                  <Image
-                    src={c.image}
-                    alt={`Homes in ${c.name}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h4 className="text-white text-[18px] font-medium tracking-[-0.05em]">
-                      {c.name}
-                    </h4>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ====== TEAM ====== */}
       <TeamSection />

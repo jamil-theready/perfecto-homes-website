@@ -4,7 +4,7 @@ import { getCollection } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Upcoming real estate events, open houses, and community workshops from Perfecto Homes Real Estate in Sacramento.",
+  description: "Upcoming property events, viewings, and workshops from Perfecto Homes in Cusco and the Sacred Valley.",
   alternates: { canonical: "/events" },
 };
 
@@ -18,7 +18,7 @@ export default function EventsPage() {
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-3">Upcoming</p>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">Events</h1>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-            Join us at open houses, workshops, and community events across Sacramento.
+            Join us at viewings, workshops, and community events across Cusco and the Sacred Valley.
           </p>
         </div>
       </section>

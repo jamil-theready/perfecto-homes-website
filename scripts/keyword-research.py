@@ -27,9 +27,6 @@ CONTEXT_PATH = ROOT / ".seo" / "context.json"
 SITE = "https://www.perfectohomesrealestate.com/"
 SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 
-PERU_TERMS = ("peru", "cusco", "sacred valley", "ollantaytambo", "urubamba",
-              "lima", "chinchero", "san blas", "machu picchu")
-
 
 def load_credentials() -> dict:
     # GCP_SA_KEY_JSON is the existing repo secret used by daily-blog.py —
@@ -137,13 +134,9 @@ def main() -> int:
             "impressions": r["impressions"],
             "clicks": r["clicks"],
             "nearMiss": r["position"] <= 12,
-            "market": "peru" if any(t in q for t in PERU_TERMS) else "sacramento",
+            "market": "peru",
         })
 
-    # Peru first: daily-blog.py only consumes opportunityQueries[:10], and
-    # Sacramento's raw impressions would otherwise fill all ten slots. Peru
-    # listings are the business priority (Jamil 2026-07-08), so they lead.
-    opportunities.sort(key=lambda o: o["market"] != "peru")
 
     context = json.loads(CONTEXT_PATH.read_text())
     context["opportunityQueries"] = opportunities
@@ -154,9 +147,8 @@ def main() -> int:
         "run scripts/keyword-research.py instead.")
     CONTEXT_PATH.write_text(json.dumps(context, indent=2, ensure_ascii=False) + "\n")
 
-    peru = sum(1 for o in opportunities if o["market"] == "peru")
     print(f"wrote {len(opportunities)} opportunities "
-          f"({peru} peru, {len(opportunities) - peru} sacramento) to .seo/context.json")
+          f"({len(opportunities)} peru) to .seo/context.json")
     return 0
 
 

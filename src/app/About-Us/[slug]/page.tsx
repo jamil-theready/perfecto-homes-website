@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!member) return {};
   return {
     title: `${member.name}, ${member.role.split("|")[0].trim()}`,
-    description: `Meet ${member.name} at Perfecto Homes Real Estate, serving the greater Sacramento area and Peru's Sacred Valley.`,
+    description: `Meet ${member.name} at Perfecto Homes Real Estate, representing property in Cusco and the Sacred Valley and Peru's Sacred Valley.`,
     // Legacy duplicate of /about/[slug] — consolidate ranking signals on the canonical page.
     alternates: { canonical: `/about/${slug}` },
   };

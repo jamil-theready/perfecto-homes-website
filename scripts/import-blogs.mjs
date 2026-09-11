@@ -10,17 +10,17 @@
  *   title        - Blog post title
  *   slug         - URL slug (e.g. "my-blog-post")
  *   author       - Author first name: elisban, gina, alfredo, jamil
- *   category     - Category: Sacramento, Peru, News
+ *   category     - Category: Peru, News
  *
  * CSV Fields (optional):
  *   metaDescription - SEO meta description (max 160 chars recommended)
  *   image           - Image URL for the post hero/card
- *   tags            - Comma-separated tags (e.g. "SACRAMENTO,HOME BUYING")
+ *   tags            - Comma-separated tags (e.g. "CUSCO,BUYING")
  *   content         - HTML body content
  *
  * Example CSV:
  *   title,slug,author,category,metaDescription,image,tags,content
- *   "My Post","my-post","elisban","Sacramento","Description here","https://...","SACRAMENTO,BUYING","<p>Content here</p>"
+ *   "My Post","my-post","elisban","Peru","Description here","https://...","CUSCO,BUYING","<p>Content here</p>"
  *
  * Output:
  *   Creates markdown files in content/blog/ with YAML frontmatter
@@ -75,9 +75,9 @@ function run() {
     console.log("Required CSV columns: title, slug, author, category");
     console.log("Optional CSV columns: metaDescription, image, tags, content\n");
     console.log("Valid authors: elisban, gina, alfredo, jamil");
-    console.log("Valid categories: Sacramento, Peru, News\n");
+    console.log("Valid categories: Peru, News\n");
     console.log("Example row:");
-    console.log('  "My Post","my-post","elisban","Sacramento","SEO desc","https://img.url","TAG1,TAG2","<p>Body</p>"');
+    console.log('  "My Post","my-post","elisban","Peru","SEO desc","https://img.url","TAG1,TAG2","<p>Body</p>"');
     process.exit(0);
   }
 

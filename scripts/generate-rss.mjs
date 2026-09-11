@@ -51,7 +51,7 @@ const rss = `<?xml version="1.0" encoding="UTF-8"?>
     <title>Perfecto Homes Real Estate Blog</title>
     <link>${SITE_URL}/blog/</link>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
-    <description>Sacramento real estate insights, neighborhood guides, and Peru investment properties from the Perfecto Homes team.</description>
+    <description>Cusco and Sacred Valley property insights, area guides, and buying advice from the Perfecto Homes team.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date(posts[0]?.date || Date.now()).toUTCString()}</lastBuildDate>
 ${items}

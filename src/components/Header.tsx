@@ -103,17 +103,17 @@ export default function Header() {
               {/* Communities Panel */}
               {openDropdown === "communities" && (
                 <div className="flex gap-6">
-                  {/* Sacramento */}
+                  {/* Cusco & Sacred Valley */}
                   <div className="flex gap-4">
                     <Link href="/communities" className="group/card relative rounded-xl overflow-hidden w-[180px] h-[140px] shrink-0 block" onClick={closeDropdown}>
-                      <Image src="/images/hero/sacramento-bridge.jpg" alt="Tower Bridge over the Sacramento River, Sacramento California" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
+                      <Image src="/images/hero/peru-landscape.jpg" alt="Terraced Sacred Valley landscape near Cusco, Peru" fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="180px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <p className="text-white text-[13px] font-semibold">Sacramento</p>
+                        <p className="text-white text-[13px] font-semibold">Cusco &amp; Sacred Valley</p>
                       </div>
                     </Link>
                     <div>
-                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">Sacramento</p>
+                      <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-2">All Communities</p>
                       <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                         {COMMUNITIES.map((c) => (
                           <Link key={c.slug} href={`/communities/${c.slug}`} className="px-2 py-1.5 text-[13px] text-dark hover:text-gold transition-colors" onClick={closeDropdown}>
@@ -177,26 +177,6 @@ export default function Header() {
               {/* Listings Panel */}
               {openDropdown === "listings" && (
                 <div className="flex gap-8">
-                  {/* Sacramento */}
-                  <div>
-                    <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-3">Sacramento</p>
-                    <div className="grid grid-cols-3 gap-3 w-[480px]">
-                      {[
-                        { name: "11610 Vickie Dr", slug: "11610-vickie-dr", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/11610-vickie-dr/1" },
-                        { name: "6630 Dunmore Ave", slug: "6630-dunmore-ave", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/6630-dunmore-ave/1" },
-                        { name: "6236 Riverbelle Ct", slug: "6236-riverbelle-ct", img: "https://res.cloudinary.com/duwsn5ksy/image/upload/w_400,q_auto,f_auto/listings/perfecto-homes/6236-riverbelle-ct/1" },
-                      ].map((l) => (
-                        <Link key={l.slug} href={`/listings/${l.slug}`} className="group/card block" onClick={closeDropdown}>
-                          <div className="relative rounded-lg overflow-hidden aspect-[4/3] mb-2">
-                            <Image src={l.img} alt={l.name} fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" sizes="160px" unoptimized />
-                          </div>
-                          <p className="text-[12px] font-medium text-dark group-hover/card:text-gold transition-colors leading-tight">{l.name}</p>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  {/* Divider */}
-                  <div className="w-px bg-gray-100 shrink-0" />
                   {/* Peru */}
                   <div>
                     <p className="text-[10px] tracking-[0.16em] uppercase text-gray-400 font-semibold mb-3">Peru</p>
@@ -229,16 +209,16 @@ export default function Header() {
                       <p className="text-xs text-medium-gray">Upcoming events</p>
                     </div>
                   </Link>
-                  <Link href="/blog/first-time-home-buyer-guide-sacramento-ca" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
+                  <Link href="/blog/how-to-buy-property-in-peru-as-a-foreigner" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
                     <div>
                       <p className="text-[14px] font-semibold text-dark group-hover/card:text-gold transition-colors">Buyer Guide</p>
-                      <p className="text-xs text-medium-gray">First-time buyers</p>
+                      <p className="text-xs text-medium-gray">Foreign buyers in Peru</p>
                     </div>
                   </Link>
-                  <Link href="/blog/selling-your-home-in-sacramento-what-to-expect" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
+                  <Link href="/blog/why-invest-in-sacred-valley-real-estate" className="group/card flex items-center gap-4 bg-light-gray rounded-xl p-4 hover:bg-gray-100 transition-colors w-[200px]" onClick={closeDropdown}>
                     <div>
-                      <p className="text-[14px] font-semibold text-dark group-hover/card:text-gold transition-colors">Seller Guide</p>
-                      <p className="text-xs text-medium-gray">Selling your home</p>
+                      <p className="text-[14px] font-semibold text-dark group-hover/card:text-gold transition-colors">Investment Guide</p>
+                      <p className="text-xs text-medium-gray">Why the Sacred Valley</p>
                     </div>
                   </Link>
                 </div>
@@ -304,23 +284,6 @@ export default function Header() {
           <MobileSection title="Listings">
             <div className="grid grid-cols-2 gap-2 pt-1">
               <Link
-                href="/listings"
-                className="group/card relative block rounded-xl overflow-hidden h-[100px]"
-                onClick={() => setMobileOpen(false)}
-              >
-                <Image
-                  src="/images/hero/sacramento-bridge.jpg"
-                  alt="Homes for sale in the Sacramento area"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover/card:scale-110"
-                  sizes="150px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-white text-[12px] font-semibold">Sacramento</p>
-                </div>
-              </Link>
-              <Link
                 href="/peru"
                 className="group/card relative block rounded-xl overflow-hidden h-[100px]"
                 onClick={() => setMobileOpen(false)}
@@ -362,14 +325,6 @@ export default function Header() {
             </div>
           </MobileSection>
 
-          {/* Sacramento Communities */}
-          <MobileDropdown title="Sacramento Communities">
-            {COMMUNITIES.map((c) => (
-              <Link key={c.slug} href={`/communities/${c.slug}`} className="block py-2 pl-4 text-[14px] text-dark hover:text-gold" onClick={() => setMobileOpen(false)}>
-                {c.name}
-              </Link>
-            ))}
-          </MobileDropdown>
 
           {/* Sacred Valley */}
           <MobileDropdown title="Sacred Valley">

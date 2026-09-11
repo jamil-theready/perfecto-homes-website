@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getCollection, getItemBySlug, markdownToHtml, getCollectionSlugs } from "@/lib/content";
 import { PHONE, PHONE_TEL } from "@/lib/constants";
 import { PropertyJsonLd } from "@/components/JsonLd";
-import ImageGallery from "@/app/listings/[slug]/ImageGallery";
+import ImageGallery from "@/components/ImageGallery";
 import InquiryForm from "@/components/InquiryForm";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = item.image1 as string | undefined;
   return {
     // Property type + location + price fills the SERP line; the brand suffix only
-    // pushed these into truncation, same as the Sacramento listings.
+    // pushed these into truncation.
     title: { absolute: title },
     description: seo?.description || (item.metaDescription as string) || `${item.title} - Property for sale in Peru's Sacred Valley. ${item.price}`,
     alternates: { canonical: `/peru/${slug}` },

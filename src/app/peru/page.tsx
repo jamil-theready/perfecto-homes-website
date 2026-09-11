@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getCollection } from "@/lib/content";
-import ListingsFilter from "@/app/listings/ListingsFilter";
+import ListingsFilter from "@/components/ListingsFilter";
 
 export const metadata: Metadata = {
   // This page owns the transactional Peru queries ("homes for sale in cusco peru",

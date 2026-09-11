@@ -144,39 +144,6 @@ const META: Record<string, ListingMeta> = {
       { icon: "location", label: "Area", value: "Urubamba" },
     ],
   },
-  "11610-vickie-dr": {
-    eyebrow: "Marysville · California",
-    tagline:
-      "A three-bedroom single family home in Marysville with comfortable interiors, a workable lot, and easy access to Sacramento commuter corridors.",
-    cta: "View 11610 Vickie Dr",
-    stats: [
-      { icon: "tag", label: "Price", value: "$635,000" },
-      { icon: "bed", label: "Beds", value: "3" },
-      { icon: "bath", label: "Baths", value: "3" },
-    ],
-  },
-  "6630-dunmore-ave": {
-    eyebrow: "Citrus Heights · California",
-    tagline:
-      "Beautifully renovated four-bedroom home in Citrus Heights with two primary suites, granite kitchen, fireplace, and a generous fenced backyard with pergola. Walkable to schools and minutes from the I-80 corridor.",
-    cta: "View 6630 Dunmore Ave",
-    stats: [
-      { icon: "tag", label: "Price", value: "$539,900" },
-      { icon: "bed", label: "Beds", value: "4" },
-      { icon: "bath", label: "Baths", value: "3" },
-    ],
-  },
-  "6236-riverbelle-ct": {
-    eyebrow: "Rio Linda · California",
-    tagline:
-      "Three-bedroom single family home tucked into a quiet cul de sac in Rio Linda. Built in 1995 on a 0.12 acre lot — under-$500K Sacramento County value with privacy, space, and a 15 minute drive to downtown.",
-    cta: "View 6236 Riverbelle Ct",
-    stats: [
-      { icon: "tag", label: "Price", value: "$480,000" },
-      { icon: "bed", label: "Beds", value: "3" },
-      { icon: "bath", label: "Baths", value: "2" },
-    ],
-  },
 };
 
 function StatIconSvg({ name }: { name: StatIcon }) {

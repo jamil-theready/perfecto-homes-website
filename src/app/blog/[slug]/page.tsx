@@ -317,7 +317,7 @@ export default async function BlogPostPage({ params }: Props) {
                         </div>
                       </div>
                       <p className="text-medium-gray text-[14px] leading-[1.6] mb-6">
-                        Get a free consultation tailored to your goals — Sacramento or Peru.
+                        Get a free consultation tailored to your goals.
                       </p>
                       <Link
                         href="/contact"

@@ -56,83 +56,25 @@ CLUSTER_KEYWORDS = {
         "peru foreign buyer tax implications",
         "due diligence peru property purchase",
     ],
-    "sacramentoNeighborhoods": [
-        "best neighborhoods sacramento families",
-        "elk grove vs folsom comparison",
-        "natomas neighborhood guide sacramento",
-        "davis ca real estate communities",
-        "roseville home buying guide",
-        "rancho cordova family neighborhoods",
-        "carmichael homes sacramento",
-    ],
-    "sacramentoFirstTimeBuyer": [
-        "first time home buyer sacramento 2026",
-        "calhfa down payment assistance california",
-        "fha loan sacramento requirements",
-        "first time buyer programs sacramento",
-        "down payment minimum california 2026",
-        "preapproval process sacramento buyer",
-    ],
-    "sacramentoMarket": [
-        "sacramento housing market 2026",
-        "california home prices forecast",
-        "sacramento real estate trends",
-        "interest rates impact sacramento",
-        "inventory levels sacramento county",
-        "median home price sacramento county",
-    ],
-    "sacramentoSeller": [
-        "selling home sacramento 2026",
-        "best time to sell sacramento",
-        "home staging sacramento tips",
-        "fsbo vs realtor sacramento comparison",
-        "listing strategy sacramento 2026",
-    ],
-    "sacramentoBuyerProcess": [
-        "escrow process california buyer",
-        "home inspection sacramento what to expect",
-        "closing costs california buyer breakdown",
-        "earnest money deposit california",
-        "contingencies california purchase agreement",
-    ],
-    "sacramentoNewConstruction": [
-        "new construction sacramento 2026",
-        "natomas new builds sacramento",
-        "elk grove new construction homes",
-        "builder vs resale sacramento",
-    ],
-    "californiaMarket": [
-        "california housing market forecast 2026",
-        "calhfa programs explained",
-        "california property tax basics",
-        "prop 19 explained homeowners",
-    ],
-    "bilingualServices": [
-        "spanish speaking realtor sacramento",
-        "agente inmobiliario sacramento bilingue",
-        "comprar casa sacramento espanol",
-        "latino home buyers sacramento guide",
-        "bilingual real estate agent elk grove",
-    ],
     "general": [
-        "perfecto homes sacramento peru dual market",
-        "buying us and peru property",
+        "perfecto homes cusco sacred valley property",
+        "buying property in peru as a foreigner",
     ],
 }
 
 SEASONAL = {
-    1: ["sacramento housing market predictions 2026", "buying a home in january sacramento", "year ahead real estate forecast california"],
-    2: ["tax benefits homeownership california", "prep home for spring sale sacramento", "valentines day moving guide couples"],
-    3: ["spring buying season sacramento", "open house etiquette sacramento", "spring home prep checklist"],
-    4: ["peak buying season inventory pulse", "tax refund down payment strategy", "spring break peru property tour"],
-    5: ["summer move family neighborhoods sacramento", "wedding season relocation guide", "memorial day open houses sacramento"],
-    6: ["summer home buying tips sacramento", "best month to sell sacramento", "school district homes sacramento"],
-    7: ["mid year sacramento market check", "fourth of july community events sacramento", "summer rental investment peru"],
-    8: ["back to school move sacramento", "family neighborhoods sacramento county", "school year start home buying"],
-    9: ["fall listing strategy sacramento", "labor day open houses", "autumn home maintenance sellers"],
-    10: ["fall real estate market sacramento", "halloween neighborhood guide sacramento", "year end buying push california"],
-    11: ["holiday home buying sacramento", "thanksgiving relocation tips", "november real estate market"],
-    12: ["year end real estate review sacramento", "holiday open house tips", "january launch listing prep"],
+    1: ["cusco property market outlook 2026", "buying property in peru in january", "sacred valley year ahead forecast"],
+    2: ["peru property taxes for foreign owners", "sacred valley land prices february", "carnival season urubamba property"],
+    3: ["rainy season property inspection peru", "cusco rental demand shoulder season", "sacred valley land due diligence"],
+    4: ["semana santa cusco tourism property", "peak season hospitality revenue cusco", "sacred valley guesthouse demand"],
+    5: ["dry season buying window cusco", "sacred valley construction season", "inti raymi tourism property impact"],
+    6: ["inti raymi cusco peak tourism", "cusco hotel occupancy june", "sacred valley high season rentals"],
+    7: ["peak tourist season cusco property", "machu picchu visitor numbers property", "urubamba restaurant season"],
+    8: ["august high season sacred valley", "cusco property viewing season", "chinchero airport construction update"],
+    9: ["shoulder season cusco property deals", "sacred valley land september", "peru property registration sunarp"],
+    10: ["spring in the andes property", "cusco market october pricing", "sacred valley investment outlook"],
+    11: ["low season cusco buying opportunity", "peru property closing process", "sacred valley land november"],
+    12: ["year end cusco property review", "peru property outlook next year", "holiday season cusco tourism"],
 }
 
 
@@ -189,14 +131,6 @@ def _recent_cluster_counts(n: int = 7) -> dict:
 CLUSTER_HINTS = {
     "peruBuyerProcess": ["sunarp", "notario", "peru foreigner", "peru title", "peru closing", "peru buyer", "buy property in peru", "buying property in peru", "foreigners buy property", "peru lawyer"],
     "peruInvestment": ["sacred valley", "urubamba", "ollantaytambo", "cusco", "andes", "andean", "siete cuartones", "san blas", "chinchero", "peru property", "peru real estate", "peru investment", "lima peru", "machu picchu", "peru"],
-    "sacramentoNeighborhoods": ["elk grove", "folsom", "roseville", "natomas", "davis", "rancho cordova", "carmichael", "neighborhood", "communities", "fair oaks", "citrus heights", "arden arcade", "arden-arcade", "el dorado hills", "homes for sale", "condos for sale"],
-    "sacramentoFirstTimeBuyer": ["first time", "first-time", "calhfa", "down payment", "fha", "preapproval", "first home"],
-    "sacramentoMarket": ["sacramento market", "sacramento prices", "sacramento trends", "sacramento forecast", "median sacramento"],
-    "sacramentoSeller": ["selling", "list price", "staging", "fsbo", "for sale by owner", "seller", "listing"],
-    "sacramentoBuyerProcess": ["escrow", "closing costs", "home inspection", "earnest money", "contingencies", "purchase agreement"],
-    "sacramentoNewConstruction": ["new construction", "new build", "builder", "tract home"],
-    "californiaMarket": ["california market", "california forecast", "california housing", "prop 19", "california property tax"],
-    "bilingualServices": ["spanish", "espanol", "español", "latino", "latina", "agente", "bilingual"],
 }
 
 
@@ -300,12 +234,11 @@ def pick_keyword(context: dict, used: set[str]) -> tuple[str, str]:
     # Filter out anything we've already posted
     fresh = [c for c in candidates if slugify(c[0]) not in used]
     if not fresh:
-        fresh = [("sacramento real estate market guide", "fallback", None, 0.0)]
+        fresh = [("cusco sacred valley property guide", "fallback", None, 0.0)]
 
     # Apply cluster-diversity penalty based on recent posts, plus the
     # business-priority bias from context.json (clusterBias). The bias keeps
-    # Peru/Cusco content dominant even though Sacramento queries carry far
-    # more raw impressions — active Peru listings outrank search volume.
+    # site is Peru-only as of 2026-09-11.
     recent = _recent_cluster_counts(n=7)
     bias = context.get("clusterBias", {})
     print(f"Recent cluster counts (last 7 posts): {recent}")
@@ -346,13 +279,12 @@ You write SEO/GEO/AEO-optimized blog posts for perfectohomesrealestate.com. Your
 
 ## About Perfecto Homes
 
-- Sacramento, CA real estate brokerage with international Sacred Valley (Peru) listings
-- Affiliated with LPT Realty
-- Team of 4: Elisban (broker, Peruvian-American real estate expert), Gina (bilingual specialist, Sacramento), Alfredo (sustainability and andean property), Jamil (marketing and Peru operations)
+- Cusco and Sacred Valley, Peru property: homes, land and hospitality
+- Elisban (Peruvian-born family property representative), Alfredo (Peru listings), Jamil (marketing and operations)
 - Phone: (916) 878-7260, Email: perfectohomes@gmail.com
 - Website: https://www.perfectohomesrealestate.com
-- Service areas: Sacramento, Elk Grove, Folsom, Roseville, Natomas, Davis, Rancho Cordova, Carmichael, Citrus Heights, plus Sacred Valley (Urubamba, Ollantaytambo, Cusco) Peru
-- Bilingual English / Spanish, family-first approach, dual-market expertise
+- Areas: Cusco (Centro Histórico, San Blas, Wanchaq, San Sebastián, San Jerónimo) and the Sacred Valley (Ollantaytambo, Urubamba, Pisac, Chinchero, Calca, Yucay, Maras, Aguas Calientes)
+- Bilingual English / Spanish, family-first approach, on-the-ground in Peru
 
 ## Voice Rules (MUST follow)
 
@@ -375,9 +307,9 @@ metaTitle: "... (2026)" (20-60 chars, ends with year)
 metaDescription: "..." (80-155 chars, include keyword + phone (916) 878-7260)
 slug: "..." (3-6 lowercase hyphenated words)
 date: "YYYY-MM-DD"
-image: "/images/blog/library/sacramento-market.jpg"
+image: "/images/blog/library/peru-sacred-valley.jpg"
 imageAlt: "..." (10-125 chars, keyword + description)
-category: "Sacramento" OR "Peru" OR "Market News" OR "Buying" OR "Selling" OR "Investment"
+category: "Peru" OR "Market News" OR "Buying" OR "Investment"
 author: "elisban" OR "gina" OR "alfredo" OR "jamil"
 tags: ["tag1", "tag2", "tag3"]
 language: "en"
@@ -400,7 +332,7 @@ faq:
 - H2 headings: 5 to 10 (frame as questions, keyword in 2+)
 - Internal links: minimum 3, descriptive anchors only
 - Include at least 1 specific market stat or government data point (median price, days on market, mortgage rate, etc. — cite source)
-- Include at least 3 specific Sacramento neighborhoods OR Peru locations (depending on topic focus)
+- Include at least 3 specific Cusco or Sacred Valley locations
 - Include a price transparency element (specific dollar ranges, % figures, comp data)
 - For Peru-focused posts: include foreign-buyer-specific guidance
 - For bilingual-focused posts: include Spanish title alternates if relevant
@@ -408,23 +340,14 @@ faq:
 
 ## First-Party Authority Block (REQUIRED — include at least 2 in body)
 
-- "Perfecto Homes serves both Sacramento and Sacred Valley Peru, a dual-market combination that few brokerages offer"
-- "Our team is fully bilingual English / Spanish and walks Spanish-speaking buyers through every step of the California closing process"
-- "We are licensed under LPT Realty and operate across 9 Sacramento communities"
-- "Sacramento County median home price tracking, MLS data, comparable sales reviewed monthly"
+- "Perfecto Homes represents family-held property in Cusco and the Sacred Valley"
+- "Our team is fully bilingual English / Spanish and walks foreign buyers through every step of the Peruvian process"
 - "Sacred Valley Peru listings are vetted in-person by Perfecto team members based in Urubamba and Ollantaytambo"
-- "First-time California homebuyers may qualify for CalHFA programs offering down payment assistance"
 - "Peru property transactions for foreigners must be conducted through a notario público, with title insurance via SUNARP"
-- "We track California Department of Real Estate (DRE) regulations for every transaction"
 
 ## Outbound Authority Links (REQUIRED — minimum 2 outbound .gov or .org links)
 
-- California Department of Real Estate: https://www.dre.ca.gov/
-- California Housing Finance Agency: https://www.calhfa.ca.gov/
-- US Census Sacramento data: https://www.census.gov/
 - Federal Reserve mortgage rates: https://www.federalreserve.gov/
-- HUD California: https://www.hud.gov/states/california
-- Sacramento County Assessor: https://assessor.saccounty.gov/
 - SUNARP Peru (Registro Predial): https://www.sunarp.gob.pe/
 - Peru Ministry of Housing: https://www.gob.pe/vivienda
 - NAR Realtor: https://www.nar.realtor/
@@ -439,19 +362,10 @@ Format: [descriptive anchor text](URL). Anchor text must be specific.
 
 ## IMAGE OPTIONS (pick one that matches topic)
 
-- /images/blog/library/sacramento-market.jpg — Sacramento market analysis, prices, trends
-- /images/blog/library/sacramento-neighborhoods.jpg — neighborhood guides, community pages
-- /images/blog/library/sacramento-first-time-buyer.png — first-time buyer content
-- /images/blog/library/sacramento-roseville.jpg — Roseville/Folsom/east area focus
-- /images/blog/library/sacramento-el-dorado-hills.jpg — El Dorado Hills, premium markets
-- /images/blog/library/sacramento-new-construction.jpeg — new construction, builder content
-- /images/blog/library/sacramento-inspection.jpg — home inspection, due diligence
-- /images/blog/library/sacramento-selling.jpg — seller content, listing prep
 - /images/blog/library/peru-sacred-valley.jpg — Sacred Valley, Urubamba, general Peru content
 - /images/blog/library/peru-buying-process.jpg — Peru property buying process
 - /images/blog/library/peru-chinchero-airport.jpg — Chinchero airport, Peru infrastructure
 - /images/blog/library/peru-hospitality.jpg — Peru hospitality, hostal investment
-- /images/blog/library/news-california-market.jpeg — California market news
 - /images/blog/library/news-rates.jpg — interest rates, financing news
 - /images/blog/library/news-inventory.jpg — inventory levels, market supply
 - /images/blog/library/news-affordability.jpg — affordability crisis, housing policy
@@ -469,7 +383,7 @@ TARGETED KEYWORD: {keyword}
 CONTENT CATEGORY: {category}
 KEYWORD SOURCE: {source}
 
-Write a comprehensive blog post targeting this keyword for Perfecto Homes Realty serving Sacramento and Sacred Valley Peru. Apply all voice rules, schema requirements, internal link library, and first-party authority block from the system prompt.
+Write a comprehensive blog post targeting this keyword for Perfecto Homes serving Cusco and the Sacred Valley, Peru. Apply all voice rules, schema requirements, internal link library, and first-party authority block from the system prompt.
 
 Output only the blog post markdown file starting with --- YAML frontmatter. No other deliverables."""
 

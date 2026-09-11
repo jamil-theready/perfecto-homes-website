@@ -6,7 +6,7 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Perfecto Homes Real Estate. Call us at (916) 878-7260 or send a message. Serving Sacramento, CA and Peru.",
+    "Get in touch with Perfecto Homes. Call us at (916) 878-7260 or send a message. Serving Cusco and the Sacred Valley, Peru.",
   alternates: { canonical: "/contact" },
 };
 
@@ -58,7 +58,7 @@ export default function ContactUsPage() {
                 <ContactInfoRow
                   icon="location"
                   label="Office"
-                  value="Sacramento, California"
+                  value="Cusco, Peru"
                 />
               </div>
             </div>
@@ -97,11 +97,10 @@ export default function ContactUsPage() {
       <section className="bg-light-gray py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl font-serif font-bold text-dark mb-4">
-            Serving Sacramento &amp; Peru
+            Serving Cusco &amp; the Sacred Valley
           </h2>
           <p className="text-medium-gray leading-relaxed mb-6">
-            We serve the greater Sacramento area including Citrus Heights, Roseville, Folsom, Elk Grove, and El Dorado Hills. We also offer exclusive international listings in Peru&apos;s Sacred Valley.
-          </p>
+            We cover Cusco and the Sacred Valley, including Centro Histórico, San Blas, Ollantaytambo, Urubamba and Pisac. </p>
           <a
             href={WA_LINK}
             target="_blank"
