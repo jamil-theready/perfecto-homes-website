@@ -25,8 +25,11 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
       });
       const result = await res.json();
       if (result.success) {
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", { form_name: "inquiry_form", property: propertyTitle });
+        if (typeof window !== "undefined") {
+          window.sessionStorage.setItem(
+            "perfecto_lead_context",
+            JSON.stringify({ form_name: "inquiry_form", property: propertyTitle })
+          );
         }
         router.push("/thank-you");
       } else {
