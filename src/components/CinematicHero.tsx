@@ -27,8 +27,6 @@ export default function CinematicHero() {
     offset: ["start start", "end start"],
   });
 
-  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.45, 0.85]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.6, 0]);
@@ -41,22 +39,16 @@ export default function CinematicHero() {
       ref={ref}
       className="relative overflow-hidden h-[calc(100vh-160px)] min-h-[560px] max-h-[760px] bg-black"
     >
-      <motion.div
-        style={{ y: videoY, scale: videoScale }}
-        className="absolute inset-0"
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/hero/peru-landscape.jpg"
-        >
-          <source src="/images/hero/hero-video.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/peru-landscape.jpg"
+          alt="Sacred Valley landscape near Cusco, Peru"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
 
       <motion.div
         style={{ opacity: overlayOpacity }}
@@ -84,7 +76,7 @@ export default function CinematicHero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative h-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-end pb-[60px]"
       >
-        <div className="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div className="w-full">
           <div className="max-w-[640px] flex flex-col gap-[30px]">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -129,19 +121,6 @@ export default function CinematicHero() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-[30px] flex-shrink-0"
-          >
-            <Image
-              src="/images/logo/diamond-club.png"
-              alt="Diamond Club"
-              width={168}
-              height={37}
-            />
-          </motion.div>
         </div>
       </motion.div>
 
