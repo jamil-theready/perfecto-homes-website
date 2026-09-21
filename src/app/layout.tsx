@@ -72,6 +72,7 @@ export default function RootLayout({
             beforeInteractive Script is serialised into the RSC payload and only runs
             at hydration, which lets the GA4 tag fire ahead of the defaults. */}
         <script dangerouslySetInnerHTML={{ __html: consentBootstrap() }} />
+        <script src="https://px.get-ryze.ai/px.js?key=rz_pk_8a464e830b573866a810d9916de0ce8c"></script>
       </head>
       <body
         className={`${inter.variable} ${lato.variable} font-sans antialiased`}
