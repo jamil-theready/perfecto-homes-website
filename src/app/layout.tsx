@@ -8,6 +8,7 @@ import GlobalCTA from "@/components/GlobalCTA";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import SiteIntro from "@/components/SiteIntro";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import ContactClickTracking from "@/components/ContactClickTracking";
 import "./globals.css";
 
 import CookieConsent from "@/components/CookieConsent";
@@ -82,6 +83,7 @@ export default function RootLayout({
         <GlobalCTA />
         <Footer />
         <WhatsAppWidget />
+        <ContactClickTracking />
         <GoogleAnalytics gaId="G-Q0X209GPL3" />
         {/* Meta Pixel and Metricool ignore Google Consent Mode entirely, so they
             load only once the visitor has accepted. */}
