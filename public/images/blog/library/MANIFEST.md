@@ -13,15 +13,6 @@ Live URL prefix: `https://www.perfectohomesrealestate.com/images/blog/automation
 | `peru-chinchero-airport.jpg` | Chinchero airport construction near Cusco | chinchero, airport, infrastructure, appreciation, values |
 | `peru-hospitality.jpg` | Boutique hotel courtyard in Cusco region | hospitality, hotel, rental, airbnb, boutique, lodge, vacation |
 
-## News — REMOVED 2026-09-11
-
-The four news images were all California stock (`news-california-market`,
-`news-rates`, `news-inventory`, `news-affordability`). They moved to the
-Sacramento repo with the rest of the California content. Peru news posts need
-new stock; see the Pexels rules before adding any.
-
----
-
 ## How to add more images
 
 1. Drop a JPG/PNG into this folder (`/website/public/images/blog/automation/`)
