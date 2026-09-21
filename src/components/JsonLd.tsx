@@ -37,11 +37,52 @@ export function OrganizationJsonLd() {
     ],
   };
 
+  const orgData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Perfecto Homes Real Estate",
+    url: "https://www.perfectohomesrealestate.com",
+    logo: "https://www.perfectohomesrealestate.com/images/logo/perfecto-logo-full.png",
+    email: "perfectohomes@gmail.com",
+    telephone: "+19168787260",
+    sameAs: [
+      "https://www.facebook.com/perfectohomes",
+      "https://www.instagram.com/perfectohomes/",
+      "https://www.tiktok.com/@perfectohomes",
+      "https://www.youtube.com/@perfectohomes",
+    ],
+  };
+
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Perfecto Homes Real Estate",
+    alternateName: "Perfecto Homes",
+    url: "https://www.perfectohomesrealestate.com",
+    inLanguage: "en",
+    publisher: {
+      "@type": "Organization",
+      name: "Perfecto Homes Real Estate",
+      url: "https://www.perfectohomesrealestate.com",
+      logo: "https://www.perfectohomesrealestate.com/images/logo/perfecto-logo-full.png",
+    },
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+      />
+    </>
   );
 }
 
