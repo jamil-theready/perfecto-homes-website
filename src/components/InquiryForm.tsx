@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { appendLeadAttribution } from "@/lib/lead-attribution";
 
 interface InquiryFormProps {
   propertyTitle: string;
@@ -17,6 +18,7 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
     setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
+    appendLeadAttribution(data, "property_inquiry_form");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -55,6 +57,7 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
       <input type="email" name="email" required placeholder="your@email.com" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-2" />
       <input type="tel" name="phone" placeholder="(916) 878-7260" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-2" />
       <textarea name="message" rows={2} placeholder="Tell us about your interest in this property" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-3 resize-none" />
+      <select name="how_heard" aria-label="How did you hear about us?" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm mb-3"><option value="">How did you hear about us? (optional)</option><option>Google Search or Maps</option><option>Google ad</option><option>Facebook or Instagram</option><option>Friend or referral</option><option>Other</option></select>
       <button
         type="submit"
         disabled={loading}

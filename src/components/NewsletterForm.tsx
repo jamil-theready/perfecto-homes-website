@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { appendLeadAttribution } from "@/lib/lead-attribution";
 
 export default function NewsletterForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,6 +11,7 @@ export default function NewsletterForm() {
     e.preventDefault();
     setLoading(true);
     const data = new FormData(e.currentTarget);
+    appendLeadAttribution(data, "newsletter_form");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {

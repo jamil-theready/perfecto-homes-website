@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { appendLeadAttribution } from "@/lib/lead-attribution";
 
 export default function GlobalCTAForm() {
   const [loading, setLoading] = useState(false);
@@ -12,6 +13,7 @@ export default function GlobalCTAForm() {
     setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
+    appendLeadAttribution(data, "global_cta_form");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -66,6 +68,7 @@ export default function GlobalCTAForm() {
         <div className="mb-5">
           <label className="block text-xs font-medium text-medium-gray mb-1">Message</label>
           <textarea name="message" rows={3} placeholder="Write us a message!" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm resize-none" />
+          <select name="how_heard" aria-label="How did you hear about us?" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm"><option value="">How did you hear about us? (optional)</option><option>Google Search or Maps</option><option>Google ad</option><option>Facebook or Instagram</option><option>Friend or referral</option><option>Other</option></select>
         </div>
         <button
           type="submit"

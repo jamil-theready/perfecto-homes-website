@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { appendLeadAttribution } from "@/lib/lead-attribution";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
@@ -14,6 +15,7 @@ export default function ContactForm({ className = "" }: { className?: string }) 
     setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
+    appendLeadAttribution(data, "contact_form");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -120,6 +122,10 @@ export default function ContactForm({ className = "" }: { className?: string }) 
           />
         </div>
 
+        <div>
+          <label htmlFor="how_heard" className="block text-sm font-medium text-dark mb-1">How did you hear about us? <span className="font-normal">(optional)</span></label>
+          <select id="how_heard" name="how_heard" className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm"><option value="">Select one</option><option>Google Search or Maps</option><option>Google ad</option><option>Facebook or Instagram</option><option>Friend or referral</option><option>Other</option></select>
+        </div>
         <button
           type="submit"
           disabled={loading}
