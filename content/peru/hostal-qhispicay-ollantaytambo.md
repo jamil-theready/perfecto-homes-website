@@ -36,11 +36,9 @@ image22: "/images/peru/qhispicay/22-hostal-qhispicay-yellow-facade-sacred-valley
 youtubeVideo: "VRF4rBiZpZw"
 ---
 
-## Embrace the Eternal Echoes of the Incas: Your Sacred Valley Sanctuary Awaits
+## Operating Hostal in Ollantaytambo
 
-Nestled in the heart of the Sacred Valley, this fully operational hostal in Ollantaytambo stands as a bridge between Inca heritage and modern hospitality. Just steps from the iconic fortress ruins — a UNESCO World Heritage site — and a short train ride to Machu Picchu, Hostal Qhispicay isn't merely a property; it's a turnkey business and portal to Peru's soul.
-
-Imagine managing a thriving retreat with panoramic views of snow-capped Vilcabamba mountains, or converting it into a private Andean estate. With its blend of rustic stone charm, contemporary comforts, and observatory-inspired design, this hostal promises not just investment, but resurrection — of spirit, legacy, and revenue streams.
+Hostal Qhispicay is an operating hospitality property in Ollantaytambo, Cusco. It offers 12 guest rooms, two mini apartments, and rooftop views of the Sacred Valley.
 
 ### Property Highlights
 
@@ -101,25 +99,6 @@ Imagine managing a thriving retreat with panoramic views of snow-capped Vilcabam
 
 ---
 
-## Legal & Registry Details
+## Due Diligence and Next Steps
 
-| Detail | Information |
-|---|---|
-| **Date Listed** | February 10, 2026 |
-| **Registry Details** | Fully titled and registered under Partida Registral #02037554 in the Public Registries of Cusco. Completely saneado (cleared) with no liens or encumbrances. Exclusive brokerage representation under contract through August 10, 2026. |
-| **Title Status** | Saneado and inscribed in SUNARP Cusco Public Registries (Partida #02037554); includes up-to-date tax payments and no encumbrances. |
-| **Transaction Terms** | Payment via bank manager's check in USD at notary signing; 3% Alcabala transfer tax applies (seller-covered per Peruvian norms). Capital gains tax: 5-30% for non-residents, with potential exemptions for reinvestments. |
-| **Dispute Resolution** | Arbitration in Cusco, then jurisdictional courts; all docs (plans, tax receipts, SUNARP certs) available for due diligence. |
-
-**Notes:** Property is primed for seamless international transfer — consult for RUC setup or financing options. No heritage overlays, but eligible for cultural tourism incentives via Ministry of Culture.
-
-## Strategic Investment: Gateway to Exponential Returns
-
-This 125 m² land parcel with 474 m² built hostal in Ollantaytambo is priced at just $7,440 per m² land value (total $930,000) — a strong value in a market where premium Sacred Valley properties command $600-$1,000/m² amid surging global demand. It's more than a hostal; it's a strategic asset in Peru's booming eco-tourism corridor, where visitor numbers to Machu Picchu alone topped 1.5 million in 2025, driving significant YoY appreciation for well-positioned holdings.
-
-## Why Now? Market Snapshot
-
-- **Tourism Renaissance**: Post-pandemic rebound has Ollantaytambo properties yielding 8-12% annual rental ROI via Airbnb or boutique stays — far outpacing global averages.
-- **Expat & Investor Influx**: With remote work visas and golden visa programs, foreign buyers (US/EU) are snapping up 30% of Cusco listings, pushing values up 15% in the last year.
-- **Chinchero International Airport (2027)**: The new airport, just 25 minutes from Ollantaytambo, will replace Cusco's limited Velasco Astete airport, bringing direct international flights and dramatically increasing tourist access to the Sacred Valley.
-- **Limited Supply**: Ollantaytambo's historic center has strict development controls, making operational hostals with clear titles increasingly rare and valuable.
+Contact Perfecto Homes to request the currently available property materials and arrange a conversation with the team. Legal, registry, tax, payment, financing, and projected-return questions are handled directly with the appropriate professionals during due diligence.

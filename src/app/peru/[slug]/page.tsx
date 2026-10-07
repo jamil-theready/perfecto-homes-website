@@ -25,7 +25,7 @@ const PERU_SEO: Record<string, { title: string; description: string }> = {
   },
   "hostal-qhispicay-ollantaytambo": {
     title: "Hostel for Sale in Ollantaytambo, Peru | $930K",
-    description: "Operating 12 room hostel with 2 apartments for sale in Ollantaytambo, gateway to Machu Picchu. 474 m\u00B2 built, turnkey business. $930,000.",
+    description: "Operating 12-room hostal with 2 apartments for sale in Ollantaytambo. 474 m² built across 5 levels. $930,000 USD.",
   },
   "hatuchay-valle-restaurant-urubamba": {
     title: "Restaurant for Sale in Urubamba, Peru | $1.26M",
@@ -202,7 +202,17 @@ export default async function PeruListingPage({ params }: Props) {
                   {/* Inquiry Form */}
                   <div className="bg-white rounded-2xl p-6 border border-gray-100">
                     <p className="text-xs text-medium-gray uppercase tracking-wider mb-3">Inquire About This Property</p>
-                    <InquiryForm propertyTitle={item.title as string} slug={slug} />
+                    {slug === "hostal-qhispicay-ollantaytambo" ? (
+                      <iframe
+                        src="https://tally.so/embed/dW5pBr?alignLeft=1&hideTitle=1&transparentBackground=1"
+                        loading="lazy"
+                        title="Hostal Qhispicay property inquiry"
+                        className="w-full border-0"
+                        height="920"
+                      />
+                    ) : (
+                      <InquiryForm propertyTitle={item.title as string} slug={slug} />
+                    )}
                   </div>
 
                   {/* Share */}

@@ -25,7 +25,10 @@ export default function GlobalCTAForm() {
         if (typeof window !== "undefined") {
           window.sessionStorage.setItem(
             "perfecto_lead_context",
-            JSON.stringify({ form_name: "global_cta_form" })
+            JSON.stringify({
+              form_name: "global_cta_form",
+              property: String(data.get("property_interest") || "General / not sure yet"),
+            })
           );
         }
         router.push("/thank-you");
@@ -64,6 +67,15 @@ export default function GlobalCTAForm() {
         <div className="mb-4">
           <label className="block text-xs font-medium text-medium-gray mb-1">Phone Number</label>
           <input type="tel" name="phone" placeholder="(916) 878-7260" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="global-property-interest" className="block text-xs font-medium text-medium-gray mb-1">Which property are you interested in?</label>
+          <select id="global-property-interest" name="property_interest" defaultValue="" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white">
+            <option value="">I’m not sure yet / General inquiry</option>
+            <option value="Hostal Qhispicay">Hostal Qhispicay</option>
+            <option value="Predio Victoria">Predio Victoria</option>
+            <option value="Siete Cuartones 352">Siete Cuartones 352</option>
+          </select>
         </div>
         <div className="mb-5">
           <label className="block text-xs font-medium text-medium-gray mb-1">Message</label>

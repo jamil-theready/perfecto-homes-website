@@ -27,7 +27,10 @@ export default function ContactForm({ className = "" }: { className?: string }) 
         if (typeof window !== "undefined") {
           window.sessionStorage.setItem(
             "perfecto_lead_context",
-            JSON.stringify({ form_name: "contact_form" })
+            JSON.stringify({
+              form_name: "contact_form",
+              property: String(data.get("property_interest") || "General / not sure yet"),
+            })
           );
         }
         router.push("/thank-you");
@@ -106,6 +109,23 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             placeholder="(555) 123-4567"
             className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
           />
+        </div>
+
+        <div>
+          <label htmlFor="property_interest" className="block text-xs font-medium text-dark mb-1.5">
+            Which property are you interested in?
+          </label>
+          <select
+            id="property_interest"
+            name="property_interest"
+            defaultValue=""
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
+          >
+            <option value="">I’m not sure yet / General inquiry</option>
+            <option value="Hostal Qhispicay">Hostal Qhispicay</option>
+            <option value="Predio Victoria">Predio Victoria</option>
+            <option value="Siete Cuartones 352">Siete Cuartones 352</option>
+          </select>
         </div>
 
         <div>
