@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { appendLeadAttribution } from "@/lib/lead-attribution";
+import { submitLeadIntake } from "@/lib/lead-intake";
 
 interface InquiryFormProps {
   propertyTitle: string;
@@ -21,6 +22,12 @@ export default function InquiryForm({ propertyTitle, slug }: InquiryFormProps) {
     appendLeadAttribution(data, "property_inquiry_form");
 
     try {
+      await submitLeadIntake({
+        formData: data,
+        formName: "property_inquiry_form",
+        propertyTitle,
+        propertySlug: slug,
+      });
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: data,

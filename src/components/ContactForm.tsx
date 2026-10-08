@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { appendLeadAttribution } from "@/lib/lead-attribution";
+import { submitLeadIntake } from "@/lib/lead-intake";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
@@ -18,6 +19,7 @@ export default function ContactForm({ className = "" }: { className?: string }) 
     appendLeadAttribution(data, "contact_form");
 
     try {
+      await submitLeadIntake({ formData: data, formName: "contact_form" });
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: data,

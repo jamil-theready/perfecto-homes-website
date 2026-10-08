@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { appendLeadAttribution } from "@/lib/lead-attribution";
+import { submitLeadIntake } from "@/lib/lead-intake";
 
 export default function GlobalCTAForm() {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ export default function GlobalCTAForm() {
     appendLeadAttribution(data, "global_cta_form");
 
     try {
+      await submitLeadIntake({ formData: data, formName: "global_cta_form" });
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: data,
