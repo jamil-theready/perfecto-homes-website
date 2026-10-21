@@ -144,14 +144,23 @@ def collect(policy, today):
 def gemini(payload):
     return json_request('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',payload,{'x-goog-api-key':os.environ['GEMINI_API_KEY']})
 
-def measure_due(state,pages,today):
+def measure_due(state,pages,today,query_rows=()):
     changed=False
     normalize=lambda url:urlparse(url).path.rstrip('/')
     current={normalize(row['keys'][0]):row for row in pages}
     for item in state.get('pages',{}).values():
-        if not item.get('released') or normalize(item['url']) not in current:
+        if not item.get('released'):
             continue
-        row=current[normalize(item['url'])]
+        if item.get('kind')=='article':
+            selected=[r for r in query_rows if r['keys'][1]==item.get('target_query')]
+            if not selected:continue
+            impressions=sum(r.get('impressions',0) for r in selected)
+            clicks=sum(r.get('clicks',0) for r in selected)
+            if not impressions:continue
+            row={'impressions':impressions,'clicks':clicks,'ctr':clicks/impressions,'position':sum(r.get('position',0)*r.get('impressions',0) for r in selected)/impressions}
+        else:
+            if normalize(item['url']) not in current:continue
+            row=current[normalize(item['url'])]
         if 'baseline_source' not in item and item['released']==str(today):
             item['baseline']={key:row.get(key) for key in ['clicks','impressions','ctr','position']}
             item['baseline_source']='page_totals'
@@ -185,7 +194,7 @@ def prepare(root, policy):
     state = read_json(root/'seo/state.json')
     evidence = collect(policy,today)
     save_json(root/'seo-evidence/search.json',evidence)
-    state_changed=measure_due(state,evidence['pages'],today)
+    state_changed=measure_due(state,evidence['pages'],today,evidence['rows'])
     if state_changed:save_json(root/'seo/state.json',state)
     pending = read_json(root/'seo/pending.json')
     if pending.get('candidate') and state.get('pages',{}).get(pending['candidate']['slug'],{}).get('run_id') != pending.get('run_id'):
@@ -257,7 +266,7 @@ def prepare(root, policy):
                 raise ValueError('New article quality gate rejected the draft')
             path=root/policy['blog_dir']/(slug+'.md')
             path.write_text(render_article(article,slug,policy,packet,today))
-            candidate={'slug':slug,'path':str(path.relative_to(root)),'url':policy['site']+'/blog/'+slug,'impressions':gap['impressions'],'clicks':gap['clicks'],'ctr':gap['clicks']/gap['impressions'],'position':gap['position'],'kind':'article'}
+            candidate={'slug':slug,'path':str(path.relative_to(root)),'url':policy['site']+'/blog/'+slug,'impressions':gap['impressions'],'clicks':gap['clicks'],'ctr':gap['clicks']/gap['impressions'],'position':gap['position'],'kind':'article','query':gap['query']}
             result.update(state='Draft checked',candidate=candidate,change={k:article[k] for k in ['title','opening']}|{'description':article['description']},source_sha256='new-article')
             save_json(root/'seo-evidence/packet.json',packet)
             save_json(root/'seo-evidence/review.json',checked)
@@ -311,6 +320,7 @@ def verify(root, policy):
                 released = str(date.today())
                 state['last_release'] = released
                 state.setdefault('pages',{})[result['candidate']['slug']] = {'released':released,'kind':result['candidate'].get('kind','content-fix'),'url':url,'run_id':result['run_id'],'baseline_source':'page_totals' if result['candidate'].get('kind')!='article' else 'query_demand_before_new_page','baseline':{k:result['candidate'][k] for k in ['impressions','clicks','ctr','position']},'review_28d':str(date.today()+timedelta(days=28)),'review_56d':str(date.today()+timedelta(days=56))}
+                if result['candidate'].get('kind')=='article':state['pages'][result['candidate']['slug']]['target_query']=result['candidate']['query']
                 save_json(root/'seo/state.json',state)
                 result.update(state='Shipped and verified',verified_at=datetime.now(timezone.utc).isoformat(),live_url=url)
                 save_json(root/'seo-evidence/result.json',result)
@@ -345,6 +355,7 @@ def main():
         payload['source']=result.get('source','Unavailable')
         payload['research_reason']=read_json(root/'seo/research.json').get('reason','')
         payload['authority']=result.get('authority','Not checked')
+        payload['content_hold']=policy.get('new_article_hold','')
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:
