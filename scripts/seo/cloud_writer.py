@@ -296,6 +296,12 @@ def main():
         state='working' if success and result.get('research')!='Research needs repair' else 'failed'
         phase=result.get('state','Cloud execution failed before result')
         payload={'client':policy['client'],'state':state,'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID',''),'phase':phase,'release_verified':success and phase=='Shipped and verified','research':result.get('research','Not checked'),'new_article_decision':result.get('new_article_decision','Pending release')}
+        releases=read_json(root/'seo/state.json').get('pages',{})
+        latest=max(releases.values(),key=lambda row:row.get('released',''),default={})
+        payload['last_verified_release']=latest.get('released')
+        payload['last_release_run']=latest.get('run_id')
+        payload['source']=result.get('source','Unavailable')
+        payload['research_reason']=read_json(root/'seo/research.json').get('reason','')
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:

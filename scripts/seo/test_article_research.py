@@ -10,6 +10,9 @@ if Path(spec.origin).exists():
     spec.loader.exec_module(research)
 
 class ResearchTests(unittest.TestCase):
+    def test_search_output_with_preface_or_citations_preserves_json(self):
+        self.assertEqual(research.parse_model_json('Research follows:\n```json\n{"comparison":[],"original_value":"x"}\n```\nSources [one]'),{'comparison':[],'original_value':'x'})
+
     def policy(self):
         return {'market_terms':['sacramento'],'blocked_terms':['peru'],'site':'https://example.com','blog_dir':'content/blog','article_author':'Test Business','article_category':'Planning','article_media':{'path':'/images/stock/wall.webp','source_url':'https://www.pexels.com/photo/wall-123/','photographer':'Test photographer','alt':'Illustrative stone texture with carefully fitted joints','status':'stock'}}
 

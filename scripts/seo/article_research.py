@@ -15,6 +15,18 @@ STOP={'how','what','when','why','can','does','the','to','a','an','in','of','and'
 def terms(text):
     return {word.rstrip('s') for word in re.findall(r'[a-z]+',text.lower()) if word not in STOP}
 
+def parse_model_json(text):
+    decoder=json.JSONDecoder()
+    for index,char in enumerate(text):
+        if char=='{':
+            try:
+                result,_=decoder.raw_decode(text[index:])
+                if isinstance(result,dict) and 'comparison' in result:
+                    return result
+            except json.JSONDecodeError:
+                continue
+    raise ValueError('Search response has no complete comparison object')
+
 def choose_gap(rows,coverage,page_totals,policy,state,today):
     if sum(row.get('kind')=='article' and row.get('released','').startswith(str(today)[:7]) for row in state.get('pages',{}).values())>=2:
         return None
@@ -85,8 +97,12 @@ def research_packet(query,policy,coverage,api):
     candidate=response['candidates'][0]
     text=''.join(row.get('text','') for row in candidate['content']['parts'])
     text=re.sub(r'^```(?:json)?\s*|\s*```$','',text.strip())
-    details=json.loads(text)
     grounded=[row['web']['uri'] for row in candidate.get('groundingMetadata',{}).get('groundingChunks',[]) if row.get('web',{}).get('uri')]
+    try:
+        details=parse_model_json(text)
+    except ValueError:
+        formatted=api({'systemInstruction':{'parts':[{'text':'Convert this search-grounded research into JSON with comparison (three url/angle/weakness rows), original_value, recommended_action (improve_existing or new_article), reason. Preserve only URLs and claims actually present. Do not invent missing evidence.'}]},'contents':[{'parts':[{'text':json.dumps({'grounded_urls':grounded,'research':text})}]}],'generationConfig':{'responseMimeType':'application/json','maxOutputTokens':3500,'temperature':0,'thinkingConfig':{'thinkingBudget':0}}})
+        details=parse_model_json(''.join(p.get('text','') for p in formatted['candidates'][0]['content']['parts']))
     if len(grounded)<3:
         raise ValueError('Live search did not return three verifiable source results')
     sources=[]
