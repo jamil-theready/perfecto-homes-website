@@ -3,7 +3,50 @@
     2026,
     43
   ],
-  "state": "Research needs repair",
-  "reason": "Two independent current authoritative sources required",
+  "state": "Verified current sources",
+  "packet": {
+    "query": "What should buyers compare when exploring homes in Cusco and Peru's Sacred Valley?",
+    "at": "2026-10-21T16:41:20.596247+00:00",
+    "sources": [
+      {
+        "url": "https://whc.unesco.org/en/list/273/",
+        "accessed": "2026-10-21",
+        "excerpt": "City of Cuzco - UNESCO World Heritage Centre Your browser does not support JavaScript. close Search search Take advantage of the search to browse through the World Heritage Centre information. search tune Filter By Properties By States Parties By Regions Danger Site Delisted Transboundary / Transnational Year Inscribed Themes All Cities Cultural Landscape Forest Marine & coastal Earthen Architecture Criteria with only with Cultural Criteria: i ii iii iv v vi Natural Criteria: vii viii ix x Keywords Category Cultural Natural Mixed Media All With videos With photo gallery Display with the brief description Without With Display component parts Less component parts All Component parts Order by Country Region Year Name of the property Search The List City of Cuzco Print Share on social media Facebook Twitter UNESCO social media Facebook Youtube Twitter RSS World Heritage Terms / Policies Syndication City of Cuzco Description Maps Documents Gallery Video Indicators Assistance City of Cuzco Situated in the Peruvian Andes, Cuzco developed, under the Inca ruler Pachacutec, into a complex urban centre with distinct religious and administrative functions. It was surrounded by clearly delineat"
+      },
+      {
+        "url": "https://www.peru.travel/attractions/sacred-valley",
+        "accessed": "2026-10-21",
+        "excerpt": "The Sacred Valley: Land blessed by the Inti Peru 360º Meetings and business About Peru News Useful information IPERÚ - Tourist Assistance Plan your trip Destinations Beach Desert Mountain Rainforest Valley See all Experiences Cultural History Adventure Nature Gastronomy Experiential Entertainment Exclusive See all Attractions Stories Adventure Cultural History Entertainment Exclusive Experiential Gastronomy Nature See all Events IPERÚ - Tourist Assistance Plan your trip Access en Language English Español 한국어 Italiano Deutsche Português 日本語 Français More navigation options Peru 360º Meetings and business About Peru News Useful information Return ✕ Login New user? Log in with Google Or enter your e-mail: E-mail address You must enter an email address Password You must enter the password Remember password Did you forget your password? Name You must enter the name E-mail address You must enter an email address Password You must enter the password Confirm password The passwords do not match I accept the, Privacy Notice You must accept the Privacy Notice You have registered correctly A message has been sent to your email to activate your account. Recover your offer E-mail address You mus"
+      }
+    ],
+    "comparison": [],
+    "original_value": "No uncovered qualifying demand. Improve and measure existing coverage before commissioning a new page.",
+    "recommended_action": "improve_existing",
+    "reason": "Current primary references refreshed; no new article is justified by first-party demand. No publication packet is implied.",
+    "conversion": "/contact",
+    "image": {
+      "path": "/images/blog/stock-maras-sacred-valley.webp",
+      "source_url": "https://www.pexels.com/photo/landscape-of-peru-s-sacred-valley-6725735/",
+      "download_url": "https://images.pexels.com/photos/6725735/pexels-photo-6725735.jpeg?cs=srgb&fm=jpg",
+      "photographer": "Gilmer Diaz Estela",
+      "alt": "Stock landscape showing the Maras salt terraces in Peru",
+      "status": "stock",
+      "license": "https://www.pexels.com/license/"
+    },
+    "existing_coverage": [
+      "how to buy property in peru as a foreigner \"Buying Property in Peru as a Foreigner: A Clear Guide\"",
+      "why invest in sacred valley real estate \"Why Invest in Sacred Valley Real Estate\"",
+      "hospitality investment opportunities cusco peru \"Hospitality Investment Opportunities in Cusco and the Sacred Valley\"",
+      "how chinchero airport will change sacred valley property values \"How Chinchero Airport Will Change Sacred Valley Property Values\"",
+      "Buying property in Peru as a foreigner",
+      "Sacred Valley property investment",
+      "Cusco hospitality property",
+      "Cusco neighborhoods",
+      "Sacred Valley communities",
+      "Peru property listings"
+    ],
+    "search_provider": "Direct primary reference refresh; competitive article research runs only for a qualifying gap",
+    "publication_ready": false
+  },
   "new_article_demand": null
 }
