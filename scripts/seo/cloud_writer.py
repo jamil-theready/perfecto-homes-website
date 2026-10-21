@@ -177,7 +177,7 @@ def prepare(root, policy):
     gap=choose_gap(evidence['rows'],coverage,evidence['pages'],policy,state,today)
     week=today.isocalendar()[:2]
     research=read_json(root/'seo/research.json')
-    research_changed=research.get('week')!=list(week)
+    research_changed=research.get('week')!=list(week) or research.get('state')=='Research needs repair'
     if research_changed:
         query=gap['query'] if gap else policy['research_query']
         try:
@@ -185,9 +185,13 @@ def prepare(root, policy):
             research={'week':list(week),'state':'Verified current sources','packet':packet,'new_article_demand':gap}
         except Exception as error:
             research={'week':list(week),'state':'Research needs repair','reason':str(error)[:250],'new_article_demand':gap}
+            if hasattr(error,'packet'):
+                save_json(root/'seo-evidence/research-diagnostics.json',error.packet)
         save_json(root/'seo/research.json',research)
+    save_json(root/'seo-evidence/research.json',research)
     result['research']=research.get('state','Not verified')
     result['new_article_decision']='Improve existing content first' if candidate else 'No uncovered qualifying demand' if not gap else 'Research gate'
+    save_json(root/'seo-evidence/result.json',result)
     if not candidate and gap and research.get('packet',{}).get('query')==gap['query'] and research.get('packet',{}).get('recommended_action')=='new_article':
         last=state.get('last_release')
         if last and (today-date.fromisoformat(last)).days<policy['release_interval_days']:
@@ -225,7 +229,11 @@ def prepare(root, policy):
         source = Path(candidate['path']).read_text()
         packet = {'scope':policy['scope'],'voice':policy['voice'],'opportunity':candidate,'article':source[:24000]}
         change = generate(packet)
-        validate_change(change,policy)
+        try:
+            validate_change(change,policy)
+        except ValueError as error:
+            change=generate({**packet,'correction_required':str(error),'rejected_output':change,'reminder':'Meet every exact character limit and remove every unsupported claim. Do not preserve a prohibited opening.'})
+            validate_change(change,policy)
         review = generate({**packet,'proposed':change},review=True)
         save_json(root/'seo-evidence/review.json',review)
         if review.get('passed') is not True:
@@ -296,4 +304,3 @@ def main():
 
 if __name__=='__main__':
     main()
-

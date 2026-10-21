@@ -91,6 +91,7 @@ def research_packet(query,policy,coverage,api):
         raise ValueError('Live search did not return three verifiable source results')
     sources=[]
     retrieved=[]
+    errors=[]
     for url in grounded[:10]:
         try:
             source=fetch_source(url)
@@ -98,13 +99,18 @@ def research_packet(query,policy,coverage,api):
             host=urlparse(source['url']).hostname
             if any(host==domain or host.endswith('.'+domain) for domain in policy['authority_domains']):
                 sources.append(source)
-        except Exception:
+        except Exception as error:
+            errors.append({'url':url,'error':str(error)[:160]})
             continue
     # Comparison URLs must resolve to retrieved grounding sources, not model guesses.
     verified_urls={r['url'] for r in retrieved}|set(grounded)
     comparison=[row for row in details.get('comparison',[]) if row.get('url') in verified_urls]
     packet={'query':query,'at':datetime.now(timezone.utc).isoformat(),'sources':sources,'comparison':comparison,'original_value':details.get('original_value',''),'recommended_action':details.get('recommended_action'),'reason':details.get('reason'),'conversion':policy['conversion_path'],'image':policy['article_media'],'existing_coverage':coverage,'search_provider':'Google Search grounding via verified free-tier Gemini project'}
-    validate_packet(packet)
+    try:
+        validate_packet(packet)
+    except ValueError as error:
+        error.packet={**packet,'grounding_urls':grounded,'retrieved':retrieved,'fetch_errors':errors,'model_comparison':details.get('comparison',[])}
+        raise
     return packet
 
 def render_article(article,slug,policy,packet,today):
