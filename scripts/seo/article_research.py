@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import re
 import socket
-from urllib.parse import urlparse
+from urllib.parse import urlparse,urljoin
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 REGULATED=r'\b(permit|code requirements|tax|legal|law|rights|insurance|financ|cost|price|yield|profit|engineer|structural|earthquake|load bearing|title deed|visa)'
@@ -70,7 +70,7 @@ class SafeRedirect(HTTPRedirectHandler):
         validate_public_url(newurl)
         return super().redirect_request(req,fp,code,msg,headers,newurl)
 
-def fetch_source(url):
+def fetch_source(url,target_site=None,business_name=None):
     validate_public_url(url)
     with build_opener(SafeRedirect()).open(Request(url,headers={'User-Agent':'TRC-SEO-Research/1.0 (+https://thereadyconsult.com)'}),timeout=15) as response:
         final=response.geturl()
@@ -81,7 +81,15 @@ def fetch_source(url):
     text=re.sub(r'\s+',' ',unescape(re.sub('<[^>]+>',' ',content))).strip()
     if len(text)<150:
         raise ValueError('Source has no usable text')
-    return {'url':final,'accessed':str(date.today()),'excerpt':text[:1200]}
+    result={'url':final,'accessed':str(date.today()),'excerpt':text[:1200]}
+    if target_site:
+        host=urlparse(target_site).hostname.removeprefix('www.')
+        hrefs=[urljoin(final,unescape(match[1])) for match in re.findall(r'href\s*=\s*([\"\'])(.*?)\1',content,re.I)]
+        result['target_links']=sorted({link for link in hrefs if urlparse(link).hostname and urlparse(link).hostname.removeprefix('www.')==host})
+    if business_name:
+        clean=lambda value:re.sub(r'[^a-z0-9]','',value.lower())
+        result['business_mentioned']=clean(business_name) in clean(text)
+    return result
 
 def validate_packet(packet):
     sources=packet.get('sources',[])

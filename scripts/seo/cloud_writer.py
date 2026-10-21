@@ -221,6 +221,18 @@ def prepare(root, policy):
     save_json(root/'seo-evidence/research.json',research)
     result['research']=research.get('state','Not verified')
     result['new_article_decision']='Improve existing content first' if candidate else 'No uncovered qualifying demand' if not gap else 'Research gate'
+    from authority_watch import discover,keyword_map
+    previous_authority=read_json(root/'seo/authority.json')
+    authority=previous_authority
+    try:
+        authority=discover(policy,gemini,previous_authority)
+    except Exception as error:
+        authority={**previous_authority,'state':'Unavailable','reason':str(error)[:200]}
+    authority_changed=authority!=previous_authority
+    if authority_changed:save_json(root/'seo/authority.json',authority)
+    result['authority']=authority.get('state','Unavailable')
+    save_json(root/'seo-evidence/keyword-map.json',keyword_map(evidence['rows']))
+    save_json(root/'seo-evidence/authority.json',authority)
     save_json(root/'seo-evidence/result.json',result)
     if not candidate and gap and research.get('packet',{}).get('publication_ready') is True and research.get('packet',{}).get('query')==gap['query'] and research.get('packet',{}).get('recommended_action')=='new_article':
         last=state.get('last_release')
@@ -279,7 +291,7 @@ def prepare(root, policy):
     output = os.environ.get('GITHUB_OUTPUT')
     if output:
         with open(output,'a') as handle:
-            handle.write('changed='+str(bool(candidate)).lower()+'\nneeds_verify='+str(bool(candidate)).lower()+'\nresearch_changed='+str(research_changed).lower()+'\nstate_changed='+str(state_changed).lower()+'\n')
+            handle.write('changed='+str(bool(candidate)).lower()+'\nneeds_verify='+str(bool(candidate)).lower()+'\nresearch_changed='+str(research_changed).lower()+'\nstate_changed='+str(state_changed).lower()+'\nauthority_changed='+str(authority_changed).lower()+'\n')
     print(json.dumps({'client':result['client'],'state':result['state'],'rows':len(evidence['rows'])}))
 
 
@@ -323,7 +335,7 @@ def main():
     if args.command=='report':
         result=read_json(root/'seo-evidence/result.json')
         success=os.environ.get('SEO_JOB_STATUS')=='success'
-        state='working' if success and result.get('research')!='Research needs repair' else 'failed'
+        state='working' if success and result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable' else 'failed'
         phase=result.get('state','Cloud execution failed before result')
         payload={'client':policy['client'],'state':state,'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID',''),'phase':phase,'release_verified':success and phase=='Shipped and verified','research':result.get('research','Not checked'),'new_article_decision':result.get('new_article_decision','Pending release')}
         releases=read_json(root/'seo/state.json').get('pages',{})
@@ -332,6 +344,7 @@ def main():
         payload['last_release_run']=latest.get('run_id')
         payload['source']=result.get('source','Unavailable')
         payload['research_reason']=read_json(root/'seo/research.json').get('reason','')
+        payload['authority']=result.get('authority','Not checked')
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:

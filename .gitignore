@@ -50,6 +50,7 @@ next-env.d.ts
 !/seo/state.json
 !/seo/pending.json
 !/seo/research.json
+!/seo/authority.json
 /social/
 /business-info.txt
 /soul.md
