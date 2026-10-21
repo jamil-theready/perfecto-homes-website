@@ -6,13 +6,15 @@
       "url": "https://www.perfectohomesrealestate.com/blog/how-to-buy-property-in-peru-as-a-foreigner",
       "run_id": "39634248703",
       "baseline": {
-        "impressions": 50,
-        "clicks": 0,
-        "ctr": 0.0,
-        "position": 7.66
+        "clicks": 1,
+        "impressions": 591,
+        "ctr": 0.001692047377326565,
+        "position": 6.49238578680203
       },
       "review_28d": "2026-11-18",
-      "review_56d": "2026-12-16"
+      "review_56d": "2026-12-16",
+      "baseline_source": "page_totals",
+      "baseline_reconciled": "2026-10-21"
     }
   }
 }
