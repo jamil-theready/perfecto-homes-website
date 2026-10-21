@@ -2,16 +2,14 @@ name: Blog Publish
 
 on:
   workflow_dispatch:
-  schedule:
-    # Tue + Fri 8:05 AM Pacific (15:05 UTC during PDT) — same days as the
-    # Perfecto Facebook posting schedule so all content lands together.
-    - cron: '5 15 * * 2,5'
+  # Retired: the demand-gated SEO Autopilot is the sole scheduled writer.
 
 permissions:
   contents: write
 
 jobs:
   generate:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

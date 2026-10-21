@@ -1,0 +1,93 @@
+name: SEO Autopilot
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */4 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: seo-autopilot
+  cancel-in-progress: false
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Install read-only Google client
+        run: pip install google-auth==2.40.3 requests==2.32.4
+      - name: Content safety tests
+        run: python -m unittest discover -s scripts/seo -p 'test_*.py' -v
+      - name: Collect real demand and write checked improvements
+        id: write
+        env:
+          GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/seo/cloud_writer.py prepare
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: steps.write.outputs.needs_verify == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Build the exact static release
+        if: steps.write.outputs.needs_verify == 'true'
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          test -s out/index.html
+          git diff --check
+      - name: Commit checked content only
+        if: steps.write.outputs.changed == 'true'
+        run: |
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          python - <<'PY'
+          import json, subprocess
+          result=json.load(open('seo-evidence/result.json'))
+          subprocess.run(['git','add','--',result['candidate']['path'],'seo/pending.json'],check=True)
+          subprocess.run(['git','commit','-m','content(seo): improve evidence-backed article snippet'],check=True)
+          subprocess.run(['git','push','origin','HEAD:main'],check=True)
+          PY
+      - name: Deploy direct-upload sites
+        if: steps.write.outputs.needs_verify == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 3d58f3cfc04230bea51d63f77576d5f3
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          policy=json.load(open('seo/policy.json'))
+          if policy['deploy_method']=='wrangler':
+              if not os.environ.get('CLOUDFLARE_API_TOKEN'):
+                  raise SystemExit('Persistent Cloudflare publishing credential missing. Checked content remains pending, not shipped.')
+              subprocess.run(['npx','--yes','wrangler@4.105.0','pages','deploy','out','--project-name',policy['pages_project'],'--branch','main','--commit-dirty=true'],check=True)
+          PY
+      - name: Verify the actual served page
+        if: steps.write.outputs.needs_verify == 'true'
+        run: python scripts/seo/cloud_writer.py verify
+      - name: Record successful publication and measurement dates
+        if: steps.write.outputs.needs_verify == 'true'
+        run: |
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          git add seo/state.json
+          git commit -m 'chore(seo): record independently verified release and review dates'
+          git push origin HEAD:main
+      - name: Save private execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: seo-execution-${{ github.run_id }}
+          path: seo-evidence/
+          retention-days: 60
+          if-no-files-found: warn
+      - name: Publish safe operational receipt
+        if: always()
+        env:
+          SEO_STATUS_KEY: ${{ secrets.SEO_STATUS_KEY }}
+          SEO_JOB_STATUS: ${{ job.status }}
+        run: python scripts/seo/cloud_writer.py report
+

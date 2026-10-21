@@ -45,7 +45,10 @@ next-env.d.ts
 
 # Local working piles (kept on disk, not part of the website build)
 /framer-assets/
-/seo/
+/seo/*
+!/seo/policy.json
+!/seo/state.json
+!/seo/pending.json
 /social/
 /business-info.txt
 /soul.md
