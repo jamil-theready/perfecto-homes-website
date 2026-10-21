@@ -213,7 +213,7 @@ def prepare(root, policy):
     result = {'client':policy['client'],'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID','local'),'state':'No change needed','source':'Live','candidate':None,'research':'Not yet checked'}
     from article_research import choose_gap,research_packet,render_article,ensure_media,fetch_source,validate_packet
     coverage=[p.stem.replace('-',' ')+' '+(re.search(r'^title:\s*(.*)',p.read_text(),re.M).group(1) if re.search(r'^title:\s*(.*)',p.read_text(),re.M) else '') for p in files.values()]+policy.get('coverage',[])
-    gap=choose_gap(evidence['rows'],coverage,evidence['pages'],policy,state,today)
+    gap=choose_gap(evidence['rows'],coverage,evidence['pages'],{**policy,'current_blog_slugs':list(files)},state,today)
     week=today.isocalendar()[:2]
     research=read_json(root/'seo/research.json')
     research_changed=research.get('week')!=list(week) or research.get('state')=='Research needs repair'

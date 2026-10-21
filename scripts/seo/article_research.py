@@ -30,7 +30,15 @@ def parse_model_json(text):
 def choose_gap(rows,coverage,page_totals,policy,state,today):
     if sum(row.get('kind')=='article' and row.get('released','').startswith(str(today)[:7]) for row in state.get('pages',{}).values())>=2:
         return None
-    posts=[r for r in page_totals if '/blog/' in r['keys'][0] and not urlparse(r['keys'][0]).fragment]
+    published=policy.get('current_blog_slugs')
+    grouped_posts={}
+    for row in page_totals:
+        path=urlparse(row['keys'][0]).path.rstrip('/')
+        if '/blog/' not in path:continue
+        slug=path.split('/')[-1]
+        if '.' in slug or (published is not None and slug not in published):continue
+        grouped_posts.setdefault(slug,{'clicks':0})['clicks']+=row.get('clicks',0)
+    posts=list(grouped_posts.values())
     if len(posts)>=5 and sum(r.get('clicks',0)==0 for r in posts)/len(posts)>=.7:
         return None
     grouped={}

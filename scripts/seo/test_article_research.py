@@ -45,6 +45,12 @@ class ResearchTests(unittest.TestCase):
         state={'pages':{'a':{'kind':'article','released':'2026-10-02'},'b':{'kind':'article','released':'2026-10-10'}}}
         self.assertIsNone(research.choose_gap(rows,[],[],self.policy(),state,date(2026,10,21)))
 
+    def test_retired_foreign_market_pages_do_not_hold_the_current_library(self):
+        rows=[{'keys':['https://example.com/','how to plan a sacramento garden wall'],'impressions':35,'position':15,'clicks':0}]
+        retired=[{'keys':['https://example.com/blog/old'+str(i)],'clicks':0} for i in range(8)]
+        policy={**self.policy(),'current_blog_slugs':['current-article']}
+        self.assertIsNotNone(research.choose_gap(rows,[],retired,policy,{},date(2026,10,21)))
+
     def test_research_requires_independent_current_sources_and_comparison(self):
         packet={'query':'garden walls','sources':[{'url':'https://one.gov/a','accessed':'2026-10-21'},{'url':'https://two.org/b','accessed':'2026-10-21'}],'comparison':[{'url':'https://a.example','angle':'a','weakness':'x'},{'url':'https://b.example','angle':'b','weakness':'y'},{'url':'https://c.example','angle':'c','weakness':'z'}],'original_value':'A practical planning checklist for this buyer question','conversion':'/contact','image':self.policy()['article_media']}
         for source in packet['sources']:source['accessed']=str(date.today())
