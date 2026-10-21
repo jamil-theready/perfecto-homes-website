@@ -7,11 +7,20 @@
   "blog_dir":"content/blog",
   "market_terms":["peru","cusco","sacred valley","ollantaytambo","urubamba"],
   "blocked_terms":["sacramento","california","lpt realty","dre","hatuchay","rsg masonry","philcohuasi","turnkey","airport valuations","return on investment"],
-  "scope":"Perfecto Homes Peru site only: Cusco and Sacred Valley. Existing article snippets only; match each article's existing language. No property offers, price, availability, title, tax, legal, investment return or airport forecasts. Hatuchay is held and must never be promoted. Sacramento is a separate business/site. No form, contact destination, photo or schema changes. Routine SEO publication authorized by Jamil October 21, 2026.",
+  "scope":"Perfecto Homes Peru site only: Cusco and Sacred Valley. Improve existing editorial articles first; new researched articles require verified uncovered demand. Match the existing language. No property offers, price, availability, title, tax, legal, investment return or airport forecasts. Hatuchay is held and must never be promoted. Sacramento is a separate business/site. No form, contact destination, client photograph or schema changes. Routine SEO publication authorized by Jamil October 21, 2026.",
   "voice":"Clear, factual, calm. No hype, urgency, promises, invented first-hand experience or legal advice. No em dashes. Help the reader prepare practical questions rather than assert a transaction will be easy or safe.",
   "release_interval_days":7,
   "page_cooldown_days":56,
   "deploy_method":"git",
   "pages_project":"perfecto-homes-website",
-  "health_url":"https://trc-seo-cloud-health.jamil-3d5.workers.dev"
+  "health_url":"https://trc-seo-cloud-health.jamil-3d5.workers.dev",
+  "research_query":"What should buyers compare when exploring homes in Cusco and Peru's Sacred Valley?",
+  "authority_domains":["gob.pe","peru.travel","whc.unesco.org","sunarp.gob.pe","congreso.gob.pe"],
+  "coverage":["Buying property in Peru as a foreigner","Sacred Valley property investment","Cusco hospitality property","Cusco neighborhoods","Sacred Valley communities","Peru property listings"],
+  "support_paths":["/peru","/communities/peru","/contact"],
+  "conversion_path":"/contact",
+  "article_author":"Perfecto Homes",
+  "article_category":"Peru",
+  "new_article_hold":"Website inquiry delivery needs repair before adding traffic; research continues automatically",
+  "article_media":{"path":"/images/blog/stock-maras-sacred-valley.webp","source_url":"https://www.pexels.com/photo/landscape-of-peru-s-sacred-valley-6725735/","download_url":"https://images.pexels.com/photos/6725735/pexels-photo-6725735.jpeg?cs=srgb&fm=jpg","photographer":"Gilmer Diaz Estela","alt":"Stock landscape showing the Maras salt terraces in Peru","status":"stock","license":"https://www.pexels.com/license/"}
 }

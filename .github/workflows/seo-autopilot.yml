@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install read-only Google client
-        run: pip install google-auth==2.40.3 requests==2.32.4
+        run: pip install google-auth==2.40.3 requests==2.32.4 Pillow==11.3.0
       - name: Content safety tests
         run: python -m unittest discover -s scripts/seo -p 'test_*.py' -v
       - name: Collect real demand and write checked improvements
@@ -48,6 +48,9 @@ jobs:
           import json, subprocess
           result=json.load(open('seo-evidence/result.json'))
           subprocess.run(['git','add','--',result['candidate']['path'],'seo/pending.json'],check=True)
+          if result['candidate'].get('kind')=='article':
+              policy=json.load(open('seo/policy.json'))
+              subprocess.run(['git','add','--','ASSETS.md','public/'+policy['article_media']['path'].lstrip('/')],check=True)
           subprocess.run(['git','commit','-m','content(seo): improve evidence-backed article snippet'],check=True)
           subprocess.run(['git','push','origin','HEAD:main'],check=True)
           PY
@@ -76,6 +79,16 @@ jobs:
           git add seo/state.json
           git commit -m 'chore(seo): record independently verified release and review dates'
           git push origin HEAD:main
+      - name: Save current research and decisions
+        if: steps.write.outputs.research_changed == 'true'
+        run: |
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          git add seo/research.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'research(seo): record current sources and demand-based content decision'
+            git push origin HEAD:main
+          fi
       - name: Save private execution evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
