@@ -67,6 +67,8 @@ def validate_change(change, policy):
         raise ValueError('Unsupported or wrong-market claim')
     if re.search(r'[<>\d$€£—]|https?://|\[[^\]]*\]\(', text) or any('\n' in v for v in change.values()):
         raise ValueError('Unsafe markup, factual number, destination or multiline output')
+    if re.search(r'\b(?:four|five|six|seven|eight|nine|ten)\s+(?:feet|foot|days|years|percent)|same rights|legal framework|generally requires|requiring a permit|no exceptions|prices are compelling',text,re.I):
+        raise ValueError('Consequential claim needs a separate current source gate; use practical questions instead')
     if not any(term.lower() in text.lower() for term in policy['market_terms']):
         raise ValueError('Current market missing')
 
@@ -142,6 +144,31 @@ def collect(policy, today):
 def gemini(payload):
     return json_request('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',payload,{'x-goog-api-key':os.environ['GEMINI_API_KEY']})
 
+def measure_due(state,pages,today):
+    changed=False
+    normalize=lambda url:urlparse(url).path.rstrip('/')
+    current={normalize(row['keys'][0]):row for row in pages}
+    for item in state.get('pages',{}).values():
+        if not item.get('released') or normalize(item['url']) not in current:
+            continue
+        row=current[normalize(item['url'])]
+        if 'baseline_source' not in item and item['released']==str(today):
+            item['baseline']={key:row.get(key) for key in ['clicks','impressions','ctr','position']}
+            item['baseline_source']='page_totals'
+            item['baseline_reconciled']=str(today)
+            changed=True
+        age=(today-timedelta(days=3)-date.fromisoformat(item['released'])).days
+        for day in [28,56]:
+            if age<day or str(day) in item.get('reviews',{}):
+                continue
+            baseline=item.get('baseline',{})
+            if not isinstance(baseline.get('clicks'),(int,float)) or not isinstance(row.get('clicks'),(int,float)):
+                continue
+            metrics={key:row.get(key) for key in ['clicks','impressions','ctr','position']}
+            item.setdefault('reviews',{})[str(day)]={'at':str(today),'current_completed_28d':metrics,'decision':'keep' if metrics['clicks']>=baseline['clicks'] else 'revise','business_outcomes':'Unknown; search clicks are not leads or sales'}
+            changed=True
+    return changed
+
 
 def generate(packet, review=False):
     instruction = ('You are an independent factual QA reviewer. Return JSON {"passed":true,"reason":"..."} only if the proposed snippet is completely supported by the original article, current scope and supplied facts, adds no unverified promise, legal rule, price or experience claim, answers the buyer query clearly, and preserves the original intent. Otherwise passed=false.' if review else
@@ -158,6 +185,8 @@ def prepare(root, policy):
     state = read_json(root/'seo/state.json')
     evidence = collect(policy,today)
     save_json(root/'seo-evidence/search.json',evidence)
+    state_changed=measure_due(state,evidence['pages'],today)
+    if state_changed:save_json(root/'seo/state.json',state)
     pending = read_json(root/'seo/pending.json')
     if pending.get('candidate') and state.get('pages',{}).get(pending['candidate']['slug'],{}).get('run_id') != pending.get('run_id'):
         save_json(root/'seo-evidence/result.json',pending)
@@ -167,10 +196,11 @@ def prepare(root, policy):
         print('Resuming an existing checked release; no duplicate model generation.')
         return
     files = {p.stem:p for p in (root/policy['blog_dir']).glob('*.md')}
-    rows=list(evidence['rows'])
-    represented={r['keys'][0] for r in rows}
-    rows.extend({**row,'keys':[row['keys'][0],'']} for row in evidence['pages'] if '/blog/' in row['keys'][0] and row['keys'][0] not in represented)
+    rows=[row for row in evidence['rows'] if '/blog/' not in row['keys'][0]]
+    rows.extend({**row,'keys':[row['keys'][0],'']} for row in evidence['pages'] if '/blog/' in row['keys'][0])
     candidate = choose_opportunity(rows,files,policy,state,today)
+    if candidate:
+        candidate['queries']=[row['keys'][1] for row in evidence['rows'] if urlparse(row['keys'][0]).path.rstrip('/')==urlparse(candidate['url']).path.rstrip('/')]
     result = {'client':policy['client'],'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID','local'),'state':'No change needed','source':'Live','candidate':None,'research':'Not yet checked'}
     from article_research import choose_gap,research_packet,render_article,ensure_media,fetch_source,validate_packet
     coverage=[p.stem.replace('-',' ')+' '+(re.search(r'^title:\s*(.*)',p.read_text(),re.M).group(1) if re.search(r'^title:\s*(.*)',p.read_text(),re.M) else '') for p in files.values()]+policy.get('coverage',[])
@@ -181,7 +211,7 @@ def prepare(root, policy):
     if research_changed:
         query=gap['query'] if gap else policy['research_query']
         try:
-            packet=research_packet(query,policy,coverage,gemini)
+            packet=research_packet(query,policy,coverage,gemini,require_article_packet=bool(gap))
             research={'week':list(week),'state':'Verified current sources','packet':packet,'new_article_demand':gap}
         except Exception as error:
             research={'week':list(week),'state':'Research needs repair','reason':str(error)[:250],'new_article_demand':gap}
@@ -192,7 +222,7 @@ def prepare(root, policy):
     result['research']=research.get('state','Not verified')
     result['new_article_decision']='Improve existing content first' if candidate else 'No uncovered qualifying demand' if not gap else 'Research gate'
     save_json(root/'seo-evidence/result.json',result)
-    if not candidate and gap and research.get('packet',{}).get('query')==gap['query'] and research.get('packet',{}).get('recommended_action')=='new_article':
+    if not candidate and gap and research.get('packet',{}).get('publication_ready') is True and research.get('packet',{}).get('query')==gap['query'] and research.get('packet',{}).get('recommended_action')=='new_article':
         last=state.get('last_release')
         if last and (today-date.fromisoformat(last)).days<policy['release_interval_days']:
             result['new_article_decision']='Release interval: measure current experiment first'
@@ -249,7 +279,7 @@ def prepare(root, policy):
     output = os.environ.get('GITHUB_OUTPUT')
     if output:
         with open(output,'a') as handle:
-            handle.write('changed='+str(bool(candidate)).lower()+'\nneeds_verify='+str(bool(candidate)).lower()+'\nresearch_changed='+str(research_changed).lower()+'\n')
+            handle.write('changed='+str(bool(candidate)).lower()+'\nneeds_verify='+str(bool(candidate)).lower()+'\nresearch_changed='+str(research_changed).lower()+'\nstate_changed='+str(state_changed).lower()+'\n')
     print(json.dumps({'client':result['client'],'state':result['state'],'rows':len(evidence['rows'])}))
 
 
@@ -268,7 +298,7 @@ def verify(root, policy):
                 state = read_json(root/'seo/state.json')
                 released = str(date.today())
                 state['last_release'] = released
-                state.setdefault('pages',{})[result['candidate']['slug']] = {'released':released,'kind':result['candidate'].get('kind','content-fix'),'url':url,'run_id':result['run_id'],'baseline':{k:result['candidate'][k] for k in ['impressions','clicks','ctr','position']},'review_28d':str(date.today()+timedelta(days=28)),'review_56d':str(date.today()+timedelta(days=56))}
+                state.setdefault('pages',{})[result['candidate']['slug']] = {'released':released,'kind':result['candidate'].get('kind','content-fix'),'url':url,'run_id':result['run_id'],'baseline_source':'page_totals' if result['candidate'].get('kind')!='article' else 'query_demand_before_new_page','baseline':{k:result['candidate'][k] for k in ['impressions','clicks','ctr','position']},'review_28d':str(date.today()+timedelta(days=28)),'review_56d':str(date.today()+timedelta(days=56))}
                 save_json(root/'seo/state.json',state)
                 result.update(state='Shipped and verified',verified_at=datetime.now(timezone.utc).isoformat(),live_url=url)
                 save_json(root/'seo-evidence/result.json',result)

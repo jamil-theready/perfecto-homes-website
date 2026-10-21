@@ -89,6 +89,16 @@ jobs:
             git commit -m 'research(seo): record current sources and demand-based content decision'
             git push origin HEAD:main
           fi
+      - name: Save due experiment measurements
+        if: steps.write.outputs.state_changed == 'true' && steps.write.outputs.needs_verify != 'true'
+        run: |
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          git add seo/state.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'measure(seo): compare due experiments with actual completed search data'
+            git push origin HEAD:main
+          fi
       - name: Save private execution evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -103,4 +113,3 @@ jobs:
           SEO_STATUS_KEY: ${{ secrets.SEO_STATUS_KEY }}
           SEO_JOB_STATUS: ${{ job.status }}
         run: python scripts/seo/cloud_writer.py report
-

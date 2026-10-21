@@ -40,7 +40,7 @@ class CloudWriterTests(unittest.TestCase):
 
     def test_unsafe_model_output_is_rejected(self):
         safe={'title':'Sacramento Wall Planning','description':'Plan a Sacramento wall project with clear questions about the space, materials and drainage before discussing the work with a local mason.','opening':'Planning a wall in Sacramento starts with a conversation about the garden and the space around it.'}
-        for bad in ['Guaranteed approval in 4 days.', '<script>alert(1)</script>', 'Perfecto is our sister company.', 'We have 25 years of experience.']:
+        for bad in ['Guaranteed approval in 4 days.', '<script>alert(1)</script>', 'Perfecto is our sister company.', 'We have 25 years of experience.', 'A wall over four feet generally requires a building permit in Sacramento. Confirm local rules before starting.']:
             with self.assertRaises(ValueError):
                 writer.validate_change({**safe,'opening':bad}, self.policy())
 
@@ -58,7 +58,15 @@ class CloudWriterTests(unittest.TestCase):
         self.assertTrue(writer.verify_html(good, change))
         self.assertFalse(writer.verify_html(good.replace('A useful opening.','Old copy.'), change))
 
+    def test_due_measurement_uses_live_page_data_and_never_treats_missing_rows_as_zero(self):
+        state={'pages':{'wall':{'released':'2026-09-20','url':'https://rsg.example/blog/wall','baseline':{'clicks':0,'impressions':100}}}}
+        pages=[{'keys':['https://rsg.example/blog/wall'],'clicks':3,'impressions':110,'position':8,'ctr':3/110}]
+        self.assertTrue(writer.measure_due(state,pages,date(2026,10,21)))
+        self.assertEqual(state['pages']['wall']['reviews']['28']['decision'],'keep')
+        missing={'pages':{'wall':{'released':'2026-09-20','url':'https://rsg.example/blog/wall','baseline':{'clicks':2}}}}
+        self.assertFalse(writer.measure_due(missing,[],date(2026,10,21)))
+        self.assertNotIn('reviews',missing['pages']['wall'])
+
 
 if __name__ == '__main__':
     unittest.main()
-

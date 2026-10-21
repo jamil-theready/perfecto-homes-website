@@ -16,6 +16,7 @@
   "health_url":"https://trc-seo-cloud-health.jamil-3d5.workers.dev",
   "research_query":"What should buyers compare when exploring homes in Cusco and Peru's Sacred Valley?",
   "authority_domains":["gob.pe","peru.travel","whc.unesco.org","sunarp.gob.pe","congreso.gob.pe"],
+  "authority_seed_urls":["https://whc.unesco.org/en/list/273/","https://www.peru.travel/attractions/sacred-valley"],
   "coverage":["Buying property in Peru as a foreigner","Sacred Valley property investment","Cusco hospitality property","Cusco neighborhoods","Sacred Valley communities","Peru property listings"],
   "support_paths":["/peru","/communities/peru","/contact"],
   "conversion_path":"/contact",

@@ -3,6 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from datetime import date
+from unittest.mock import patch
 
 spec=importlib.util.spec_from_file_location('article_research',Path(__file__).with_name('article_research.py'))
 research=importlib.util.module_from_spec(spec)
@@ -10,6 +11,16 @@ if Path(spec.origin).exists():
     spec.loader.exec_module(research)
 
 class ResearchTests(unittest.TestCase):
+    def test_no_demand_refreshes_sources_without_manufacturing_a_publication_packet(self):
+        policy={**self.policy(),'authority_seed_urls':['https://one.gov/a','https://two.org/b'],'conversion_path':'/contact'}
+        def fetched(url):return {'url':url,'accessed':str(date.today()),'excerpt':'Verified public reference text.'}
+        def no_model(_):raise AssertionError('No article demand must not spend model calls to invent a topic')
+        with patch.object(research,'fetch_source',side_effect=fetched):
+            result=research.research_packet('Planning context',policy,[],no_model,require_article_packet=False)
+        self.assertIs(result['publication_ready'],False)
+        self.assertEqual(len(result['sources']),2)
+        self.assertEqual(result['comparison'],[])
+
     def test_search_output_with_preface_or_citations_preserves_json(self):
         self.assertEqual(research.parse_model_json('Research follows:\n```json\n{"comparison":[],"original_value":"x"}\n```\nSources [one]'),{'comparison':[],'original_value':'x'})
 
