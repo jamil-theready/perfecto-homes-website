@@ -22,6 +22,7 @@
   "conversion_path":"/contact",
   "article_author":"Perfecto Homes",
   "article_category":"Peru",
-  "new_article_hold":"Website inquiry delivery needs repair before adding traffic; research continues automatically",
+  "new_article_hold":"",
+  "hold_reconciliation":{"verified_on":"2026-10-22","source":"CLIENT.md current TRC-STATUS and verified live website inquiry test","decision":"Inquiry-related hold cleared after the published intake repair reached the thank-you page and saved the actual website inquiry in Master Operations. Normal demand, source, factual-review, build and live-verification gates remain required. This does not enable automatic lead-alert dispatch."},
   "article_media":{"path":"/images/blog/stock-maras-sacred-valley.webp","source_url":"https://www.pexels.com/photo/landscape-of-peru-s-sacred-valley-6725735/","download_url":"https://images.pexels.com/photos/6725735/pexels-photo-6725735.jpeg?cs=srgb&fm=jpg","photographer":"Gilmer Diaz Estela","alt":"Stock landscape showing the Maras salt terraces in Peru","status":"stock","license":"https://www.pexels.com/license/"}
 }
