@@ -353,7 +353,7 @@ def main():
     if args.command=='report':
         result=read_json(root/'seo-evidence/result.json')
         success=os.environ.get('SEO_JOB_STATUS')=='success'
-        state='working' if paused or (success and result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable') else 'failed'
+        state='working' if success and (paused or (result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable')) else 'failed'
         phase='SEO publishing paused' if paused else result.get('state','Cloud execution failed before result')
         payload={'client':policy['client'],'state':state,'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID',''),'phase':phase,'release_verified':success and phase=='Shipped and verified','research':'Not checked while paused' if paused else result.get('research','Not checked'),'new_article_decision':result.get('new_article_decision','Pending release')}
         releases=read_json(root/'seo/state.json').get('pages',{})
