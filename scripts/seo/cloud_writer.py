@@ -342,20 +342,28 @@ def main():
     policy = read_json(root/'seo/policy.json')
     if policy.get('enabled') is not True:
         raise ValueError('Cloud content scope is disabled')
+    paused = os.environ.get('TRC_SEO_ACTIVE', '').lower() == 'false'
+    if args.command == 'prepare' and paused:
+        save_json(root/'seo-evidence/result.json', {'client': policy['client'], 'state': 'SEO publishing paused', 'source': 'Paused'})
+        if os.environ.get('GITHUB_OUTPUT'):
+            with open(os.environ['GITHUB_OUTPUT'], 'a') as handle:
+                handle.write('changed=false\nneeds_verify=false\nresearch_changed=false\nstate_changed=false\nauthority_changed=false\n')
+        print('SEO publishing paused; no content or research writes made.')
+        return
     if args.command=='report':
         result=read_json(root/'seo-evidence/result.json')
         success=os.environ.get('SEO_JOB_STATUS')=='success'
-        state='working' if success and result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable' else 'failed'
-        phase=result.get('state','Cloud execution failed before result')
-        payload={'client':policy['client'],'state':state,'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID',''),'phase':phase,'release_verified':success and phase=='Shipped and verified','research':result.get('research','Not checked'),'new_article_decision':result.get('new_article_decision','Pending release')}
+        state='working' if paused or (success and result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable') else 'failed'
+        phase='SEO publishing paused' if paused else result.get('state','Cloud execution failed before result')
+        payload={'client':policy['client'],'state':state,'at':datetime.now(timezone.utc).isoformat(),'run_id':os.environ.get('GITHUB_RUN_ID',''),'phase':phase,'release_verified':success and phase=='Shipped and verified','research':'Not checked while paused' if paused else result.get('research','Not checked'),'new_article_decision':result.get('new_article_decision','Pending release')}
         releases=read_json(root/'seo/state.json').get('pages',{})
         latest=max(releases.values(),key=lambda row:row.get('released',''),default={})
         payload['last_verified_release']=latest.get('released')
         payload['last_release_run']=latest.get('run_id')
-        payload['source']=result.get('source','Unavailable')
-        payload['research_reason']=read_json(root/'seo/research.json').get('reason','')
-        payload['authority']=result.get('authority','Not checked')
-        payload['content_hold']=policy.get('new_article_hold','')
+        payload['source']='Paused' if paused else result.get('source','Unavailable')
+        payload['research_reason']='' if paused else read_json(root/'seo/research.json').get('reason','')
+        payload['authority']='Not checked while paused' if paused else result.get('authority','Not checked')
+        payload['content_hold']='Client lifecycle pause' if paused else policy.get('new_article_hold','')
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:
