@@ -58,4 +58,14 @@ export async function submitLeadIntake({ formData, formName, propertyTitle, prop
   if (!result.ok || !["accepted", "duplicate"].includes(result.status || "")) {
     throw new Error("Lead intake returned an unexpected response.");
   }
+  // The accepted intake is the lead receipt. Secondary email delivery and
+  // thank-you navigation must not decide whether that lead is measured.
+  if (result.status === "accepted") {
+    window.gtag?.("event", "generate_lead", {
+      event_id: eventId,
+      form_name: formName,
+      property: propertySlug || propertyTitle || "general-inquiry",
+      value: 1,
+    });
+  }
 }
