@@ -494,7 +494,7 @@ def verify(root, policy):
                 result.update(state='Shipped and verified',verified_at=datetime.now(timezone.utc).isoformat(),live_url=url)
                 save_json(root/'seo-evidence/result.json',result)
                 checkpoint(root,policy,result)
-                print('Served title, description and opening independently verified.')
+                print('Exact edited served fields and links independently verified.')
                 return
         except Exception as error:
             last_error = type(error).__name__

@@ -162,6 +162,8 @@ jobs:
           name: seo-execution-${{ github.run_id }}
           path: seo-evidence/
           retention-days: 60
+          # A retry of the same run ID resumes before replacing its artifact.
+          overwrite: true
           if-no-files-found: warn
       - name: Publish safe operational receipt
         if: always()
