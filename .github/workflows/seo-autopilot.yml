@@ -24,22 +24,27 @@ jobs:
         run: |
           python - <<'PY'
           import json, os, urllib.request, urllib.error
-          request=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/variables/TRC_SEO_ACTIVE',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          request=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/workflows/seo-autopilot.yml',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
           try:
               with urllib.request.urlopen(request,timeout=20) as response:
                   value=json.load(response)
-              print(json.dumps({'variables_read':True,'switch_present':value.get('name')=='TRC_SEO_ACTIVE'}))
+              assert value.get('path')=='.github/workflows/seo-autopilot.yml' and value.get('state')=='active'
+              print(json.dumps({'workflow_read':True,'publishing_switch':'active'}))
           except urllib.error.HTTPError as error:
-              print(json.dumps({'variables_read':False,'http_status':error.code}))
+              print(json.dumps({'workflow_read':False,'http_status':error.code}))
               raise SystemExit(1)
           PY
   content:
+<<<<<<< HEAD
     if: github.ref == 'refs/heads/main'
     # false pauses all SEO writes; tests and the operational receipt continue.
+=======
+    # Workflow enabled/disabled state is the live publishing control.
+    # The variable is an additional startup brake; use scripts/seo/control.py.
+>>>>>>> 8a695ef (fix(seo): use live workflow control without extra credentials)
     env:
       TRC_SEO_ACTIVE: ${{ vars.TRC_SEO_ACTIVE }}
       GH_TOKEN: ${{ github.token }}
-      SEO_VARIABLES_TOKEN: ${{ secrets.SEO_VARIABLES_TOKEN }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

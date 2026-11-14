@@ -22,13 +22,13 @@ at 06:23 UTC. Recovery remains the existing agency service's responsibility.
    ledger with the existing service account. Configure the ledger source string,
    stable event identity, timezone and verified continuity boundary. Never infer
    historical completeness from the oldest row. Leave unverified dates null.
-4. Set repository `TRC_SEO_ACTIVE` to true only within the client's existing
-   publication authorization. The runner rechecks its latest value immediately
-   before prepare and every push/direct deployment. Missing, false, unreadable,
-   wrong-repository or disabled policy fails closed. Hosted read permission for
-   the variables API must be proved; a local administrator token is not proof of
-   the Actions token. The optional `SEO_VARIABLES_TOKEN` reference is not a
-   request to create, copy or broaden any credential.
+4. Use the primary control below within the client's existing publication
+   authorization. The workflow's live enabled/disabled state is the authoritative
+   switch. `TRC_SEO_ACTIVE` remains an additional startup brake. The runtime reads
+   only the workflow-state API with its existing Actions-read token; it does not
+   need a Variables-read secret or new GitHub App permissions. Missing, inactive,
+   unreadable, wrong-repository or wrong-workflow evidence fails closed. Verify
+   the actual hosted token can read the workflow state before accepting enrollment.
 5. Run all Python tests, build the actual site for the enabled adapter, then run
    one hosted cycle and read the private `summary.md`, `audit.json`,
    `keyword-map.json`, `research.json`, `reporting.json` and result receipt.
@@ -59,11 +59,32 @@ at 06:23 UTC. Recovery remains the existing agency service's responsibility.
 
 ## Pause, deduplication and resume
 
-Use the existing per-client publishing control to set `TRC_SEO_ACTIVE` false.
-It is checked live before each public mutation; the job's startup environment
-is not the publication authority. A paused job performs no Google/model work.
-Tests and an operational receipt may still run. This repository's SEO switch
-does not pause unrelated forms, messages, Ads or other clients.
+The GitHub `SEO Autopilot` workflow's enabled/disabled state is the one primary
+publishing switch. Operate it with the current client's policy and the existing
+operator `gh` authentication, from the website repository:
+
+```bash
+python3 scripts/seo/control.py --client perfecto --repo jamil-theready/perfecto-homes-website status
+python3 scripts/seo/control.py --client perfecto --repo jamil-theready/perfecto-homes-website off
+python3 scripts/seo/control.py --client perfecto --repo jamil-theready/perfecto-homes-website on
+```
+
+Replace both explicit identifiers for another client. A client/repository mismatch
+is rejected before any API operation. Off disables the workflow first, sets the
+legacy startup variable false and cancels its queued/running jobs. Every writer
+push/direct deployment rechecks the current workflow state, so a stale true
+startup snapshot cannot authorize an Off client. On cancels old nonterminal jobs,
+sets the startup variable true and enables the workflow; it does not dispatch or
+reset a monthly claim. Calling On when already On leaves valid running work alone.
+A failure updating the legacy brake still leaves the workflow disabled and attempts
+the cancellations. A failure cancelling an old run prevents enabling it. Cancellation requests that
+are still nonterminal also leave the workflow Off; rerun On after they finish.
+
+Changing the variable alone is an additional startup stop, and is not the live
+primary switch. Operator Off/On must use the helper. The independent daily cloud
+monitor continues; recovery respects a disabled writer. This SEO switch does not
+pause unrelated forms, messages, Ads or other clients. Disabled workflows have no
+scheduled runs; an already executing job must fail its next live permission check.
 
 The workflow serializes runs per repository and checks out current main.
 `seo/runner.json` is a private durable client/month claim, committed before the

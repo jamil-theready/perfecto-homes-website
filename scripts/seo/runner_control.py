@@ -15,6 +15,11 @@ from datetime import datetime, timezone
 from urllib.request import Request, urlopen
 
 
+WORKFLOW_NAME='seo-autopilot.yml'
+WORKFLOW_PATH='.github/workflows/'+WORKFLOW_NAME
+STARTUP_VARIABLE='TRC_SEO_ACTIVE'
+
+
 class PublicationBlocked(ValueError):
     pass
 
@@ -32,7 +37,11 @@ def cycle_id(policy, now=None):
 
 
 def publication_permission(policy, environ=None, opener=urlopen):
-    """Read the variable now, not the possibly hours-old job environment snapshot."""
+    """The live workflow state is the primary publishing control.
+
+    TRC_SEO_ACTIVE is an additional startup brake; a stale true snapshot cannot
+    override an operator disabling the workflow while a job is queued/running.
+    """
     env = os.environ if environ is None else environ
     if policy.get('enabled') is not True:
         raise PublicationBlocked('Client SEO policy is disabled')
@@ -41,10 +50,17 @@ def publication_permission(policy, environ=None, opener=urlopen):
         raise PublicationBlocked('Invalid client repository')
     if env.get('GITHUB_REPOSITORY') != repository:
         raise PublicationBlocked('Client repository mismatch')
-    token = env.get('SEO_VARIABLES_TOKEN') or env.get('GH_TOKEN') or env.get('GITHUB_TOKEN')
+    configured=policy.get('publication_control',{})
+    if (configured.get('primary','github-workflow-state')!='github-workflow-state'
+            or configured.get('workflow',WORKFLOW_NAME)!=WORKFLOW_NAME):
+        raise PublicationBlocked('Unsupported client publication control')
+    initial = env.get(STARTUP_VARIABLE)
+    if not isinstance(initial,str) or initial.lower() != 'true':
+        raise PublicationBlocked('SEO publishing paused by the startup brake')
+    token = env.get('GH_TOKEN') or env.get('GITHUB_TOKEN')
     if not token:
         raise PublicationBlocked('Current publication permission cannot be verified')
-    request = Request('https://api.github.com/repos/' + repository + '/actions/variables/TRC_SEO_ACTIVE',
+    request = Request('https://api.github.com/repos/' + repository + '/actions/workflows/'+WORKFLOW_NAME,
                       headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json',
                                'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'TRC-SEO-Permission/1.0'})
     try:
@@ -52,8 +68,10 @@ def publication_permission(policy, environ=None, opener=urlopen):
             current = json.load(response)
     except Exception:
         raise PublicationBlocked('Current publication permission unavailable; nothing may publish') from None
-    if current.get('name') != 'TRC_SEO_ACTIVE' or not isinstance(current.get('value'), str) or current['value'].lower() != 'true':
-        raise PublicationBlocked('SEO publishing paused or not explicitly enabled')
+    if current.get('path') != WORKFLOW_PATH:
+        raise PublicationBlocked('Client publishing workflow identity mismatch')
+    if current.get('state') != 'active':
+        raise PublicationBlocked('SEO publishing paused by the live workflow control')
     return True
 
 

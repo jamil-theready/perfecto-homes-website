@@ -558,6 +558,9 @@ def main():
         write_execution_summary(root)
     elif args.command=='report':
         result=read_json(root/'seo-evidence/result.json')
+        if result.get('cycle_state')=='duplicate':
+            print('Duplicate monthly run: original operational receipt and evidence age preserved.')
+            return
         paused=result.get('cycle_state')=='paused'
         success=os.environ.get('SEO_JOB_STATUS')=='success'
         state='working' if success and (paused or result.get('cycle_state')=='paused' or result.get('coverage_state')=='complete') else 'partial' if success else 'failed'

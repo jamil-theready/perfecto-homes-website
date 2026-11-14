@@ -157,3 +157,11 @@ class MonthlyRunnerIntegrationTests(unittest.TestCase):
             for name,value in original.items():
                 self.assertEqual((root/'seo-evidence'/name).read_bytes(),value)
             self.assertEqual((root/'content/blog/cusco.md').read_bytes(),source)
+
+    def test_duplicate_report_does_not_overwrite_or_refresh_original_receipt(self):
+        from cloud_writer import main
+        with patch('sys.argv',['cloud_writer.py','report']), \
+             patch('cloud_writer.read_json',side_effect=[self.policy(),{'cycle_state':'duplicate','source':'Previous completed monthly cycle'}]), \
+             patch('cloud_writer.json_request') as request:
+            main()
+        request.assert_not_called()

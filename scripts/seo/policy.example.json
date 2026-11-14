@@ -21,7 +21,11 @@
   "support_paths": [],
   "conversion_path": "/contact",
   "new_article_hold": "Not enrolled. Current facts, supported sources and approved media required.",
-  "adapters": {"metadata_pages": [], "internal_links": [], "technical_checks": []},
+  "adapters": {
+    "metadata_pages": [],
+    "internal_links": [],
+    "technical_checks": []
+  },
   "reporting": {
     "ga4_property": "",
     "timezone": "UTC",
@@ -34,5 +38,10 @@
       "coverage_evidence": "",
       "exclude_email_domains": []
     }
+  },
+  "publication_control": {
+    "primary": "github-workflow-state",
+    "workflow": "seo-autopilot.yml",
+    "startup_brake": "TRC_SEO_ACTIVE"
   }
 }

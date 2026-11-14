@@ -130,5 +130,10 @@
         "thereadyconsult.com"
       ]
     }
+  },
+  "publication_control": {
+    "primary": "github-workflow-state",
+    "workflow": "seo-autopilot.yml",
+    "startup_brake": "TRC_SEO_ACTIVE"
   }
 }

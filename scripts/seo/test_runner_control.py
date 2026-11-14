@@ -15,38 +15,47 @@ class RunnerControlTests(unittest.TestCase):
     def setUp(self):
         self.policy = {'client':'peru', 'enabled':True, 'repository':'agency/peru',
                        'blog_dir':'content/blog', 'adapters':{'metadata_pages':[]}}
-        self.env = {'GITHUB_REPOSITORY':'agency/peru', 'GH_TOKEN':'secret-placeholder'}
+        self.env = {'GITHUB_REPOSITORY':'agency/peru', 'GH_TOKEN':'secret-placeholder','TRC_SEO_ACTIVE':'True'}
 
     def response(self, value):
         return lambda *args, **kwargs: io.StringIO(json.dumps(value))
 
-    def test_permission_is_fresh_exact_and_client_bound(self):
-        for value in ['false', '', 'enabled', True, None]:
+    def workflow(self, state='active'):
+        return {'state':state,'path':'.github/workflows/seo-autopilot.yml'}
+
+    def test_permission_is_live_exact_and_client_bound_with_initial_brake(self):
+        for state in ['disabled_manually','disabled_inactivity','deleted','',None,'ACTIVE']:
             with self.assertRaises(PublicationBlocked):
-                publication_permission(self.policy, self.env, self.response({'name':'TRC_SEO_ACTIVE','value':value}))
+                publication_permission(self.policy,self.env,self.response(self.workflow(state)))
         for value in ['true','True','TRUE']:
-            self.assertTrue(publication_permission(self.policy, self.env, self.response({'name':'TRC_SEO_ACTIVE','value':value})))
+            self.assertTrue(publication_permission(self.policy,{**self.env,'TRC_SEO_ACTIVE':value},self.response(self.workflow())))
+        for value in ['false','','enabled',True,None]:
+            with self.assertRaises(PublicationBlocked):
+                publication_permission(self.policy,{**self.env,'TRC_SEO_ACTIVE':value},self.response(self.workflow()))
         with self.assertRaises(PublicationBlocked):
-            publication_permission(self.policy, {**self.env,'GITHUB_REPOSITORY':'agency/other'}, self.response({}))
+            publication_permission(self.policy,{**self.env,'GITHUB_REPOSITORY':'agency/other'},self.response(self.workflow()))
         with self.assertRaises(PublicationBlocked):
-            publication_permission(self.policy, {}, self.response({}))
+            publication_permission(self.policy,{},self.response(self.workflow()))
 
-    def test_network_or_missing_variable_fails_closed_without_secrets(self):
-        def fail(*args, **kwargs):
-            raise RuntimeError('secret-placeholder')
+    def test_network_or_wrong_workflow_fails_closed_without_secrets(self):
+        def fail(*args,**kwargs): raise RuntimeError('secret-placeholder')
         with self.assertRaises(PublicationBlocked) as error:
-            publication_permission(self.policy, self.env, fail)
-        self.assertNotIn('secret-placeholder', str(error.exception))
+            publication_permission(self.policy,self.env,fail)
+        self.assertNotIn('secret-placeholder',str(error.exception))
         with self.assertRaises(PublicationBlocked):
-            publication_permission(self.policy, self.env, self.response({'value':'true'}))
+            publication_permission(self.policy,self.env,self.response({'state':'active','path':'.github/workflows/other.yml'}))
 
-    def test_off_after_prepare_blocks_a_queued_publication(self):
-        values = iter(['true', 'false'])
-        def changing(*args, **kwargs):
-            return io.StringIO(json.dumps({'name':'TRC_SEO_ACTIVE','value':next(values)}))
-        self.assertTrue(publication_permission(self.policy, self.env, changing))
+    def test_off_after_prepare_blocks_queued_publish_despite_stale_true_brake(self):
+        values=iter(['active','disabled_manually'])
+        requests=[]
+        def changing(request,**kwargs):
+            requests.append(request.full_url)
+            return io.StringIO(json.dumps(self.workflow(next(values))))
+        self.assertTrue(publication_permission(self.policy,self.env,changing))
         with self.assertRaises(PublicationBlocked):
-            publication_permission(self.policy, self.env, changing)
+            publication_permission(self.policy,self.env,changing)
+        self.assertTrue(all(url.endswith('/actions/workflows/seo-autopilot.yml') for url in requests))
+        self.assertEqual(self.env['TRC_SEO_ACTIVE'],'True')
 
     def test_monthly_claim_deduplicates_manual_retry_and_keeps_off_resume_owner(self):
         when = datetime(2026,11,14,tzinfo=timezone.utc)
