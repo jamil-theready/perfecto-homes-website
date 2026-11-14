@@ -104,3 +104,14 @@ class LaunchHandoffTests(unittest.TestCase):
         self.assertEqual(receipt['state'],'partial')
         self.assertIsNone(receipt['reporting']['current']['inquiries'])
         self.assertEqual(receipt['issue_count'],1)
+
+
+    def test_followup_excludes_partial_days_before_verified_measurement_boundaries(self):
+        launch=self.launch();policy=self.policy();policy['reporting'].update(timezone='America/Los_Angeles',test_flag_verified_since='2026-11-15T00:30:00Z')
+        policy['reporting']['lead_ledger']['coverage_since']='2026-11-14T11:41:37.729Z'
+        collect=Mock(return_value={'coverage':{name:'Complete' for name in ['google_analytics','search_console','lead_ledger']}})
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'GITHUB_REPOSITORY':'agency/peru','GITHUB_RUN_ID':'100','SEO_STATUS_KEY':'placeholder'}):
+            result=run_followup(Path(folder),policy,launch['launch_id'],NOW+timedelta(days=7),lambda p:{'launches':[launch]},collect,lambda *a:{'coverage':{'technical_audit':'reviewed'},'issues':[]},Mock())
+        self.assertEqual(collect.call_args.args[1:],('2026-11-15','2026-11-18'))
+        self.assertEqual(result['window_start'],'2026-11-15')
+        self.assertEqual(result['state'],'complete')

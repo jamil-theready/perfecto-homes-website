@@ -4,6 +4,7 @@ from datetime import datetime, timedelta, timezone
 import json
 import os
 from pathlib import Path
+from zoneinfo import ZoneInfo
 import re
 from urllib.request import Request, urlopen
 from cloud_writer import json_request, reporting_receipt, save_json
@@ -54,6 +55,16 @@ def run_followup(root,policy,launch_id,now=None,read_registry=fetch_launches,
     # GSC is delayed: this is an early diagnostic of the available completed
     # dates after handoff, not a fabricated full-seven-day attribution result.
     start=stamp(launch['launched_at']).date()
+    # A launch-day diagnostic must not request hours before verified tracking.
+    # Keep the exact shorter window visible; never fill missing history with zero.
+    cfg=policy.get('reporting',{})
+    zone=ZoneInfo(cfg.get('timezone','America/Los_Angeles'))
+    boundaries=[cfg.get('test_flag_verified_since'),cfg.get('lead_ledger',{}).get('coverage_since')]
+    for value in boundaries:
+        if value:
+            boundary=stamp(value).astimezone(zone)
+            first_full=boundary.date()+timedelta(days=bool(boundary.hour or boundary.minute or boundary.second or boundary.microsecond))
+            start=max(start,first_full)
     end=(now-timedelta(days=3)).date()
     if end<start: raise ValueError('No completed post-handoff source window yet')
     failures=0
