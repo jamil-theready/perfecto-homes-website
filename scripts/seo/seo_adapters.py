@@ -175,7 +175,9 @@ def monthly_audit(root, policy, evidence, fetcher=fetch_text):
                 desired = policy['site'].rstrip('/') + check['path'].rstrip('/')
                 canonicals = [html.unescape(m.group(2)).rstrip('/') for tag in links if re.search(r'rel=[\"\']canonical[\"\']',tag,re.I)
                               for m in [re.search(r'href=([\"\'])(.*?)\1',tag,re.I)] if m]
-                row['passed'] = canonicals == [desired] and not re.search(r'<meta[^>]*(?:noindex|none)',text,re.I)
+                robot_tags=[tag for tag in re.findall(r'<meta\b[^>]*>',text,re.I) if re.search(r'name=[\"\'](?:robots|googlebot)[\"\']',tag,re.I)]
+                blocked=any(re.search(r'content=[\"\'][^\"\']*\b(?:noindex|none)\b',tag,re.I) for tag in robot_tags)
+                row['passed'] = canonicals == [desired] and not blocked
             else:
                 row['state'] = 'unsupported'
         except Exception as error:

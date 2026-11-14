@@ -485,13 +485,15 @@ def verify(root, policy):
                 served = response.read().decode()
             if verify_html(served,result['change']):
                 state = read_json(root/'seo/state.json')
-                released = str(date.today())
+                previous=state.get('pages',{}).get(result['candidate']['slug'],{})
+                released = previous.get('released') if previous.get('run_id')==result['run_id'] else str(date.today())
                 state['last_release'] = released
-                state.setdefault('pages',{})[result['candidate']['slug']] = {'released':released,'kind':result['candidate'].get('kind','content-fix'),'url':url,'run_id':result['run_id'],'baseline_source':'page_totals' if result['candidate'].get('kind')!='article' else 'query_demand_before_new_page','baseline':{k:result['candidate'][k] for k in ['impressions','clicks','ctr','position']},'review_28d':str(date.today()+timedelta(days=28)),'review_56d':str(date.today()+timedelta(days=56))}
+                state.setdefault('pages',{})[result['candidate']['slug']] = {'released':released,'kind':result['candidate'].get('kind','content-fix'),'url':url,'run_id':result['run_id'],'baseline_source':'page_totals' if result['candidate'].get('kind')!='article' else 'query_demand_before_new_page','baseline':{k:result['candidate'][k] for k in ['impressions','clicks','ctr','position']},'review_28d':str(date.fromisoformat(released)+timedelta(days=28)),'review_56d':str(date.fromisoformat(released)+timedelta(days=56))}
                 if result['candidate'].get('kind')=='article':state['pages'][result['candidate']['slug']]['target_query']=result['candidate']['query']
                 save_json(root/'seo/state.json',state)
                 result.update(state='Shipped and verified',verified_at=datetime.now(timezone.utc).isoformat(),live_url=url)
                 save_json(root/'seo-evidence/result.json',result)
+                checkpoint(root,policy,result)
                 print('Served title, description and opening independently verified.')
                 return
         except Exception as error:
