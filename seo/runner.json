@@ -1,0 +1,11 @@
+{
+  "cycles": {
+    "perfecto:2026-11": {
+      "claimed_at": "2026-11-14T11:09:12.536521+00:00",
+      "policy_sha256": "938e9e93ca2c07f664cd9ceeffce4cd1231b317615875faddf954b06498b6752",
+      "run_id": "43588634376",
+      "state": "claimed"
+    }
+  },
+  "version": 1
+}
