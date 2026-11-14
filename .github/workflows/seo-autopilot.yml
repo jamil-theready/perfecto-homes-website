@@ -2,7 +2,8 @@ name: SEO Autopilot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '23 */4 * * *'
+    # Monthly, first day at 06:23 UTC. Recovery uses this calendar boundary too.
+    - cron: '23 6 1 * *'
 permissions:
   contents: write
 concurrency:
@@ -112,6 +113,11 @@ jobs:
             git commit -m 'research(seo): record public mention research and verified link watch'
             git push origin HEAD:main
           fi
+      - name: Prepare readable execution summary
+        if: always()
+        env:
+          SEO_JOB_STATUS: ${{ job.status }}
+        run: python scripts/seo/cloud_writer.py summary
       - name: Save private execution evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

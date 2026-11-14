@@ -23,6 +23,52 @@ def save_json(path, data):
     Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
 
+def research_due(previous, today, query):
+    return (previous.get('month') != str(today)[:7]
+            or previous.get('state') != 'Verified current sources'
+            or previous.get('packet', {}).get('query') != query)
+
+
+def execution_summary(result, search):
+    candidate = result.get('candidate') or {}
+    fields = list(result.get('change', {}))
+    if candidate.get('kind') == 'article':
+        fields = ['title', 'description', 'opening', 'body']
+    return {'window_start':search.get('start',''), 'window_end':search.get('end',''),
+            'query_count':len(search.get('rows',[])), 'page_count':len(search.get('pages',[])),
+            'change_kind':'new article' if candidate.get('kind') == 'article' else 'existing article' if candidate else 'none',
+            'candidate_url':candidate.get('url',''), 'edited_fields':fields,
+            'decision_reason':result.get('new_article_decision','No decision saved; inspect the failed step')}
+
+
+def write_execution_summary(root):
+    result = read_json(root/'seo-evidence/result.json')
+    search = read_json(root/'seo-evidence/search.json')
+    summary = execution_summary(result, search)
+    # This detailed report stays in the private repository/run, not the public feed.
+    lines = ['# Monthly SEO run', '', 'Result: '+result.get('state','No result; inspect failed step'),
+             'Run outcome: '+os.environ.get('SEO_JOB_STATUS','Unavailable'),
+             'Search window: '+summary['window_start']+' to '+summary['window_end'],
+             'Evidence: '+str(summary['query_count'])+' page/query rows; '+str(summary['page_count'])+' page totals.',
+             'Action: '+summary['change_kind'], 'Target: '+(summary['candidate_url'] or 'None'),
+             'Decision: '+summary['decision_reason'],
+             'Fields: '+(', '.join(summary['edited_fields']) or 'None'), '',
+             '## Research and keywords',
+             'See keyword-map.json for observed queries and page ownership, research.json for sources/comparisons, and authority.json for public mention research.',
+             'Google hides some queries. These are observed impressions, not external search-volume estimates.', '',
+             '## Publication and measurement',
+             'result.json records the candidate/change. packet.json and review.json contain original context and independent checks when a change was selected.',
+             'A checked draft is not a live release. Only Shipped and verified confirms served-page verification.',
+             'seo/state.json retains release baselines and due 28/56-day reviews; due reviews run on the next monthly cycle.',
+             'Lead and sales outcomes remain Unknown unless independently verified.']
+    text='\n\n'.join(lines)+'\n'
+    (root/'seo-evidence').mkdir(exist_ok=True)
+    (root/'seo-evidence/summary.md').write_text(text)
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as handle:
+            handle.write(text)
+
+
 def choose_opportunity(rows, files, policy, state, today):
     last = state.get('last_release')
     if last and (today-date.fromisoformat(last)).days < policy['release_interval_days']:
@@ -214,16 +260,15 @@ def prepare(root, policy):
     from article_research import choose_gap,research_packet,render_article,ensure_media,fetch_source,validate_packet
     coverage=[p.stem.replace('-',' ')+' '+(re.search(r'^title:\s*(.*)',p.read_text(),re.M).group(1) if re.search(r'^title:\s*(.*)',p.read_text(),re.M) else '') for p in files.values()]+policy.get('coverage',[])
     gap=choose_gap(evidence['rows'],coverage,evidence['pages'],{**policy,'current_blog_slugs':list(files)},state,today)
-    week=today.isocalendar()[:2]
     research=read_json(root/'seo/research.json')
-    research_changed=research.get('week')!=list(week) or research.get('state')=='Research needs repair'
+    query=gap['query'] if gap else policy['research_query']
+    research_changed=research_due(research,today,query)
     if research_changed:
-        query=gap['query'] if gap else policy['research_query']
         try:
             packet=research_packet(query,policy,coverage,gemini,require_article_packet=bool(gap))
-            research={'week':list(week),'state':'Verified current sources','packet':packet,'new_article_demand':gap}
+            research={'month':str(today)[:7],'state':'Verified current sources','packet':packet,'new_article_demand':gap}
         except Exception as error:
-            research={'week':list(week),'state':'Research needs repair','reason':str(error)[:250],'new_article_demand':gap}
+            research={'month':str(today)[:7],'state':'Research needs repair','reason':str(error)[:250],'new_article_demand':gap}
             if hasattr(error,'packet'):
                 save_json(root/'seo-evidence/research-diagnostics.json',error.packet)
         save_json(root/'seo/research.json',research)
@@ -336,7 +381,7 @@ def verify(root, policy):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['prepare','verify','report'])
+    parser.add_argument('command', choices=['prepare','verify','report','summary'])
     args = parser.parse_args()
     root = Path.cwd()
     policy = read_json(root/'seo/policy.json')
@@ -350,7 +395,9 @@ def main():
                 handle.write('changed=false\nneeds_verify=false\nresearch_changed=false\nstate_changed=false\nauthority_changed=false\n')
         print('SEO publishing paused; no content or research writes made.')
         return
-    if args.command=='report':
+    if args.command=='summary':
+        write_execution_summary(root)
+    elif args.command=='report':
         result=read_json(root/'seo-evidence/result.json')
         success=os.environ.get('SEO_JOB_STATUS')=='success'
         state='working' if success and (paused or (result.get('research')!='Research needs repair' and result.get('authority')!='Unavailable')) else 'failed'
@@ -364,6 +411,7 @@ def main():
         payload['research_reason']='' if paused else read_json(root/'seo/research.json').get('reason','')
         payload['authority']='Not checked while paused' if paused else result.get('authority','Not checked')
         payload['content_hold']='Client lifecycle pause' if paused else policy.get('new_article_hold','')
+        payload.update(execution_summary(result,read_json(root/'seo-evidence/search.json')))
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:
