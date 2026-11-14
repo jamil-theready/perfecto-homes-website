@@ -8,7 +8,7 @@ import unittest
 from datetime import datetime, timezone
 from unittest.mock import patch
 from runner_control import (PublicationBlocked, claim, cycle_id, publication_permission,
-                            policy_digest, digest, restore_checkpoint, complete_cycle)
+                            policy_digest, digest, restore_checkpoint, complete_cycle, download_checkpoint)
 
 
 class RunnerControlTests(unittest.TestCase):
@@ -102,3 +102,67 @@ class RunnerControlTests(unittest.TestCase):
                 with self.assertRaises((ValueError,KeyError)):
                     restore_checkpoint(Path(target),self.policy,draft,'peru:2026-11')
                 self.assertFalse((Path(target)/'content/blog/cusco.md').exists())
+
+    def fake_artifact_download(self, evidence):
+        def download(command, **kwargs):
+            target=Path(command[command.index('--dir')+1])
+            (target/'checked-release.json').write_text(json.dumps(self.draft()))
+            for name,value in evidence.items():
+                (target/name).write_bytes(value)
+            return type('Download',(),{'returncode':0})()
+        return download
+
+    def test_same_run_retry_preserves_original_evidence_for_replacement_artifact(self):
+        original={name:json.dumps({'proof':name,'original_run':'100'}).encode() for name in
+                  ['search.json','audit.json','research.json','packet.json','review.json',
+                   'keyword-map.json','authority.json','reporting.json','research-diagnostics.json','result.json']}
+        original['summary.md']=b'Original interrupted run summary'
+        original['unlisted-secret.json']=b'{"secret":"must not copy"}'
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            with patch('runner_control.subprocess.run',side_effect=self.fake_artifact_download(original)):
+                result=download_checkpoint(root,self.policy,'100','peru:2026-11')
+            self.assertEqual(result['candidate']['slug'],'cusco')
+            evidence=root/'seo-evidence'
+            for name,value in original.items():
+                if name in ['result.json','summary.md','unlisted-secret.json']:
+                    continue
+                self.assertEqual((evidence/name).read_bytes(),value)
+            self.assertEqual((evidence/'previous-attempt-result.json').read_bytes(),original['result.json'])
+            self.assertEqual((evidence/'previous-attempt-summary.md').read_bytes(),original['summary.md'])
+            self.assertFalse((evidence/'unlisted-secret.json').exists())
+            # The resumed run can replace only its current result/summary; original
+            # source evidence remains available to the artifact overwrite step.
+            (evidence/'result.json').write_text('{"state":"resumed"}')
+            (evidence/'summary.md').write_text('Resumed outcome')
+            self.assertEqual((evidence/'search.json').read_bytes(),original['search.json'])
+            self.assertIn('Original interrupted',(evidence/'previous-attempt-summary.md').read_text())
+
+    def test_resume_rejects_malformed_or_oversized_sibling_before_source_changes(self):
+        cases=[({'review.json':b'not-json'},{}),
+               ({'search.json':b'{"rows":[]}'},{'MAX_EVIDENCE_FILE_BYTES':4}),
+               ({'search.json':b'{}','audit.json':b'{}'},{'MAX_EVIDENCE_TOTAL_BYTES':3})]
+        for evidence,limits in cases:
+            with self.subTest(evidence=list(evidence),limits=limits),tempfile.TemporaryDirectory() as folder:
+                root=Path(folder)
+                from contextlib import ExitStack
+                with ExitStack() as contexts:
+                    contexts.enter_context(patch('runner_control.subprocess.run',side_effect=self.fake_artifact_download(evidence)))
+                    for key,value in limits.items(): contexts.enter_context(patch('runner_control.'+key,value))
+                    with self.assertRaises(ValueError):
+                        download_checkpoint(root,self.policy,'100','peru:2026-11')
+                self.assertFalse((root/'content/blog/cusco.md').exists())
+                self.assertFalse((root/'seo-evidence').exists())
+
+    def test_resume_rejects_evidence_symlink_before_source_changes(self):
+        def download(command,**kwargs):
+            target=Path(command[command.index('--dir')+1])
+            (target/'checked-release.json').write_text(json.dumps(self.draft()))
+            (target/'review.json').symlink_to(target/'checked-release.json')
+            return type('Download',(),{'returncode':0})()
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            with patch('runner_control.subprocess.run',side_effect=download):
+                with self.assertRaises(ValueError):
+                    download_checkpoint(root,self.policy,'100','peru:2026-11')
+            self.assertFalse((root/'content/blog/cusco.md').exists())

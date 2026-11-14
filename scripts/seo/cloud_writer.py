@@ -290,10 +290,10 @@ def prepare(root, policy):
     if ledger.get('state') == 'complete':
         raise ValueError('Monthly cycle already complete; duplicate work refused')
     if os.environ.get('SEO_RUN_MODE') != 'new' or ledger['run_id'] != os.environ.get('GITHUB_RUN_ID'):
-        pending = read_json(root/'seo/pending.json')
-        if (pending.get('cycle_id') != key or pending.get('policy_sha256') != policy_digest(policy)
-                or not pending.get('candidate')):
-            pending = download_checkpoint(root, policy, ledger['run_id'], key)
+        # Even an already committed pending draft needs its original audit,
+        # research and review siblings before same-run artifact replacement.
+        # Every resume therefore validates/restores the authenticated checkpoint.
+        pending = download_checkpoint(root, policy, ledger['run_id'], key)
         # Checked source bytes must still equal the saved draft before publishing it.
         if pending.get('candidate') and hashlib.sha256((root/pending['candidate']['path']).read_bytes()).hexdigest() != pending.get('checked_sha256'):
             raise ValueError('Checked pending source changed; refusing resume')

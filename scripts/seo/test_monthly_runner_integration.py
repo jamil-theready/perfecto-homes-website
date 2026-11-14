@@ -115,3 +115,45 @@ class MonthlyRunnerIntegrationTests(unittest.TestCase):
         self.assertNotIn('do-not-project',str(result))
         self.assertNotIn('observed_non_test_count',str(result))
         self.assertLess(len(json.dumps(result)),1500)
+
+    def test_committed_pending_resume_downloads_and_preserves_original_sibling_evidence(self):
+        import hashlib
+        import shutil
+        from runner_control import policy_digest
+        policy=self.policy()
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);self.fixture(root,policy)
+            source=b'---\ntitle: Cusco\n---\nExplore the [Sacred Valley](/communities/peru).\n'
+            (root/'content/blog/cusco.md').write_bytes(source)
+            pending={'client':'peru','cycle_id':cycle_id(policy),'policy_sha256':policy_digest(policy),
+                     'run_id':'100','state':'Draft checked','cycle_state':'running',
+                     'candidate':{'path':'content/blog/cusco.md','slug':'cusco','kind':'internal-links'},
+                     'checked_sha256':hashlib.sha256(source).hexdigest(),
+                     'change':{'links':[{'anchor':'Sacred Valley','target':'/communities/peru'}]}}
+            (root/'seo/pending.json').write_text(json.dumps(pending))
+            checkpoint(root,policy,pending)
+            saved=(root/'seo-evidence/checked-release.json').read_bytes()
+            shutil.rmtree(root/'seo-evidence')
+            # Source and pending already exist on main; prior evidence exists only
+            # in the original attempt artifact and would be destroyed by overwrite.
+            original={name:json.dumps({'original':name}).encode() for name in
+                      ['search.json','audit.json','research.json','packet.json','review.json']}
+            downloads=[]
+            def commands(args,**kwargs):
+                if args[0]=='gh':
+                    downloads.append(args)
+                    dest=Path(args[args.index('--dir')+1])
+                    (dest/'checked-release.json').write_bytes(saved)
+                    for name,value in original.items(): (dest/name).write_bytes(value)
+                    return type('Response',(),{'returncode':0})()
+                return type('Response',(),{'returncode':128 if args[1]=='show' else 0,'stdout':b''})()
+            with patch.dict(os.environ,{'GITHUB_RUN_ID':'100','GITHUB_REPOSITORY':policy['repository'],'SEO_RUN_MODE':'resume'}), \
+                 patch('cloud_writer.publication_permission',return_value=True), \
+                 patch('runner_control.subprocess.run',side_effect=commands), \
+                 patch('cloud_writer.collect') as collect,patch('cloud_writer.gemini') as model:
+                prepare(root,policy)
+            self.assertEqual(len(downloads),1)
+            collect.assert_not_called();model.assert_not_called()
+            for name,value in original.items():
+                self.assertEqual((root/'seo-evidence'/name).read_bytes(),value)
+            self.assertEqual((root/'content/blog/cusco.md').read_bytes(),source)

@@ -73,7 +73,11 @@ resets a claim, so toggling Off/On cannot generate again for that month.
 If Off or a deploy failure interrupts a checked draft, the always-uploaded
 private artifact retains `checked-release.json`. A later manual run retrieves
 that exact artifact and restores only allowlisted files with matching client,
-repository, month, policy and source/content hashes. It does not regenerate.
+repository, month, policy and source/content hashes. Every resume downloads the
+original checked checkpoint, even when the draft already exists on main. A fixed
+bounded allowlist retains the original search, audit, research, packet and review
+evidence before replacement of a same-run artifact. Prior result/summary are
+retained as previous-attempt files. It does not regenerate.
 A changed policy/source, missing/expired artifact or failure before a checked
 checkpoint blocks resume. Do not erase a claim to conceal a failure or force a
 second model run. Repair the cause and review the exact pending result. Saved

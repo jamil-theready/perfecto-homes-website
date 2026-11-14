@@ -159,6 +159,52 @@ def restore_checkpoint(root, policy, data, expected_cycle):
     return pending
 
 
+# Static names only. No recursive/glob copy from an artifact into the repository.
+RESUME_EVIDENCE_NAMES = (
+    'search.json', 'audit.json', 'research.json', 'packet.json', 'review.json',
+    'keyword-map.json', 'authority.json', 'reporting.json', 'research-diagnostics.json')
+MAX_EVIDENCE_FILE_BYTES = 2_000_000
+MAX_EVIDENCE_TOTAL_BYTES = 12_000_000
+MAX_CHECKPOINT_BYTES = 32_000_000
+
+
+def stage_resume_evidence(root, downloaded):
+    """Validate all original evidence before any source/evidence file is restored."""
+    destination = root / 'seo-evidence'
+    if destination.is_symlink() or not destination.resolve().is_relative_to(root.resolve()):
+        raise ValueError('Resume evidence destination escapes the client repository')
+    staged, total = [], 0
+    # Keep the previous attempt's outcome, too. Current result/summary are rebuilt
+    # by the resumed run and must not erase the original interrupted outcome.
+    names = {name:name for name in RESUME_EVIDENCE_NAMES}
+    names.update({'result.json':'previous-attempt-result.json',
+                  'summary.md':'previous-attempt-summary.md'})
+    for original, name in names.items():
+        source = downloaded / original
+        if not source.exists() and not source.is_symlink():
+            continue
+        target = destination / name
+        if (source.is_symlink() or not source.is_file()
+                or not source.resolve().is_relative_to(downloaded.resolve())
+                or target.is_symlink() or (target.exists() and not target.is_file())):
+            raise ValueError('Invalid original run evidence file')
+        size = source.stat().st_size
+        total += size
+        if size > MAX_EVIDENCE_FILE_BYTES or total > MAX_EVIDENCE_TOTAL_BYTES:
+            raise ValueError('Original run evidence exceeds the bounded resume limit')
+        value = source.read_bytes()
+        if len(value) != size:
+            raise ValueError('Original run evidence changed during bounded read')
+        try:
+            decoded = value.decode('utf-8')
+            if original.endswith('.json') and not isinstance(json.loads(decoded), dict):
+                raise ValueError()
+        except (UnicodeError, ValueError):
+            raise ValueError('Original run evidence has an invalid supported format') from None
+        staged.append((target,value))
+    return staged
+
+
 def download_checkpoint(root, policy, owner_run_id, expected_cycle):
     if not re.fullmatch(r'\d+', str(owner_run_id)):
         raise ValueError('Invalid original run identity')
@@ -171,4 +217,11 @@ def download_checkpoint(root, policy, owner_run_id, expected_cycle):
         path = Path(target) / 'checked-release.json'
         if not path.exists():
             raise ValueError('Previous monthly run has no checked draft; no repeat generation is permitted')
-        return restore_checkpoint(root, policy, json.loads(path.read_text()), expected_cycle)
+        if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_CHECKPOINT_BYTES:
+            raise ValueError('Invalid or oversized checked-draft artifact')
+        staged_evidence=stage_resume_evidence(root,Path(target))
+        pending=restore_checkpoint(root,policy,json.loads(path.read_text()),expected_cycle)
+        for destination,value in staged_evidence:
+            destination.parent.mkdir(parents=True,exist_ok=True)
+            destination.write_bytes(value)
+        return pending
