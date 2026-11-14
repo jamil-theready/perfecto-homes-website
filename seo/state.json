@@ -1,5 +1,5 @@
 {
-  "last_release": "2026-10-21",
+  "last_release": "2026-11-14",
   "pages": {
     "how-to-buy-property-in-peru-as-a-foreigner": {
       "released": "2026-10-21",
@@ -15,6 +15,21 @@
       "review_56d": "2026-12-16",
       "baseline_source": "page_totals",
       "baseline_reconciled": "2026-10-21"
+    },
+    "why-invest-in-sacred-valley-real-estate": {
+      "released": "2026-11-14",
+      "kind": "internal-links",
+      "url": "https://www.perfectohomesrealestate.com/blog/why-invest-in-sacred-valley-real-estate",
+      "run_id": "43588634376",
+      "baseline_source": "page_totals",
+      "baseline": {
+        "impressions": 71,
+        "clicks": 6,
+        "ctr": 0.08450704225352113,
+        "position": 4.774647887323944
+      },
+      "review_28d": "2026-12-12",
+      "review_56d": "2027-01-09"
     }
   }
 }
