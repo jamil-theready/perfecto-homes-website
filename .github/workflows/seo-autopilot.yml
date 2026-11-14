@@ -11,7 +11,30 @@ concurrency:
   group: seo-autopilot-${{ github.repository }}
   cancel-in-progress: false
 jobs:
+  permission-proof:
+    # Branch acceptance runs only a real read of the existing publishing switch.
+    # It cannot collect client data, call a model, change code or deploy.
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Verify current switch access with the hosted identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request, urllib.error
+          request=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/variables/TRC_SEO_ACTIVE',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          try:
+              with urllib.request.urlopen(request,timeout=20) as response:
+                  value=json.load(response)
+              print(json.dumps({'variables_read':True,'switch_present':value.get('name')=='TRC_SEO_ACTIVE'}))
+          except urllib.error.HTTPError as error:
+              print(json.dumps({'variables_read':False,'http_status':error.code}))
+              raise SystemExit(1)
+          PY
   content:
+    if: github.ref == 'refs/heads/main'
     # false pauses all SEO writes; tests and the operational receipt continue.
     env:
       TRC_SEO_ACTIVE: ${{ vars.TRC_SEO_ACTIVE }}
