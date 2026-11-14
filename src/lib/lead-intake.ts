@@ -60,12 +60,28 @@ export async function submitLeadIntake({ formData, formName, propertyTitle, prop
   }
   // The accepted intake is the lead receipt. Secondary email delivery and
   // thank-you navigation must not decide whether that lead is measured.
-  if (result.status === "accepted") {
-    window.gtag?.("event", "generate_lead", {
-      event_id: eventId,
-      form_name: formName,
-      property: propertySlug || propertyTitle || "general-inquiry",
-      value: 1,
+  if (result.status === "accepted" && window.gtag) {
+    const markedTest = /\bTRC PERFECTO (?:(?:LIVE|AUTO|MEASUREMENT|GA4) )?TEST\b|\bTRC TEST ONLY\b/i
+      .test(fullName + " " + formValue(formData, "message"));
+    // Give the existing consent-aware tag time to send before the caller
+    // navigates. Analytics failure must never reject a committed inquiry.
+    await new Promise<void>((resolve) => {
+      const done = () => { clearTimeout(timer); resolve(); };
+      const timer = setTimeout(done, 1200);
+      try {
+        window.gtag?.("event", "generate_lead", {
+          event_id: eventId,
+          form_name: formName,
+          property: propertySlug || propertyTitle || "general-inquiry",
+          test_submission: markedTest ? 1 : 0,
+          transport_type: "beacon",
+          event_callback: done,
+          event_timeout: 1000,
+          value: 1,
+        });
+      } catch {
+        done();
+      }
     });
   }
 }
