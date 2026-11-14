@@ -1,0 +1,38 @@
+{
+  "enabled": false,
+  "client": "client-slug",
+  "repository": "owner/client-website",
+  "site": "https://client.example",
+  "gsc": "sc-domain:client.example",
+  "blog_dir": "content/blog",
+  "market_terms": [],
+  "blocked_terms": [],
+  "scope": "Replace with the exact current client-approved market, facts, holds and publication scope.",
+  "voice": "Replace with the approved client voice.",
+  "release_interval_days": 7,
+  "page_cooldown_days": 56,
+  "deploy_method": "git",
+  "pages_project": "",
+  "health_url": "https://configured-existing-health-service.example",
+  "research_query": "",
+  "authority_domains": [],
+  "authority_seed_urls": [],
+  "coverage": [],
+  "support_paths": [],
+  "conversion_path": "/contact",
+  "new_article_hold": "Not enrolled. Current facts, supported sources and approved media required.",
+  "adapters": {"metadata_pages": [], "internal_links": [], "technical_checks": []},
+  "reporting": {
+    "ga4_property": "",
+    "timezone": "UTC",
+    "test_flag_verified_since": null,
+    "lead_ledger": {
+      "sheet_id": "",
+      "sheet_tab": "",
+      "source": "",
+      "coverage_since": null,
+      "coverage_evidence": "",
+      "exclude_email_domains": []
+    }
+  }
+}
