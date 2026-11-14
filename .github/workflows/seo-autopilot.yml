@@ -35,13 +35,9 @@ jobs:
               raise SystemExit(1)
           PY
   content:
-<<<<<<< HEAD
     if: github.ref == 'refs/heads/main'
-    # false pauses all SEO writes; tests and the operational receipt continue.
-=======
     # Workflow enabled/disabled state is the live publishing control.
     # The variable is an additional startup brake; use scripts/seo/control.py.
->>>>>>> 8a695ef (fix(seo): use live workflow control without extra credentials)
     env:
       TRC_SEO_ACTIVE: ${{ vars.TRC_SEO_ACTIVE }}
       GH_TOKEN: ${{ github.token }}
