@@ -2,9 +2,158 @@
   "cycles": {
     "perfecto:2026-11": {
       "claimed_at": "2026-11-14T11:09:12.536521+00:00",
+      "completed_at": "2026-11-14T11:11:13.443413+00:00",
+      "completion_run_id": "43588634376",
+      "outcome": "Shipped and verified",
       "policy_sha256": "938e9e93ca2c07f664cd9ceeffce4cd1231b317615875faddf954b06498b6752",
+      "receipt": {
+        "at": "2026-11-14T11:09:15.727566+00:00",
+        "audit_issue_count": 0,
+        "authority": "Public research completed",
+        "candidate": {
+          "clicks": 6,
+          "ctr": 0.08450704225352113,
+          "impressions": 71,
+          "kind": "internal-links",
+          "path": "content/blog/why-invest-in-sacred-valley-real-estate.md",
+          "position": 4.774647887323944,
+          "slug": "why-invest-in-sacred-valley-real-estate",
+          "url": "https://www.perfectohomesrealestate.com/blog/why-invest-in-sacred-valley-real-estate"
+        },
+        "change": {
+          "links": [
+            {
+              "anchor": "Sacred Valley",
+              "target": "/communities/peru"
+            }
+          ]
+        },
+        "checked_sha256": "bc53dcc549466ca6da04d9ecae70e454603ea5c0ee6d89e622f39344892f81d8",
+        "client": "perfecto",
+        "coverage": {
+          "authority_watch": "reviewed",
+          "existing_articles": "reviewed",
+          "google_analytics": "reviewed",
+          "internal_links": "reviewed",
+          "keyword_research": "reviewed",
+          "lead_ledger": "unavailable",
+          "service_metadata": "reviewed",
+          "technical_audit": "reviewed"
+        },
+        "coverage_state": "partial",
+        "cycle_id": "perfecto:2026-11",
+        "cycle_state": "complete",
+        "live_url": "https://www.perfectohomesrealestate.com/blog/why-invest-in-sacred-valley-real-estate",
+        "new_article_decision": "Add an approved link around existing text on a page with observed demand",
+        "page_count": 30,
+        "policy_sha256": "938e9e93ca2c07f664cd9ceeffce4cd1231b317615875faddf954b06498b6752",
+        "query_count": 54,
+        "reporting": {
+          "coverage": {
+            "google_analytics": "Complete",
+            "lead_ledger": "Incomplete",
+            "search_console": "Complete"
+          },
+          "google_analytics": {
+            "coverage_state": "Complete",
+            "excluded_test_events": null,
+            "generate_lead_events_excluding_tests": null,
+            "generate_lead_raw_events": 0,
+            "lead_event_count_is_inquiry_count": false,
+            "pageviews": 28,
+            "reason_codes": [
+              "TEST_EXCLUSION_NOT_VERIFIED_FOR_FULL_WINDOW"
+            ],
+            "sessions": 28,
+            "timezone": "America/Los_Angeles",
+            "users": 28
+          },
+          "lead_ledger": {
+            "coverage_state": "Incomplete",
+            "duplicate_records": 0,
+            "excluded_test_spam_records": 8,
+            "inquiry_count": null,
+            "observed_non_test_count": 0,
+            "reason_codes": [
+              "LEDGER_HISTORY_NOT_ATTESTED"
+            ],
+            "returned_records": 16,
+            "source_state": "Live",
+            "timezone": "America/Los_Angeles",
+            "window_end": "2026-11-11",
+            "window_start": "2026-10-15"
+          },
+          "observed_at": "2026-11-14T11:09:16.703939+00:00",
+          "previous": {
+            "google_analytics": {
+              "coverage_state": "Complete",
+              "excluded_test_events": null,
+              "generate_lead_events_excluding_tests": null,
+              "generate_lead_raw_events": 0,
+              "lead_event_count_is_inquiry_count": false,
+              "pageviews": 29,
+              "reason_codes": [
+                "TEST_EXCLUSION_NOT_VERIFIED_FOR_FULL_WINDOW"
+              ],
+              "sessions": 30,
+              "timezone": "America/Los_Angeles",
+              "users": 29
+            },
+            "lead_ledger": {
+              "coverage_state": "Incomplete",
+              "duplicate_records": 0,
+              "excluded_test_spam_records": 8,
+              "inquiry_count": null,
+              "observed_non_test_count": 0,
+              "reason_codes": [
+                "LEDGER_HISTORY_NOT_ATTESTED"
+              ],
+              "returned_records": 16,
+              "source_state": "Live",
+              "timezone": "America/Los_Angeles",
+              "window_end": "2026-10-14",
+              "window_start": "2026-09-17"
+            },
+            "search_console": {
+              "average_position": 27.21632782719187,
+              "basis": "Property totals; hidden query rows are not summed",
+              "clicks": 38,
+              "coverage_state": "Complete",
+              "ctr": 0.01207115628970775,
+              "impressions": 3148,
+              "reason_codes": []
+            }
+          },
+          "sales_count": null,
+          "sales_state": "Unknown; no closed-sale source verified",
+          "search_console": {
+            "average_position": 14.157468727005151,
+            "basis": "Property totals; hidden query rows are not summed",
+            "clicks": 48,
+            "coverage_state": "Complete",
+            "ctr": 0.03532008830022075,
+            "impressions": 1359,
+            "reason_codes": []
+          },
+          "version": 1,
+          "window": {
+            "end": "2026-11-11",
+            "previous_end": "2026-10-14",
+            "previous_start": "2026-09-17",
+            "start": "2026-10-15"
+          }
+        },
+        "research": "Verified current sources",
+        "run_id": "43588634376",
+        "source": "Live",
+        "source_sha256": "b9106974f2786982910c5d06dd1b1452353b28158a0511ce27bc0c89120e3ca5",
+        "state": "Shipped and verified",
+        "verified_at": "2026-11-14T11:11:11.802214+00:00",
+        "window_end": "2026-11-11",
+        "window_start": "2026-10-15"
+      },
       "run_id": "43588634376",
-      "state": "claimed"
+      "state": "complete"
     }
   },
   "version": 1
