@@ -36,9 +36,9 @@ Property website for Perfecto Homes, covering Cusco and the Sacred Valley, Peru.
 - **Content**: Markdown files in `/content/` with gray-matter frontmatter
 - **Forms**: Netlify Forms with honeypot spam protection
 - **Analytics**: Google Analytics (G-Q0X209GPL3)
-- **SEO**: JSON-LD schema via `JsonLd.tsx`, next-sitemap for sitemap.xml
+- **SEO**: JSON-LD schema via `JsonLd.tsx`; native App Router sitemap and robots routes
 - **Path alias**: `@/*` maps to `./src/*`
-- **Deployment**: Netlify (netlify.toml in repo root)
+- **Deployment**: Cloudflare Pages from GitHub main, static `out/` export
 
 ---
 
@@ -139,7 +139,8 @@ title, metaDescription
 - Default OG image set in layout: `/images/logo/perfecto-logo-full.png`
 
 ### Sitemap
-- Auto-generated via `next-sitemap` on `npm run postbuild`
+- `src/app/sitemap.ts` derives current canonical URLs from Markdown and team data during `next build`; held Hatuchay and legacy duplicate routes are excluded.
+- `src/app/robots.ts` emits `robots.txt` during the same build. `npm run test:indexing-output` checks the generated files and all sitemap targets.
 
 ---
 
@@ -177,9 +178,8 @@ These files exist on the local machine but are NOT in the repo:
 ---
 
 ## Deployment
-- **Host**: Netlify (forms integration built in)
-- **Config**: `netlify.toml` in repo root
-- **Build**: `npm run build` then `npm run postbuild` (sitemap)
+- **Host**: Cloudflare Pages, project `perfecto-homes-website`
+- **Build**: Production currently runs `npx next build`, output `out/`. Native metadata routes emit the indexing files under this command. Local `npm run build` also generates RSS and checks the indexing output automatically.
 - **Deploy from**: GitHub repo main branch
 
 ---

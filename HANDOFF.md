@@ -36,7 +36,7 @@ Property website for Perfecto Homes, covering Cusco and the Sacred Valley, Peru.
 - **Content**: Markdown files in `/content/` with gray-matter frontmatter
 - **Forms**: Netlify Forms with honeypot spam protection
 - **Analytics**: Google Analytics (G-Q0X209GPL3)
-- **SEO**: JSON-LD schema via `JsonLd.tsx`, next-sitemap for sitemap.xml
+- **SEO**: JSON-LD schema via `JsonLd.tsx`; native App Router sitemap and robots routes
 - **Path alias**: `@/*` maps to `./src/*`
 
 ---
@@ -148,6 +148,6 @@ These files exist on the local machine but are NOT in the repo. Reference them f
 ---
 
 ## Deployment
-- **Target host**: Netlify (forms integration built in)
-- **Build**: `npm run build` then `npm run postbuild` (sitemap)
+- **Target host**: Cloudflare Pages, project `perfecto-homes-website`, GitHub main
+- **Build**: Production currently runs `npx next build`, output `out/`. Native `src/app/sitemap.ts` and `src/app/robots.ts` emit indexing files directly. Local `npm run build` also generates RSS and checks the indexing output automatically.
 - **Output**: Static HTML (can deploy anywhere)

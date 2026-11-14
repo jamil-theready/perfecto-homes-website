@@ -22,11 +22,13 @@
 ## Commands
 ```bash
 npm run dev -- --port 3000   # Dev server
-npm run build                # Build (runs postbuild for sitemap automatically)
+npm run build              # Build, RSS generation and indexing-output checks
+npm run test:indexing-output # Check the existing out/ export
 ```
 
 ## Key Rules
 - Build must stay clean — run `npm run build` after major changes
+- `src/app/robots.ts` and `src/app/sitemap.ts` generate indexing files during `next build`, including Cloudflare's direct build command. Do not add a second sitemap generator in postbuild.
 - No hyphens or em dashes in any copy
 - No AI filler language — short punchy sentences
 - Max 1-2 exclamation marks per piece of content
