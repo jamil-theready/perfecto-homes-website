@@ -48,6 +48,22 @@ def execution_summary(result, search):
             'audit_issue_count':result.get('audit_issue_count',0)}
 
 
+def reporting_receipt(reporting):
+    """Small aggregate-only projection for the public operational status API."""
+    def period(source):
+        ga, search, ledger = (source.get(name,{}) for name in ['google_analytics','search_console','lead_ledger'])
+        return {'sessions':ga.get('sessions'),'users':ga.get('users'),'pageviews':ga.get('pageviews'),
+                'search_clicks':search.get('clicks'),'search_impressions':search.get('impressions'),
+                'raw_lead_events':ga.get('generate_lead_raw_events'),
+                'customer_lead_events':ga.get('generate_lead_events_excluding_tests'),
+                'inquiries':ledger.get('inquiry_count')}
+    reasons=sorted({reason for source in [reporting,reporting.get('previous',{})]
+                    for domain in ['google_analytics','search_console','lead_ledger']
+                    for reason in source.get(domain,{}).get('reason_codes',[])})
+    return {'current':period(reporting),'previous':period(reporting.get('previous',{})),
+            'coverage':reporting.get('coverage',{}),'reason_codes':reasons[:12]}
+
+
 def write_execution_summary(root):
     result = read_json(root/'seo-evidence/result.json')
     search = read_json(root/'seo-evidence/search.json')
@@ -554,7 +570,7 @@ def main():
         payload['authority']='Not checked while paused' if paused else result.get('authority','Not checked')
         payload['content_hold']='Client lifecycle pause' if paused else policy.get('new_article_hold','')
         payload.update(execution_summary(result,read_json(root/'seo-evidence/search.json')))
-        payload['reporting']=result.get('reporting',{})
+        payload['reporting']=reporting_receipt(result.get('reporting',{}))
         json_request(policy['health_url']+'/'+policy['client'],payload,{'Authorization':'Bearer '+os.environ['SEO_STATUS_KEY']})
         print('Safe cloud execution receipt saved.')
     else:
