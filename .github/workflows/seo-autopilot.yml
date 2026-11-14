@@ -6,18 +6,24 @@ on:
     - cron: '23 6 1 * *'
 permissions:
   contents: write
+  actions: read
 concurrency:
-  group: seo-autopilot
+  group: seo-autopilot-${{ github.repository }}
   cancel-in-progress: false
 jobs:
   content:
     # false pauses all SEO writes; tests and the operational receipt continue.
     env:
       TRC_SEO_ACTIVE: ${{ vars.TRC_SEO_ACTIVE }}
+      GH_TOKEN: ${{ github.token }}
+      SEO_VARIABLES_TOKEN: ${{ secrets.SEO_VARIABLES_TOKEN }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          # A queued or manually retried job must inspect the current main policy/claim.
+          ref: main
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.12'
@@ -25,21 +31,36 @@ jobs:
         run: pip install google-auth==2.40.3 requests==2.32.4 Pillow==11.3.0
       - name: Content safety tests
         run: python -m unittest discover -s scripts/seo -p 'test_*.py' -v
+      - name: Claim this client monthly cycle
+        id: claim
+        run: python scripts/seo/cloud_writer.py claim
+      - name: Persist the claim before any model call
+        if: steps.claim.outputs.run_mode == 'new'
+        run: |
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          git add seo/runner.json
+          git commit -m 'chore(seo): claim monthly client cycle before generation'
+          python scripts/seo/cloud_writer.py publication-gate
+          git push origin HEAD:main
       - name: Collect real demand and write checked improvements
+        if: steps.claim.outputs.run_mode == 'new' || steps.claim.outputs.run_mode == 'resume'
         id: write
         env:
           GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SEO_RUN_MODE: ${{ steps.claim.outputs.run_mode }}
         run: python scripts/seo/cloud_writer.py prepare
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         if: steps.write.outputs.needs_verify == 'true'
         with:
-          node-version: '22'
+          node-version: '24'
           cache: npm
       - name: Build the exact static release
         if: steps.write.outputs.needs_verify == 'true'
         run: |
           npm ci --no-audit --no-fund
+          node --test scripts/test-lead-intake.mjs
           npm run build
           test -s out/index.html
           git diff --check
@@ -56,6 +77,7 @@ jobs:
               policy=json.load(open('seo/policy.json'))
               subprocess.run(['git','add','--','ASSETS.md','public/'+policy['article_media']['path'].lstrip('/')],check=True)
           subprocess.run(['git','commit','-m','content(seo): improve evidence-backed article snippet'],check=True)
+          subprocess.run(['python','scripts/seo/cloud_writer.py','publication-gate'],check=True)
           subprocess.run(['git','push','origin','HEAD:main'],check=True)
           PY
       - name: Deploy direct-upload sites
@@ -70,6 +92,7 @@ jobs:
           if policy['deploy_method']=='wrangler':
               if not os.environ.get('CLOUDFLARE_API_TOKEN'):
                   raise SystemExit('Persistent Cloudflare publishing credential missing. Checked content remains pending, not shipped.')
+              subprocess.run(['python','scripts/seo/cloud_writer.py','publication-gate'],check=True)
               subprocess.run(['npx','--yes','wrangler@4.105.0','pages','deploy','out','--project-name',policy['pages_project'],'--branch','main','--commit-dirty=true'],check=True)
           PY
       - name: Verify the actual served page
@@ -82,6 +105,7 @@ jobs:
           git config user.email 'seo-autopilot@thereadyconsult.com'
           git add seo/state.json
           git commit -m 'chore(seo): record independently verified release and review dates'
+          python scripts/seo/cloud_writer.py publication-gate
           git push origin HEAD:main
       - name: Save current research and decisions
         if: steps.write.outputs.research_changed == 'true'
@@ -91,6 +115,7 @@ jobs:
           git add seo/research.json
           if ! git diff --cached --quiet; then
             git commit -m 'research(seo): record current sources and demand-based content decision'
+            python scripts/seo/cloud_writer.py publication-gate
             git push origin HEAD:main
           fi
       - name: Save due experiment measurements
@@ -101,6 +126,7 @@ jobs:
           git add seo/state.json
           if ! git diff --cached --quiet; then
             git commit -m 'measure(seo): compare due experiments with actual completed search data'
+            python scripts/seo/cloud_writer.py publication-gate
             git push origin HEAD:main
           fi
       - name: Save public authority research and link-watch state
@@ -111,8 +137,19 @@ jobs:
           git add seo/authority.json
           if ! git diff --cached --quiet; then
             git commit -m 'research(seo): record public mention research and verified link watch'
+            python scripts/seo/cloud_writer.py publication-gate
             git push origin HEAD:main
           fi
+      - name: Complete this monthly cycle only after required publication proof
+        if: steps.claim.outputs.run_mode == 'new' || steps.claim.outputs.run_mode == 'resume'
+        run: |
+          python scripts/seo/cloud_writer.py finish
+          git config user.name 'TRC SEO Autopilot'
+          git config user.email 'seo-autopilot@thereadyconsult.com'
+          git add seo/runner.json
+          git commit -m 'chore(seo): record completed monthly client cycle'
+          python scripts/seo/cloud_writer.py publication-gate
+          git push origin HEAD:main
       - name: Prepare readable execution summary
         if: always()
         env:
