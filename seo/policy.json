@@ -119,7 +119,7 @@
   "reporting": {
     "ga4_property": "512968606",
     "timezone": "America/Los_Angeles",
-    "test_flag_verified_since": null,
+    "test_flag_verified_since": "2026-11-14T22:14:00.167646+00:00",
     "lead_ledger": {
       "sheet_id": "1ONvEkLjyodTZ5KMd6xbYCKq-kkO8bu_aqhh1oFH1i4M",
       "sheet_tab": "Property Leads",
