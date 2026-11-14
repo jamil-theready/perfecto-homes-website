@@ -26,7 +26,7 @@ faq:
     answer: "Property values have not yet priced in the Chinchero airport impact. Combined with growing global awareness of Peru as a destination and a favorable legal framework, current prices represent a strong entry point."
 ---
 
-<p>The Sacred Valley of Peru sits between two of South America's most powerful tourism magnets: Cusco and Machu Picchu. Over 1.5 million international visitors pass through this corridor every year. The region offers fertile land, mild climate, rich culture, and property prices that remain remarkably low by global standards. For investors looking at Peru real estate investment, the Sacred Valley deserves serious attention.</p>
+<p>The <a href="/communities/peru">Sacred Valley</a> of Peru sits between two of South America's most powerful tourism magnets: Cusco and Machu Picchu. Over 1.5 million international visitors pass through this corridor every year. The region offers fertile land, mild climate, rich culture, and property prices that remain remarkably low by global standards. For investors looking at Peru real estate investment, the Sacred Valley deserves serious attention.</p>
 
 <h2><strong>Tourism Growth That Keeps Climbing</strong></h2>
 
