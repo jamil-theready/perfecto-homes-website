@@ -14,6 +14,7 @@ class ControlCliTests(unittest.TestCase):
             path=next(value for value in args if value.startswith('repos/'))
             current['calls'].append((method,path,body))
             if path.endswith('/disable'):
+                if current['state']!='active': raise ControlError('GitHub rejects repeated disable')
                 current['state']='disabled_manually';return None
             if path.endswith('/enable'):
                 current['state']='active';return None
@@ -91,3 +92,32 @@ class ControlCliTests(unittest.TestCase):
         self.assertEqual(state['state'],'disabled_manually')
         self.assertFalse(state['brake'])
         self.assertFalse(any(row[1].endswith('/enable') for row in state['calls']))
+
+    def test_on_from_already_off_skips_github_rejected_repeated_disable(self):
+        state,gh=self.service(active=False,brake=False)
+        with patch('control.gh',side_effect=gh): result=change(self.policy(),'peru','agency/peru','on')
+        self.assertEqual(result['mode'],'on')
+        self.assertFalse(any(row[1].endswith('/disable') for row in state['calls']))
+        self.assertTrue(any(row[1].endswith('/enable') for row in state['calls']))
+
+    def test_off_from_already_off_is_safe_without_repeated_disable(self):
+        state,gh=self.service(active=False,brake=False)
+        with patch('control.gh',side_effect=gh): result=change(self.policy(),'peru','agency/peru','off')
+        self.assertEqual(result['mode'],'off')
+        self.assertFalse(any(row[1].endswith('/disable') for row in state['calls']))
+        self.assertFalse(any(row[1].endswith('/enable') for row in state['calls']))
+        self.assertEqual(state['cancelled'],['11','12'])
+
+    def test_unknown_or_changed_disabled_state_fails_before_legacy_write_or_cancel(self):
+        for initial,fresh in [('deleted','deleted'),('disabled_unknown','disabled_unknown'),('disabled_manually','active')]:
+            state,real_gh=self.service(active=False,brake=False)
+            reads=[]
+            def gh(args,body=None):
+                value=real_gh(args,body)
+                if args[-1].endswith('/actions/workflows/seo-autopilot.yml'):
+                    reads.append(True)
+                    return {'path':'.github/workflows/seo-autopilot.yml','state':initial if len(reads)==1 else fresh}
+                return value
+            with patch('control.gh',side_effect=gh):
+                with self.assertRaises(ControlError): change(self.policy(),'peru','agency/peru','on')
+            self.assertFalse(any(row[0]!='GET' for row in state['calls']))

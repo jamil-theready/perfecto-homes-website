@@ -89,9 +89,15 @@ def change(policy,client,repository,mode):
     if mode=='on' and current['mode']=='on': return {**current,'cancellation_requests':0}
     # Disable first: the fresh runtime gate immediately denies any queued/running
     # job, even if its startup variable snapshot is still true.
-    api(repository,'/actions/workflows/'+WORKFLOW+'/disable',method='PUT')
-    if workflow(repository).get('state')=='active':
-        raise ControlError('Workflow did not disable; no further control changes made')
+    disabled_states={'disabled_manually','disabled_inactivity','disabled_fork'}
+    if current['workflow_state']=='active':
+        api(repository,'/actions/workflows/'+WORKFLOW+'/disable',method='PUT')
+    elif current['workflow_state'] not in disabled_states:
+        raise ControlError('Unknown workflow state; no control changes made')
+    # GitHub rejects disabling an already disabled workflow. Read its identity
+    # and known disabled state again before changing the brake or cancelling.
+    if workflow(repository).get('state') not in disabled_states:
+        raise ControlError('Workflow is not confirmed disabled; no further control changes made')
     try:
         api(repository,'/actions/variables/'+VARIABLE,method='PATCH',body={'name':VARIABLE,'value':'false'})
     finally:
