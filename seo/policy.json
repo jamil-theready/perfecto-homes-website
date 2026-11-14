@@ -124,8 +124,8 @@
       "sheet_id": "1ONvEkLjyodTZ5KMd6xbYCKq-kkO8bu_aqhh1oFH1i4M",
       "sheet_tab": "Property Leads",
       "source": "perfecto website \u2014 property inquiry",
-      "coverage_since": null,
-      "coverage_evidence": "",
+      "coverage_since": "2026-11-14T11:41:37.729Z",
+      "coverage_evidence": "Restored production intake a7cc0b2a; native accepted execution 4012 independently matched canonical Master row 18. Internal agency email submissions remain excluded.",
       "exclude_email_domains": [
         "thereadyconsult.com"
       ]
