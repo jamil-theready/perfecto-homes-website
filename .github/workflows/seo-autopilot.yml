@@ -1,6 +1,17 @@
 name: SEO Autopilot
+run-name: SEO ${{ inputs.mode || 'monthly' }} ${{ inputs.launch_id || github.ref_name }}
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Monthly writer or read-only launch followup
+        type: choice
+        options: [monthly, followup]
+        default: monthly
+      launch_id:
+        description: Exact existing launch handoff identity for followup
+        type: string
+        default: ''
   schedule:
     # Monthly, first day at 06:23 UTC. Recovery uses this calendar boundary too.
     - cron: '23 6 1 * *'
@@ -35,7 +46,7 @@ jobs:
               raise SystemExit(1)
           PY
   content:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && inputs.mode != 'followup'
     # Workflow enabled/disabled state is the live publishing control.
     # The variable is an additional startup brake; use scripts/seo/control.py.
     env:
@@ -195,3 +206,36 @@ jobs:
           SEO_STATUS_KEY: ${{ secrets.SEO_STATUS_KEY }}
           SEO_JOB_STATUS: ${{ job.status }}
         run: python scripts/seo/cloud_writer.py report
+
+  followup:
+    if: github.ref == 'refs/heads/main' && inputs.mode == 'followup'
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Install existing read-only Google client
+        run: pip install google-auth==2.40.3 requests==2.32.4
+      - name: Check read-only launch handoff contract
+        run: python -m unittest discover -s scripts/seo -p 'test_launch_handoff.py' -v
+      - name: Collect completed Google evidence and inspect the configured site
+        env:
+          GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
+          SEO_STATUS_KEY: ${{ secrets.SEO_STATUS_KEY }}
+          SEO_LAUNCH_ID: ${{ inputs.launch_id }}
+        run: python scripts/seo/launch_followup.py --launch-id "$SEO_LAUNCH_ID"
+      - name: Save private read-only followup evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: seo-followup-${{ github.run_id }}-${{ github.run_attempt }}
+          path: seo-followup-evidence/
+          retention-days: 60
+          if-no-files-found: warn

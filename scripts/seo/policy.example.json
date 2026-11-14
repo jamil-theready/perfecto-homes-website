@@ -43,5 +43,6 @@
     "primary": "github-workflow-state",
     "workflow": "seo-autopilot.yml",
     "startup_brake": "TRC_SEO_ACTIVE"
-  }
+  },
+  "registration_slug": "client-slug"
 }

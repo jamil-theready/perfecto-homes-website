@@ -119,3 +119,39 @@ field names. Full diagnostics stay in the private execution artifact. Google
 accepted-lead instrumentation needs its separate controlled proof; an event's
 existence is not the authoritative inquiry count. No closed-sale source means
 sales remain unknown.
+
+## Launch handoff and read-only followup
+
+The existing `trc register` entry in CLIENT.md is the source. The reusable setup
+entry reads that file once, validates the current TRC-STATUS date and exact
+TRC-SYSTEMS site/repository/Google/master-ledger bindings against the approved
+repository policy, then creates one cloud handoff. It does not change lifecycle,
+account access, scopes or credentials. For this pilot only:
+
+```bash
+python3 scripts/seo/enroll.py --client-file "/Users/admin/Desktop/Clients/Perfecto Homes/CLIENT.md"
+python3 scripts/seo/enroll.py --client-file "/Users/admin/Desktop/Clients/Perfecto Homes/CLIENT.md" --apply
+```
+
+The first command checks and displays the exact safe handoff; the second uses
+the existing client status connection and operator GitHub authentication. Only
+a newly created durable handoff requests an initial hosted monthly cycle. An
+ambiguous dispatch is inspected, never automatically repeated on another setup
+invocation. Existing monthly claims still suppress duplicate model work. The
+launch timestamp means this newly verified SEO enrollment, not the site's
+original first publication. Other clients remain unenrolled.
+
+The existing Cloud Worker schedules one read-only followup seven days after
+handoff, with a fourteen-day deadline. It dispatches `mode=followup` with the
+exact launch identity. This job has read-only repository permissions, no model
+credential, and no content publication, form submission or monthly-state write.
+It reads real Google/master evidence and the configured site checks, sends a
+separate followup receipt, and saves an immutable private attempt artifact.
+Google's delay means the early snapshot covers the available completed dates
+after handoff; it does not pretend to contain seven complete post-launch days
+or prove an SEO effect. Missing account/history evidence stays partial/unknown.
+The owner separately performs and verifies the approved actual form test.
+
+Monthly recovery must exclude runs whose display title begins `SEO followup`;
+a read-only followup never satisfies a missed monthly writer cycle. Future
+scheduled execution remains pending until its real receipt is observed.
