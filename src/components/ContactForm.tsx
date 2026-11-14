@@ -1,47 +1,43 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { appendLeadAttribution } from "@/lib/lead-attribution";
-import { submitLeadIntake } from "@/lib/lead-intake";
+import { submitLeadIntake, leadSubmissionMessage } from "@/lib/lead-intake";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 export default function ContactForm({ className = "" }: { className?: string }) {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const submissionId = useRef<string | null>(null);
+  const sending = useRef(false);
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending.current) return;
+    sending.current = true;
     setLoading(true);
+    setError("");
     const form = e.currentTarget;
     const data = new FormData(form);
-    appendLeadAttribution(data, "contact_form");
+    submissionId.current ||= crypto.randomUUID();
+    data.set("event_id", submissionId.current);
+    try { appendLeadAttribution(data, "contact_form"); } catch { /* Attribution storage is optional. */ }
 
     try {
       await submitLeadIntake({ formData: data, formName: "contact_form" });
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: data,
-      });
-      const result = await res.json();
-      if (result.success) {
-        if (typeof window !== "undefined") {
-          window.sessionStorage.setItem(
-            "perfecto_lead_context",
-            JSON.stringify({
-              form_name: "contact_form",
-              property: String(data.get("property_interest") || "General / not sure yet"),
-            })
-          );
-        }
-        router.push("/thank-you");
-      } else {
-        alert("Something went wrong. Please try again.");
-        setLoading(false);
-      }
-    } catch {
-      alert("Something went wrong. Please try again.");
+      try {
+        window.sessionStorage.setItem("perfecto_lead_context", JSON.stringify({
+          form_name: "contact_form", property: String(data.get("property_interest") || "General / not sure yet"),
+        }));
+      } catch { /* Optional thank-you context must not reject a saved lead. */ }
+      router.push("/thank-you");
+    } catch (cause) {
+      setError(leadSubmissionMessage(cause));
+    } finally {
+      sending.current = false;
       setLoading(false);
     }
   };
@@ -108,9 +104,10 @@ export default function ContactForm({ className = "" }: { className?: string }) 
             type="tel"
             id="phone"
             name="phone"
-            placeholder="(555) 123-4567"
+            placeholder="+51 999 123 456"
             className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-dark placeholder:text-gray-400 focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none transition-colors"
           />
+          <p className="mt-1 text-xs text-medium-gray">Optional. Include your country code for calls or WhatsApp.</p>
         </div>
 
         <div>
@@ -148,6 +145,7 @@ export default function ContactForm({ className = "" }: { className?: string }) 
           <label htmlFor="how_heard" className="block text-sm font-medium text-dark mb-1">How did you hear about us? <span className="font-normal">(optional)</span></label>
           <select id="how_heard" name="how_heard" className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm"><option value="">Select one</option><option>Google Search or Maps</option><option>Google ad</option><option>Facebook or Instagram</option><option>Friend or referral</option><option>Other</option></select>
         </div>
+        {error && <p role="alert" className="mb-3 text-sm text-red-700">{error}</p>}
         <button
           type="submit"
           disabled={loading}

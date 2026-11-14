@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { submitLeadIntake } from '../src/lib/lead-intake.ts';
+import { appendLeadAttribution } from '../src/lib/lead-attribution.ts';
+import { submitLeadIntake, leadSubmissionMessage } from '../src/lib/lead-intake.ts';
 
 function setup(status = 'accepted', marker = '') {
   const sent = [], requests = [];
@@ -61,4 +62,38 @@ test('blocked analytics callback has a bounded navigation fallback', async () =>
   const c = setup(); const start = Date.now();
   await submitLeadIntake({ formData: c.formData, formName: 'contact_form' });
   assert.ok(Date.now() - start < 1800);
+});
+test('secondary email failure cannot reject a lead already committed by the native intake',async()=>{
+ const c=setup();window.gtag=undefined;c.formData.set('access_key','test-key');let emails=0;
+ globalThis.fetch=async(url,request)=>{
+  if(url.includes('web3forms')){emails++;assert.equal(request.keepalive,true);throw Error('email provider unavailable');}
+  return {ok:true,json:async()=>({ok:true,status:'accepted'})};
+ };
+ await submitLeadIntake({formData:c.formData,formName:'contact_form'});
+ await new Promise(resolve=>setImmediate(resolve));assert.equal(emails,1);
+});
+test('a duplicate never emits secondary email and a form-provided retry identity is preserved',async()=>{
+ const c=setup('duplicate');c.formData.set('access_key','test-key');c.formData.set('event_id','retry-identity');let emails=0;
+ globalThis.fetch=async(url,request)=>{if(url.includes('web3forms')){emails++;return {ok:true};}c.requests.push(JSON.parse(request.body));return {ok:true,json:async()=>({ok:true,status:'duplicate'})};};
+ await submitLeadIntake({formData:c.formData,formName:'contact_form'});
+ await submitLeadIntake({formData:c.formData,formName:'contact_form'});
+ assert.equal(emails,0);assert.deepEqual(c.requests.map(v=>v.event_id),['retry-identity','retry-identity']);
+});
+test('validation errors are actionable and arbitrary provider failures stay private',async()=>{
+ const c=setup();globalThis.fetch=async()=>({ok:true,json:async()=>({ok:false,status:'rejected',errors:['phone must include country code in E.164 format']})});
+ try{await submitLeadIntake({formData:c.formData,formName:'contact_form'});assert.fail('Rejected response accepted');}catch(e){assert.match(leadSubmissionMessage(e),/country code/i);}
+ assert.doesNotMatch(leadSubmissionMessage(new Error('PRIVATE_SERVER_DETAIL')),/PRIVATE_SERVER_DETAIL/);
+});
+
+test('blocked or corrupt attribution storage never prevents a native lead submission', async () => {
+  for (const mode of ['get-denied', 'bad-json', 'set-denied']) {
+    const c = setup(); window.gtag = undefined;
+    globalThis.sessionStorage = {
+      getItem: () => { if (mode === 'get-denied') throw Error('denied'); return mode === 'bad-json' ? '{bad' : null; },
+      setItem: () => { if (mode === 'set-denied') throw Error('denied'); },
+    };
+    appendLeadAttribution(c.formData, 'contact_form');
+    await submitLeadIntake({formData: c.formData, formName: 'contact_form'});
+    assert.equal(c.requests.length, 1);
+  }
 });

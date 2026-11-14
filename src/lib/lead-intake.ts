@@ -20,13 +20,28 @@ function formValue(formData: FormData, ...names: string[]) {
   return "";
 }
 
+class LeadValidationError extends Error {}
+
+export function leadSubmissionMessage(error: unknown) {
+  return error instanceof LeadValidationError ? error.message :
+    "We couldn’t confirm your submission. Please try again. Your details are still here.";
+}
+
+function validationMessage(errors: unknown) {
+  const text = Array.isArray(errors) ? errors.filter(value => typeof value === "string").join(" ") : "";
+  if (/phone.*country code/i.test(text)) return "Please include your country code (for example, +51), or leave the optional phone number blank.";
+  if (/phone.*format/i.test(text)) return "Please check your phone number, or leave the optional phone number blank.";
+  if (/email/i.test(text)) return "Please enter a valid email address so we can contact you.";
+  return "Please check your contact details and try again.";
+}
+
 export async function submitLeadIntake({ formData, formName, propertyTitle, propertySlug }: LeadSubmission) {
   const fullName = formValue(formData, "name");
   const split = splitName(fullName);
   const firstName = formValue(formData, "firstName", "first-name") || split.firstName;
   const lastName = formValue(formData, "lastName", "last-name") || split.lastName;
   const propertyInterest = formValue(formData, "property_interest", "property") || propertyTitle || "General / not sure yet";
-  const eventId = crypto.randomUUID();
+  const eventId = formValue(formData, "event_id") || crypto.randomUUID();
 
   const response = await fetch(LEAD_INTAKE_URL, {
     method: "POST",
@@ -54,15 +69,26 @@ export async function submitLeadIntake({ formData, formName, propertyTitle, prop
   });
 
   if (!response.ok) throw new Error("Lead intake could not accept the submission.");
-  const result = await response.json() as { ok?: boolean; status?: string };
+  const result = await response.json() as { ok?: boolean; status?: string; errors?: unknown };
+  if (result.status === "rejected") throw new LeadValidationError(validationMessage(result.errors));
   if (!result.ok || !["accepted", "duplicate"].includes(result.status || "")) {
     throw new Error("Lead intake returned an unexpected response.");
   }
   // The accepted intake is the lead receipt. Secondary email delivery and
   // thank-you navigation must not decide whether that lead is measured.
+  if (result.status === "accepted" && formValue(formData, "access_key")) {
+    // Retain the existing email notification without making an already saved
+    // lead depend on a second provider. A duplicate receipt never emails again.
+    try {
+      void fetch("https://api.web3forms.com/submit", {
+        method: "POST", body: formData, keepalive: true,
+      }).catch(() => {});
+    } catch { /* The native intake has already committed this lead. */ }
+  }
   if (result.status === "accepted" && window.gtag) {
     const markedTest = /\bTRC PERFECTO (?:(?:LIVE|AUTO|MEASUREMENT|GA4) )?TEST\b|\bTRC TEST ONLY\b/i
-      .test(fullName + " " + formValue(formData, "message"));
+      .test(`${firstName} ${lastName} ${formValue(formData, "message")}`) ||
+      /@thereadyconsult\.com$/i.test(formValue(formData, "email"));
     // Give the existing consent-aware tag time to send before the caller
     // navigates. Analytics failure must never reject a committed inquiry.
     await new Promise<void>((resolve) => {

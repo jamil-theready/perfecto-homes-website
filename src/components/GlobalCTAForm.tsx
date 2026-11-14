@@ -1,45 +1,41 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { appendLeadAttribution } from "@/lib/lead-attribution";
-import { submitLeadIntake } from "@/lib/lead-intake";
+import { submitLeadIntake, leadSubmissionMessage } from "@/lib/lead-intake";
 
 export default function GlobalCTAForm() {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const submissionId = useRef<string | null>(null);
+  const sending = useRef(false);
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending.current) return;
+    sending.current = true;
     setLoading(true);
+    setError("");
     const form = e.currentTarget;
     const data = new FormData(form);
-    appendLeadAttribution(data, "global_cta_form");
+    submissionId.current ||= crypto.randomUUID();
+    data.set("event_id", submissionId.current);
+    try { appendLeadAttribution(data, "global_cta_form"); } catch { /* Attribution storage is optional. */ }
 
     try {
       await submitLeadIntake({ formData: data, formName: "global_cta_form" });
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: data,
-      });
-      const result = await res.json();
-      if (result.success) {
-        if (typeof window !== "undefined") {
-          window.sessionStorage.setItem(
-            "perfecto_lead_context",
-            JSON.stringify({
-              form_name: "global_cta_form",
-              property: String(data.get("property_interest") || "General / not sure yet"),
-            })
-          );
-        }
-        router.push("/thank-you");
-      } else {
-        alert("Something went wrong. Please try again.");
-        setLoading(false);
-      }
-    } catch {
-      alert("Something went wrong. Please try again.");
+      try {
+        window.sessionStorage.setItem("perfecto_lead_context", JSON.stringify({
+          form_name: "global_cta_form", property: String(data.get("property_interest") || "General / not sure yet"),
+        }));
+      } catch { /* Optional thank-you context must not reject a saved lead. */ }
+      router.push("/thank-you");
+    } catch (cause) {
+      setError(leadSubmissionMessage(cause));
+    } finally {
+      sending.current = false;
       setLoading(false);
     }
   };
@@ -68,7 +64,8 @@ export default function GlobalCTAForm() {
         </div>
         <div className="mb-4">
           <label className="block text-xs font-medium text-medium-gray mb-1">Phone Number</label>
-          <input type="tel" name="phone" placeholder="(916) 878-7260" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          <input type="tel" name="phone" placeholder="+51 999 123 456" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          <p className="mt-1 text-xs text-medium-gray">Optional. Include your country code for calls or WhatsApp.</p>
         </div>
         <div className="mb-4">
           <label htmlFor="global-property-interest" className="block text-xs font-medium text-medium-gray mb-1">Which property are you interested in?</label>
@@ -84,6 +81,7 @@ export default function GlobalCTAForm() {
           <textarea name="message" rows={3} placeholder="Write us a message!" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm resize-none" />
           <select name="how_heard" aria-label="How did you hear about us?" className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm"><option value="">How did you hear about us? (optional)</option><option>Google Search or Maps</option><option>Google ad</option><option>Facebook or Instagram</option><option>Friend or referral</option><option>Other</option></select>
         </div>
+      {error && <p role="alert" className="mb-3 text-sm text-red-700">{error}</p>}
         <button
           type="submit"
           disabled={loading}
