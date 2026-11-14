@@ -103,10 +103,6 @@
         "path": "/sitemap.xml"
       },
       {
-        "kind": "sitemap",
-        "path": "/sitemap-0.xml"
-      },
-      {
         "kind": "canonical",
         "path": "/communities/peru"
       },
@@ -127,7 +123,7 @@
     "lead_ledger": {
       "sheet_id": "1ONvEkLjyodTZ5KMd6xbYCKq-kkO8bu_aqhh1oFH1i4M",
       "sheet_tab": "Property Leads",
-      "source": "perfecto website — property inquiry",
+      "source": "perfecto website \u2014 property inquiry",
       "coverage_since": null,
       "coverage_evidence": "",
       "exclude_email_domains": [
