@@ -30,7 +30,7 @@ Property website for Perfecto Homes, covering Cusco and the Sacred Valley, Peru.
 ---
 
 ## Tech Stack
-- **Framework**: Next.js 16.1.6 (App Router, TypeScript 5)
+- **Framework**: Next.js 16.4.6 (App Router, TypeScript 5)
 - **Styling**: Tailwind CSS 4 via `@tailwindcss/postcss`
 - **Fonts**: Inter (body), Manrope (headings/nav), Libre Baskerville (hero titles)
 - **Content**: Markdown files in `/content/` with gray-matter frontmatter
